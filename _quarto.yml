@@ -1,23 +1,19 @@
 project:
   type: website 
-  output-dir: slides
-# book:
-#   title: "TPI Target Population Index"
-#   search: true
-#   repo-url: https://github.com/ciupava/TPI/tree/master/docs
-#   downloads: [pdf]
-#   chapters:
-#     - index.qmd
-#     - jobacc.qmd
-#     - part: "Running TPI"
-#       chapters:
-#         - data.qmd
-#         - data_prep.qmd
-#         - workflow.qmd
-   
-# format:
-#  html:
-#    theme: cosmo
+  output-dir: docs
+book:
+  title: "Land Use Demonstrators"
+  search: true
+  repo-url: https://github.com/ciupava/LandUseDemonstrator/tree/main/docs
+  downloads: [pdf]
+  chapters:
+    - notes.qmd
+    # - jobacc.qmd
+    # - part: "Running TPI"
+    #   chapters:
+    #     - data.qmd
+    #     - data_prep.qmd
+    #     - workflow.qmd
 
 
 format:
@@ -25,5 +21,3 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
-
-editor: visual
