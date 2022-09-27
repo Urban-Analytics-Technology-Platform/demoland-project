@@ -15,7 +15,6 @@ project:
 #         - data_prep.qmd
 #         - workflow.qmd
    
-# format:
-#   html:
-#     theme: cosmo
-#   pdf: default
+format:
+  html:
+    theme: cosmo
