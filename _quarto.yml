@@ -1,6 +1,6 @@
 project:
-  type: website
-  output-dir: docs
+  type: website 
+  output-dir: slides
 # book:
 #   title: "TPI Target Population Index"
 #   search: true
@@ -15,6 +15,15 @@ project:
 #         - data_prep.qmd
 #         - workflow.qmd
    
+# format:
+#  html:
+#    theme: cosmo
+
+
 format:
   html:
     theme: cosmo
+    css: styles.css
+    toc: true
+
+editor: visual
