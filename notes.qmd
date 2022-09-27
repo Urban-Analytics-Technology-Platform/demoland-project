@@ -1,0 +1,41 @@
+---
+title: "Land Use Demonstrator"
+subtitle: "Notes"
+author: "Anna Zanchetta"
+format:
+  revealjs:
+    slide-number: true
+    show-slide-number: print
+    # self-contained: true
+    chalkboard: true
+---
+
+# Context
+
+## Getting up
+
+- Turn off alarm
+- Get out of bed
+
+## Going to sleep
+
+- Get in bed
+- Count sheep
+
+# Development - September
+
+## First trials
+
+not really sure, add here stuff already done
+
+# Development - October
+
+## Again here
+
+yep great
+
+---
+
+- one
+- two
+- three
