@@ -23,15 +23,13 @@ OD flows from UK census
 
 - Generated list of possible data sources with metadata, resolution, website (when available), etc (local on laptop not online)
 
-we can get from gov CO<sub>2</sub>)e data for several activities (occupations) and travel modes
+we can get from gov CO<sub>2</sub>)e (carbon dioxide equivalent) data for several activities (occupations) and travel modes, including transport, freight, etc [link](https://www.gov.uk/government/statistical-data-sets/stacked-electricity-consumption-statistics-data)
 
 - a. *mobility based emissions*
-
+UK GHG emissions national statistics [Data for 2005 - 2020](https://www.gov.uk/government/statistics/uk-local-authority-and-regional-greenhouse-gas-emissions-national-statistics-2005-to-2020)
 
 - b. *housing based emissions*
-
-
-
+UK GHG emissions national statistics [Sub-national electricity consumption d for 2010 - 2020](https://www.gov.uk/government/statistical-data-sets/stacked-electricity-consumption-statistics-data)
 
 ### Did someone already do this?
 
@@ -52,6 +50,7 @@ opened issue here [https://github.com/creds2/CarbonCalculator/issues/6](https://
 
 
 ### Open questions
+*And plausible answer*
 
 ---
 
