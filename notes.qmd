@@ -4,13 +4,32 @@
 
 **Exploratory phase**
 
-Concentrating on Indicators for [Net-zero a and b](intro.qmd#net-zero)
+The idea is to focus on a few indicators (one or two) in order generate a *methodology* to apply to different variables (IE all the rest of indicators)
+
+Concentrating on Indicators for [Net-zero a and b](intro.qmd#net-zero):
+
+- a. *mobility based emissions* ... integration with SPC $/$ AB-street?
+
+OD flows from UK census
+
+
+- b. *housing based emissions*
+
+
 
 ### Data availability
 
 ---
 
-- Generated list of possible data sources with metadata, resolution, website (when available), etc
+- Generated list of possible data sources with metadata, resolution, website (when available), etc (local on laptop not online)
+
+we can get from gov CO<sub>2</sub>)e data for several activities (occupations) and travel modes
+
+- a. *mobility based emissions*
+
+
+- b. *housing based emissions*
+
 
 
 
@@ -36,15 +55,17 @@ opened issue here [https://github.com/creds2/CarbonCalculator/issues/6](https://
 
 ---
 
-a. Resolution - MSOAS? *feedback from Dani*
+- [ ] Resolution - MSOAS? *feedback from Dani*
 
-b. type of output - *map, web ...*
+- [ ] type of output - *map, web ...*
 
-c. how turn on/off scenarios - *different layers*
+- [ ] how turn on/off scenarios - *different layers*
 
-d. integrate with SPC -  need to integrate more Census variables?
+- [ ] integrate with SPC -  need to integrate more Census variables? feasible?
 
-e. ... COMPLETE
+- [ ] can we actually build a methodology, given the different range of indicators and data?
+
+- [X] importance of localised emissions and need for air-flow modelling ... *not relevant for GHG*
 
 
 ---
