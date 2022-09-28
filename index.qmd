@@ -1,0 +1,14 @@
+---
+title: "Land Use Demonstrator"
+subtitle: "Notes"
+author: "Anna Zanchetta"
+date: today
+# format:
+#   revealjs:
+#     slide-number: true
+#     show-slide-number: print
+#     # self-contained: true
+#     chalkboard: true
+---
+
+Document to keep track of the development of the Land Use Demonstrators project.

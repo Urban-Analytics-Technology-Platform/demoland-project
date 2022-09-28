@@ -1,12 +1,16 @@
 project:
-  type: website 
+  type: book 
   output-dir: docs
 book:
   title: "Land Use Demonstrators"
+  author: "Anna Zanchetta"
+  date: today
   search: true
   repo-url: https://github.com/ciupava/LandUseDemonstrator/tree/main/docs
   downloads: [pdf]
   chapters:
+    - index.qmd
+    - intro.qmd
     - notes.qmd
     # - jobacc.qmd
     # - part: "Running TPI"
@@ -18,6 +22,9 @@ book:
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    # theme: cosmo
+    theme:
+      light: flatly
+      dark: darkly
+    # css: styles.css
     toc: true

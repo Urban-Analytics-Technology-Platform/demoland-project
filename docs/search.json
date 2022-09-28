@@ -1,16 +1,37 @@
 [
   {
-    "objectID": "notes.html#first-trials",
-    "href": "notes.html#first-trials",
-    "title": "Land Use Demonstrator",
-    "section": "First trials",
-    "text": "First trials\nnot really sure, add here stuff already done"
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Land Use Demonstrators",
+    "section": "",
+    "text": "Document to keep track of the development of the Land Use Demonstrators project."
   },
   {
-    "objectID": "notes.html#again-here",
-    "href": "notes.html#again-here",
-    "title": "Land Use Demonstrator",
-    "section": "Again here",
-    "text": "Again here\nyep great\n\n\none\ntwo\nthree"
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "2  Intro",
+    "section": "",
+    "text": "Objectives\nDevelop modelling system to quantify features of land use in urban environment\n\n\nOutput\nLandcover map for several metro in UK\n(sample: NewCastle upon Tyne?)\n\n\nHow\nCreating indicators for\n\nbaseline\nfuture scenarios\n\n\n\nDuration\n6 months (PDRA + REG)"
+  },
+  {
+    "objectID": "intro.html#suggested-indicators",
+    "href": "intro.html#suggested-indicators",
+    "title": "2  Intro",
+    "section": "2.2 Suggested indicators",
+    "text": "2.2 Suggested indicators\nData sources:\n\n\nSPC - Synthetic Population Catalyst\nSS - Spatial Signature\nboth \n\n\n2.2.1 Net-zero\n\nMobility-based emissions (e.g., trips x distance x mode —> CO2)\nHousing-based emissions (e.g., CO2 emissions from building energy consumption)\nGreen space (area, access, fragmentation)\n\n\n\n2.2.2 Economy\n\nDistance to nearest job (by industry)\nJob volume within accessible distance\nAvailability of (appropriate) housing stock\n\n\n\n2.2.3 Infrastructure stock (vacancy)\n\nBrownfield areas\nVacant lots and properties\nTransport networks and connectivity\n\n\n\n2.2.4 Society and Health\n\nPhysical health\nMental health\nHealthy living and lifestyles"
+  },
+  {
+    "objectID": "notes.html",
+    "href": "notes.html",
+    "title": "3  Notes",
+    "section": "",
+    "text": "Exploratory phase\nConcentrating on Indicators for Net-zero a and b\n\n\n\n\nGenerated list of possible data sources with metadata, resolution, website (when available), etc\n\n\n\n\n\ncarbon.place\nProject from Malcom Morgan (Univ of Leeds) …\n\nThe PBCC estimates the average carbon footprint per person for each LSOA in England\n\nNOTE:\ncool project, GitHub code available but not reproducible (?)\nopened issue here https://github.com/creds2/CarbonCalculator/issues/6\n\n\n\n\n\nResolution - MSOAS? feedback from Dani\ntype of output - map, web …\nhow turn on/off scenarios - different layers\nintegrate with SPC - need to integrate more Census variables?\n… COMPLETE"
+  },
+  {
+    "objectID": "notes.html#october",
+    "href": "notes.html#october",
+    "title": "3  Notes",
+    "section": "3.2 October",
+    "text": "3.2 October"
   }
 ]

@@ -1,0 +1,72 @@
+# Intro
+
+## Summary
+
++:---------------+:----------------------------------------------+
+| **Objectives** | Develop modelling system to quantify features |
+|                | of land use in urban environment              |
++----------------+-----------------------------------------------+
+| **Output**     | Landcover map for several metro in UK         |
+|                |                                               |
+|                | (sample: NewCastle upon Tyne?)                |
++----------------+-----------------------------------------------+
+| **How**        | Creating *indicators* for                     |
+|                |                                               |
+|                | - *baseline*                                  |
+|                | - *future scenarios*                          |
++----------------+-----------------------------------------------+
+| **Duration**   | 6 months                                      |
+|                | (PDRA + REG)                                  |
++----------------+-----------------------------------------------+
+
+## Suggested indicators
+
+Data sources:
+
+---
+
+- *SPC* - Synthetic Population Catalyst
+- **SS** - Spatial Signature
+- <span style="color:DarkViolet">both</span>
+<!-- - $\textcolor{red}{\text{both}}$ -->
+
+###  Net-zero
+a. *Mobility-based emissions (e.g., trips x distance x mode —> CO<sub>2</sub>)*
+b. *Housing-based emissions (e.g., CO<sub>2</sub> emissions from building energy consumption)*
+c. **Green space (area, access, fragmentation)**
+
+### Economy
+
+a.	<span style="color:DarkViolet">Distance to nearest job (by industry)</span>
+b.	<span style="color:DarkViolet">Job volume within accessible distance</span>
+c.	**Availability of (appropriate) housing stock**
+
+### Infrastructure stock (vacancy)
+a.	**Brownfield areas**
+b.	**Vacant lots and properties**
+c.	**Transport networks and connectivity**
+
+### Society and Health 
+a.	*Physical health*
+b.	*Mental health*
+c.	*Healthy living and lifestyles*
+
+
+
+<!-- **Objective**
+
+Develop modelling system to quantify features of land use in urban environment
+
+---
+
+**Output**
+
+Landcover map for several metro in UK (sample: NewCastle upon Tyne?)
+
+
+---
+
+**How**
+
+Creating *indicators* to build a *baseline*  and *future scenarios* -->
+
