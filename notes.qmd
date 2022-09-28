@@ -25,6 +25,8 @@ OD flows from UK census
 
 we can get from gov CO<sub>2</sub>)e (carbon dioxide equivalent) data for several activities (occupations) and travel modes, including transport, freight, etc [link](https://www.gov.uk/government/statistical-data-sets/stacked-electricity-consumption-statistics-data)
 
+[UK data service?](https://ukdataservice.ac.uk/find-data/browse/)
+
 - a. *mobility based emissions*
 UK GHG emissions national statistics [Data for 2005 - 2020](https://www.gov.uk/government/statistics/uk-local-authority-and-regional-greenhouse-gas-emissions-national-statistics-2005-to-2020)
 
