@@ -86,7 +86,7 @@ depending on how available data are aggregated
 
 ### Trying to link to map
 
-Let's see if [this map link](map.html) works 
+Let's see if [this map link](docs/map.html) works 
 
 
 
