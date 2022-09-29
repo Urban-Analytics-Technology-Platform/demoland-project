@@ -37,7 +37,7 @@ UK GHG emissions national statistics [Sub-national electricity consumption d for
 
 ---
 
-[carbon.place](carbon.place)
+[carbon.place](https://www.carbon.place/)
 
 Project from Malcom Morgan (Univ of Leeds) ...
 
@@ -51,18 +51,31 @@ cool project, GitHub code available but not reproducible (?)
 opened issue here [https://github.com/creds2/CarbonCalculator/issues/6](https://github.com/creds2/CarbonCalculator/issues/6)
 
 
+
+
+## October
+
+---
+
+x x  x
+
+---
+
 ### Open questions
 *And plausible answer*
 
 ---
 
-- [ ] Resolution - MSOAS? *feedback from Dani*
+- [ ] Resolution - LSOAS/ MSOAS? *feedback from Dani regarding SS*
+depending on how available data are aggregated
 
-- [ ] type of output - *map, web ...*
+- [ ] type of output - *map, web ...* ~~MapBox~~ *MapLibre GL, Leaflet, ...*
 
-- [ ] how turn on/off scenarios - *different layers*
+- [ ] how to generate scenarios - *ideas: change parameters' range, run ABstreet simulations...?*
 
-- [ ] integrate with SPC -  need to integrate more Census variables? feasible?
+- [ ] how turn on/off scenarios in the visualisation- *different layers in the map*
+
+- [ ] integrate with SPC -  *need to integrate more Census variables? feasible?*
 
 - [ ] can we actually build a methodology, given the different range of indicators and data?
 
@@ -71,12 +84,9 @@ opened issue here [https://github.com/creds2/CarbonCalculator/issues/6](https://
 
 ---
 
----
+### Trying to link to map
 
-
-## October
-
----
+Let's see if [this map link](map.html) works 
 
 
 

@@ -68,8 +68,8 @@ c.	*Healthy living and lifestyles*
 
 ---
 
-![](activities_wp_image.png)
-*Activities and work plans, as by internal communications*
+<!-- ![](activities_wp_image.png)
+*Activities and work plans, as by internal communications* -->
 
 
 

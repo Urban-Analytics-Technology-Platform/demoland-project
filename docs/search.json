@@ -25,20 +25,20 @@
     "href": "intro.html#time-plan",
     "title": "2  Intro",
     "section": "2.3 Time plan",
-    "text": "2.3 Time plan\nTo be defined\n6 months project … roughly:\n\nliterature collection\ntrials\ndata analysis\npublication\n\n\n Activities and work plans, as by internal communications"
+    "text": "2.3 Time plan\nTo be defined\n6 months project … roughly:\n\nliterature collection\ntrials\ndata analysis\npublication"
   },
   {
     "objectID": "notes.html",
     "href": "notes.html",
     "title": "3  Notes",
     "section": "",
-    "text": "Exploratory phase\nThe idea is to focus on a few indicators (one or two) in order generate a methodology to apply to different variables (IE all the rest of indicators)\nConcentrating on Indicators for Net-zero a and b:\n\n\nmobility based emissions … integration with SPC \\(/\\) AB-street?\n\n\nOD flows from UK census\n\n\nhousing based emissions\n\n\n\n\n\n\nGenerated list of possible data sources with metadata, resolution, website (when available), etc (local on laptop not online)\n\nwe can get from gov CO2)e (carbon dioxide equivalent) data for several activities (occupations) and travel modes, including transport, freight, etc link\nUK data service?\n\n\nmobility based emissions UK GHG emissions national statistics Data for 2005 - 2020\n\n\nhousing based emissions UK GHG emissions national statistics Sub-national electricity consumption d for 2010 - 2020\n\n\n\n\n\n\ncarbon.place\nProject from Malcom Morgan (Univ of Leeds) …\n\nThe PBCC estimates the average carbon footprint per person for each LSOA in England\n\nNOTE:\ncool project, GitHub code available but not reproducible (?)\nopened issue here https://github.com/creds2/CarbonCalculator/issues/6\n\n\n\nAnd plausible answer\n\n\nResolution - MSOAS? feedback from Dani\ntype of output - map, web …\nhow turn on/off scenarios - different layers\nintegrate with SPC - need to integrate more Census variables? feasible?\ncan we actually build a methodology, given the different range of indicators and data?\nimportance of localised emissions and need for air-flow modelling … not relevant for GHG"
+    "text": "Exploratory phase\nThe idea is to focus on a few indicators (one or two) in order generate a methodology to apply to different variables (IE all the rest of indicators)\nConcentrating on Indicators for Net-zero a and b:\n\n\nmobility based emissions … integration with SPC \\(/\\) AB-street?\n\n\nOD flows from UK census\n\n\nhousing based emissions\n\n\n\n\n\n\nGenerated list of possible data sources with metadata, resolution, website (when available), etc (local on laptop not online)\n\nwe can get from gov CO2)e (carbon dioxide equivalent) data for several activities (occupations) and travel modes, including transport, freight, etc link\nUK data service?\n\n\nmobility based emissions UK GHG emissions national statistics Data for 2005 - 2020\n\n\nhousing based emissions UK GHG emissions national statistics Sub-national electricity consumption d for 2010 - 2020\n\n\n\n\n\n\ncarbon.place\nProject from Malcom Morgan (Univ of Leeds) …\n\nThe PBCC estimates the average carbon footprint per person for each LSOA in England\n\nNOTE:\ncool project, GitHub code available but not reproducible (?)\nopened issue here https://github.com/creds2/CarbonCalculator/issues/6"
   },
   {
     "objectID": "notes.html#october",
     "href": "notes.html#october",
     "title": "3  Notes",
     "section": "3.2 October",
-    "text": "3.2 October"
+    "text": "3.2 October\n\nx x x\n\n\n3.2.1 Open questions\nAnd plausible answer\n\n\nResolution - LSOAS/ MSOAS? feedback from Dani regarding SS depending on how available data are aggregated\ntype of output - map, web … MapBox MapLibre GL, Leaflet, …\nhow to generate scenarios - ideas: change parameters’ range, run ABstreet simulations…?\nhow turn on/off scenarios in the visualisation- different layers in the map\nintegrate with SPC - need to integrate more Census variables? feasible?\ncan we actually build a methodology, given the different range of indicators and data?\nimportance of localised emissions and need for air-flow modelling … not relevant for GHG\n\n\n\n\n3.2.2 Trying to link to map\nLet’s see if this map link works"
   }
 ]
