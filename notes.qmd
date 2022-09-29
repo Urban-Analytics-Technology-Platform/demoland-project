@@ -10,9 +10,6 @@ Concentrating on Indicators for [Net-zero a and b](intro.qmd#net-zero):
 
 - a. *mobility based emissions* ... integration with SPC $/$ AB-street?
 
-OD flows from UK census
-
-
 - b. *housing based emissions*
 
 
@@ -23,9 +20,11 @@ OD flows from UK census
 
 - Generated list of possible data sources with metadata, resolution, website (when available), etc (local on laptop not online)
 
-we can get from gov CO<sub>2</sub>)e (carbon dioxide equivalent) data for several activities (occupations) and travel modes, including transport, freight, etc [link](https://www.gov.uk/government/statistical-data-sets/stacked-electricity-consumption-statistics-data)
+- we can get from gov CO<sub>2</sub>)e (carbon dioxide equivalent) data for several activities (occupations) and travel modes, including transport, freight, etc [link](https://www.gov.uk/government/statistical-data-sets/stacked-electricity-consumption-statistics-data)
 
-[UK data service?](https://ukdataservice.ac.uk/find-data/browse/)
+- [UK data service?](https://ukdataservice.ac.uk/find-data/browse/) ... *check source*
+
+- OD flows from UK census
 
 - a. *mobility based emissions*
 UK GHG emissions national statistics [Data for 2005 - 2020](https://www.gov.uk/government/statistics/uk-local-authority-and-regional-greenhouse-gas-emissions-national-statistics-2005-to-2020)
@@ -86,7 +85,7 @@ depending on how available data are aggregated
 
 ### Trying to link to map
 
-Let's see if [this map link](docs/map.html) works 
+Let's see if [this map link](docs/map_trial.html) works 
 
 
 
