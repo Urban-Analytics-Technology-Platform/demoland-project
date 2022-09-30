@@ -60,7 +60,7 @@ x x  x
 
 ---
 
-### Open questions
+## Open questions
 *And plausible answer*
 
 ---
@@ -83,9 +83,10 @@ depending on how available data are aggregated
 
 ---
 
-### Trying to link to map
+## Trying to link to map
 
-Let's see if [this map link](map_again.html) works 
+<!-- Let's see if [this map link](map_again.html) works  -->
 
+What about a nested map
 
-
+<link data-react-helmet="true" rel="apple-touch-icon" sizes="180x180" href="/maplibre-gl-js-docs/assets/favicon/apple-touch-icon.png?v=rMBbQAR5BL"/><link data-react-helmet="true" rel="icon" type="image/png" sizes="32x32" href="/maplibre-gl-js-docs/assets/favicon/favicon-32x32.png?v=rMBbQAR5BL"/><link data-react-helmet="true" rel="icon" type="image/png" sizes="16x16" href="/maplibre-gl-js-docs/assets/favicon/favicon-16x16.png?v=rMBbQAR5BL"/><link data-react-helmet="true" rel="manifest" href="/maplibre-gl-js-docs/assets/favicon/site.webmanifest?v=rMBbQAR5BL"/><link data-react-helmet="true" rel="mask-icon" href="/maplibre-gl-js-docs/assets/favicon/safari-pinned-tab.svg?v=rMBbQAR5BL" color="#4264fb"/><link data-react-helmet="true" rel="shortcut icon" href="/maplibre-gl-js-docs/assets/favicon/favicon.ico?v=rMBbQAR5BL"/>

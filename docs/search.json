@@ -39,6 +39,20 @@
     "href": "notes.html#october",
     "title": "3  Notes",
     "section": "3.2 October",
-    "text": "3.2 October\n\nx x x\n\n\n3.2.1 Open questions\nAnd plausible answer\n\n\nResolution - LSOAS/ MSOAS? feedback from Dani regarding SS depending on how available data are aggregated\ntype of output - map, web … MapBox MapLibre GL, Leaflet, …\nhow to generate scenarios - ideas: change parameters’ range, run ABstreet simulations…?\nhow turn on/off scenarios in the visualisation- different layers in the map\nintegrate with SPC - need to integrate more Census variables? feasible?\ncan we actually build a methodology, given the different range of indicators and data?\nimportance of localised emissions and need for air-flow modelling … not relevant for GHG\n\n\n\n\n3.2.2 Trying to link to map\nLet’s see if this map link works"
+    "text": "3.2 October\n\nx x x"
+  },
+  {
+    "objectID": "notes.html#open-questions",
+    "href": "notes.html#open-questions",
+    "title": "3  Notes",
+    "section": "3.3 Open questions",
+    "text": "3.3 Open questions\nAnd plausible answer\n\n\nResolution - LSOAS/ MSOAS? feedback from Dani regarding SS depending on how available data are aggregated\ntype of output - map, web … MapBox MapLibre GL, Leaflet, …\nhow to generate scenarios - ideas: change parameters’ range, run ABstreet simulations…?\nhow turn on/off scenarios in the visualisation- different layers in the map\nintegrate with SPC - need to integrate more Census variables? feasible?\ncan we actually build a methodology, given the different range of indicators and data?\nimportance of localised emissions and need for air-flow modelling … not relevant for GHG"
+  },
+  {
+    "objectID": "notes.html#trying-to-link-to-map",
+    "href": "notes.html#trying-to-link-to-map",
+    "title": "3  Notes",
+    "section": "3.4 Trying to link to map",
+    "text": "3.4 Trying to link to map\n\nWhat about a nested map"
   }
 ]
