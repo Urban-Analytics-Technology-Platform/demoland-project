@@ -2,6 +2,8 @@
 
 ## September
 
+---
+
 **Exploratory phase**
 
 The idea is to focus on a few indicators (one or two) in order generate a *methodology* to apply to different variables (IE all the rest of indicators)
@@ -18,19 +20,26 @@ Concentrating on Indicators for [Net-zero a and b](intro.qmd#net-zero):
 
 ---
 
-- Generated list of possible data sources with metadata, resolution, website (when available), etc (local on laptop not online)
+- Generated list of possible data sources with metadata, resolution, website (when available), etc (local on laptop, not online)
 
-- we can get from gov CO<sub>2</sub>)e (carbon dioxide equivalent) data for several activities (occupations) and travel modes, including transport, freight, etc [link](https://www.gov.uk/government/statistical-data-sets/stacked-electricity-consumption-statistics-data)
+---
 
-- [UK data service?](https://ukdataservice.ac.uk/find-data/browse/) ... *check source*
-
-- OD flows from UK census
-
-- a. *mobility based emissions*
+a. *mobility based emissions*
 UK GHG emissions national statistics [Data for 2005 - 2020](https://www.gov.uk/government/statistics/uk-local-authority-and-regional-greenhouse-gas-emissions-national-statistics-2005-to-2020)
 
-- b. *housing based emissions*
+- we can get from gov.uk CO<sub>2</sub>e (carbon dioxide equivalent) data for several occupations and travel modes, including transport, freight, etc [link](https://www.gov.uk/government/statistical-data-sets/stacked-electricity-consumption-statistics-data)
+
+- OD flows from UK census ... ??? *check source*
+
+---
+
+b. *housing based emissions*
 UK GHG emissions national statistics [Sub-national electricity consumption d for 2010 - 2020](https://www.gov.uk/government/statistical-data-sets/stacked-electricity-consumption-statistics-data)
+
+---
+
+People behavior and time use from *The UK Time Diary Study 2014 - 2015* - UK Time Use Survey carried by NatCen and available from [Uk Data Service](https://ukdataservice.ac.uk/)
+
 
 ### Did someone already do this?
 
@@ -65,6 +74,8 @@ x x  x
 
 ---
 
+- [ ] what is the Research Question
+
 - [ ] Resolution - LSOAS/ MSOAS? *feedback from Dani regarding SS*
 depending on how available data are aggregated
 
@@ -83,10 +94,12 @@ depending on how available data are aggregated
 
 ---
 
-## Trying to link to map
+### Outpu / map generation
+
+Note: could generate a website via [MapLibre](https://maplibre.org/), checked the options
 
 <!-- Let's see if [this map link](map_again.html) works  -->
 
-What about a nested map
+<!-- What about a nested map
 
-<link data-react-helmet="true" rel="apple-touch-icon" sizes="180x180" href="/maplibre-gl-js-docs/assets/favicon/apple-touch-icon.png?v=rMBbQAR5BL"/><link data-react-helmet="true" rel="icon" type="image/png" sizes="32x32" href="/maplibre-gl-js-docs/assets/favicon/favicon-32x32.png?v=rMBbQAR5BL"/><link data-react-helmet="true" rel="icon" type="image/png" sizes="16x16" href="/maplibre-gl-js-docs/assets/favicon/favicon-16x16.png?v=rMBbQAR5BL"/><link data-react-helmet="true" rel="manifest" href="/maplibre-gl-js-docs/assets/favicon/site.webmanifest?v=rMBbQAR5BL"/><link data-react-helmet="true" rel="mask-icon" href="/maplibre-gl-js-docs/assets/favicon/safari-pinned-tab.svg?v=rMBbQAR5BL" color="#4264fb"/><link data-react-helmet="true" rel="shortcut icon" href="/maplibre-gl-js-docs/assets/favicon/favicon.ico?v=rMBbQAR5BL"/>
+<link data-react-helmet="true" rel="apple-touch-icon" sizes="180x180" href="/maplibre-gl-js-docs/assets/favicon/apple-touch-icon.png?v=rMBbQAR5BL"/><link data-react-helmet="true" rel="icon" type="image/png" sizes="32x32" href="/maplibre-gl-js-docs/assets/favicon/favicon-32x32.png?v=rMBbQAR5BL"/><link data-react-helmet="true" rel="icon" type="image/png" sizes="16x16" href="/maplibre-gl-js-docs/assets/favicon/favicon-16x16.png?v=rMBbQAR5BL"/><link data-react-helmet="true" rel="manifest" href="/maplibre-gl-js-docs/assets/favicon/site.webmanifest?v=rMBbQAR5BL"/><link data-react-helmet="true" rel="mask-icon" href="/maplibre-gl-js-docs/assets/favicon/safari-pinned-tab.svg?v=rMBbQAR5BL" color="#4264fb"/><link data-react-helmet="true" rel="shortcut icon" href="/maplibre-gl-js-docs/assets/favicon/favicon.ico?v=rMBbQAR5BL"/> -->

@@ -26,8 +26,8 @@ Data sources:
 
 ---
 
-- *SPC* - Synthetic Population Catalyst
-- **SS** - Spatial Signature
+- *SPC* - Synthetic Population Catalyst [website](https://alan-turing-institute.github.io/uatk-spc/)
+- **SS** - Spatial Signature [website](https://urbangrammarai.xyz/great-britain/)
 - <span style="color:DarkViolet">both</span>
 <!-- - $\textcolor{red}{\text{both}}$ -->
 
