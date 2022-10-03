@@ -25,7 +25,9 @@
 The initial plan wants to make use of the following data sources (see below for each indicator what source is intended to be used)
 
 ---
+
 *Suggested data sources:*
+
 - *SPC* - Synthetic Population Catalyst [website](https://alan-turing-institute.github.io/uatk-spc/)
 - **SS** - Spatial Signature [website](https://urbangrammarai.xyz/great-britain/)
 - <span style="color:DarkViolet">both</span>

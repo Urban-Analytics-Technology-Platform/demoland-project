@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./data_sources.html" rel="next">
 <link href="./intro.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -115,6 +116,11 @@ ul.task-list li input[type="checkbox"] {
   <a href="./notes.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Notes</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_sources.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Sources</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -130,8 +136,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#did-someone-already-do-this" id="toc-did-someone-already-do-this" class="nav-link" data-scroll-target="#did-someone-already-do-this"><span class="toc-section-number">3.1.2</span>  Did someone already do this?</a></li>
   </ul></li>
   <li><a href="#october" id="toc-october" class="nav-link" data-scroll-target="#october"><span class="toc-section-number">3.2</span>  October</a></li>
-  <li><a href="#open-questions" id="toc-open-questions" class="nav-link" data-scroll-target="#open-questions"><span class="toc-section-number">3.3</span>  Open questions</a></li>
-  <li><a href="#trying-to-link-to-map" id="toc-trying-to-link-to-map" class="nav-link" data-scroll-target="#trying-to-link-to-map"><span class="toc-section-number">3.4</span>  Trying to link to map</a></li>
+  <li><a href="#open-questions" id="toc-open-questions" class="nav-link" data-scroll-target="#open-questions"><span class="toc-section-number">3.3</span>  Open questions</a>
+  <ul class="collapse">
+  <li><a href="#output-map-generation" id="toc-output-map-generation" class="nav-link" data-scroll-target="#output-map-generation"><span class="toc-section-number">3.3.1</span>  Output / map generation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -156,6 +164,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="september" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="september"><span class="header-section-number">3.1</span> September</h2>
+<hr>
 <p><strong>Exploratory phase</strong></p>
 <p>The idea is to focus on a few indicators (one or two) in order generate a <em>methodology</em> to apply to different variables (IE all the rest of indicators)</p>
 <p>Concentrating on Indicators for <a href="./intro.html#net-zero">Net-zero a and b</a>:</p>
@@ -171,17 +180,23 @@ ul.task-list li input[type="checkbox"] {
 <h3 data-number="3.1.1" class="anchored" data-anchor-id="data-availability"><span class="header-section-number">3.1.1</span> Data availability</h3>
 <hr>
 <ul>
-<li><p>Generated list of possible data sources with metadata, resolution, website (when available), etc (local on laptop not online)</p></li>
-<li><p>we can get from gov CO<sub>2</sub>)e (carbon dioxide equivalent) data for several activities (occupations) and travel modes, including transport, freight, etc <a href="https://www.gov.uk/government/statistical-data-sets/stacked-electricity-consumption-statistics-data">link</a></p></li>
-<li><p><a href="https://ukdataservice.ac.uk/find-data/browse/">UK data service?</a> … <em>check source</em></p></li>
-<li><p>OD flows from UK census</p></li>
-<li><ol type="a">
-<li><em>mobility based emissions</em> UK GHG emissions national statistics <a href="https://www.gov.uk/government/statistics/uk-local-authority-and-regional-greenhouse-gas-emissions-national-statistics-2005-to-2020">Data for 2005 - 2020</a></li>
-</ol></li>
-<li><ol start="2" type="a">
-<li><em>housing based emissions</em> UK GHG emissions national statistics <a href="https://www.gov.uk/government/statistical-data-sets/stacked-electricity-consumption-statistics-data">Sub-national electricity consumption d for 2010 - 2020</a></li>
-</ol></li>
+<li>Generated list of possible data sources with metadata, resolution, website (when available), etc (local on laptop, not online)</li>
 </ul>
+<hr>
+<ol type="a">
+<li><em>mobility based emissions</em> UK GHG emissions national statistics <a href="https://www.gov.uk/government/statistics/uk-local-authority-and-regional-greenhouse-gas-emissions-national-statistics-2005-to-2020">Data for 2005 - 2020</a></li>
+</ol>
+<ul>
+<li><p>we can get from gov.uk CO<sub>2</sub>e (carbon dioxide equivalent) data for several occupations and travel modes, including transport, freight, etc <a href="https://www.gov.uk/government/statistical-data-sets/stacked-electricity-consumption-statistics-data">link</a></p></li>
+<li><p>OD flows from UK census … <strong>only to work and home</strong>? <em>check source</em></p></li>
+</ul>
+<hr>
+<ol start="2" type="a">
+<li><em>housing based emissions</em> UK GHG emissions national statistics <a href="https://www.gov.uk/government/statistical-data-sets/stacked-electricity-consumption-statistics-data">Sub-national electricity consumption d for 2010 - 2020</a></li>
+</ol>
+<hr>
+<p>People behavior and time use from <em>The UK Time Diary Study 2014 - 2015</em> - UK Time Use Survey carried by NatCen and available from <a href="https://ukdataservice.ac.uk/">Uk Data Service</a></p>
+<p>what we can get from this source: time people spend in different activities, mode of transport (yes?)</p>
 </section>
 <section id="did-someone-already-do-this" class="level3" data-number="3.1.2">
 <h3 data-number="3.1.2" class="anchored" data-anchor-id="did-someone-already-do-this"><span class="header-section-number">3.1.2</span> Did someone already do this?</h3>
@@ -207,6 +222,7 @@ ul.task-list li input[type="checkbox"] {
 <p><em>And plausible answer</em></p>
 <hr>
 <ul class="task-list">
+<li><p><input type="checkbox" disabled="">what is the Research Question</p></li>
 <li><p><input type="checkbox" disabled="">Resolution - LSOAS/ MSOAS? <em>feedback from Dani regarding SS</em> depending on how available data are aggregated</p></li>
 <li><p><input type="checkbox" disabled="">type of output - <em>map, web …</em> <del>MapBox</del> <em>MapLibre GL, Leaflet, …</em></p></li>
 <li><p><input type="checkbox" disabled="">how to generate scenarios - <em>ideas: change parameters’ range, run ABstreet simulations…?</em></p></li>
@@ -216,14 +232,16 @@ ul.task-list li input[type="checkbox"] {
 <li><p><input type="checkbox" disabled="" checked="">importance of localised emissions and need for air-flow modelling … <em>not relevant for GHG</em></p></li>
 </ul>
 <hr>
-</section>
-<section id="trying-to-link-to-map" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="trying-to-link-to-map"><span class="header-section-number">3.4</span> Trying to link to map</h2>
+<section id="output-map-generation" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="output-map-generation"><span class="header-section-number">3.3.1</span> Output / map generation</h3>
+<p>Note: could generate a website via <a href="https://maplibre.org/">MapLibre</a>, checked the options</p>
 <!-- Let's see if [this map link](map_again.html) works  -->
-<p>What about a nested map</p>
-<p><link data-react-helmet="true" rel="apple-touch-icon" sizes="180x180" href="./maplibre-gl-js-docs/assets/favicon/apple-touch-icon.png?v=rMBbQAR5BL"><link data-react-helmet="true" rel="icon" type="image/png" sizes="32x32" href="./maplibre-gl-js-docs/assets/favicon/favicon-32x32.png?v=rMBbQAR5BL"><link data-react-helmet="true" rel="icon" type="image/png" sizes="16x16" href="./maplibre-gl-js-docs/assets/favicon/favicon-16x16.png?v=rMBbQAR5BL"><link data-react-helmet="true" rel="manifest" href="./maplibre-gl-js-docs/assets/favicon/site.webmanifest?v=rMBbQAR5BL"><link data-react-helmet="true" rel="mask-icon" href="./maplibre-gl-js-docs/assets/favicon/safari-pinned-tab.svg?v=rMBbQAR5BL" color="#4264fb"><link data-react-helmet="true" rel="shortcut icon" href="./maplibre-gl-js-docs/assets/favicon/favicon.ico?v=rMBbQAR5BL"></p>
+<!-- What about a nested map
+
+<link data-react-helmet="true" rel="apple-touch-icon" sizes="180x180" href="/maplibre-gl-js-docs/assets/favicon/apple-touch-icon.png?v=rMBbQAR5BL"/><link data-react-helmet="true" rel="icon" type="image/png" sizes="32x32" href="/maplibre-gl-js-docs/assets/favicon/favicon-32x32.png?v=rMBbQAR5BL"/><link data-react-helmet="true" rel="icon" type="image/png" sizes="16x16" href="/maplibre-gl-js-docs/assets/favicon/favicon-16x16.png?v=rMBbQAR5BL"/><link data-react-helmet="true" rel="manifest" href="/maplibre-gl-js-docs/assets/favicon/site.webmanifest?v=rMBbQAR5BL"/><link data-react-helmet="true" rel="mask-icon" href="/maplibre-gl-js-docs/assets/favicon/safari-pinned-tab.svg?v=rMBbQAR5BL" color="#4264fb"/><link data-react-helmet="true" rel="shortcut icon" href="/maplibre-gl-js-docs/assets/favicon/favicon.ico?v=rMBbQAR5BL"/> -->
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -445,6 +463,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./data_sources.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Sources</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
