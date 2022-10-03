@@ -1,2 +1,3 @@
 /.quarto/
+# momentaneously ignoring .png files until plan image is ready
 *.png

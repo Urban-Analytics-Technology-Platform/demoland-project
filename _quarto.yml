@@ -11,8 +11,8 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
-    - notes.qmd
     - data_sources.qmd
+    - notes.qmd
     # - jobacc.qmd
     # - part: "Running TPI"
     #   chapters:
