@@ -1,0 +1,10 @@
+
+# Data Sources
+
+
+## Time Use Survey
+
+Time Use Survey for UK is available from UK Data Service website at (http://dx.doi.org/10.5255/UKDA-SN-8128-1)[http://dx.doi.org/10.5255/UKDA-SN-8128-1]
+
+---
+
