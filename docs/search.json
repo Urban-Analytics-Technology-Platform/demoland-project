@@ -35,31 +35,31 @@
     "text": "2.4 Time plan\nTo be defined\n6 months project … roughly:\n\nliterature collection\ntrials\ndata analysis\npublication"
   },
   {
+    "objectID": "data_sources.html",
+    "href": "data_sources.html",
+    "title": "3  Data Sources",
+    "section": "",
+    "text": "Time Use Survey for UK is available from UK Data Service website at (http://dx.doi.org/10.5255/UKDA-SN-8128-1)[http://dx.doi.org/10.5255/UKDA-SN-8128-1]"
+  },
+  {
     "objectID": "notes.html",
     "href": "notes.html",
-    "title": "3  Notes",
+    "title": "4  Notes",
     "section": "",
-    "text": "Exploratory phase\nThe idea is to focus on a few indicators (one or two) in order generate a methodology to apply to different variables (IE all the rest of indicators)\nConcentrating on Indicators for Net-zero a and b:\n\n\nmobility based emissions … integration with SPC \\(/\\) AB-street?\n\n\nhousing based emissions\n\n\n\n\n\n\nGenerated list of possible data sources with metadata, resolution, website (when available), etc (local on laptop, not online)\n\n\n\nmobility based emissions UK GHG emissions national statistics Data for 2005 - 2020\n\n\nwe can get from gov.uk CO2e (carbon dioxide equivalent) data for several occupations and travel modes, including transport, freight, etc link\nOD flows from UK census … only to work and home? check source\n\n\n\nhousing based emissions UK GHG emissions national statistics Sub-national electricity consumption d for 2010 - 2020\n\n\nPeople behavior and time use from The UK Time Diary Study 2014 - 2015 - UK Time Use Survey carried by NatCen and available from Uk Data Service\nwhat we can get from this source: time people spend in different activities, mode of transport (yes?)\n\n\n\n\ncarbon.place\nProject from Malcom Morgan (Univ of Leeds) …\n\nThe PBCC estimates the average carbon footprint per person for each LSOA in England\n\nNOTE:\ncool project, GitHub code available but not reproducible (?)\nopened issue here https://github.com/creds2/CarbonCalculator/issues/6"
+    "text": "Exploratory phase\nThe idea is to focus on a few indicators (one or two) in order generate a methodology to apply to different variables (IE all the rest of indicators)\nConcentrating on Indicators for Net-zero a and b:\n\n\nmobility based emissions … integration with SPC \\(/\\) AB-street?\n\n\nhousing based emissions\n\n\n\n\n\n\nGenerated list of possible data sources with metadata, resolution, website (when available), etc (local on laptop, not online)\n\n\n\n\nUK GHG emissions national statistics Data for 2005 - 2020\n\nwe can get from gov.uk CO2e (carbon dioxide equivalent) data for several occupations and travel modes, including transport, freight, etc link\nOD flows from UK census … only to work and home? check source\n\n\n\n\n\nUK GHG emissions national statistics Sub-national electricity consumption d for 2010 - 2020\n\n\n\n\nPeople behavior and time use from The UK Time Diary Study 2014 - 2015 - UK Time Use Survey carried by NatCen and available from UK Data Service\nwhat we can get from this source: time people spend in different activities, mode of transport (yes?)\n\n\n\n\n\ncarbon.place\nProject from Malcom Morgan (Univ of Leeds) …\n\nThe PBCC estimates the average carbon footprint per person for each LSOA in England\n\nNOTE:\ncool project, GitHub code available but not reproducible (?)\nopened issue here https://github.com/creds2/CarbonCalculator/issues/6"
   },
   {
     "objectID": "notes.html#october",
     "href": "notes.html#october",
-    "title": "3  Notes",
-    "section": "3.2 October",
-    "text": "3.2 October\n\nx x x"
+    "title": "4  Notes",
+    "section": "4.2 October",
+    "text": "4.2 October\nInitial trials\nWorking on a. mobility based emissions -> IE transport data\n&\nBuilding base scenario\n\nTry to dl/open/visualise SPC data\nTry to understand relevant data from UK Data Services data -> understand TUS data, any other relevant dataset?\nHow to connect/integrate TUS to SPC dataset\nvisualise the integrated dataset -> base scenario\nthink “future scenarios”"
   },
   {
     "objectID": "notes.html#open-questions",
     "href": "notes.html#open-questions",
-    "title": "3  Notes",
-    "section": "3.3 Open questions",
-    "text": "3.3 Open questions\nAnd plausible answer\n\n\nwhat is the Research Question\nResolution - LSOAS/ MSOAS? feedback from Dani regarding SS depending on how available data are aggregated\ntype of output - map, web … MapBox MapLibre GL, Leaflet, …\nhow to generate scenarios - ideas: change parameters’ range, run ABstreet simulations…?\nhow turn on/off scenarios in the visualisation- different layers in the map\nintegrate with SPC - need to integrate more Census variables? feasible?\ncan we actually build a methodology, given the different range of indicators and data?\nimportance of localised emissions and need for air-flow modelling … not relevant for GHG\n\n\n\n3.3.1 Output / map generation\nNote: could generate a website via MapLibre, checked the options"
-  },
-  {
-    "objectID": "data_sources.html",
-    "href": "data_sources.html",
-    "title": "4  Data Sources",
-    "section": "",
-    "text": "Time Use Survey for UK is available from UK Data Service website at (http://dx.doi.org/10.5255/UKDA-SN-8128-1)[http://dx.doi.org/10.5255/UKDA-SN-8128-1]"
+    "title": "4  Notes",
+    "section": "4.3 Open questions",
+    "text": "4.3 Open questions\nAnd plausible answer\n\n\nwhat is the Research Question\nResolution - LSOAS/ MSOAS? feedback from Dani regarding SS depending on how available data are aggregated\ntype of output - map, web … MapBox MapLibre GL, Leaflet, …\nhow to generate scenarios - ideas: change parameters’ range, run ABstreet simulations…?\nhow turn on/off scenarios in the visualisation- different layers in the map\nintegrate with SPC - need to integrate more Census variables? feasible?\ncan we actually build a methodology, given the different range of indicators and data?\nimportance of localised emissions and need for air-flow modelling … not relevant for GHG\n\n\n\n4.3.1 Output / map generation\nNote: could generate a website via MapLibre, checked the options"
   }
 ]
