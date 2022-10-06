@@ -84,13 +84,13 @@ Building *base scenario*
 
 We can see the Indicators $I_{i}$, with $i = \{1, ..., n\}$, as a function of different land uses $l_{j}$ where $j = \{1, ..., k\}$ and $I_{i}$ can be expressed as generic relation $\star$ between several $l_{j}$ weighted by $k$ generic weights/parameters $w_{j}$, as follows:
 
-$$I_{i}(l) = w_1^il_{1} \star  w_2^1l_{2} \dots w_k^1l_{k}$$
+$$I_{i}(l) = w_1^il_{1} \star  w_2^1l_{2} \dots \star w_k^1l_{k}$$
 
 Different indicators can depend from same landuse variables, and per each indicator scenarios can be expressed by acting on the paramters $w_{j}$.
 
 As an example, using the definition above the indicator of Mobility based emissions (a.) could be expressed as:
 
-$\textit{mobility based emissions} = w_1trips \star  w_2distance \dots w_3\textit{mode of transport}$
+$\textit{mobility based emissions} = w_1trips \star  w_2distance \dots \star w_3\textit{mode of transport}$
 
 Is this useful??
 
