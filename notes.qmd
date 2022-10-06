@@ -32,7 +32,9 @@ UK GHG emissions national statistics [Data for 2005 - 2020](https://www.gov.uk/g
 ---
 
 #### b. housing based emissions
-UK GHG emissions national statistics [Sub-national electricity consumption d for 2010 - 2020](https://www.gov.uk/government/statistical-data-sets/stacked-electricity-consumption-statistics-data)
+Sub-national electricity and gad consumption [Data for 2010 - 2020](https://www.gov.uk/government/statistical-data-sets/stacked-electricity-consumption-statistics-data)
+
+(Experimental?) https://www.gov.uk/government/collections/sub-national-gas-consumption-data
 
 ---
 
@@ -72,11 +74,25 @@ Working on *a. mobility based emissions* -> IE transport data
 
 Building *base scenario*
 
-- [ ] Try to dl/open/visualise SPC data
+- [ ] Try to dl/open/visualise SPC data $\rightarrow$ *Note: study case Metropolitan county of Tyne and Wear*
 - [ ] Try to understand relevant data from [UK Data Services](#people-behavior) data  -> understand TUS data, any other relevant dataset?
 - [ ] How to connect/integrate TUS to SPC dataset
 - [ ] visualise the integrated dataset -> *base scenario*
 - [ ] think "future scenarios"
+
+### Defining relations
+
+We can see the Indicators $I_{i}$, with $i = \{1, ..., n\}$, as a function of different land uses $l_{j}$ where $j = \{1, ..., k\}$ and $I_{i}$ can be expressed as generic relation $\star$ between several $l_{j}$ weighted by $k$ generic weights/parameters $w_{j}$, as follows:
+
+$$I_{i}(l) = w_1^il_{1} \star  w_2^1l_{2} \dots w_k^1l_{k}$$
+
+Different indicators can depend from same landuse variables, and per each indicator scenarios can be expressed by acting on the paramters $w_{j}$.
+
+As an example, using the definition above the indicator of Mobility based emissions (a.) could be expressed as:
+
+$\textit{mobility based emissions} = w_1trips \star  w_2distance \dots w_3\textit{mode of transport}$
+
+Is this useful??
 
 ---
 
@@ -87,7 +103,7 @@ Building *base scenario*
 
 - [ ] what is the Research Question
 
-- [ ] Resolution - LSOAS/ MSOAS? *feedback from Dani regarding SS*
+- [X] Resolution - LSOAS/ MSOAS? *feedback from Dani regarding SS*
 depending on how available data are aggregated
 
 - [ ] type of output - *map, web ...* ~~MapBox~~ *MapLibre GL, Leaflet, ...*
@@ -96,7 +112,7 @@ depending on how available data are aggregated
 
 - [ ] how turn on/off scenarios in the visualisation- *different layers in the map*
 
-- [ ] integrate with SPC -  *need to integrate more Census variables? feasible?*
+- [X] integrate with SPC -  *need to integrate more Census variables? feasible?*
 
 - [ ] can we actually build a methodology, given the different range of indicators and data?
 
