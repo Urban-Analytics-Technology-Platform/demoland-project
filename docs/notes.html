@@ -136,7 +136,8 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#october" id="toc-october" class="nav-link" data-scroll-target="#october"><span class="toc-section-number">4.2</span>  October</a>
   <ul class="collapse">
-  <li><a href="#defining-relations" id="toc-defining-relations" class="nav-link" data-scroll-target="#defining-relations"><span class="toc-section-number">4.2.1</span>  Defining relations</a></li>
+  <li><a href="#python-code" id="toc-python-code" class="nav-link" data-scroll-target="#python-code"><span class="toc-section-number">4.2.1</span>  Python code</a></li>
+  <li><a href="#defining-relations" id="toc-defining-relations" class="nav-link" data-scroll-target="#defining-relations"><span class="toc-section-number">4.2.2</span>  Defining relations</a></li>
   </ul></li>
   <li><a href="#open-questions" id="toc-open-questions" class="nav-link" data-scroll-target="#open-questions"><span class="toc-section-number">4.3</span>  Open questions</a>
   <ul class="collapse">
@@ -231,12 +232,20 @@ ul.task-list li input[type="checkbox"] {
 <li><input type="checkbox" disabled="">visualise the integrated dataset -&gt; <em>base scenario</em></li>
 <li><input type="checkbox" disabled="">think “future scenarios”</li>
 </ul>
-<section id="defining-relations" class="level3" data-number="4.2.1">
-<h3 data-number="4.2.1" class="anchored" data-anchor-id="defining-relations"><span class="header-section-number">4.2.1</span> Defining relations</h3>
+<p><img src="tynewear_county_lads.png" class="img-fluid"> <em>The 5 LADs in the Metropolitan County of Tyne and Wear, highlighted are also the 4 major town areas</em></p>
+<section id="python-code" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="python-code"><span class="header-section-number">4.2.1</span> Python code</h3>
+<ul>
+<li><p>Remember to add in <em>READ_ME</em> a walkthrough.</p></li>
+<li><p>Using <code>env.yml</code></p></li>
+</ul>
+</section>
+<section id="defining-relations" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="defining-relations"><span class="header-section-number">4.2.2</span> Defining relations</h3>
 <p>We can see the Indicators <span class="math inline">\(I_{i}\)</span>, with <span class="math inline">\(i = \{1, ..., n\}\)</span>, as a function of different land uses <span class="math inline">\(l_{j}\)</span> where <span class="math inline">\(j = \{1, ..., k\}\)</span> and <span class="math inline">\(I_{i}\)</span> can be expressed as generic relation <span class="math inline">\(\star\)</span> between several <span class="math inline">\(l_{j}\)</span> weighted by <span class="math inline">\(k\)</span> generic weights/parameters <span class="math inline">\(w_{j}\)</span>, as follows:</p>
 <p><span class="math display">\[I_{i}(l) = w_1^il_{1} \star  w_2^il_{2} \dots \star w_k^il_{k}\]</span></p>
-<p>Different indicators can depend from same landuse variables, and per each indicator scenarios can be expressed by acting on the paramters <span class="math inline">\(w_{j}\)</span>.</p>
-<p>As an example, using the definition above the indicator of Mobility based emissions (a.) could be expressed as:</p>
+<p>Different indicators can depend on same landuse variables, and per each indicator the scenarios can be expressed by acting on the paramters <span class="math inline">\(w_{j}\)</span>.</p>
+<p>As an example, using the definition above the indicator Mobility based emissions (a.) could be expressed as:</p>
 <p><span class="math inline">\(\textit{mobility based emissions} = w_1trips \star w_2distance \dots \star w_3\textit{mode of transport}\)</span></p>
 <p>Is this useful??</p>
 <hr>
