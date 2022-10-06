@@ -84,7 +84,7 @@ Building *base scenario*
 
 We can see the Indicators $I_{i}$, with $i = \{1, ..., n\}$, as a function of different land uses $l_{j}$ where $j = \{1, ..., k\}$ and $I_{i}$ can be expressed as generic relation $\star$ between several $l_{j}$ weighted by $k$ generic weights/parameters $w_{j}$, as follows:
 
-$$I_{i}(l) = w_1^il_{1} \star  w_2^1l_{2} \dots \star w_k^1l_{k}$$
+$$I_{i}(l) = w_1^il_{1} \star  w_2^il_{2} \dots \star w_k^il_{k}$$
 
 Different indicators can depend from same landuse variables, and per each indicator scenarios can be expressed by acting on the paramters $w_{j}$.
 
