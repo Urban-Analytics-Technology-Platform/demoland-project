@@ -1,4 +1,4 @@
 /.quarto/
-# momentaneously ignoring .png files until plan image is ready
-*.png
+# # momentaneously ignoring .png files until plan image is ready
+*._png
 /data/
