@@ -1,5 +1,53 @@
 # Notes
 
+---
+
+This page is constantly updated on a (almost) daily base, meaning that the order is not dictated by a specific structure, just temporary adding up ideas and development of the project
+
+(NB: in reverse order, that is newer stuff is at the top of the document).
+
+## October
+
+**Initial trials**
+
+Working on *a. mobility based emissions* -> IE transport data
+
+\&
+
+Building *base scenario*
+
+- [ ] Try to dl/open/visualise SPC data $\rightarrow$ *Note: study case Metropolitan county of Tyne and Wear*
+- [ ] Investigate potentially relevant data from [UK Data Services](#people-behavior) data  -> any other relevant dataset?
+- [ ] How to connect/integrate TUS to SPC dataset
+- [ ] visualise the integrated dataset -> *base scenario*
+- [ ] think "future scenarios"
+
+![](tynewear_county_lads.png)
+*The 5 LADs in the Metropolitan County of Tyne and Wear, highlighted are also the 4 major town areas*
+
+### Python code
+
+- Remember to add in *READ_ME* a walkthrough.
+
+- Using `env.yml` $\dots$ *use `conda` or `poetry`?*
+
+
+### Defining relations
+
+We can see the Indicators $I_{i}$, with $i = \{1, ..., n\}$, as a function of different land uses $l_{j}$ where $j = \{1, ..., k\}$ and $I_{i}$ can be expressed as generic relation $\star$ between several $l_{j}$ weighted by $k$ generic weights/parameters $w_{j}$, as follows:
+
+$$I_{i}(l) = w_1^il_{1} \star  w_2^il_{2} \dots \star w_k^il_{k}$$
+
+Different indicators can depend on same landuse variables, and per each indicator the scenarios can be expressed by acting on the paramters $w_{j}$.
+
+As an example, using the definition above the indicator Mobility based emissions (a.) could be expressed as:
+
+$\textit{mobility based emissions} = w_1trips \star w_2distance \dots \star w_3\textit{mode of transport}$
+
+$\dots$ Is this useful??
+
+---
+
 ## September
 
 **Exploratory phase**
@@ -11,7 +59,6 @@ Concentrating on Indicators for [Net-zero a and b](intro.qmd#net-zero):
 - a. *mobility based emissions* ... integration with SPC $/$ AB-street?
 
 - b. *housing based emissions*
-
 
 
 ### Data availability
@@ -63,62 +110,20 @@ opened issue here [https://github.com/creds2/CarbonCalculator/issues/6](https://
 
 
 
-
-## October
-
-**Initial trials**
-
-Working on *a. mobility based emissions* -> IE transport data
-
-\&
-
-Building *base scenario*
-
-- [ ] Try to dl/open/visualise SPC data $\rightarrow$ *Note: study case Metropolitan county of Tyne and Wear*
-- [ ] Try to understand relevant data from [UK Data Services](#people-behavior) data  -> understand TUS data, any other relevant dataset?
-- [ ] How to connect/integrate TUS to SPC dataset
-- [ ] visualise the integrated dataset -> *base scenario*
-- [ ] think "future scenarios"
-
-![](tynewear_county_lads.png)
-*The 5 LADs in the Metropolitan County of Tyne and Wear, highlighted are also the 4 major town areas*
-
-### Python code
-
-- Remember to add in *READ_ME* a walkthrough.
-
-- Using `env.yml`
-
-
-### Defining relations
-
-We can see the Indicators $I_{i}$, with $i = \{1, ..., n\}$, as a function of different land uses $l_{j}$ where $j = \{1, ..., k\}$ and $I_{i}$ can be expressed as generic relation $\star$ between several $l_{j}$ weighted by $k$ generic weights/parameters $w_{j}$, as follows:
-
-$$I_{i}(l) = w_1^il_{1} \star  w_2^il_{2} \dots \star w_k^il_{k}$$
-
-Different indicators can depend on same landuse variables, and per each indicator the scenarios can be expressed by acting on the paramters $w_{j}$.
-
-As an example, using the definition above the indicator Mobility based emissions (a.) could be expressed as:
-
-$\textit{mobility based emissions} = w_1trips \star w_2distance \dots \star w_3\textit{mode of transport}$
-
-Is this useful??
-
----
-
 ## Open questions
 *And plausible answer*
 
 ---
 
-- [ ] what is the Research Question
+- [X] what is the Research Question $\rightarrow$ *What are the "best" values in the parametrisation of the land use variables? Could we train the computer to predict these values?*
 
-- [X] Resolution - LSOAS/ MSOAS? *feedback from Dani regarding SS*
-depending on how available data are aggregated
+- [X] Resolution  ~~LSOAS/~~ *MSOAS* ? feedback from Dani regarding SS: *SS gives conversion to LSOAs* $\Downarrow$
+
+- [ ] Does it make sense to use SPC (individuals' level data) as we aggregate at MSOA level? What variables are meaningful when aggregated?
 
 - [ ] type of output - *map, web ...* ~~MapBox~~ *MapLibre GL, Leaflet, ...*
 
-- [ ] how to generate scenarios - *ideas: change parameters' range, run ABstreet simulations...?*
+- [X] how to generate scenarios - *ideas: change parameters' range/values, run ABstreet simulations...?*
 
 - [ ] how turn on/off scenarios in the visualisation- *different layers in the map*
 

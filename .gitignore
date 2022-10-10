@@ -2,3 +2,4 @@
 # # momentaneously ignoring .png files until plan image is ready
 *._png
 /data/
+.csv
