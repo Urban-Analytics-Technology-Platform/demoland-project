@@ -81,6 +81,20 @@ Concentrating on Indicators for [Net-zero a and b](intro.qmd#net-zero):
 
 - get travel to school flow data from Propensity to Cycle Tool [PCT](https://www.pct.bike/m/)?
 
+*Location of usual residence and place of work by method of travel to work (...origin destination flows)*
+~~table WU03UK](https://wicid.ukdataservice.ac.uk/cider/wicid/downloads.php) at LAD level \
+ *Note:* can download all the tables for "Location of usual residence and place of work by method of travel to work" at different levels (LAD to LSOA, though the lattest is not Open data) here https://wicid.ukdataservice.ac.uk/cider/about/data_int.php?type=2~~ **safeguarded data!!**
+
+let's find <mark>MSOA</mark> data: <br />
+[nomisweb](Location of usual residence and place of work by method of travel to work)
+
+- WU03BEW(with 'outside UK' detailed) **safeguarded**
+
+- WU03EW (with 'outside UK' collapsed) **open**
+
+
+
+
 ---
 
 #### b. housing based emissions
