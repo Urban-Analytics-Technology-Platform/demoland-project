@@ -182,6 +182,9 @@ ul.task-list li input[type="checkbox"] {
 <li><input type="checkbox" disabled="">think “future scenarios”</li>
 </ul>
 <p><img src="tynewear_county_lads.png" class="img-fluid"> <em>The 5 LADs in the Metropolitan County of Tyne and Wear, highlighted are also the 4 major town areas</em></p>
+<ul>
+<li>OD flows data in SPC is only at MSOA level</li>
+</ul>
 <section id="python-code" class="level3" data-number="4.1.1">
 <h3 data-number="4.1.1" class="anchored" data-anchor-id="python-code"><span class="header-section-number">4.1.1</span> Python code</h3>
 <ul>
@@ -195,7 +198,7 @@ ul.task-list li input[type="checkbox"] {
 <p><span class="math display">\[I_{i}(l) = w_1^il_{1} \star  w_2^il_{2} \dots \star w_k^il_{k}\]</span></p>
 <p>Different indicators can depend on same landuse variables, and per each indicator the scenarios can be expressed by acting on the paramters <span class="math inline">\(w_{j}\)</span>.</p>
 <p>As an example, using the definition above the indicator Mobility based emissions (a.) could be expressed as:</p>
-<p><span class="math inline">\(\textit{mobility based emissions} = w_1trips \star w_2distance \dots \star w_3\textit{mode of transport}\)</span></p>
+<p><span class="math inline">\(\textit{mobility based emissions} = w_1trips \star w_2distance \dots \star w_3\textit{CO&lt;sub&gt;2&lt;/sub&gt;e emissions factor per mode of transport}\)</span></p>
 <p><span class="math inline">\(\dots\)</span> Is this useful??</p>
 <hr>
 </section>
@@ -222,17 +225,29 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 <section id="a.-mobility-based-emissions" class="level4" data-number="4.2.1.1">
 <h4 data-number="4.2.1.1" class="anchored" data-anchor-id="a.-mobility-based-emissions"><span class="header-section-number">4.2.1.1</span> a. mobility based emissions</h4>
-<p>UK GHG emissions national statistics <a href="https://www.gov.uk/government/statistics/uk-local-authority-and-regional-greenhouse-gas-emissions-national-statistics-2005-to-2020">Data for 2005 - 2020</a></p>
 <ul>
-<li><p>we can get from gov.uk CO<sub>2</sub>e (carbon dioxide equivalent) data for several occupations and travel modes, including transport, freight, etc <a href="https://www.gov.uk/government/statistical-data-sets/stacked-electricity-consumption-statistics-data">link</a></p></li>
-<li><p>OD flows from UK census … <strong>only to work and home</strong>? <em>check source</em></p></li>
+<li><p>(aggregated at LAD level) UK GHG emissions national statistics, estimates per Local Authority <a href="https://www.gov.uk/government/statistics/uk-local-authority-and-regional-greenhouse-gas-emissions-national-statistics-2005-to-2020">Data for 2005 - 2020</a> $% this datum is a sum of emissions from 2005-2020, usueful??</p></li>
+<li><p>we can get from gov.uk CO<sub>2</sub>e (carbon dioxide equivalent) emissions factors for several occupations and travel modes, including transport, freight, etc <a href="https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting">link</a></p></li>
+<li><p>OD flows from UK census … <strong>only to work and home</strong>? <em><del>check source</del></em> <span class="math inline">\(\rightarrow\)</span> YES <span class="math inline">\(\Downarrow\)</span></p></li>
+<li><p>get travel to school flow data from Propensity to Cycle Tool <a href="https://www.pct.bike/m/">PCT</a>?</p></li>
 </ul>
 <hr>
 </section>
 <section id="b.-housing-based-emissions" class="level4" data-number="4.2.1.2">
 <h4 data-number="4.2.1.2" class="anchored" data-anchor-id="b.-housing-based-emissions"><span class="header-section-number">4.2.1.2</span> b. housing based emissions</h4>
-<p>Sub-national electricity and gad consumption <a href="https://www.gov.uk/government/statistical-data-sets/stacked-electricity-consumption-statistics-data">Data for 2010 - 2020</a></p>
-<p>(Experimental?) https://www.gov.uk/government/collections/sub-national-gas-consumption-data</p>
+<p>Sub-national electricity and gad consumption data, <a href="https://www.gov.uk/government/statistical-data-sets/stacked-electricity-consumption-statistics-data">overview link</a></p>
+<ul>
+<li><a href="https://www.gov.uk/government/collections/sub-national-electricity-consumption-data">electricity consumption</a>:</li>
+</ul>
+<ol type="a">
+<li><p>one table per year (20105 to 2020) of total consumption at region and LAD levels <a href="https://www.gov.uk/government/statistical-data-sets/regional-and-local-authority-electricity-consumption-statistics">link</a></p></li>
+<li><p>one table per year (2010 to 2020) of total consumption at LSOA or MSOA level <a href="https://www.gov.uk/government/statistics/lower-and-middle-super-output-areas-electricity-consumption">link</a></p></li>
+<li><p>electricity and gas consumption (kWh) at postcode level (England, Scotland, Wales), one table per year, 2013,2015-2020 <a href="https://www.gov.uk/government/publications/postcode-level-domestic-gas-and-electricity-consumption-about-the-data">Experimental</a></p></li>
+<li><p>electricity consumption data for 2005 to 2020 as a single table, with years stacked one above the other <a href="https://www.gov.uk/government/statistical-data-sets/stacked-electricity-consumption-statistics-data">stacked data</a></p></li>
+</ol>
+<ul>
+<li>analogous links for <a href="https://www.gov.uk/government/collections/sub-national-gas-consumption-data">gas consumption</a></li>
+</ul>
 <hr>
 </section>
 <section id="people-behavior" class="level4" data-number="4.2.1.3">
@@ -268,6 +283,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p><input type="checkbox" disabled="" checked="">integrate with SPC - <em>need to integrate more Census variables? feasible?</em></p></li>
 <li><p><input type="checkbox" disabled="">can we actually build a methodology, given the different range of indicators and data?</p></li>
 <li><p><input type="checkbox" disabled="" checked="">importance of localised emissions and need for air-flow modelling … <em>not relevant for GHG</em></p></li>
+<li><p><input type="checkbox" disabled="">which year to take into consideration for the analysis? (Census, )</p></li>
 </ul>
 <hr>
 <section id="output-map-generation" class="level3" data-number="4.3.1">
