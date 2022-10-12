@@ -44,7 +44,7 @@ Different indicators can depend on same landuse variables, and per each indicato
 
 As an example, using the definition above the indicator Mobility based emissions (a.) could be expressed as:
 
-$\textit{mobility based emissions} = w_1trips \star w_2distance \dots \star w_3\textit{CO<sub>2</sub>e emissions factor per mode of transport}$
+$[\textit{mobility based emissions}] = w_1[trips] \star w_2[distance] \dots \star w_3[\textit{CO}_2 \textit{ emissions factor per mode of transport}]$
 
 $\dots$ Is this useful??
 
@@ -163,7 +163,7 @@ opened issue here [https://github.com/creds2/CarbonCalculator/issues/6](https://
 
 - [X] importance of localised emissions and need for air-flow modelling ... *not relevant for GHG*
 
-- [ ] which year to take into consideration for the analysis? (Census,  )
+- [ ] which year to take into consideration for the analysis? (Census, conversion factors, surveys...)
 
 
 ---
