@@ -1,24 +1,50 @@
-# Travel to work data
 library(sf)
 library(stplanr)
 library(dplyr)
 
+OD_file_path <- "/Users/azanchetta/OneDrive - The Alan Turing Institute/Research/Data/land_use/wu03ew_v2/wu03ew_v2.csv"
 
-# Reading FLOW DATA - OD matrix
+OD <- read.csv(ODfile_path)
+View(OD)
+colnames(OD)
+# [1] "Area.of.residence"                       
+# [2] "Area.of.workplace"                       
+# [3] "All.categories..Method.of.travel.to.work"
+# [4] "Work.mainly.at.or.from.home"             
+# [5] "Underground..metro..light.rail..tram"    
+# [6] "Train"                                   
+# [7] "Bus..minibus.or.coach"                   
+# [8] "Taxi"                                    
+# [9] "Motorcycle..scooter.or.moped"            
+# [10] "Driving.a.car.or.van"                    
+# [11] "Passenger.in.a.car.or.van"               
+# [12] "Bicycle"                                 
+# [13] "On.foot"                                 
+# [14] "Other.method.of.travel.to.work"
+od <- OD[,c("Area.of.residence","Area.of.workplace",names(OD)[grepl("All.categories..Method.of.travel.to.work",names(OD))])]
+# 2402201 obs.
+names(od) <- gsub("_All.categories..Method.of.travel.to.work","",names(od))
+names(od)[1:2] <- c("MSOA_from","MSOA_to")
 
-dir.create("tmp")
-unzip("D:/OneDrive - University of Leeds/Data/LSOA Flow Data/Public/WM12EW[CT0489]_lsoa.zip",
-      exdir = "tmp")
-od <- readr::read_csv("tmp/WM12EW[CT0489]_lsoa.csv")
-unlink("tmp", recursive = TRUE)
 
-dir.create("tmp")
-unzip("D:/OneDrive - University of Leeds/Data/OA Bounadries/EW_LSOA_2011_Centroids.zip",
-      exdir = "tmp")
-cents <- read_sf("tmp/Lower_Layer_Super_Output_Areas__December_2011__Population_Weighted_Centroids.shp")
-unlink("tmp", recursive = TRUE)
+MSOAcentroids_file_path <- "/Users/azanchetta/OneDrive - The Alan Turing Institute/Research/Data/GeoSpatial/Middle_layer_Super_Output_Areas_(December_2011)_Population_Weighted_Centroids"
+centroids <- read_sf(MSOAcentroids_file_path)
+plot(centroids)
 
-# Selecting specific fields from OD data
+centroids_cd <- centroids$msoa11cd #centroids[,"msoa11cd"]
+
+# selecting from OD flows only MSOA actually contained in the centroids file
+# note: the file contains only England and Wales
+od_sel_from <- od[od$MSOA_from %in% centroids_cd,]
+od_sel_to <- od_sel_from[od_sel_from$MSOA_to %in% centroids_cd,]
+# can we find a more elegant way of doing this?
+
+# select MSOAs for Newcastle and 
+od_line <- od2line(od_sel_to, cents)
+
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 od <- od[,c("Area of usual residence","Area of Workplace",names(od)[grepl("AllSexes_Age16Plus",names(od))])]
 names(od) <- gsub("_AllSexes_Age16Plus","",names(od))
 names(od)[1:2] <- c("LSOA_from","LSOA_to")

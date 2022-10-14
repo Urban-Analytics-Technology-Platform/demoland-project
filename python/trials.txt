@@ -1,0 +1,28 @@
+
+cd /Users/azanchetta/OneDrive - The Alan Turing Institute/Research/projects/LandUseDemonstrator/python/
+
+conda env create -f env.yml
+
+conda activate demonst
+
+# Convert the .pb to JSON
+# python3 protobuf_to_csv.py ../data/tyne_and_wear.pb
+cd python
+python3 protobuf_to_csv.py --input_path=../data/tyne_and_wear.pb
+# View the output
+less people.csv
+#  changing the csv file to get all the pop fields
+less people_all.csv
+
+# Trying to build method to for one land use
+# IE let'r try calculating per capita emissions due to travel 2 work (per MSOA)
+
+# travel_to_work_emissions = distance * n of trips * emission factor per mode
+
+# need to aggregate data at MSOA level...
+# how maby people travel how far with which mean of transport?
+
+# found data for OD at MSOA level for travel to work
+# https://statistics.ukdataservice.ac.uk/dataset/wu03ew-2011-msoamsoa-location-usual-residence-and-place-work-method-travel-work
+# first trials with R? -> file trials.R
+
