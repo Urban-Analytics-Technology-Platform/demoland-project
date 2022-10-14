@@ -1,4 +1,6 @@
 
+### Some commands and stuff used to run stuff and trials, super basic
+
 cd /Users/azanchetta/OneDrive - The Alan Turing Institute/Research/projects/LandUseDemonstrator/python/
 
 conda env create -f env.yml
