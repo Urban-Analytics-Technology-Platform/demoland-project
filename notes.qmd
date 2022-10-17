@@ -206,6 +206,8 @@ opened issue here [https://github.com/creds2/CarbonCalculator/issues/6](https://
 
 - [ ] which year to take into consideration for the analysis? (Census, conversion factors, surveys...)
 
+- [ ] when I calculate the distance home-place of work, how do I consider the intraMSOA trips (IE within the same MSOA), as I am only taking into account the centroids of the MSOAs?
+
 
 ---
 

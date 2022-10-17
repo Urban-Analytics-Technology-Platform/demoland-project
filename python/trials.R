@@ -82,12 +82,42 @@ od_line <- od2line(od_tynewear, centroids_list)
 od_line_inter <- od2line(od_inter, centroids_list)
 
 # plotting
-qtm(od_line_inter, lines.lwd = c("individuals", "bike", "car", "bus", "u-m-l-t", "train"))
+qtm(od_line, lines.lwd = c("individuals", "bike", "car", "bus", "u-m-l-t", "train"))
 plot(od_line_inter)
 
 
 #calculating distance between centroids
 # st_length : Compute Euclidian or great circle distance between pairs of geometries
+od_line$dist_km <- round(as.numeric(st_length(od_line)) / 1000,
+                         3)
+
+# per each Origin MSOA, calculate the tot of individuals and tot of km per mode
+
+grouped_msoas <- od_line %>%
+  group_by(Origin) %>%
+  summarize(across(where(is.numeric), sum))
+
+# 
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# HEREE!!!!!!
+# check this https://stackoverflow.com/questions/39181208/how-to-group-by-all-but-one-columns
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+# multiplicate per number of trips and per emission factor
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # original from carbuncalculator:
