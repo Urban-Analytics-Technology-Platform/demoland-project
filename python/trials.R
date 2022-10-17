@@ -7,10 +7,13 @@
 library(sf)
 library(stplanr)
 library(dplyr)
+library(tmap)         # map making (see Chapter 9)
+library(ggplot2)      # data visualization package
+library(sfnetworks)
 
 OD_file_path <- "/Users/azanchetta/OneDrive - The Alan Turing Institute/Research/Data/land_use/wu03ew_v2/wu03ew_v2.csv"
 
-OD <- read.csv(ODfile_path)
+OD <- read.csv(OD_file_path)
 View(OD)
 colnames(OD)
 # [1] "Area.of.residence"                       
@@ -29,32 +32,62 @@ colnames(OD)
 # [14] "Other.method.of.travel.to.work"
 od <- OD[,c("Area.of.residence","Area.of.workplace",names(OD)[grepl("All.categories..Method.of.travel.to.work",names(OD))])]
 # 2402201 obs.
-names(od) <- gsub("_All.categories..Method.of.travel.to.work","",names(od))
-names(od)[1:2] <- c("MSOA_from","MSOA_to")
+names(od) <- gsub("_All.categories..Method.of.travel.to.work",
+                  "",
+                  names(od))
 
+od<- OD
+names(od)<- c("Origin","Destination", "individuals", "home", "u-m-l-t", "train", "bus", "taxy", "moto", "car", "passenger", "bike", "foot", "other")
+
+length(unique(od$Origin))
+length(unique(od$Destination))
 
 MSOAcentroids_file_path <- "/Users/azanchetta/OneDrive - The Alan Turing Institute/Research/Data/GeoSpatial/Middle_layer_Super_Output_Areas_(December_2011)_Population_Weighted_Centroids"
 centroids <- read_sf(MSOAcentroids_file_path)
 plot(centroids)
 
-centroids_cd <- centroids$msoa11cd #centroids[,"msoa11cd"]
+
+centroids_list <- centroids[,"msoa11cd"] #centroids$msoa11cd #centroids[,"msoa11cd"]
+
+centroids_codes <- centroids$msoa11cd
+length(unique(centroids_codes)) # 7201
+
+# which MSOAs are in od that are not in th e MSOAs list (centroids):
+setdiff(od$Destination, centroids_codes) # "N92000002" "OD0000001" "OD0000002" "OD0000003" "OD0000004" "S92000003"
+
 
 # selecting from OD flows only MSOA actually contained in the centroids file
 # note: the file contains only England and Wales
-od_sel_from <- od[od$MSOA_from %in% centroids_cd,]
-od_sel_to <- od_sel_from[od_sel_from$MSOA_to %in% centroids_cd,]
+od_sel_from <- od[od$Origin %in% centroids_codes,]
+# length(unique(od_sel_from$Origin))
+# length(unique(od_sel_from$Destination))
+od_sel_to <- od_sel_from[od_sel_from$Destination %in% centroids_codes,]
 # can we find a more elegant way of doing this?
+# length(unique(od_sel_from$MSOA_to)) # 7207
 
-# Select MSOAs for Tyne and Wear
+# Select MSOAs for Tyne and Wear from the OD table
 tynewear_MSOAs_filename <- "/Users/azanchetta/OneDrive - The Alan Turing Institute/Research/projects/LandUse/TyneWear_MSOAs_list.csv"
 
-od_tynewear <- ""
+MSOAs_tyneawear_lut <- read.csv(tynewear_MSOAs_filename) # 145 obs
+MSOAs_tinewear_list <- unique(MSOAs_tyneawear_lut$MSOA11CD)
 
-################################
-#######CONTINUE HERE!!!!########
-################################
+od_tynewear <- od_sel_to %>%
+  filter(Origin %in% MSOAs_tinewear_list & Destination %in% MSOAs_tinewear_list)
 
-od_line <- od2line(od_tynewear, centroids_cd)
+od_intra = filter(od_tynewear, Origin == Destination)
+od_inter = filter(od_tynewear, Origin != Destination)
+
+# Generating the o-d lines between centroids
+od_line <- od2line(od_tynewear, centroids_list)
+od_line_inter <- od2line(od_inter, centroids_list)
+
+# plotting
+qtm(od_line_inter, lines.lwd = c("individuals", "bike", "car", "bus", "u-m-l-t", "train"))
+plot(od_line_inter)
+
+
+#calculating distance between centroids
+# st_length : Compute Euclidian or great circle distance between pairs of geometries
 
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # original from carbuncalculator:

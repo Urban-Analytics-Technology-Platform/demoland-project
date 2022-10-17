@@ -25,9 +25,27 @@ Building *base scenario*
 ![](tynewear_county_lads.png)
 *The 5 LADs in the Metropolitan County of Tyne and Wear, highlighted are also the 4 major town areas*
 
-**Note:** first trials in R, as I am more confident with the language, and trying to reproduce the code form carbun calculator for [prep_travel_to_work.R](https://github.com/creds2/CarbonCalculator/blob/master/R/prep_travel_to_work.R),
+
+![](od_tynewear_1trial.png)
+*Origin Destination flows of individuals for commuting to work (2011 UK Census data), the Metropolitan County of Tyne and Wear*
+
+![](od_tynewear_bymode.png)
+*Origin Destination flows of individuals for commuting to work (2011 UK Census data), the Metropolitan County of Tyne and Wear, separated by mode of transport*
+
+**Note:** first trials in R, as I am more confident with the language, and trying to reproduce the code from carbun calculator for [prep_travel_to_work.R](https://github.com/creds2/CarbonCalculator/blob/master/R/prep_travel_to_work.R),
 
 will then translate to Python
+
+---
+
+**Keep in mind when you'll "generalise" the procedure**
+
+*IE pass from the study case to a national case*
+
+- how to select MSOAs for Origin and Destination from the dataset (take off abroad destinations as well)
+
+- 
+
 
 ---
 
