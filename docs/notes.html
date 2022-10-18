@@ -176,7 +176,14 @@ ul.task-list li input[type="checkbox"] {
 <p>Working on <em>a. mobility based emissions</em> -&gt; IE transport data</p>
 <p>&amp;</p>
 <p>Building <em>base scenario</em></p>
-<p>Roadmap: - [X] Try to dl/open/visualise SPC data <span class="math inline">\(\rightarrow\)</span> <em>Note: study case Metropolitan county of Tyne and Wear</em> - [ ] Investigate potentially relevant data from <a href="#people-behavior">UK Data Services</a> data -&gt; any other relevant dataset? - [ ] How to connect/integrate TUS to SPC dataset – why? - [ ] visualise the integrated dataset -&gt; <em>base scenario</em> - [ ] think “future scenarios”</p>
+<p>Roadmap:</p>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" checked="">Try to dl/open/visualise SPC data <span class="math inline">\(\rightarrow\)</span> <em>Note: study case Metropolitan county of Tyne and Wear</em></li>
+<li><input type="checkbox" disabled="">Investigate potentially relevant data from <a href="#people-behavior">UK Data Services</a> data -&gt; any other relevant dataset?</li>
+<li><input type="checkbox" disabled="">How to connect/integrate TUS to SPC dataset – why?</li>
+<li><input type="checkbox" disabled="">visualise the integrated dataset -&gt; <em>base scenario</em></li>
+<li><input type="checkbox" disabled="">think “future scenarios”</li>
+</ul>
 <p><img src="tynewear_county_lads.png" class="img-fluid"> <em>The 5 LADs in the Metropolitan County of Tyne and Wear, highlighted are also the 4 major town areas</em></p>
 <p><img src="od_tynewear_1trial.png" class="img-fluid"> <em>Origin Destination flows of individuals for commuting to work (2011 UK Census data), the Metropolitan County of Tyne and Wear</em></p>
 <p><img src="od_tynewear_bymode.png" class="img-fluid"> <em>Origin Destination flows of individuals for commuting to work (2011 UK Census data), the Metropolitan County of Tyne and Wear, separated by mode of transport</em></p>
@@ -196,7 +203,9 @@ ul.task-list li input[type="checkbox"] {
 <li><p><input type="checkbox" disabled="">when I calculate the distance home-place of work, how do I consider the intraMSOA trips (IE within the same MSOA), as I am only taking into account the centroids of the MSOAs?</p></li>
 <li><p><input type="checkbox" disabled="">how we count total number of people (age, people working)</p></li>
 <li><p><input type="checkbox" disabled="">do we give the results per capita (then see point above) or total per MSOA</p></li>
+<li><p><input type="checkbox" disabled="">conversion factor for cars??</p></li>
 </ul>
+<p><img src="which_conversion_car.png" class="img-fluid"></p>
 <hr>
 </section>
 <section id="approximations" class="level3" data-number="4.1.2">
@@ -216,7 +225,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="defining-relations" class="level3" data-number="4.1.4">
 <h3 data-number="4.1.4" class="anchored" data-anchor-id="defining-relations"><span class="header-section-number">4.1.4</span> Defining relations</h3>
-<p>We can see the Indicators <span class="math inline">\(I_{i}\)</span>, with <span class="math inline">\(i = \{1, ..., n\}\)</span>, as a function of different land uses <span class="math inline">\(l_{j}\)</span> where <span class="math inline">\(j = \{1, ..., k\}\)</span> and <span class="math inline">\(I_{i}\)</span> can be expressed as generic mathematical relation (that we express with <span class="math inline">\(\star\)</span>) between several <span class="math inline">\(l_{j}\)</span> weighted by <span class="math inline">\(k\)</span> generic weights/parameters <span class="math inline">\(w_{j}\)</span>, as follows:</p>
+<p>We can see the Indicators <span class="math inline">\(I_{i}\)</span>, with <span class="math inline">\(i = \{1, ..., n\}\)</span>, as a function of different land uses <span class="math inline">\(l_{j}\)</span> where <span class="math inline">\(j = \{1, ..., k\}\)</span> and <span class="math inline">\(I_{i}\)</span> can be expressed as generic mathematical relation (that we express with the symbol “<span class="math inline">\(\star\)</span>”“) between several <span class="math inline">\(l_{j}\)</span> weighted by <span class="math inline">\(k\)</span> generic weights/parameters <span class="math inline">\(w_{j}\)</span>, as follows:</p>
 <p><span class="math display">\[I_{i}(l) = w_1^il_{1} \star  w_2^il_{2} \dots \star w_k^il_{k}\]</span></p>
 <p>Different indicators can depend on same landuse variables, and per each indicator the scenarios can be expressed by acting on the paramters <span class="math inline">\(w_{j}\)</span>.</p>
 <p>As an example, using the definition above the indicator Mobility based emissions (a.) could be expressed <mark>per mode of transport</mark> and per each MSOA as:</p>
@@ -230,11 +239,18 @@ ul.task-list li input[type="checkbox"] {
 &amp; \star w_5[\textit{CO}_2 \textit{k}]
 \end{align}
 \]</span></p>
-<p>where <span class="math inline">\(CO_2 k\)</span> is the CO<sub>2</sub> emission factor per mode of transport</p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\([trips/day]\)</span> is a fixed value (average per person from DFT data … *)</li>
+<li><span class="math inline">\([distance/trip]\)</span> is calculated as shortest distance between the MSOAs’ centroids</li>
+<li><span class="math inline">\([n\_individuals]\)</span> is given by the UK Census 2011 commuting flow</li>
+<li><span class="math inline">\([\textit{n of commuting days/year}]\)</span> is a fixed value (average per person from DFT data … *)</li>
+<li><span class="math inline">\([CO_2 k]\)</span> is the carbon dioxide equivalent emission factor per mode of transport</li>
+</ul>
 <hr>
 <p>Commuting is really just one part of the total travels by car per per person per year:</p>
 <p><img src="car_trips_per_person_travel_survey.png" class="img-fluid"> <em>source: <a href="https://www.gov.uk/government/statistics/national-travel-survey-2020/national-travel-survey-2020">national travel survey</a></em></p>
-<p>… is then really reductive to consider only commuting trips for emissions?</p>
+<p>… it sounds then reductive to consider only commuting trips for emissions!</p>
 <hr>
 </section>
 </section>
@@ -260,15 +276,14 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 <section id="a.-mobility-based-emissions" class="level4" data-number="4.2.1.1">
 <h4 data-number="4.2.1.1" class="anchored" data-anchor-id="a.-mobility-based-emissions"><span class="header-section-number">4.2.1.1</span> a. mobility based emissions</h4>
-<ul>
-<li><p>(aggregated at LAD level) UK GHG emissions national statistics, estimates per Local Authority <a href="https://www.gov.uk/government/statistics/uk-local-authority-and-regional-greenhouse-gas-emissions-national-statistics-2005-to-2020">Data for 2005 - 2020</a> <span class="math inline">\(\rightarrow\)</span> this datum is a sum of emissions from 2005-2020, useful??</p></li>
-<li><p>we can get from gov.uk CO<sub>2</sub>e (carbon dioxide equivalent) emissions factors for several occupations and travel modes, including transport, freight, etc <a href="https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting">link</a></p></li>
+<ol type="1">
+<li><p><del>(aggregated at LAD level) UK GHG emissions national statistics, estimates per Local Authority <a href="https://www.gov.uk/government/statistics/uk-local-authority-and-regional-greenhouse-gas-emissions-national-statistics-2005-to-2020">Data for 2005 - 2020</a></del><span class="math inline">\(\rightarrow\)</span> this datum is a sum of emissions from 2005-2020, useful??</p></li>
+<li><p>we can get from gov.uk CO<sub>2</sub>e (carbon dioxide equivalent) emissions factors for several occupations and travel modes, including transport, freight, etc <a href="https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting">link</a>;\ We get the emission factors per mode of transport from the tab “Business travel-land” and “homeworking” (for working from home individuals)</p></li>
 <li><p>OD flows from UK census … <strong>only to work and home</strong>? <em><del>check source</del></em> <span class="math inline">\(\rightarrow\)</span> YES <span class="math inline">\(\Downarrow\)</span></p></li>
 <li><p>get travel to school flow data from Propensity to Cycle Tool <a href="https://www.pct.bike/m/">PCT</a>?</p></li>
-</ul>
-<p><em>Location of usual residence and place of work by method of travel to work (…origin destination flows)</em> <del>table WU03UK](https://wicid.ukdataservice.ac.uk/cider/wicid/downloads.php) at LAD level<br>
-<em>Note:</em> can download all the tables for “Location of usual residence and place of work by method of travel to work” at different levels (LAD to LSOA, though the lattest is not Open data) here https://wicid.ukdataservice.ac.uk/cider/about/data_int.php?type=2</del> <strong>safeguarded data!!</strong></p>
-<p>let’s find <mark>MSOA</mark> data: <br> <a href="Location%20of%20usual%20residence%20and%20place%20of%20work%20by%20method%20of%20travel%20to%20work">nomisweb</a></p>
+<li><p>Location of usual residence and place of work by method of travel to work (…origin destination flows) <del>table WU03UK](https://wicid.ukdataservice.ac.uk/cider/wicid/downloads.php) at LAD level<br>
+<em>Note:</em> can download all the tables for “Location of usual residence and place of work by method of travel to work” at different levels (LAD to LSOA, though the lattest is not Open data) here https://wicid.ukdataservice.ac.uk/cider/about/data_int.php?type=2</del> <strong>safeguarded data!!</strong> let’s find <mark>MSOA</mark> data: <br> <a href="Location%20of%20usual%20residence%20and%20place%20of%20work%20by%20method%20of%20travel%20to%20work">nomisweb</a></p></li>
+</ol>
 <ul>
 <li><p>WU03BEW(with ‘outside UK’ detailed) <strong>safeguarded</strong></p></li>
 <li><p>WU03EW (with ‘outside UK’ collapsed) <strong>open</strong></p></li>

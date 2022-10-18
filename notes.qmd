@@ -17,6 +17,7 @@ Working on *a. mobility based emissions* -> IE transport data
 Building *base scenario*
 
 Roadmap:
+
 - [X] Try to dl/open/visualise SPC data $\rightarrow$ *Note: study case Metropolitan county of Tyne and Wear*
 - [ ] Investigate potentially relevant data from [UK Data Services](#people-behavior) data  -> any other relevant dataset?
 - [ ] How to connect/integrate TUS to SPC dataset -- why?
@@ -65,7 +66,9 @@ a. only OD within MSOAs of this county
 
 b. considering as distance only the pop weighted centroids for each MSOA
 
-c. ...
+c. London has specific values for CO2 conversion factors (ex for cabs, buses, underground) but only using general values (correct later if needed for London case)
+
+d. ...
 
 
 ### Python code
@@ -77,7 +80,7 @@ c. ...
 
 ### Defining relations
 
-We can see the Indicators $I_{i}$, with $i = \{1, ..., n\}$, as a function of different land uses $l_{j}$ where $j = \{1, ..., k\}$ and $I_{i}$ can be expressed as generic mathematical relation (that we express with $\star$) between several $l_{j}$ weighted by $k$ generic weights/parameters $w_{j}$, as follows:
+We can see the Indicators $I_{i}$, with $i = \{1, ..., n\}$, as a function of different land uses $l_{j}$ where $j = \{1, ..., k\}$ and $I_{i}$ can be expressed as generic mathematical relation (that we express with the symbol "$\star$"") between several $l_{j}$ weighted by $k$ generic weights/parameters $w_{j}$, as follows:
 
 $$I_{i}(l) = w_1^il_{1} \star  w_2^il_{2} \dots \star w_k^il_{k}$$
 
@@ -97,7 +100,13 @@ $$
 \end{align}
 $$
 
-where $CO_2 k$ is the CO<sub>2</sub> emission factor per mode of transport
+where:
+
+- $[trips/day]$ is a fixed value (average per person from DFT data ... *)
+- $[distance/trip]$ is calculated as shortest distance between the MSOAs' centroids
+- $[n\_individuals]$ is given by the UK Census 2011 commuting flow
+- $[\textit{n of commuting days/year}]$ is a fixed value (average per person from DFT data ... *)
+- $[CO_2 k]$ is the carbon dioxide equivalent emission factor per mode of transport
 
 ---
 
@@ -106,7 +115,7 @@ Commuting is really just one part of the total travels by car per per person per
 ![](car_trips_per_person_travel_survey.png)
 *source: [national travel  survey](https://www.gov.uk/government/statistics/national-travel-survey-2020/national-travel-survey-2020)*
 
-... is then really reductive to consider only commuting trips for emissions?
+... it sounds then reductive to consider only commuting trips for emissions!
 
 
 ---
@@ -134,18 +143,18 @@ Concentrating on Indicators for [Net-zero a and b](intro.qmd#net-zero):
 
 #### a. mobility based emissions
 
-- (aggregated at LAD level) UK GHG emissions national statistics, estimates per Local Authority [Data for 2005 - 2020](https://www.gov.uk/government/statistics/uk-local-authority-and-regional-greenhouse-gas-emissions-national-statistics-2005-to-2020) $\rightarrow$ this datum is a sum of emissions from 2005-2020, useful??
+1. ~~(aggregated at LAD level) UK GHG emissions national statistics, estimates per Local Authority [Data for 2005 - 2020](https://www.gov.uk/government/statistics/uk-local-authority-and-regional-greenhouse-gas-emissions-national-statistics-2005-to-2020)~~$\rightarrow$ this datum is a sum of emissions from 2005-2020, useful??
 
-- we can get from gov.uk CO<sub>2</sub>e (carbon dioxide equivalent) emissions factors for several occupations and travel modes, including transport, freight, etc [link](https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting)
+2. we can get from gov.uk CO<sub>2</sub>e (carbon dioxide equivalent) emissions factors for several occupations and travel modes, including transport, freight, etc [link](https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting);\\
+We get the emission factors per mode of transport from the tab "Business travel-land" and "homeworking" (for working from home individuals)
 
-- OD flows from UK census ... **only to work and home**? *~~check source~~* $\rightarrow$ YES $\Downarrow$
+3. OD flows from UK census ... **only to work and home**? *~~check source~~* $\rightarrow$ YES $\Downarrow$
 
-- get travel to school flow data from Propensity to Cycle Tool [PCT](https://www.pct.bike/m/)?
+3. get travel to school flow data from Propensity to Cycle Tool [PCT](https://www.pct.bike/m/)?
 
-*Location of usual residence and place of work by method of travel to work (...origin destination flows)*
+4. Location of usual residence and place of work by method of travel to work (...origin destination flows)
 ~~table WU03UK](https://wicid.ukdataservice.ac.uk/cider/wicid/downloads.php) at LAD level \
  *Note:* can download all the tables for "Location of usual residence and place of work by method of travel to work" at different levels (LAD to LSOA, though the lattest is not Open data) here https://wicid.ukdataservice.ac.uk/cider/about/data_int.php?type=2~~ **safeguarded data!!**
-
 let's find <mark>MSOA</mark> data: <br />
 [nomisweb](Location of usual residence and place of work by method of travel to work)
 

@@ -2,3 +2,4 @@
 *.py
 *.csv
 *._R
+!CO2_conversion_factors_list.csv

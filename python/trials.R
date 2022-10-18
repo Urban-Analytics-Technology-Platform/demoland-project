@@ -10,6 +10,7 @@ library(dplyr)
 library(tmap)         # map making (see Chapter 9)
 library(ggplot2)      # data visualization package
 library(sfnetworks)
+library(tidyverse)
 
 # A. Defining constants and importing input variables in R ----
 OD_file_path <- "/Users/azanchetta/OneDrive - The Alan Turing Institute/Research/Data/land_use/wu03ew_v2/wu03ew_v2.csv"
@@ -38,7 +39,7 @@ names(od) <- gsub("_All.categories..Method.of.travel.to.work",
                   names(od))
 
 od<- OD
-names(od)<- c("Origin","Destination", "individuals", "home", "u-m-l-t", "train", "bus", "taxy", "moto", "car", "passenger", "bike", "foot", "other")
+names(od)<- c("Origin","Destination", "individuals", "home", "u-m-l-t", "train", "bus", "taxi", "moto", "car", "passenger", "bike", "foot", "other")
 
 length(unique(od$Origin))
 length(unique(od$Destination))
@@ -95,7 +96,7 @@ plot(od_line_inter)
 # calculating distance between centroids
 # st_length : Compute Euclidian or great circle distance between pairs of geometries
 od_line$dist_km <- round(as.numeric(st_length(od_line)) / 1000,
-                         3)
+                         0)
 
 # per each Origin MSOA, calculate the tot of individuals and tot of km per mode
 # first drop the 'geometry' column from the sd object (https://r-spatial.github.io/sf/reference/st_geometry.html)
@@ -107,15 +108,17 @@ grouped_msoas <- od_df %>%
   group_by(Origin) %>%
   summarize(across(where(is.numeric), sum)) # summing up per each mode of transport the n. of individuals
 
-# checking that  the number of individuals equals the sum of individuals per mode of transport:
+# checking that the number of individuals equals the sum of individuals per mode of transport:
 # check <- setdiff(rowSums(grouped_msoas[ , c(3:13)]), grouped_msoas$individuals)
 # check <- rowSums(grouped_msoas[ , c(3:13)]) -  grouped_msoas$individuals
 
 # multiplicate per number of trips and per emission factor
-
-
-
-
+msoas_with_km <- od_df %>%
+  pivot_longer(home:other) %>% # generates one row per each mode of transport (long format)
+  mutate(km = value*dist_km) %>% # generates a column "skm" with the results of the function applied to each considered column
+  pivot_wider(values_from = c(value, km)) #%>% # returns to wide format generating new column per each mode
+  select_at(vars(-starts_with("value"))) # drop columns called "values" (they just repeat per each mode the n of individuals)
+# found from here!!! https://stackoverflow.com/questions/60916841/generate-multiple-columns-of-variables-with-dplyr-and-function-in-a-vectorized
 
 
 
