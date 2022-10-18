@@ -1,8 +1,8 @@
-# -------------------------------------
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # author: anna zanchetta
 # name: trials.R
 # aim: reproduce the code from https://github.com/creds2/CarbonCalculator/blob/master/R/prep_travel_to_work.R
-# -------------------------------------
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 library(sf)
 library(stplanr)
@@ -11,6 +11,7 @@ library(tmap)         # map making (see Chapter 9)
 library(ggplot2)      # data visualization package
 library(sfnetworks)
 
+# A. Defining constants and importing input variables in R ----
 OD_file_path <- "/Users/azanchetta/OneDrive - The Alan Turing Institute/Research/Data/land_use/wu03ew_v2/wu03ew_v2.csv"
 
 OD <- read.csv(OD_file_path)
@@ -46,15 +47,22 @@ MSOAcentroids_file_path <- "/Users/azanchetta/OneDrive - The Alan Turing Institu
 centroids <- read_sf(MSOAcentroids_file_path)
 plot(centroids)
 
+tynewear_MSOAs_filename <- "/Users/azanchetta/OneDrive - The Alan Turing Institute/Research/projects/LandUse/TyneWear_MSOAs_list.csv"
 
+
+n_of_trips_daily <- 1.9 # number of commuting trips per person a day (from ...)
+n_of_days_with_trips_yearly <- 220 # number of working days per year per person (from ...)
+
+# B. Actual work -----
+## First cleaning up of the data ----
+#  generate list of MSOAs for using later (only codes df)
 centroids_list <- centroids[,"msoa11cd"] #centroids$msoa11cd #centroids[,"msoa11cd"]
-
+#  generate list of the codes
 centroids_codes <- centroids$msoa11cd
 length(unique(centroids_codes)) # 7201
 
 # which MSOAs are in od that are not in th e MSOAs list (centroids):
 setdiff(od$Destination, centroids_codes) # "N92000002" "OD0000001" "OD0000002" "OD0000003" "OD0000004" "S92000003"
-
 
 # selecting from OD flows only MSOA actually contained in the centroids file
 # note: the file contains only England and Wales
@@ -66,8 +74,6 @@ od_sel_to <- od_sel_from[od_sel_from$Destination %in% centroids_codes,]
 # length(unique(od_sel_from$MSOA_to)) # 7207
 
 # Select MSOAs for Tyne and Wear from the OD table
-tynewear_MSOAs_filename <- "/Users/azanchetta/OneDrive - The Alan Turing Institute/Research/projects/LandUse/TyneWear_MSOAs_list.csv"
-
 MSOAs_tyneawear_lut <- read.csv(tynewear_MSOAs_filename) # 145 obs
 MSOAs_tinewear_list <- unique(MSOAs_tyneawear_lut$MSOA11CD)
 
@@ -86,23 +92,24 @@ qtm(od_line, lines.lwd = c("individuals", "bike", "car", "bus", "u-m-l-t", "trai
 plot(od_line_inter)
 
 
-#calculating distance between centroids
+# calculating distance between centroids
 # st_length : Compute Euclidian or great circle distance between pairs of geometries
 od_line$dist_km <- round(as.numeric(st_length(od_line)) / 1000,
                          3)
 
 # per each Origin MSOA, calculate the tot of individuals and tot of km per mode
+# first drop the 'geometry' column from the sd object (https://r-spatial.github.io/sf/reference/st_geometry.html)
+# or it'd enter in allthe subsequent calculations (where it is not relevant anymore)
+od_df <- od_line
+st_geometry(od_df) <- NULL
 
-grouped_msoas <- od_line %>%
+grouped_msoas <- od_df %>%
   group_by(Origin) %>%
-  summarize(across(where(is.numeric), sum))
+  summarize(across(where(is.numeric), sum)) # summing up per each mode of transport the n. of individuals
 
-# 
-# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-# HEREE!!!!!!
-# check this https://stackoverflow.com/questions/39181208/how-to-group-by-all-but-one-columns
-# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+# checking that  the number of individuals equals the sum of individuals per mode of transport:
+# check <- setdiff(rowSums(grouped_msoas[ , c(3:13)]), grouped_msoas$individuals)
+# check <- rowSums(grouped_msoas[ , c(3:13)]) -  grouped_msoas$individuals
 
 # multiplicate per number of trips and per emission factor
 

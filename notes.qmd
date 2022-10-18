@@ -16,6 +16,7 @@ Working on *a. mobility based emissions* -> IE transport data
 
 Building *base scenario*
 
+Roadmap:
 - [X] Try to dl/open/visualise SPC data $\rightarrow$ *Note: study case Metropolitan county of Tyne and Wear*
 - [ ] Investigate potentially relevant data from [UK Data Services](#people-behavior) data  -> any other relevant dataset?
 - [ ] How to connect/integrate TUS to SPC dataset -- why?
@@ -46,6 +47,15 @@ will then translate to Python
 
 - 
 
+### Working questions:
+
+- [ ] which year to take into consideration for the analysis? (Census, conversion factors, surveys...)
+
+- [ ] when I calculate the distance home-place of work, how do I consider the intraMSOA trips (IE within the same MSOA), as I am only taking into account the centroids of the MSOAs?
+
+- [ ] how we count total number of people (age, people working)
+
+- [ ] do we give the results per capita (then see point above) or total per MSOA
 
 ---
 
@@ -73,18 +83,28 @@ $$I_{i}(l) = w_1^il_{1} \star  w_2^il_{2} \dots \star w_k^il_{k}$$
 
 Different indicators can depend on same landuse variables, and per each indicator the scenarios can be expressed by acting on the paramters $w_{j}$.
 
-As an example, using the definition above the indicator Mobility based emissions (a.) could be expressed as:
+As an example, using the definition above the indicator Mobility based emissions (a.) could be expressed <mark>per mode of transport</mark> and per each MSOA as:
 
-$[\textit{mobility based emissions}] = w_1[trips] \star w_2[distance] \star w_3[\textit{CO}_2 \textit{ emissions factor per mode of transport}]$
+<!-- $[\textit{emissions/ msoa / year}] = w_1[trips/day] \star w_2[distance/trip] \star w_3[n\_individuals] \star w_4[n\_commuting days/year] \star w_5[\textit{CO}_2 \textit{k}]$ -->
 
-$\dots$ Is this useful??
+$$
+\begin{align}
+[\textit{emissions/msoa/year}] & =  w_1[trips/day] \star\\
+& \star  w_2[distance/trip] \star\\
+& \star  w_3[n\_individuals] \star\\
+& \star  w_4[\textit{n of commuting days/year}] \star \\
+& \star w_5[\textit{CO}_2 \textit{k}]
+\end{align}
+$$
+
+where $CO_2 k$ is the CO<sub>2</sub> emission factor per mode of transport
 
 ---
 
 Commuting is really just one part of the total travels by car per per person per year:
 
 ![](car_trips_per_person_travel_survey.png)
-*source: [national travel survey](https://www.gov.uk/government/statistics/national-travel-survey-2020/national-travel-survey-2020)*
+*source: [national travel  survey](https://www.gov.uk/government/statistics/national-travel-survey-2020/national-travel-survey-2020)*
 
 ... is then really reductive to consider only commuting trips for emissions?
 
@@ -181,7 +201,7 @@ opened issue here [https://github.com/creds2/CarbonCalculator/issues/6](https://
 
 
 
-## Open questions
+## Open general questions
 *And plausible answer*
 
 ---
@@ -204,9 +224,6 @@ opened issue here [https://github.com/creds2/CarbonCalculator/issues/6](https://
 
 - [X] importance of localised emissions and need for air-flow modelling ... *not relevant for GHG*
 
-- [ ] which year to take into consideration for the analysis? (Census, conversion factors, surveys...)
-
-- [ ] when I calculate the distance home-place of work, how do I consider the intraMSOA trips (IE within the same MSOA), as I am only taking into account the centroids of the MSOAs?
 
 
 ---
