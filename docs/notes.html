@@ -131,11 +131,11 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#october" id="toc-october" class="nav-link active" data-scroll-target="#october"><span class="toc-section-number">4.1</span>  October</a>
   <ul class="collapse">
-  <li><a href="#working-questions" id="toc-working-questions" class="nav-link" data-scroll-target="#working-questions"><span class="toc-section-number">4.1.1</span>  Working questions:</a></li>
-  <li><a href="#approximations" id="toc-approximations" class="nav-link" data-scroll-target="#approximations"><span class="toc-section-number">4.1.2</span>  Approximations</a></li>
-  <li><a href="#preliminary-results" id="toc-preliminary-results" class="nav-link" data-scroll-target="#preliminary-results"><span class="toc-section-number">4.1.3</span>  Preliminary results</a></li>
+  <li><a href="#defining-relations" id="toc-defining-relations" class="nav-link" data-scroll-target="#defining-relations"><span class="toc-section-number">4.1.1</span>  Defining relations</a></li>
+  <li><a href="#working-questions" id="toc-working-questions" class="nav-link" data-scroll-target="#working-questions"><span class="toc-section-number">4.1.2</span>  Working questions:</a></li>
+  <li><a href="#approximations" id="toc-approximations" class="nav-link" data-scroll-target="#approximations"><span class="toc-section-number">4.1.3</span>  Approximations</a></li>
   <li><a href="#python-code" id="toc-python-code" class="nav-link" data-scroll-target="#python-code"><span class="toc-section-number">4.1.4</span>  Python code</a></li>
-  <li><a href="#defining-relations" id="toc-defining-relations" class="nav-link" data-scroll-target="#defining-relations"><span class="toc-section-number">4.1.5</span>  Defining relations</a></li>
+  <li><a href="#preliminary-results" id="toc-preliminary-results" class="nav-link" data-scroll-target="#preliminary-results"><span class="toc-section-number">4.1.5</span>  Preliminary results</a></li>
   </ul></li>
   <li><a href="#september" id="toc-september" class="nav-link" data-scroll-target="#september"><span class="toc-section-number">4.2</span>  September</a>
   <ul class="collapse">
@@ -186,10 +186,6 @@ ul.task-list li input[type="checkbox"] {
 <li><input type="checkbox" disabled="">think “future scenarios”</li>
 </ul>
 <p><img src="tynewear_county_lads.png" class="img-fluid"> <em>The 5 LADs in the Metropolitan County of Tyne and Wear, highlighted are also the 4 major town areas</em></p>
-<p><img src="od_tynewear_1trial.png" class="img-fluid"> <em>Origin Destination flows of individuals for commuting to work (2011 UK Census data), the Metropolitan County of Tyne and Wear</em></p>
-<p><img src="od_tynewear_bymode.png" class="img-fluid"> <em>Origin Destination flows of individuals for commuting to work (2011 UK Census data), the Metropolitan County of Tyne and Wear, separated by mode of transport</em></p>
-<p><strong>Note:</strong> first trials in R, as I am more confident with the language, and trying to reproduce the code from carbun calculator for <a href="https://github.com/creds2/CarbonCalculator/blob/master/R/prep_travel_to_work.R">prep_travel_to_work.R</a>,</p>
-<p>will then translate to Python</p>
 <hr>
 <p><strong>Keep in mind when you’ll “generalise” the procedure</strong></p>
 <p><em>IE pass from the study case to a national case</em></p>
@@ -197,39 +193,9 @@ ul.task-list li input[type="checkbox"] {
 <li><p>how to select MSOAs for Origin and Destination from the dataset (take off abroad destinations as well)</p></li>
 <li></li>
 </ul>
-<section id="working-questions" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="working-questions"><span class="header-section-number">4.1.1</span> Working questions:</h3>
-<ul class="task-list">
-<li><p><input type="checkbox" disabled="">which year to take into consideration for the analysis? (Census, conversion factors, surveys…)</p></li>
-<li><p><input type="checkbox" disabled="">when I calculate the distance home-place of work, how do I consider the intraMSOA trips (IE within the same MSOA), as I am only taking into account the centroids of the MSOAs?</p></li>
-<li><p><input type="checkbox" disabled="">how we count total number of people (age, people working)</p></li>
-<li><p><input type="checkbox" disabled="">do we give the results per capita (then see point above) or total per MSOA</p></li>
-<li><p><input type="checkbox" disabled="">how many hours for the working from home people (not counting for now, as not using transport)</p></li>
-</ul>
 <hr>
-</section>
-<section id="approximations" class="level3" data-number="4.1.2">
-<h3 data-number="4.1.2" class="anchored" data-anchor-id="approximations"><span class="header-section-number">4.1.2</span> Approximations</h3>
-<ol type="a">
-<li><p>only OD within MSOAs of this county</p></li>
-<li><p>considering as distance only the pop weighted centroids for each MSOA</p></li>
-<li><p>London has specific values for CO2 conversion factors (ex for cabs, buses, underground) but only using general values (correct later if needed for London case)</p></li>
-<li><p>…</p></li>
-</ol>
-</section>
-<section id="preliminary-results" class="level3" data-number="4.1.3">
-<h3 data-number="4.1.3" class="anchored" data-anchor-id="preliminary-results"><span class="header-section-number">4.1.3</span> Preliminary results</h3>
-<p><img src="results_tynewear_car_emis_prelim.png" class="img-fluid"> <em>Preliminary results for GHG emissions from cars, total per MSOA per year in Tyne and Wear</em></p>
-</section>
-<section id="python-code" class="level3" data-number="4.1.4">
-<h3 data-number="4.1.4" class="anchored" data-anchor-id="python-code"><span class="header-section-number">4.1.4</span> Python code</h3>
-<ul>
-<li><p>Remember to add in <em>READ_ME</em> a walkthrough.</p></li>
-<li><p>Using <code>env.yml</code> <span class="math inline">\(\dots\)</span> <em>use <code>conda</code> or <code>poetry</code>?</em></p></li>
-</ul>
-</section>
-<section id="defining-relations" class="level3" data-number="4.1.5">
-<h3 data-number="4.1.5" class="anchored" data-anchor-id="defining-relations"><span class="header-section-number">4.1.5</span> Defining relations</h3>
+<section id="defining-relations" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="defining-relations"><span class="header-section-number">4.1.1</span> Defining relations</h3>
 <p>We can see the Indicators <span class="math inline">\(I_{i}\)</span>, with <span class="math inline">\(i = \{1, ..., n\}\)</span>, as a function of different land uses <span class="math inline">\(l_{j}\)</span> where <span class="math inline">\(j = \{1, ..., k\}\)</span> and <span class="math inline">\(I_{i}\)</span> can be expressed as generic mathematical relation (that we express with the symbol “<span class="math inline">\(\star\)</span>”“) between several <span class="math inline">\(l_{j}\)</span> weighted by <span class="math inline">\(k\)</span> generic weights/parameters <span class="math inline">\(w_{j}\)</span>, as follows:</p>
 <p><span class="math display">\[I_{i}(l) = w_1^il_{1} \star  w_2^il_{2} \dots \star w_k^il_{k}\]</span></p>
 <p>Different indicators can depend on same landuse variables, and per each indicator the scenarios can be expressed by acting on the paramters <span class="math inline">\(w_{j}\)</span>.</p>
@@ -252,11 +218,45 @@ ul.task-list li input[type="checkbox"] {
 <li><span class="math inline">\([\textit{n of commuting days/year}]\)</span> is a fixed value (average per person from DFT data … *)</li>
 <li><span class="math inline">\([CO_2 k]\)</span> is the carbon dioxide equivalent emission factor per mode of transport</li>
 </ul>
+</section>
+<section id="working-questions" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="working-questions"><span class="header-section-number">4.1.2</span> Working questions:</h3>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="">which year to take into consideration for the analysis? (Census, conversion factors, surveys…)</p></li>
+<li><p><input type="checkbox" disabled="">when I calculate the distance home-place of work, how do I consider the intraMSOA trips (IE within the same MSOA), as I am only taking into account the centroids of the MSOAs?</p></li>
+<li><p><input type="checkbox" disabled="">how we count total number of people (age, people working)</p></li>
+<li><p><input type="checkbox" disabled="">do we give the results per capita (then see point above) or total per MSOA</p></li>
+<li><p><input type="checkbox" disabled="">how many hours for the working from home people (not counting for now, as not using transport)</p></li>
+</ul>
+<hr>
+</section>
+<section id="approximations" class="level3" data-number="4.1.3">
+<h3 data-number="4.1.3" class="anchored" data-anchor-id="approximations"><span class="header-section-number">4.1.3</span> Approximations</h3>
+<ol type="a">
+<li><p>only OD within MSOAs of this county</p></li>
+<li><p>considering as distance only the pop weighted centroids for each MSOA</p></li>
+<li><p>London has specific values for CO2 conversion factors (ex for cabs, buses, underground) but only using general values (correct later if needed for London case)</p></li>
+<li><p>…</p></li>
+</ol>
 <hr>
 <p>Commuting is really just one part of the total travels by car per per person per year:</p>
 <p><img src="car_trips_per_person_travel_survey.png" class="img-fluid"> <em>source: <a href="https://www.gov.uk/government/statistics/national-travel-survey-2020/national-travel-survey-2020">national travel survey</a></em></p>
 <p>… it sounds then reductive to consider only commuting trips for emissions!</p>
 <hr>
+</section>
+<section id="python-code" class="level3" data-number="4.1.4">
+<h3 data-number="4.1.4" class="anchored" data-anchor-id="python-code"><span class="header-section-number">4.1.4</span> Python code</h3>
+<p><strong>Note:</strong> first trials in R, as I am more confident with the language, and trying to reproduce the code from carbun calculator for <a href="https://github.com/creds2/CarbonCalculator/blob/master/R/prep_travel_to_work.R">prep_travel_to_work.R</a>,</p>
+<p>will then translate to Python</p>
+<ul>
+<li><p>Remember to add in <em>READ_ME</em> a walkthrough.</p></li>
+<li><p>Using <code>env.yml</code> <span class="math inline">\(\dots\)</span> <em>use <code>conda</code> or <code>poetry</code>?</em></p></li>
+</ul>
+</section>
+<section id="preliminary-results" class="level3" data-number="4.1.5">
+<h3 data-number="4.1.5" class="anchored" data-anchor-id="preliminary-results"><span class="header-section-number">4.1.5</span> Preliminary results</h3>
+<p><em>Origin Destination flows of individuals for commuting to work (2011 UK Census data), the Metropolitan County of Tyne and Wear, separated by mode of transport</em> <img src="od_tynewear_bymode.png" class="img-fluid"></p>
+<p><em>Preliminary results for GHG emissions from cars, total per MSOA per year in Tyne and Wear</em> <img src="results_tynewear_car_emis_prelim.png" class="img-fluid"></p>
 </section>
 </section>
 <section id="september" class="level2" data-number="4.2">

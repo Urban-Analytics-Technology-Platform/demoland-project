@@ -28,16 +28,6 @@ Roadmap:
 *The 5 LADs in the Metropolitan County of Tyne and Wear, highlighted are also the 4 major town areas*
 
 
-![](od_tynewear_1trial.png)
-*Origin Destination flows of individuals for commuting to work (2011 UK Census data), the Metropolitan County of Tyne and Wear*
-
-![](od_tynewear_bymode.png)
-*Origin Destination flows of individuals for commuting to work (2011 UK Census data), the Metropolitan County of Tyne and Wear, separated by mode of transport*
-
-**Note:** first trials in R, as I am more confident with the language, and trying to reproduce the code from carbun calculator for [prep_travel_to_work.R](https://github.com/creds2/CarbonCalculator/blob/master/R/prep_travel_to_work.R),
-
-will then translate to Python
-
 ---
 
 **Keep in mind when you'll "generalise" the procedure**
@@ -48,42 +38,7 @@ will then translate to Python
 
 - 
 
-### Working questions:
-
-- [ ] which year to take into consideration for the analysis? (Census, conversion factors, surveys...)
-
-- [ ] when I calculate the distance home-place of work, how do I consider the intraMSOA trips (IE within the same MSOA), as I am only taking into account the centroids of the MSOAs?
-
-- [ ] how we count total number of people (age, people working)
-
-- [ ] do we give the results per capita (then see point above) or total per MSOA
-
-- [ ] how many hours for the working from home people (not counting for now, as not using transport)
-
 ---
-
-### Approximations
-
-a. only OD within MSOAs of this county 
-
-b. considering as distance only the pop weighted centroids for each MSOA
-
-c. London has specific values for CO2 conversion factors (ex for cabs, buses, underground) but only using general values (correct later if needed for London case)
-
-d. ...
-
-
-### Preliminary results
-
-*Preliminary results for GHG emissions from cars, total per MSOA per year in Tyne and Wear*
-![](results_tynewear_car_emis_prelim.png)
-
-### Python code
-
-- Remember to add in *READ_ME* a walkthrough.
-
-- Using `env.yml` $\dots$ *use `conda` or `poetry`?*
-
 
 ### Defining relations
 
@@ -115,6 +70,30 @@ where:
 - $[\textit{n of commuting days/year}]$ is a fixed value (average per person from DFT data ... *)
 - $[CO_2 k]$ is the carbon dioxide equivalent emission factor per mode of transport
 
+### Working questions:
+
+- [ ] which year to take into consideration for the analysis? (Census, conversion factors, surveys...)
+
+- [ ] when I calculate the distance home-place of work, how do I consider the intraMSOA trips (IE within the same MSOA), as I am only taking into account the centroids of the MSOAs?
+
+- [ ] how we count total number of people (age, people working)
+
+- [ ] do we give the results per capita (then see point above) or total per MSOA
+
+- [ ] how many hours for the working from home people (not counting for now, as not using transport)
+
+---
+
+### Approximations
+
+a. only OD within MSOAs of this county 
+
+b. considering as distance only the pop weighted centroids for each MSOA
+
+c. London has specific values for CO2 conversion factors (ex for cabs, buses, underground) but only using general values (correct later if needed for London case)
+
+d. ...
+
 ---
 
 Commuting is really just one part of the total travels by car per per person per year:
@@ -124,8 +103,29 @@ Commuting is really just one part of the total travels by car per per person per
 
 ... it sounds then reductive to consider only commuting trips for emissions!
 
-
 ---
+
+### Python code
+
+**Note:** first trials in R, as I am more confident with the language, and trying to reproduce the code from carbun calculator for [prep_travel_to_work.R](https://github.com/creds2/CarbonCalculator/blob/master/R/prep_travel_to_work.R),
+
+will then translate to Python
+
+- Remember to add in *READ_ME* a walkthrough.
+
+- Using `env.yml` $\dots$ *use `conda` or `poetry`?*
+
+
+
+### Preliminary results
+
+*Origin Destination flows of individuals for commuting to work (2011 UK Census data), the Metropolitan County of Tyne and Wear, separated by mode of transport*
+![](od_tynewear_bymode.png)
+
+*Preliminary results for GHG emissions from cars, total per MSOA per year in Tyne and Wear*
+![](results_tynewear_car_emis_prelim.png)
+
+
 
 ## September
 
