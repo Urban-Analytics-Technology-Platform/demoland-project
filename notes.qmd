@@ -58,6 +58,8 @@ will then translate to Python
 
 - [ ] do we give the results per capita (then see point above) or total per MSOA
 
+- [ ] how many hours for the working from home people (not counting for now, as not using transport)
+
 ---
 
 ### Approximations
@@ -70,6 +72,11 @@ c. London has specific values for CO2 conversion factors (ex for cabs, buses, un
 
 d. ...
 
+
+### Preliminary results
+
+*Preliminary results for GHG emissions from cars, total per MSOA per year in Tyne and Wear*
+![](results_tynewear_car_emis_prelim.png)
 
 ### Python code
 

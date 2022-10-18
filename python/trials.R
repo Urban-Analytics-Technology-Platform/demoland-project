@@ -54,6 +54,12 @@ tynewear_MSOAs_filename <- "/Users/azanchetta/OneDrive - The Alan Turing Institu
 n_of_trips_daily <- 1.9 # number of commuting trips per person a day (from ...)
 n_of_days_with_trips_yearly <- 220 # number of working days per year per person (from ...)
 
+emission_factors_file <- "/Users/azanchetta/OneDrive - The Alan Turing Institute/Research/projects/LandUseDemonstrator/data/CO2_conversion_factors_list.csv"
+
+emission_factors <- read.csv(emission_factors_file)
+
+output_file_path <- "/Users/azanchetta/OneDrive - The Alan Turing Institute/Research/projects/LandUseDemonstrator/output/"
+
 # B. Actual work -----
 ## First cleaning up of the data ----
 #  generate list of MSOAs for using later (only codes df)
@@ -112,21 +118,41 @@ grouped_msoas <- od_df %>%
 # check <- setdiff(rowSums(grouped_msoas[ , c(3:13)]), grouped_msoas$individuals)
 # check <- rowSums(grouped_msoas[ , c(3:13)]) -  grouped_msoas$individuals
 
-# multiplicate per number of trips and per emission factor
-msoas_with_km <- od_df %>%
+# generate total km per msoas per mode of transport
+msoas_with_km <- grouped_msoas %>%
   pivot_longer(home:other) %>% # generates one row per each mode of transport (long format)
   mutate(km = value*dist_km) %>% # generates a column "skm" with the results of the function applied to each considered column
   pivot_wider(values_from = c(value, km)) #%>% # returns to wide format generating new column per each mode
-  select_at(vars(-starts_with("value"))) # drop columns called "values" (they just repeat per each mode the n of individuals)
+  # select_at(vars(-starts_with("value"))) # drop columns called "values" (they just repeat per each mode the n of individuals)
 # found from here!!! https://stackoverflow.com/questions/60916841/generate-multiple-columns-of-variables-with-dplyr-and-function-in-a-vectorized
 
+# multiplicate per number of trips and per emission factor
+msoas_with_emissions_temp <- msoas_with_km %>%
+  select(Origin, individuals, "km_u-m-l-t":km_car)%>%
+  rename(msoa_cd = Origin)
+# temporarily change column names by dropping "km" so we can use the look up table below
+colnames(msoas_with_emissions_temp) <- gsub("km_","", colnames(msoas_with_emissions_temp)) 
+# getting back to track
+msoas_with_emissions_long <- msoas_with_emissions_temp %>%
+  pivot_longer("u-m-l-t":car)
+  
+msoas_with_emissions_factor <- merge(msoas_with_emissions_long,
+                                          emission_factors,
+                                          by.x="name",
+                                          by.y="mode")
 
+msoas_with_emissions_long <- msoas_with_emissions_factor %>%
+  mutate(emissions = case_when(
+    unit=="passenger.km" ~ round(kgCO2perunit * individuals,0),
+    unit=="km" ~ round(kgCO2perunit * value,0))) %>% # multuplying per number of people or per km depending on emis factor
+  select(-c("unit","kgCO2perunit")) #%>% #  drop "unit" and "kgCO2perunit"
 
+msoas_with_emissions_wide <- msoas_with_emissions_long %>%
+  select(-value) %>%
+  pivot_wider(values_from = emissions)
 
-
-
-
-
+write.csv(msoas_with_emissions_wide,
+          paste0(output_file_path, "emissions_commuting_msoas_tynewear.csv"))
 
 
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
