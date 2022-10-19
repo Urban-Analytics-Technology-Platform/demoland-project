@@ -149,9 +149,10 @@ msoas_with_emissions_long <- msoas_with_emissions_factor %>%
 
 msoas_with_emissions_wide <- msoas_with_emissions_long %>%
   select(-value) %>%
-  pivot_wider(values_from = emissions)
+  pivot_wider(values_from = emissions) %>%
+  mutate(tot_emis = rowSums(across("bus":"u-m-l-t")))
 
-write.csv(msoas_with_emissions_wide,
+write.csv2(msoas_with_emissions_wide,
           paste0(output_file_path, "emissions_commuting_msoas_tynewear.csv"))
 
 
