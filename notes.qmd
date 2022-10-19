@@ -48,7 +48,7 @@ $$I_{i}(l) = w_1^il_{1} \star  w_2^il_{2} \dots \star w_k^il_{k}$$
 
 Different indicators can depend on same landuse variables, and per each indicator the scenarios can be expressed by acting on the paramters $w_{j}$.
 
-As an example, using the definition above the indicator Mobility based emissions (a.) could be expressed <mark>per mode of transport</mark> and per each MSOA as:
+As an example, using the definition above the indicator Mobility based emissions (a.) could be expressed **for commuting trips** <mark>per mode of transport</mark> and per each MSOA as:
 
 <!-- $[\textit{emissions/ msoa / year}] = w_1[trips/day] \star w_2[distance/trip] \star w_3[n\_individuals] \star w_4[n\_commuting days/year] \star w_5[\textit{CO}_2 \textit{k}]$ -->
 
