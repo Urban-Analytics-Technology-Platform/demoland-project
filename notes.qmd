@@ -32,7 +32,7 @@ A raster graphic image of the area is generated and intersected with area-level 
 They review 25 land-use regression studies.<br\>
 <blockquote>
 Application of the land-use regression approach for air pollution mapping was introduced in the SAVIAH (Small Area Variations In Air quality and Health) study (Briggs et al., 1997).  The technique was initially termed regression mapping
-<blockquote>
+</blockquote>
 <blockquote>
 Land-use regression combines monitoring of air pollution at typically 20–100 locations, spread over the study area, and development of stochastic models using predictor variables usually obtained through geographic information systems (GIS)
 </blockquote>
