@@ -46,7 +46,26 @@ main components of LUR: monitoring data, geographic predictors and model develop
 LUR models are described by standard regression equations. Over the past decade, land use regression (LUR) modeling has emerged as a preferred method for assessing exposure to spatially heterogeneous pollutants, including NO2 (Health Effects Institute, 2010). Despite their advantages, LUR models rely on spatial data; therefore, they are subject to the spatial effects associated with the properties of these data.
 </blockquote>
 
-- [Molter and Lindley, 2021](https://www.sciencedirect.com/science/article/pii/S1364815221001511) "Developing land use regression models for environmental science research using the XLUR tool – More than a one-trick pony"
+- [Morley and Gulliber, 2018](https://github.com/dwmorley/RLUR)"A land use regression variable generation, modelling and prediction tool for air pollution exposure assessment"
+
+<mark>RLUR</mark> software to develop LUR model in R;<br/>
+Open-source code available in [GitHub](https://github.com/dwmorley/RLUR);<br/>
+GUI with visualisation tools
+
+- [Ma et al. 2020](https://www.researchgate.net/publication/339851484_PyLUR_Efficient_software_for_land_use_regression_modeling_the_spatial_distribution_of_air_pollutants_using_GDALOGR_library_in_Python) "<mark>PyLUR</mark>: efficient software for land use regression modelling the spatial distribution of air pollutants using GDAL/OGR library in Python"
+
+<blockquote>
+Although conceptually quite simple, its successful implementation requires detailed knowledge of the area, expertise in GIS, statistics, and programming skills, which makes this modelling approach **relatively inaccessible to novice users**.
+</blockquote>
+
+<blockquote>
+PyLUR out-performs <mark>RLUR</mark> for modelling in the Bradford and Auckland case studies examined. Furthermore, PyLUR is much more efficient in data processing and it has a capability to handle detailed GIS input data.</blockquote>
+
+<blockquote>
+<sub><sup>The principles of LUR modelling can be summarized in **five steps**. **First**, air pollution monitoring and GIS data are collected within the scope of the study area. **Secondly**, different kinds of potential predictor variables for each site are generated using GIS buffering or other geospatial analysis methods. **Thirdly**, multiple regression analysis is carried out to develop one regression equation establishing the relationship between the observed air pollutant concentrations and significant predictor variables selected from a pool of all potential predictor variables. **Fourthly**, model performance is evaluated using holdout or cross-validation. **Finally*, once the model is successfully validated, it can be applied to predict the concentration at un-sampled points of interest or generate an air pollutant concentration map of the whole study area (Morley and Gulliver, 2018).</sup></sub>
+</blockquote>
+
+- [Molter and Lindley, 2021](https://www.sciencedirect.com/science/article/pii/S1364815221001511) "Developing land use regression models for environmental science research using the <mark>XLUR</mark> tool – More than a one-trick pony"
 
 <blockquote>A Python toolbox for ArcGIS Pro that enables the development and application of land use regression models</blockquote>
 ... relevant for literature (it's developed for ArcGIS, so no use)
@@ -67,7 +86,7 @@ In our case for a LUR model we have, considering GHG emissions from mobility or 
 
 - check out this blog [How to Build a Regression Model in Python](https://towardsdatascience.com/how-to-build-a-regression-model-in-python-9a10685c7f09)
 
-- Geographic Data Science with Python, book (Chap. 11, Spatial Regression)[https://geographicdata.science/book/notebooks/11_regression.html]
+- Geographic Data Science with Python, book [Chap. 11, Spatial Regression](https://geographicdata.science/book/notebooks/11_regression.html)
 
 - Paper [PyLUR: Efficient software for land use regression modeling the spatial distribution of air pollutants using GDAL/OGR library in Python](https://www.researchgate.net/publication/339851484_PyLUR_Efficient_software_for_land_use_regression_modeling_the_spatial_distribution_of_air_pollutants_using_GDALOGR_library_in_Python)
 
