@@ -189,12 +189,21 @@ ul.task-list li input[type="checkbox"] {
 <section id="some-literature-on-lur" class="level3" data-number="4.1.1">
 <h3 data-number="4.1.1" class="anchored" data-anchor-id="some-literature-on-lur"><span class="header-section-number">4.1.1</span> Some literature on LUR</h3>
 <ul>
-<li><p><a href="https://en.wikipedia.org/wiki/Land_use_regression_model">https://en.wikipedia.org/wiki/Land_use_regression_model</a></p>
+<li><a href="https://en.wikipedia.org/wiki/Land_use_regression_model">https://en.wikipedia.org/wiki/Land_use_regression_model</a>
 <blockquote class="blockquote">
-<p>A raster graphic image of the area is generated and intersected with area-level population data to formulate the exposure distribution.</p>
+A raster graphic image of the area is generated and intersected with area-level population data to formulate the exposure distribution.
 </blockquote></li>
-<li><p><a href="https://www.sciencedirect.com/science/article/abs/pii/S1352231008005748">Hoek et al., 2008</a> “A review of land-use regression models to assess spatial variation of outdoor air pollution” &lt;br&gt; From Dani</p></li>
-<li><p><a href="https://www.sciencedirect.com/science/article/pii/S1877584515000325?via%3Dihub">Bertazzon et al., 2015</a> “Accounting for spatial effects in land use regression for urban air pollution modeling”</p></li>
+<li><a href="https://www.sciencedirect.com/science/article/abs/pii/S1352231008005748">Hoek et al., 2008</a> “A review of land-use regression models to assess spatial variation of outdoor air pollution” &lt;br&gt; They review 25 land-use regression studies.&lt;br&gt;
+<blockquote class="blockquote">
+Application of the land-use regression approach for air pollution mapping was introduced in the SAVIAH (Small Area Variations In Air quality and Health) study (Briggs et al., 1997). The technique was initially termed regression mapping
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+Land-use regression combines monitoring of air pollution at typically 20–100 locations, spread over the study area, and development of stochastic models using predictor variables usually obtained through geographic information systems (GIS)
+</blockquote>
+<blockquote class="blockquote">
+main components of LUR: monitoring data, geographic predictors and model development and validation
+</blockquote></blockquote></blockquote></li>
+<li><a href="https://www.sciencedirect.com/science/article/pii/S1877584515000325?via%3Dihub">Bertazzon et al., 2015</a> “Accounting for spatial effects in land use regression for urban air pollution modeling”</li>
 </ul>
 <blockquote class="blockquote">
 LUR models are described by standard regression equations. Over the past decade, land use regression (LUR) modeling has emerged as a preferred method for assessing exposure to spatially heterogeneous pollutants, including NO2 (Health Effects Institute, 2010). Despite their advantages, LUR models rely on spatial data; therefore, they are subject to the spatial effects associated with the properties of these data.
@@ -335,11 +344,11 @@ A Python toolbox for ArcGIS Pro that enables the development and application of 
 <section id="a.-mobility-based-emissions" class="level4" data-number="4.3.1.1">
 <h4 data-number="4.3.1.1" class="anchored" data-anchor-id="a.-mobility-based-emissions"><span class="header-section-number">4.3.1.1</span> a. mobility based emissions</h4>
 <ol type="1">
-<li><p>we can get from gov.uk CO<sub>2</sub>e (carbon dioxide equivalent) emissions factors for several occupations and travel modes, including transport, freight, etc <a href="https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting">link</a>;\ We get the emission factors per mode of transport from the tab “Business travel-land” and “homeworking” (for working from home individuals)</p></li>
+<li><p>we can get from gov.uk CO<sub>2</sub>e (carbon dioxide equivalent) emissions factors for several occupations and travel modes, including transport, freight, etc <a href="https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting">link</a>;&lt;br&gt; We get the emission factors per mode of transport from the tab “Business travel-land” and “homeworking” (for working from home individuals)</p></li>
 <li><p>OD flows from UK census … <strong>only to work and home</strong>? <em><del>check source</del></em> <span class="math inline">\(\rightarrow\)</span> YES <span class="math inline">\(\Downarrow\)</span></p></li>
 <li><p>get travel to school flow data from Propensity to Cycle Tool <a href="https://www.pct.bike/m/">PCT</a>?</p></li>
 <li><p>Location of usual residence and place of work by method of travel to work (…origin destination flows) <del>table WU03UK](https://wicid.ukdataservice.ac.uk/cider/wicid/downloads.php) at LAD level<br>
-<em>Note:</em> can download all the tables for “Location of usual residence and place of work by method of travel to work” at different levels (LAD to LSOA, though the lattest is not Open data) here https://wicid.ukdataservice.ac.uk/cider/about/data_int.php?type=2</del> <strong>safeguarded data!!</strong> let’s find <mark>MSOA</mark> data: <br> <a href="Location%20of%20usual%20residence%20and%20place%20of%20work%20by%20method%20of%20travel%20to%20work">nomisweb</a></p></li>
+<em>Note:</em> can download all the tables for “Location of usual residence and place of work by method of travel to work” at different levels (LAD to LSOA, though the lattest is not Open data) here https://wicid.ukdataservice.ac.uk/cider/about/data_int.php?type=2</del> &lt;br&gt; <strong>safeguarded data!!</strong> let’s find <mark>MSOA</mark> data: &lt;br&gt; <a href="Location%20of%20usual%20residence%20and%20place%20of%20work%20by%20method%20of%20travel%20to%20work">nomisweb</a></p></li>
 </ol>
 <ul>
 <li><p>WU03BEW(with ‘outside UK’ detailed) <strong>safeguarded</strong></p></li>
