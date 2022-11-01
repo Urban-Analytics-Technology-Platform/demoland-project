@@ -15,7 +15,7 @@ Instead of trying to reproduce [carbon.place results](#did-someone-already-do-th
 ---
 
 1. Generally used for air quality prediction <br/>
-...FIND examples of non-air pollutants applications
+...FIND examples of non-air pollutants applications?
 
 2. data for actual GHG emissions (total, IE comprehensive of mobility, housing, etc) is [only at LAD level](#data-availability) <br/>
 ... CHECK?
@@ -50,10 +50,17 @@ LUR models are described by standard regression equations. Over the past decade,
 <blockquote>A Python toolbox for ArcGIS Pro that enables the development and application of land use regression models</blockquote> <br\>
 ... relevant for literature (it's developed for ArcGIS, so no use)
 
-
 ### Theoretical framework
 
-Formulas here
+In a general non-linear linear regression model we have a given dependent variable which we try to explain by several independent explanatory variables. <br/>
+In our case for a LUR model we have, considering GHG emissions from mobility or housing:
+
+| Dependent variable         | GHG emissions                                 |
+| Explanatory variables      | landuse variables (ex. n. of trips, distance, |
+|                            |                        mode of transport...)  |
+
+
+*Formulas here*
 
 ### LUR in Python
 
@@ -63,9 +70,9 @@ Formulas here
 
 - Paper [PyLUR: Efficient software for land use regression modeling the spatial distribution of air pollutants using GDAL/OGR library in Python](https://www.researchgate.net/publication/339851484_PyLUR_Efficient_software_for_land_use_regression_modeling_the_spatial_distribution_of_air_pollutants_using_GDALOGR_library_in_Python)
 
-### Facts on GHG
+### Facts on GHG emissions
 
-[UK local authority and regional greenhouse gas emissions national statistics, 2005 to 2020](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1086967/uk-local-regional-greenhouse-gas-emissions-2005-2020-release.pdf)
+Governmental report [UK local authority and regional greenhouse gas emissions national statistics, 2005 to 2020](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1086967/uk-local-regional-greenhouse-gas-emissions-2005-2020-release.pdf)
 
 
 ## October
@@ -222,7 +229,7 @@ We get the emission factors per mode of transport from the tab "Business travel-
 
 4. Location of usual residence and place of work by method of travel to work (...origin destination flows)
 ~~table WU03UK](https://wicid.ukdataservice.ac.uk/cider/wicid/downloads.php) at LAD level \
- *Note:* can download all the tables for "Location of usual residence and place of work by method of travel to work" at different levels (LAD to LSOA, though the lattest is not Open data) here https://wicid.ukdataservice.ac.uk/cider/about/data_int.php?type=2~~  <br\> **safeguarded data!!** let's find <mark>MSOA</mark> data: <br\>
+ *Note:* can download all the tables for "Location of usual residence and place of work by method of travel to work" at different levels (LAD to LSOA, though the lattest is not Open data) here https://wicid.ukdataservice.ac.uk/cider/about/data_int.php?type=2~~  <br\> **safeguarded data!!** git sttuslet's find <mark>MSOA</mark> data: <br\>
 [nomisweb](Location of usual residence and place of work by method of travel to work)
 
 - WU03BEW(with 'outside UK' detailed) **safeguarded**
