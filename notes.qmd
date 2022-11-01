@@ -28,19 +28,38 @@ Instead of trying to reproduce [carbon.place results](#did-someone-already-do-th
 A raster graphic image of the area is generated and intersected with area-level population data to formulate the exposure distribution.
 </blockquote>
 
-- [Hoek et al.](https://www.sciencedirect.com/science/article/abs/pii/S1352231008005748) "A review of land-use regression models to assess spatial variation of outdoor air pollution"
+- [Hoek et al., 2008](https://www.sciencedirect.com/science/article/abs/pii/S1352231008005748) "A review of land-use regression models to assess spatial variation of outdoor air pollution" <br\>
+They review 25 land-use regression studies.<br\>
+<blockquote>
+Application of the land-use regression approach for air pollution mapping was introduced in the SAVIAH (Small Area Variations In Air quality and Health) study (Briggs et al., 1997).  The technique was initially termed regression mapping
+<blockquote>
+<blockquote>
+Land-use regression combines monitoring of air pollution at typically 20–100 locations, spread over the study area, and development of stochastic models using predictor variables usually obtained through geographic information systems (GIS)
+</blockquote>
+<blockquote>
+main components of LUR: monitoring data, geographic predictors and model development and validation
+</blockquote>
 
-- [Bertazzon et al.](https://www.sciencedirect.com/science/article/pii/S1877584515000325?via%3Dihub) "Accounting for spatial effects in land use regression for urban air pollution modeling"
+- [Bertazzon et al., 2015](https://www.sciencedirect.com/science/article/pii/S1877584515000325?via%3Dihub) "Accounting for spatial effects in land use regression for urban air pollution modeling"
 
 <blockquote>
 LUR models are described by standard regression equations. Over the past decade, land use regression (LUR) modeling has emerged as a preferred method for assessing exposure to spatially heterogeneous pollutants, including NO2 (Health Effects Institute, 2010). Despite their advantages, LUR models rely on spatial data; therefore, they are subject to the spatial effects associated with the properties of these data.
 </blockquote>
 
+- [Molter and Lindley, 2021](https://www.sciencedirect.com/science/article/pii/S1364815221001511) "Developing land use regression models for environmental science research using the XLUR tool – More than a one-trick pony" <br\>
+<blockquote>A Python toolbox for ArcGIS Pro that enables the development and application of land use regression models</blockquote> <br\>
+... relevant for literature (it's developed for ArcGIS, so no use)
 
+
+### Theoretical framework
+
+Formulas here
 
 ### LUR in Python
 
 - check out this blog [How to Build a Regression Model in Python](https://towardsdatascience.com/how-to-build-a-regression-model-in-python-9a10685c7f09)
+
+- Geographic Data Science with Python, book (Chap. 11, Spatial Regression)[https://geographicdata.science/book/notebooks/11_regression.html]
 
 - Paper [PyLUR: Efficient software for land use regression modeling the spatial distribution of air pollutants using GDAL/OGR library in Python](https://www.researchgate.net/publication/339851484_PyLUR_Efficient_software_for_land_use_regression_modeling_the_spatial_distribution_of_air_pollutants_using_GDALOGR_library_in_Python)
 
@@ -194,7 +213,7 @@ Concentrating on Indicators for [Net-zero a and b](intro.qmd#net-zero):
 
 #### a. mobility based emissions
 
-1. we can get from gov.uk CO<sub>2</sub>e (carbon dioxide equivalent) emissions factors for several occupations and travel modes, including transport, freight, etc [link](https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting);\\
+1. we can get from gov.uk CO<sub>2</sub>e (carbon dioxide equivalent) emissions factors for several occupations and travel modes, including transport, freight, etc [link](https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting);<br\>
 We get the emission factors per mode of transport from the tab "Business travel-land" and "homeworking" (for working from home individuals)
 
 2. OD flows from UK census ... **only to work and home**? *~~check source~~* $\rightarrow$ YES $\Downarrow$
@@ -203,8 +222,7 @@ We get the emission factors per mode of transport from the tab "Business travel-
 
 4. Location of usual residence and place of work by method of travel to work (...origin destination flows)
 ~~table WU03UK](https://wicid.ukdataservice.ac.uk/cider/wicid/downloads.php) at LAD level \
- *Note:* can download all the tables for "Location of usual residence and place of work by method of travel to work" at different levels (LAD to LSOA, though the lattest is not Open data) here https://wicid.ukdataservice.ac.uk/cider/about/data_int.php?type=2~~ **safeguarded data!!**
-let's find <mark>MSOA</mark> data: <br />
+ *Note:* can download all the tables for "Location of usual residence and place of work by method of travel to work" at different levels (LAD to LSOA, though the lattest is not Open data) here https://wicid.ukdataservice.ac.uk/cider/about/data_int.php?type=2~~  <br\> **safeguarded data!!** let's find <mark>MSOA</mark> data: <br\>
 [nomisweb](Location of usual residence and place of work by method of travel to work)
 
 - WU03BEW(with 'outside UK' detailed) **safeguarded**
