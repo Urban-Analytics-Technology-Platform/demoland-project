@@ -209,19 +209,35 @@ main components of LUR: monitoring data, geographic predictors and model develop
 LUR models are described by standard regression equations. Over the past decade, land use regression (LUR) modeling has emerged as a preferred method for assessing exposure to spatially heterogeneous pollutants, including NO2 (Health Effects Institute, 2010). Despite their advantages, LUR models rely on spatial data; therefore, they are subject to the spatial effects associated with the properties of these data.
 </blockquote>
 <ul>
-<li><a href="https://www.sciencedirect.com/science/article/pii/S1364815221001511">Molter and Lindley, 2021</a> “Developing land use regression models for environmental science research using the XLUR tool – More than a one-trick pony” &lt;br&gt;
+<li><a href="https://www.sciencedirect.com/science/article/pii/S1364815221001511">Molter and Lindley, 2021</a> “Developing land use regression models for environmental science research using the XLUR tool – More than a one-trick pony”</li>
+</ul>
 <blockquote class="blockquote">
 A Python toolbox for ArcGIS Pro that enables the development and application of land use regression models
 </blockquote>
-&lt;br&gt; … relevant for literature (it’s developed for ArcGIS, so no use)</li>
-</ul>
+<p>… relevant for literature (it’s developed for ArcGIS, so no use)</p>
 </section>
 <section id="theoretical-framework" class="level3" data-number="4.1.2">
 <h3 data-number="4.1.2" class="anchored" data-anchor-id="theoretical-framework"><span class="header-section-number">4.1.2</span> Theoretical framework</h3>
 <p>In a general non-linear linear regression model we have a given dependent variable which we try to explain by several independent explanatory variables. <br> In our case for a LUR model we have, considering GHG emissions from mobility or housing:</p>
-<p>Dependent variable | GHG emissions |<br>
-Explanatory variables | landuse variables (ex. n.&nbsp;of trips, distance, |<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| mode of transport…) |</p>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Dependent variable</td>
+<td>actual data for GHG emissions</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Explanatory variables</td>
+<td>landuse variables</td>
+<td>(ex. n.&nbsp;of trips, distance, <br> mode of transport…)</td>
+</tr>
+</tbody>
+</table>
 <p><em>Formulas here</em></p>
 </section>
 <section id="lur-in-python" class="level3" data-number="4.1.3">

@@ -46,8 +46,9 @@ main components of LUR: monitoring data, geographic predictors and model develop
 LUR models are described by standard regression equations. Over the past decade, land use regression (LUR) modeling has emerged as a preferred method for assessing exposure to spatially heterogeneous pollutants, including NO2 (Health Effects Institute, 2010). Despite their advantages, LUR models rely on spatial data; therefore, they are subject to the spatial effects associated with the properties of these data.
 </blockquote>
 
-- [Molter and Lindley, 2021](https://www.sciencedirect.com/science/article/pii/S1364815221001511) "Developing land use regression models for environmental science research using the XLUR tool – More than a one-trick pony" <br\>
-<blockquote>A Python toolbox for ArcGIS Pro that enables the development and application of land use regression models</blockquote> <br\>
+- [Molter and Lindley, 2021](https://www.sciencedirect.com/science/article/pii/S1364815221001511) "Developing land use regression models for environmental science research using the XLUR tool – More than a one-trick pony"
+
+<blockquote>A Python toolbox for ArcGIS Pro that enables the development and application of land use regression models</blockquote>
 ... relevant for literature (it's developed for ArcGIS, so no use)
 
 ### Theoretical framework
@@ -55,10 +56,10 @@ LUR models are described by standard regression equations. Over the past decade,
 In a general non-linear linear regression model we have a given dependent variable which we try to explain by several independent explanatory variables. <br/>
 In our case for a LUR model we have, considering GHG emissions from mobility or housing:
 
-| Dependent variable         | GHG emissions                                 |
-| Explanatory variables      | landuse variables (ex. n. of trips, distance, |
-|                            |                        mode of transport...)  |
-
+| | | |
+|-|-|-|
+| Dependent variable     | actual data for GHG emissions       | |
+| Explanatory variables  | landuse variables |(ex. n. of trips, distance, <br> mode of transport...)  |
 
 *Formulas here*
 
