@@ -9,7 +9,7 @@ NB: in reverse order, that is more recent stuff is at the top of the document.
 
 ## November
 
-Need to fine-tune things after last talk with Dani.<br/>
+Need to fine-tune things after last talk with Dani (end of October).<br/>
 Instead of trying to reproduce [carbon.place results](#did-someone-already-do-this), we want to produce a <mark>**Land Use regression model**</mark> $\rightarrow$ **LUR**
 
 ---
@@ -120,7 +120,7 @@ Roadmap:
 - [ ] visualise the integrated dataset $\rightarrow$ *base scenario*
 - [ ] think "future scenarios"
 
-![](tynewear_county_lads.png)
+![](images/tynewear_county_lads.png)
 *The 5 LADs in the Metropolitan County of Tyne and Wear, highlighted are also the 4 major town areas*
 
 
@@ -194,7 +194,7 @@ d. ...
 
 Commuting is really just one part of the total travels by car per per person per year:
 
-![](car_trips_per_person_travel_survey.png)
+![](images/car_trips_per_person_travel_survey.png)
 *source: [national travel  survey](https://www.gov.uk/government/statistics/national-travel-survey-2020/national-travel-survey-2020)*
 
 ... it sounds then reductive to consider only commuting trips for emissions!
@@ -216,10 +216,10 @@ will then translate to Python
 ### Preliminary results
 
 *Origin Destination flows of individuals for commuting to work (2011 UK Census data), the Metropolitan County of Tyne and Wear, separated by mode of transport*
-![](od_tynewear_bymode.png)
+![](images/od_tynewear_bymode.png)
 
 *Preliminary results for GHG emissions from cars, total per MSOA per year in Tyne and Wear*
-![](results_tynewear_car_emis_prelim.png)
+![](images/results_tynewear_car_emis_prelim.png)
 
 
 
