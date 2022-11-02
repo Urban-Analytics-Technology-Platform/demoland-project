@@ -130,15 +130,14 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary"><span class="toc-section-number">2.1</span>  Summary</a></li>
-  <li><a href="#suggested-indicators" id="toc-suggested-indicators" class="nav-link" data-scroll-target="#suggested-indicators"><span class="toc-section-number">2.2</span>  Suggested indicators</a>
+  <li><a href="#indicators-building" id="toc-indicators-building" class="nav-link" data-scroll-target="#indicators-building"><span class="toc-section-number">2.2</span>  Indicators building</a>
   <ul class="collapse">
   <li><a href="#net-zero" id="toc-net-zero" class="nav-link" data-scroll-target="#net-zero"><span class="toc-section-number">2.2.1</span>  Net-zero</a></li>
   <li><a href="#economy" id="toc-economy" class="nav-link" data-scroll-target="#economy"><span class="toc-section-number">2.2.2</span>  Economy</a></li>
   <li><a href="#infrastructure-stock-vacancy" id="toc-infrastructure-stock-vacancy" class="nav-link" data-scroll-target="#infrastructure-stock-vacancy"><span class="toc-section-number">2.2.3</span>  Infrastructure stock (vacancy)</a></li>
   <li><a href="#society-and-health" id="toc-society-and-health" class="nav-link" data-scroll-target="#society-and-health"><span class="toc-section-number">2.2.4</span>  Society and Health</a></li>
   </ul></li>
-  <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources"><span class="toc-section-number">2.3</span>  Data sources</a></li>
-  <li><a href="#time-plan" id="toc-time-plan" class="nav-link" data-scroll-target="#time-plan"><span class="toc-section-number">2.4</span>  Time plan</a></li>
+  <li><a href="#time-plan" id="toc-time-plan" class="nav-link" data-scroll-target="#time-plan"><span class="toc-section-number">2.3</span>  Time plan</a></li>
   </ul>
 </nav>
     </div>
@@ -175,14 +174,14 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Output</strong></td>
-<td style="text-align: left;"><p>Landcover map for several metro in UK</p>
-<p>(sample: NewCastle upon Tyne?)</p></td>
+<td style="text-align: left;"><p>Landcover map for several urban areas in UK</p>
+<p>(study case: NewCastle upon Tyne?)</p></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>How</strong></td>
-<td style="text-align: left;"><p>Creating <em>indicators</em> for</p>
+<td style="text-align: left;"><p>Creating key <em>indicators</em> for assessing</p>
 <ul>
-<li><em>baseline</em></li>
+<li>a <em>baseline</em> scenario</li>
 <li><em>future scenarios</em></li>
 </ul></td>
 </tr>
@@ -193,9 +192,10 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </section>
-<section id="suggested-indicators" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="suggested-indicators"><span class="header-section-number">2.2</span> Suggested indicators</h2>
-<p>The initial plan wants to make use of the following data sources (see below for each indicator what source is intended to be used)</p>
+<section id="indicators-building" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="indicators-building"><span class="header-section-number">2.2</span> Indicators building</h2>
+<p>The indicators will be predicted for a <strong>baseline scenario</strong> using a regression/predictive model on several variables of interest, where several <em>land use</em> features will be used as explanatory variables.<br> Once the baseline is created, <strong>scenarios</strong> can be built, for instance, as effects of targeted intervention on land use and (ultimately) through AI methods via ompitmisation algorithms.</p>
+<p>The initial plan wants to make use of the following <strong>data sources</strong> (see below for each indicator what source is intended to be used)</p>
 <hr>
 <p><em>Suggested data sources:</em></p>
 <ul>
@@ -203,7 +203,7 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>SS</strong> - Spatial Signature <a href="https://urbangrammarai.xyz/great-britain/">website</a></li>
 <li><span style="color:DarkViolet">both</span> <!-- - $\textcolor{red}{\text{both}}$ --></li>
 </ul>
-<p>Indicators are grouped in 4 general themes to reflect the goals of the National Land Development Programme (NLDP) in relation to the environment, economy, infrastructure and society</p>
+<p>Indicators are grouped in 4 general themes to reflect the goals of the National Land Development Programme (NLDP) in relation to the environment, economy, infrastructure and society:</p>
 <section id="net-zero" class="level3" data-number="2.2.1">
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="net-zero"><span class="header-section-number">2.2.1</span> Net-zero</h3>
 <ol type="a">
@@ -235,21 +235,20 @@ ul.task-list li input[type="checkbox"] {
 <li><em>Mental health</em></li>
 <li><em>Healthy living and lifestyles</em></li>
 </ol>
+<p>The data hunting is still in progress, see (Issues)[https://github.com/ciupava/LandUseDemonstrator/issues] in the GitHub page, <a href="./notes.html">Notes</a> and <a href="./data_sources.html">Data Sources</a> to follow the latest developments.</p>
 </section>
 </section>
-<section id="data-sources" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="data-sources"><span class="header-section-number">2.3</span> Data sources</h2>
-<p>The actual use of the data is currently still under discussion, see <a href="./notes.html">Notes</a> and <a href="./data_sources.html">Data Sources</a> to follow the current development.</p>
-</section>
-<section id="time-plan" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="time-plan"><span class="header-section-number">2.4</span> Time plan</h2>
+<section id="time-plan" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="time-plan"><span class="header-section-number">2.3</span> Time plan</h2>
 <p><strong>To be defined</strong></p>
 <p>6 months project … roughly:</p>
 <ul>
 <li><p>literature collection</p></li>
-<li><p>trials</p></li>
-<li><p>data analysis</p></li>
-<li><p>publication</p></li>
+<li><p>data collection</p></li>
+<li><p>base scenario building (interaction with stakeholders)</p></li>
+<li><p>scenarios building (input from stakeholders)</p></li>
+<li><p>AI scenario builder tool development</p></li>
+<li><p>publication / visualisation / distribution</p></li>
 </ul>
 <hr>
 <!-- ![](activities_wp_image.png)

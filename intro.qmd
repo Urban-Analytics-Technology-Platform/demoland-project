@@ -6,13 +6,13 @@
 | **Objectives** | Develop modelling system to quantify features |
 |                | of land use in urban environment              |
 +----------------+-----------------------------------------------+
-| **Output**     | Landcover map for several metro in UK         |
+| **Output**     | Landcover map for several urban areas in UK   |
 |                |                                               |
-|                | (sample: NewCastle upon Tyne?)                |
+|                | (study case: NewCastle upon Tyne?)            |
 +----------------+-----------------------------------------------+
-| **How**        | Creating *indicators* for                     |
+| **How**        | Creating key *indicators* for assessing       |
 |                |                                               |
-|                | - *baseline*                                  |
+|                | - a *baseline* scenario                       |
 |                | - *future scenarios*                          |
 +----------------+-----------------------------------------------+
 | **Duration**   | 6 months                                      |
@@ -20,9 +20,12 @@
 +----------------+-----------------------------------------------+
 
 
-## Suggested indicators
+## Indicators building
 
-The initial plan wants to make use of the following data sources (see below for each indicator what source is intended to be used)
+The indicators will be predicted for a **baseline scenario** using a regression/predictive model on several variables of interest, where several _land use_ features will be used as explanatory variables.<br/>
+Once the baseline is created, **scenarios** can be built, for instance, as effects of targeted intervention on land use and (ultimately) through AI methods via ompitmisation algorithms.
+
+The initial plan wants to make use of the following **data sources** (see below for each indicator what source is intended to be used)
 
 ---
 
@@ -33,7 +36,7 @@ The initial plan wants to make use of the following data sources (see below for 
 - <span style="color:DarkViolet">both</span>
 <!-- - $\textcolor{red}{\text{both}}$ -->
 
-Indicators are grouped in 4 general themes to reflect the goals of the National Land Development Programme (NLDP) in relation to the environment, economy, infrastructure and society
+Indicators are grouped in 4 general themes to reflect the goals of the National Land Development Programme (NLDP) in relation to the environment, economy, infrastructure and society:
 
 ###  Net-zero
 a. *Mobility-based emissions (e.g., trips x distance x mode —> CO<sub>2</sub>)*
@@ -56,9 +59,8 @@ a.	*Physical health*
 b.	*Mental health*
 c.	*Healthy living and lifestyles*
 
-## Data sources
 
-The actual use of the data is currently still under discussion, see [Notes](notes.qmd) and [Data Sources](data_sources.qmd) to follow the current development.
+The data hunting is still in progress, see (Issues)[https://github.com/ciupava/LandUseDemonstrator/issues] in the GitHub page, [Notes](notes.qmd) and [Data Sources](data_sources.qmd) to follow the latest developments.
 
 
 ## Time plan
@@ -69,11 +71,15 @@ The actual use of the data is currently still under discussion, see [Notes](note
 
 - literature collection
 
-- trials
+- data collection
 
-- data analysis
+- base scenario building (interaction with stakeholders)
 
-- publication
+- scenarios building (input from stakeholders)
+
+- AI scenario builder tool development
+
+- publication / visualisation / distribution
 
 ---
 
