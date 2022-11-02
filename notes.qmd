@@ -20,6 +20,11 @@ Instead of trying to reproduce [carbon.place results](#did-someone-already-do-th
 2. data for actual GHG emissions (total, IE comprehensive of mobility, housing, etc) is [only at LAD level](#data-availability) <br/>
 ... CHECK?
 
+3. LUR potential predictor variables extraction ... relevant for us? (limited number of variables)
+
+4. LUR output is raster VS vectorial
+
+5. not clear how the _spatial_ connotation enter the model, just because we use data defined at (some) geographic level?
 
 ### Some literature on LUR
 
@@ -88,7 +93,9 @@ In our case for a LUR model we have, considering GHG emissions from mobility or 
 
 - Geographic Data Science with Python, book [Chap. 11, Spatial Regression](https://geographicdata.science/book/notebooks/11_regression.html)
 
-- Paper [PyLUR: Efficient software for land use regression modeling the spatial distribution of air pollutants using GDAL/OGR library in Python](https://www.researchgate.net/publication/339851484_PyLUR_Efficient_software_for_land_use_regression_modeling_the_spatial_distribution_of_air_pollutants_using_GDALOGR_library_in_Python)
+- Paper [PyLUR: Efficient software for land use regression modeling the spatial distribution of air pollutants using GDAL/OGR library in Python](https://link.springer.com/article/10.1007/s11783-020-1221-5) <br/>
+Note the code is available online on ResearchGate [here](https://www.researchgate.net/publication/339851484_PyLUR_Efficient_software_for_land_use_regression_modeling_the_spatial_distribution_of_air_pollutants_using_GDALOGR_library_in_Python) (find “linked data” tab)
+
 
 ### Facts on GHG emissions
 
@@ -256,9 +263,6 @@ We get the emission factors per mode of transport from the tab "Business travel-
 
 - WU03EW (with 'outside UK' collapsed) **open**
 
-
-
-
 ---
 
 #### b. housing based emissions
@@ -287,7 +291,6 @@ what we can get from this source: time people spend in different activities, mod
 
 ### Did someone already do this?
 
----
 
 [carbon.place](https://www.carbon.place/)
 
@@ -304,29 +307,28 @@ opened issue here [https://github.com/creds2/CarbonCalculator/issues/6](https://
 
 
 
+
 ## Open general questions
 *And plausible answer*
 
----
+
+- [X] importance of localised emissions and need for air-flow modelling ... *not relevant for GHG*
 
 - [X] what is the Research Question $\rightarrow$ *What are the "best" values in the parametrisation of the land use variables? Could we train the computer to predict these values?*
 
 - [X] Resolution  ~~LSOAS/~~ *MSOAS* ? feedback from Dani regarding SS: *SS gives conversion to LSOAs* $\Downarrow$
 
-- [ ] Does it make sense to use SPC (individuals' level data) as we aggregate at MSOA level? What variables are meaningful when aggregated?
-
-- [ ] type of output - *map, web ...* ~~MapBox~~ *MapLibre GL, Leaflet, ...*
-
 - [X] how to generate scenarios - *ideas: change parameters' range/values, run ABstreet simulations...?*
-
-- [ ] how turn on/off scenarios in the visualisation- *different layers in the map*
 
 - [X] integrate with SPC -  *need to integrate more Census variables? feasible?*
 
+- [ ] Use SPC (individuals' level data) as we aggregate at MSOA level... what variables are meaningful when aggregated?
+
 - [ ] can we actually build a methodology, given the different range of indicators and data?
 
-- [X] importance of localised emissions and need for air-flow modelling ... *not relevant for GHG*
+- [ ] how turn on/off scenarios in the visualisation- *different layers in the map*
 
+- [ ] type of output - *map, web ...* ~~MapBox~~ *MapLibre GL, Leaflet, ...*
 
 
 ---

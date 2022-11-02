@@ -185,6 +185,9 @@ ul.task-list li input[type="checkbox"] {
 <ol type="1">
 <li><p>Generally used for air quality prediction <br> …FIND examples of non-air pollutants applications?</p></li>
 <li><p>data for actual GHG emissions (total, IE comprehensive of mobility, housing, etc) is <a href="#data-availability">only at LAD level</a> <br> … CHECK?</p></li>
+<li><p>LUR potential predictor variables extraction … relevant for us? (limited number of variables)</p></li>
+<li><p>LUR output is raster VS vectorial</p></li>
+<li><p>not clear how the <em>spatial</em> connotation enter the model, just because we use data defined at (some) geographic level?</p></li>
 </ol>
 <section id="some-literature-on-lur" class="level3" data-number="4.1.1">
 <h3 data-number="4.1.1" class="anchored" data-anchor-id="some-literature-on-lur"><span class="header-section-number">4.1.1</span> Some literature on LUR</h3>
@@ -261,7 +264,7 @@ A Python toolbox for ArcGIS Pro that enables the development and application of 
 <ul>
 <li><p>check out this blog <a href="https://towardsdatascience.com/how-to-build-a-regression-model-in-python-9a10685c7f09">How to Build a Regression Model in Python</a></p></li>
 <li><p>Geographic Data Science with Python, book <a href="https://geographicdata.science/book/notebooks/11_regression.html">Chap. 11, Spatial Regression</a></p></li>
-<li><p>Paper <a href="https://www.researchgate.net/publication/339851484_PyLUR_Efficient_software_for_land_use_regression_modeling_the_spatial_distribution_of_air_pollutants_using_GDALOGR_library_in_Python">PyLUR: Efficient software for land use regression modeling the spatial distribution of air pollutants using GDAL/OGR library in Python</a></p></li>
+<li><p>Paper <a href="https://link.springer.com/article/10.1007/s11783-020-1221-5">PyLUR: Efficient software for land use regression modeling the spatial distribution of air pollutants using GDAL/OGR library in Python</a> <br> Note the code is available online on ResearchGate <a href="https://www.researchgate.net/publication/339851484_PyLUR_Efficient_software_for_land_use_regression_modeling_the_spatial_distribution_of_air_pollutants_using_GDALOGR_library_in_Python">here</a> (find “linked data” tab)</p></li>
 </ul>
 </section>
 <section id="facts-on-ghg-emissions" class="level3" data-number="4.1.4">
@@ -417,7 +420,6 @@ A Python toolbox for ArcGIS Pro that enables the development and application of 
 </section>
 <section id="did-someone-already-do-this" class="level3" data-number="4.3.2">
 <h3 data-number="4.3.2" class="anchored" data-anchor-id="did-someone-already-do-this"><span class="header-section-number">4.3.2</span> Did someone already do this?</h3>
-<hr>
 <p><a href="https://www.carbon.place/">carbon.place</a></p>
 <p>Project from Malcom Morgan (Univ of Leeds) …</p>
 <blockquote class="blockquote">
@@ -431,17 +433,16 @@ A Python toolbox for ArcGIS Pro that enables the development and application of 
 <section id="open-general-questions" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="open-general-questions"><span class="header-section-number">4.4</span> Open general questions</h2>
 <p><em>And plausible answer</em></p>
-<hr>
 <ul class="task-list">
+<li><p><input type="checkbox" disabled="" checked="">importance of localised emissions and need for air-flow modelling … <em>not relevant for GHG</em></p></li>
 <li><p><input type="checkbox" disabled="" checked="">what is the Research Question <span class="math inline">\(\rightarrow\)</span> <em>What are the “best” values in the parametrisation of the land use variables? Could we train the computer to predict these values?</em></p></li>
 <li><p><input type="checkbox" disabled="" checked="">Resolution <del>LSOAS/</del> <em>MSOAS</em> ? feedback from Dani regarding SS: <em>SS gives conversion to LSOAs</em> <span class="math inline">\(\Downarrow\)</span></p></li>
-<li><p><input type="checkbox" disabled="">Does it make sense to use SPC (individuals’ level data) as we aggregate at MSOA level? What variables are meaningful when aggregated?</p></li>
-<li><p><input type="checkbox" disabled="">type of output - <em>map, web …</em> <del>MapBox</del> <em>MapLibre GL, Leaflet, …</em></p></li>
 <li><p><input type="checkbox" disabled="" checked="">how to generate scenarios - <em>ideas: change parameters’ range/values, run ABstreet simulations…?</em></p></li>
-<li><p><input type="checkbox" disabled="">how turn on/off scenarios in the visualisation- <em>different layers in the map</em></p></li>
 <li><p><input type="checkbox" disabled="" checked="">integrate with SPC - <em>need to integrate more Census variables? feasible?</em></p></li>
+<li><p><input type="checkbox" disabled="">Use SPC (individuals’ level data) as we aggregate at MSOA level… what variables are meaningful when aggregated?</p></li>
 <li><p><input type="checkbox" disabled="">can we actually build a methodology, given the different range of indicators and data?</p></li>
-<li><p><input type="checkbox" disabled="" checked="">importance of localised emissions and need for air-flow modelling … <em>not relevant for GHG</em></p></li>
+<li><p><input type="checkbox" disabled="">how turn on/off scenarios in the visualisation- <em>different layers in the map</em></p></li>
+<li><p><input type="checkbox" disabled="">type of output - <em>map, web …</em> <del>MapBox</del> <em>MapLibre GL, Leaflet, …</em></p></li>
 </ul>
 <hr>
 <section id="output-map-generation" class="level3" data-number="4.4.1">

@@ -106,13 +106,19 @@ od_line$dist_km <- round(as.numeric(st_length(od_line)) / 1000,
 
 # per each Origin MSOA, calculate the tot of individuals and tot of km per mode
 # first drop the 'geometry' column from the sd object (https://r-spatial.github.io/sf/reference/st_geometry.html)
-# or it'd enter in allthe subsequent calculations (where it is not relevant anymore)
+# or it'd enter in all the subsequent calculations (where it is not relevant anymore)
 od_df <- od_line
 st_geometry(od_df) <- NULL
+
+write.csv(od_df,
+          paste0(output_file_path, "OD_full_withKM_tynewear.csv"))
 
 grouped_msoas <- od_df %>%
   group_by(Origin) %>%
   summarize(across(where(is.numeric), sum)) # summing up per each mode of transport the n. of individuals
+write.csv(grouped_msoas,
+          paste0(output_file_path, "OD_grouped_withKM_tynewear.csv"))
+
 
 # checking that the number of individuals equals the sum of individuals per mode of transport:
 # check <- setdiff(rowSums(grouped_msoas[ , c(3:13)]), grouped_msoas$individuals)
@@ -144,7 +150,7 @@ msoas_with_emissions_factor <- merge(msoas_with_emissions_long,
 msoas_with_emissions_long <- msoas_with_emissions_factor %>%
   mutate(emissions = case_when(
     unit=="passenger.km" ~ round(kgCO2perunit * individuals,0),
-    unit=="km" ~ round(kgCO2perunit * value,0))) %>% # multuplying per number of people or per km depending on emis factor
+    unit=="km" ~ round(kgCO2perunit * value,0))) %>% # multiplying per number of people or per km depending on emis factor
   select(-c("unit","kgCO2perunit")) #%>% #  drop "unit" and "kgCO2perunit"
 
 msoas_with_emissions_wide <- msoas_with_emissions_long %>%
