@@ -131,10 +131,11 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#november" id="toc-november" class="nav-link active" data-scroll-target="#november"><span class="toc-section-number">4.1</span>  November</a>
   <ul class="collapse">
-  <li><a href="#some-literature-on-lur" id="toc-some-literature-on-lur" class="nav-link" data-scroll-target="#some-literature-on-lur"><span class="toc-section-number">4.1.1</span>  Some literature on LUR</a></li>
-  <li><a href="#theoretical-framework" id="toc-theoretical-framework" class="nav-link" data-scroll-target="#theoretical-framework"><span class="toc-section-number">4.1.2</span>  Theoretical framework</a></li>
-  <li><a href="#lur-in-python" id="toc-lur-in-python" class="nav-link" data-scroll-target="#lur-in-python"><span class="toc-section-number">4.1.3</span>  LUR in Python</a></li>
-  <li><a href="#facts-on-ghg-emissions" id="toc-facts-on-ghg-emissions" class="nav-link" data-scroll-target="#facts-on-ghg-emissions"><span class="toc-section-number">4.1.4</span>  Facts on GHG emissions</a></li>
+  <li><a href="#variables-creation" id="toc-variables-creation" class="nav-link" data-scroll-target="#variables-creation"><span class="toc-section-number">4.1.1</span>  Variables creation</a></li>
+  <li><a href="#some-literature-on-lur" id="toc-some-literature-on-lur" class="nav-link" data-scroll-target="#some-literature-on-lur"><span class="toc-section-number">4.1.2</span>  Some literature on LUR</a></li>
+  <li><a href="#theoretical-framework" id="toc-theoretical-framework" class="nav-link" data-scroll-target="#theoretical-framework"><span class="toc-section-number">4.1.3</span>  Theoretical framework</a></li>
+  <li><a href="#lur-in-python" id="toc-lur-in-python" class="nav-link" data-scroll-target="#lur-in-python"><span class="toc-section-number">4.1.4</span>  LUR in Python</a></li>
+  <li><a href="#facts-on-ghg-emissions" id="toc-facts-on-ghg-emissions" class="nav-link" data-scroll-target="#facts-on-ghg-emissions"><span class="toc-section-number">4.1.5</span>  Facts on GHG emissions</a></li>
   </ul></li>
   <li><a href="#october" id="toc-october" class="nav-link" data-scroll-target="#october"><span class="toc-section-number">4.2</span>  October</a>
   <ul class="collapse">
@@ -176,7 +177,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <hr>
-<p>This page is constantly updated on a (almost) daily base, meaning that the order is not dictated by a specific structure, just temporary adding up ideas and development of the project</p>
+<p>This page is constantly updated on an (almost) daily base, meaning that the order is not dictated by a specific structure, just temporary adding up ideas and development of the project.</p>
 <p>NB: in reverse order, that is more recent stuff is at the top of the document.</p>
 <section id="november" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="november"><span class="header-section-number">4.1</span> November</h2>
@@ -184,13 +185,32 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 <ol type="1">
 <li><p>Generally used for air quality prediction <br> …FIND examples of non-air pollutants applications?</p></li>
-<li><p>data for actual GHG emissions (total, IE comprehensive of mobility, housing, etc) is <a href="#data-availability">only at LAD level</a> <br> … CHECK?</p></li>
-<li><p>LUR potential predictor variables extraction … relevant for us? (limited number of variables)</p></li>
-<li><p>LUR output is raster VS vectorial</p></li>
+<li><p>LUR potential predictor variables extraction … relevant for us? (limited number of variables) <span class="math inline">\(\rightarrow\)</span> <em>ideally we’d like to perform this as well</em></p></li>
+<li><p>LUR output is raster VS vectorial <span class="math inline">\(\rightarrow\)</span> <em>we’ll need to aggregate the data at some spatial level (MSOAs for instance), introducing some level of approximation</em></p></li>
 <li><p>not clear how the <em>spatial</em> connotation enter the model, just because we use data defined at (some) geographic level?</p></li>
 </ol>
-<section id="some-literature-on-lur" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="some-literature-on-lur"><span class="header-section-number">4.1.1</span> Some literature on LUR</h3>
+<section id="variables-creation" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="variables-creation"><span class="header-section-number">4.1.1</span> Variables creation</h3>
+<p>We search now for data to be used as variables (land use features) to predict 4 indicators (see Intro <a href="./intro.html#indicators-building">here</a>):</p>
+<ul>
+<li><em>1.a/b</em>. Pollution/emissions</li>
+</ul>
+<p>data for actual GHG emissions (total, IE comprehensive of mobility, housing, etc) is <a href="#data-availability">only at LAD level</a></p>
+<ul>
+<li><em>1.c</em>. Green space accessibility</li>
+</ul>
+<p>how do we calculate the distance to the nearest green space… or the entrance gate (tricky)</p>
+<ul>
+<li><em>2.b</em>. Jobs accessibility</li>
+</ul>
+<p>We don’t have actual data (??) for jobs accessibility but we need to create the variable ourselves… so what’s the point in modelling it?</p>
+<ul>
+<li><em>2.c</em>. House prices</li>
+</ul>
+<p>what scenario on house prices?</p>
+</section>
+<section id="some-literature-on-lur" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="some-literature-on-lur"><span class="header-section-number">4.1.2</span> Some literature on LUR</h3>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Land_use_regression_model">https://en.wikipedia.org/wiki/Land_use_regression_model</a>
 <blockquote class="blockquote">
@@ -235,8 +255,8 @@ A Python toolbox for ArcGIS Pro that enables the development and application of 
 </blockquote>
 <p>… relevant for literature (it’s developed for ArcGIS, so no use)</p>
 </section>
-<section id="theoretical-framework" class="level3" data-number="4.1.2">
-<h3 data-number="4.1.2" class="anchored" data-anchor-id="theoretical-framework"><span class="header-section-number">4.1.2</span> Theoretical framework</h3>
+<section id="theoretical-framework" class="level3" data-number="4.1.3">
+<h3 data-number="4.1.3" class="anchored" data-anchor-id="theoretical-framework"><span class="header-section-number">4.1.3</span> Theoretical framework</h3>
 <p>In a general non-linear linear regression model we have a given dependent variable which we try to explain by several independent explanatory variables. <br> In our case for a LUR model we have, considering GHG emissions from mobility or housing:</p>
 <table class="table">
 <colgroup>
@@ -259,16 +279,16 @@ A Python toolbox for ArcGIS Pro that enables the development and application of 
 </table>
 <p><em>Formulas here</em></p>
 </section>
-<section id="lur-in-python" class="level3" data-number="4.1.3">
-<h3 data-number="4.1.3" class="anchored" data-anchor-id="lur-in-python"><span class="header-section-number">4.1.3</span> LUR in Python</h3>
+<section id="lur-in-python" class="level3" data-number="4.1.4">
+<h3 data-number="4.1.4" class="anchored" data-anchor-id="lur-in-python"><span class="header-section-number">4.1.4</span> LUR in Python</h3>
 <ul>
 <li><p>check out this blog <a href="https://towardsdatascience.com/how-to-build-a-regression-model-in-python-9a10685c7f09">How to Build a Regression Model in Python</a></p></li>
 <li><p>Geographic Data Science with Python, book <a href="https://geographicdata.science/book/notebooks/11_regression.html">Chap. 11, Spatial Regression</a></p></li>
 <li><p>Paper <a href="https://link.springer.com/article/10.1007/s11783-020-1221-5">PyLUR: Efficient software for land use regression modeling the spatial distribution of air pollutants using GDAL/OGR library in Python</a> <br> Note the code is available online on ResearchGate <a href="https://www.researchgate.net/publication/339851484_PyLUR_Efficient_software_for_land_use_regression_modeling_the_spatial_distribution_of_air_pollutants_using_GDALOGR_library_in_Python">here</a> (find “linked data” tab)</p></li>
 </ul>
 </section>
-<section id="facts-on-ghg-emissions" class="level3" data-number="4.1.4">
-<h3 data-number="4.1.4" class="anchored" data-anchor-id="facts-on-ghg-emissions"><span class="header-section-number">4.1.4</span> Facts on GHG emissions</h3>
+<section id="facts-on-ghg-emissions" class="level3" data-number="4.1.5">
+<h3 data-number="4.1.5" class="anchored" data-anchor-id="facts-on-ghg-emissions"><span class="header-section-number">4.1.5</span> Facts on GHG emissions</h3>
 <p>Governmental report <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1086967/uk-local-regional-greenhouse-gas-emissions-2005-2020-release.pdf">UK local authority and regional greenhouse gas emissions national statistics, 2005 to 2020</a></p>
 </section>
 </section>

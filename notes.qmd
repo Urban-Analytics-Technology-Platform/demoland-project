@@ -2,7 +2,7 @@
 
 ---
 
-This page is constantly updated on a (almost) daily base, meaning that the order is not dictated by a specific structure, just temporary adding up ideas and development of the project
+This page is constantly updated on an (almost) daily base, meaning that the order is not dictated by a specific structure, just temporary adding up ideas and development of the project.
 
 NB: in reverse order, that is more recent stuff is at the top of the document.
 
@@ -17,14 +17,32 @@ Instead of trying to reproduce [carbon.place results](#did-someone-already-do-th
 1. Generally used for air quality prediction <br/>
 ...FIND examples of non-air pollutants applications?
 
-2. data for actual GHG emissions (total, IE comprehensive of mobility, housing, etc) is [only at LAD level](#data-availability) <br/>
-... CHECK?
+2. LUR potential predictor variables extraction ... relevant for us? (limited number of variables)
+$\rightarrow$ _ideally we'd like to perform this as well_
 
-3. LUR potential predictor variables extraction ... relevant for us? (limited number of variables)
+3. LUR output is raster VS vectorial $\rightarrow$ _we'll need to aggregate the data at some spatial level (MSOAs for instance), introducing some level of approximation_
 
-4. LUR output is raster VS vectorial
+4. not clear how the _spatial_ connotation enter the model, just because we use data defined at (some) geographic level?
 
-5. not clear how the _spatial_ connotation enter the model, just because we use data defined at (some) geographic level?
+### Variables creation
+
+We search now for data to be used as variables (land use features) to predict 4 indicators (see Intro [here ](intro.qmd#indicators-building)):
+
+- _1.a/b_. Pollution/emissions
+
+data for actual GHG emissions (total, IE comprehensive of mobility, housing, etc) is [only at LAD level](#data-availability)
+
+- _1.c_. Green space accessibility
+
+how do we calculate the distance to the nearest green space... or the entrance gate (tricky)
+
+- _2.b_. Jobs accessibility
+
+We don't have actual data (??) for jobs accessibility but we need to create the variable ourselves... so what's the point in modelling it?
+
+- _2.c_. House prices
+
+what scenario on house prices?
 
 ### Some literature on LUR
 
