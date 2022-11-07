@@ -193,21 +193,37 @@ ul.task-list li input[type="checkbox"] {
 <h3 data-number="4.1.1" class="anchored" data-anchor-id="variables-creation"><span class="header-section-number">4.1.1</span> Variables creation</h3>
 <p>We search now for data to be used as variables (land use features) to predict 4 indicators (see Intro <a href="./intro.html#indicators-building">here</a>):</p>
 <ul>
-<li><em>1.a/b</em>. Pollution/emissions</li>
-</ul>
-<p>data for actual GHG emissions (total, IE comprehensive of mobility, housing, etc) is <a href="#data-availability">only at LAD level</a></p>
+<li><p><em>1.a/b</em>. Pollution/emissions</p>
 <ul>
-<li><em>1.c</em>. Green space accessibility</li>
-</ul>
-<p>how do we calculate the distance to the nearest green space… or the entrance gate (tricky)</p>
+<li><p>data for actual GHG emissions (total, IE comprehensive of mobility, housing, etc) is <a href="#data-availability">only at LAD level</a></p></li>
+<li></li>
+</ul></li>
+<li><p><em>1.c</em>. Green space accessibility</p>
 <ul>
-<li><em>2.b</em>. Jobs accessibility</li>
+<li><p>UGS = Urban Green Space</p></li>
+<li><p>see <a href="https://github.com/ciupava/LandUseDemonstrator/issues/5">Issue</a> on GitHub for relevant literature on indicators, definitions, methodology to generate UGS maps</p></li>
+<li><p>accessibility is not actual data (like emissions for instance) but it’s itself calculated as an index, so what is the meaning in modeling it?</p></li>
+<li><p>how we calculate the distance to the nearest green space… or the entrance gate (tricky)</p></li>
+<li><p><strong>EEA Urban Atlas</strong> for UGS data (landcover map) <a href="https://www.eea.europa.eu/data-and-maps/data/copernicus-land-monitoring-service-urban-atlas">data available here</a> <br> Download per each metro areas (here)[https://land.copernicus.eu/local/urban-atlas/urban-atlas-2018?tab=download<br>] Method described in [WHO Europe 2016 report)(https://www.euro.who.int/__data/assets/pdf_file/0005/321971/Urban-green-spaces-and-health-review-evidence.pdf)</p></li>
 </ul>
-<p>We don’t have actual data (??) for jobs accessibility but we need to create the variable ourselves… so what’s the point in modelling it?</p>
+<blockquote class="blockquote">
+<p>European Urban Atlas Class 1.4.1 (vector data code 14100): <strong>Green Urban Areas</strong> (European Commission, 2011)<br> Minimum mapping resolution 0.25 ha, Minimum width: 10 m<br> <em>Included:</em><br> • Public green areas for predominantly recreational use such as gardens, zoos, parks, castle parks.<br> • Suburban natural areas that have become and are managed as urban parks.<br> • Forests or green areas extending from the surroundings into urban areas are mapped as green urban areas when at least two sides are bordered by urban areas and structures, and traces of recreational use are visible.<br> <em>Not included:</em><br> • Private gardens within housing areas<br> • Cemeteries<br> • Buildings within parks, such as castles or museums<br> • Patches of natural vegetation or agricultural areas enclosed by built‐up areas without being managed as green urban areas</p>
+</blockquote>
+<p>Note that several green areas in Newcastle fall under the category “Pasture”</p>
+<blockquote class="blockquote">
+<p>Lands that are permanently used (at least 5 years) for fodder production. Includes natural or sown herbaceous species, unimproved or lightly improved meadows and grazed or mechanically harvested meadows. Regular agriculture impact influences the natural development of natural herbaceous species composition.</p>
+</blockquote>
+<p>and allotments fall into “Sports and leisure facilities”</p>
+<p><img src="images/WHO_method_for_UGS.png" class="img-fluid"></p></li>
+<li><p><em>2.b</em>. Jobs accessibility</p>
 <ul>
-<li><em>2.c</em>. House prices</li>
+<li>accessibility is not actual data (like emissions for instance) but it’s itself calculated as an index, so what is the meaning in modeling it?</li>
+</ul></li>
+<li><p><em>2.c</em>. House prices</p>
+<ul>
+<li>what scenario on house prices?</li>
+</ul></li>
 </ul>
-<p>what scenario on house prices?</p>
 </section>
 <section id="some-literature-on-lur" class="level3" data-number="4.1.2">
 <h3 data-number="4.1.2" class="anchored" data-anchor-id="some-literature-on-lur"><span class="header-section-number">4.1.2</span> Some literature on LUR</h3>
@@ -216,7 +232,7 @@ ul.task-list li input[type="checkbox"] {
 <blockquote class="blockquote">
 A raster graphic image of the area is generated and intersected with area-level population data to formulate the exposure distribution.
 </blockquote></li>
-<li><a href="https://www.sciencedirect.com/science/article/abs/pii/S1352231008005748">Hoek et al., 2008</a> “A review of land-use regression models to assess spatial variation of outdoor air pollution” &lt;br&gt; They review 25 land-use regression studies.&lt;br&gt;
+<li><a href="https://www.sciencedirect.com/science/article/abs/pii/S1352231008005748">Hoek et al., 2008</a> “A review of land-use regression models to assess spatial variation of outdoor air pollution” <br> They review 25 land-use regression studies.<br>
 <blockquote class="blockquote">
 Application of the land-use regression approach for air pollution mapping was introduced in the SAVIAH (Small Area Variations In Air quality and Health) study (Briggs et al., 1997). The technique was initially termed regression mapping
 </blockquote>

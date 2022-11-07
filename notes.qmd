@@ -30,19 +30,54 @@ We search now for data to be used as variables (land use features) to predict 4 
 
 - _1.a/b_. Pollution/emissions
 
-data for actual GHG emissions (total, IE comprehensive of mobility, housing, etc) is [only at LAD level](#data-availability)
+    - data for actual GHG emissions (total, IE comprehensive of mobility, housing, etc) is [only at LAD level](#data-availability)
+
+    - 
 
 - _1.c_. Green space accessibility
 
-how do we calculate the distance to the nearest green space... or the entrance gate (tricky)
+     - UGS = Urban Green Space
+
+     - see [Issue](https://github.com/ciupava/LandUseDemonstrator/issues/5) on GitHub for relevant literature on indicators, definitions, methodology to generate UGS maps
+
+     - accessibility is not actual data (like emissions for instance) but it's itself calculated as an index, so what is the meaning in modeling it?
+     
+     - how we calculate the distance to the nearest green space... or the entrance gate (tricky)
+
+     - **EEA Urban Atlas** for UGS data (landcover map) [data available here](https://www.eea.europa.eu/data-and-maps/data/copernicus-land-monitoring-service-urban-atlas) <br/>
+     Download per each metro areas (here)[https://land.copernicus.eu/local/urban-atlas/urban-atlas-2018?tab=download<br/>]
+     Method described in [WHO Europe 2016 report)(https://www.euro.who.int/__data/assets/pdf_file/0005/321971/Urban-green-spaces-and-health-review-evidence.pdf)
+
+     <blockquote>
+     European Urban Atlas Class 1.4.1 (vector data code 14100): **Green Urban Areas** (European Commission, 2011)<br/>
+        Minimum mapping resolution 0.25 ha, Minimum width: 10 m<br/>
+        *Included:*<br/>
+        • Public green areas for predominantly recreational use such as gardens, zoos, parks, castle parks.<br/>
+        • Suburban natural areas that have become and are managed as urban parks.<br/>
+        • Forests or green areas extending from the surroundings into urban areas are mapped as green urban areas when at least two sides are bordered by urban areas and structures, and traces of recreational use are visible.<br/>
+        *Not included:*<br/>
+        • Private gardens within housing areas<br/>
+        • Cemeteries<br/>
+        • Buildings within parks, such as castles or museums<br/>
+        • Patches of natural vegetation or agricultural areas enclosed by built‐up areas without being managed as green urban areas
+    </blockquote>
+
+    Note that several green areas in Newcastle fall under the category "Pasture"
+    <blockquote>
+    Lands that are permanently used (at least 5 years) for fodder production. Includes natural or sown herbaceous species, unimproved or lightly improved meadows and grazed or mechanically harvested meadows. Regular agriculture impact influences the natural development of natural herbaceous species composition.
+    </blockquote>
+    and allotments fall into "Sports and leisure facilities"
+
+    ![](images/WHO_method_for_UGS.png)
+
 
 - _2.b_. Jobs accessibility
 
-We don't have actual data (??) for jobs accessibility but we need to create the variable ourselves... so what's the point in modelling it?
+    - accessibility is not actual data (like emissions for instance) but it's itself calculated as an index, so what is the meaning in modeling it?
 
 - _2.c_. House prices
 
-what scenario on house prices?
+    - what scenario on house prices?
 
 ### Some literature on LUR
 
@@ -51,8 +86,8 @@ what scenario on house prices?
 A raster graphic image of the area is generated and intersected with area-level population data to formulate the exposure distribution.
 </blockquote>
 
-- [Hoek et al., 2008](https://www.sciencedirect.com/science/article/abs/pii/S1352231008005748) "A review of land-use regression models to assess spatial variation of outdoor air pollution" <br\>
-They review 25 land-use regression studies.<br\>
+- [Hoek et al., 2008](https://www.sciencedirect.com/science/article/abs/pii/S1352231008005748) "A review of land-use regression models to assess spatial variation of outdoor air pollution" <br/>
+They review 25 land-use regression studies.<br/>
 <blockquote>
 Application of the land-use regression approach for air pollution mapping was introduced in the SAVIAH (Small Area Variations In Air quality and Health) study (Briggs et al., 1997).  The technique was initially termed regression mapping
 </blockquote>
