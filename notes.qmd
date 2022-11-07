@@ -62,7 +62,7 @@ We search now for data to be used as variables (land use features) to predict 4 
         • Patches of natural vegetation or agricultural areas enclosed by built‐up areas without being managed as green urban areas
     </blockquote>
 
-    Note that several green areas in Newcastle fall under the category "Pasture"
+    Note that several green areas in Newcastle fall under the category "Pasture" (see for example Nuns Moor)
     <blockquote>
     Lands that are permanently used (at least 5 years) for fodder production. Includes natural or sown herbaceous species, unimproved or lightly improved meadows and grazed or mechanically harvested meadows. Regular agriculture impact influences the natural development of natural herbaceous species composition.
     </blockquote>
@@ -70,6 +70,13 @@ We search now for data to be used as variables (land use features) to predict 4 
 
     ![](images/WHO_method_for_UGS.png)
 
+    - <mark>CHECKING UK SOURCES</mark><br/>
+    data.gov, natural england, ons<br/>
+    Ordnance Survey (Open greenspace map)[https://osdatahub.os.uk/downloads/open/OpenGreenspace] *open data* <br/>
+    Advantages:
+        • more accurate<br/>
+        • covers England, Scotland, Wales
+        • **has access points!!**
 
 - _2.b_. Jobs accessibility
 
