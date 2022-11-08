@@ -199,16 +199,20 @@ ul.task-list li input[type="checkbox"] {
 <li></li>
 </ul></li>
 <li><p><em>1.c</em>. Green space accessibility</p>
+<blockquote class="blockquote">
+<p>proportion of an urban population living within a certain distance from a green space boundary</p>
+</blockquote>
+<p><br> <a href="https://pubmed.ncbi.nlm.nih.gov/26573907/">Van Den Bosch et al., 2016</a></p>
 <ul>
 <li><p>UGS = Urban Green Space</p></li>
 <li><p>see <a href="https://github.com/ciupava/LandUseDemonstrator/issues/5">Issue</a> on GitHub for relevant literature on indicators, definitions, methodology to generate UGS maps</p></li>
 <li><p>accessibility is not actual data (like emissions for instance) but it’s itself calculated as an index, so what is the meaning in modeling it?</p></li>
 <li><p>how we calculate the distance to the nearest green space… or the entrance gate (tricky)</p></li>
-<li><p><strong>EEA Urban Atlas</strong> for UGS data (landcover map) <a href="https://www.eea.europa.eu/data-and-maps/data/copernicus-land-monitoring-service-urban-atlas">data available here</a> <br> Download per each metro areas (here)[https://land.copernicus.eu/local/urban-atlas/urban-atlas-2018?tab=download<br>] Method described in [WHO Europe 2016 report)(https://www.euro.who.int/__data/assets/pdf_file/0005/321971/Urban-green-spaces-and-health-review-evidence.pdf)</p></li>
-</ul>
+<li><p><strong>EEA Urban Atlas</strong> for UGS data (landcover map) <a href="https://www.eea.europa.eu/data-and-maps/data/copernicus-land-monitoring-service-urban-atlas">data available here</a> <br> Download per each metro areas <a href="https://land.copernicus.eu/local/urban-atlas/urban-atlas-2018?tab=download">here</a><br> Method described in <a href="https://www.euro.who.int/__data/assets/pdf_file/0005/321971/Urban-green-spaces-and-health-review-evidence.pdf">WHO Europe 2016 report</a></p>
 <blockquote class="blockquote">
-<p>European Urban Atlas Class 1.4.1 (vector data code 14100): <strong>Green Urban Areas</strong> (European Commission, 2011)<br> Minimum mapping resolution 0.25 ha, Minimum width: 10 m<br> <em>Included:</em><br> • Public green areas for predominantly recreational use such as gardens, zoos, parks, castle parks.<br> • Suburban natural areas that have become and are managed as urban parks.<br> • Forests or green areas extending from the surroundings into urban areas are mapped as green urban areas when at least two sides are bordered by urban areas and structures, and traces of recreational use are visible.<br> <em>Not included:</em><br> • Private gardens within housing areas<br> • Cemeteries<br> • Buildings within parks, such as castles or museums<br> • Patches of natural vegetation or agricultural areas enclosed by built‐up areas without being managed as green urban areas</p>
-</blockquote>
+<p><strong>European Urban Atlas Class 1.4.1 (vector data code 14100):<br>Green Urban Areas</strong> (European Commission, 2011)<br> Minimum mapping resolution 0.25 ha, Minimum width: 10 m<br> <em>Included:</em><br> • Public green areas for predominantly recreational use such as gardens, zoos, parks, castle parks.<br> • Suburban natural areas that have become and are managed as urban parks.<br> • Forests or green areas extending from the surroundings into urban areas are mapped as green urban areas when at least two sides are bordered by urban areas and structures, and traces of recreational use are visible.<br> <em>Not included:</em><br> • Private gardens within housing areas<br> • Cemeteries<br> • Buildings within parks, such as castles or museums<br> • Patches of natural vegetation or agricultural areas enclosed by built‐up areas without being managed as green urban areas</p>
+</blockquote></li>
+</ul>
 <p>Note that several green areas in Newcastle fall under the category “Pasture” (see for example Nuns Moor)</p>
 <blockquote class="blockquote">
 <p>Lands that are permanently used (at least 5 years) for fodder production. Includes natural or sown herbaceous species, unimproved or lightly improved meadows and grazed or mechanically harvested meadows. Regular agriculture impact influences the natural development of natural herbaceous species composition.</p>
@@ -216,17 +220,72 @@ ul.task-list li input[type="checkbox"] {
 <p>and allotments fall into “Sports and leisure facilities”</p>
 <p><img src="images/WHO_method_for_UGS.png" class="img-fluid"></p>
 <ul>
-<li><mark>CHECKING UK SOURCES</mark><br> data.gov, natural england, ons<br> Ordnance Survey (Open greenspace map)[https://osdatahub.os.uk/downloads/open/OpenGreenspace] <em>open data</em> <br> Advantages: • more accurate<br> • covers England, Scotland, Wales • <strong>has access points!!</strong></li>
+<li><mark><strong>UK SOURCES</strong></mark><br>
+<ul>
+<li><strong>Ordnance Survey</strong> <a href="https://osdatahub.os.uk/downloads/open/OpenGreenspace">Open greenspace map</a> with technical notes <a href="https://www.ordnancesurvey.co.uk/business-government/tools-support/open-map-greenspace-support">here</a> <br> <span class="math inline">\(\rightarrow \rightarrow\)</span> <em>open data!</em> <br> Advantages:<br>
+<ul>
+<li>more accurate</li>
+<li>covers England, Scotland, Wales</li>
+<li><strong>has access points!!</strong></li>
+<li>need for data cleaning, as many sport facilities/playgrounds are drawn with a separate polygon within the big park they are part of (overlapping features in the shp)</li>
+<li>the file includes cemeteries AND allottments</li>
+</ul></li>
+<li><strong>Natural England</strong> <a href="http://publications.naturalengland.org.uk/publication/65021">Accessible Natural Green Space Standards in Towns and Cities: A Review and Toolkit for their Implementation (ENRR526)</a>
+<ul>
+<li>review and toolkit</li>
+</ul></li>
+<li><strong>Public Health England</strong> <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/904439/Improving_access_to_greenspace_2020_review.pdf">report</a>
+<ul>
+<li>… data??</li>
+</ul></li>
+<li><strong>Fields in trust</strong> <a href="https://www.fieldsintrust.org/green-space-index">Green Space Index</a>
+<ul>
+<li><a href="https://experience.arcgis.com/experience/5301c55a8189410b9428a90f05596af4">interactive map</a></li>
+<li>they launched GSI in 2019</li>
+<li>they use OS Open Greenspace Map (above) and ArcGIS</li>
+<li>not available as open data</li>
+</ul></li>
+</ul></li>
 </ul></li>
 <li><p><em>2.b</em>. Jobs accessibility</p>
 <ul>
 <li>accessibility is not actual data (like emissions for instance) but it’s itself calculated as an index, so what is the meaning in modeling it?</li>
+<li>QUANT <a href="http://quant.casa.ucl.ac.uk/map2.aspx?v=JobAccessibilityObs">map</a>
+<ul>
+<li>how is it calculated</li>
+<li>how to download it … format, etc</li>
+</ul></li>
+<li><a href="#accessibility-data">Accessibility Destination Datasets</a> see paragraph below</li>
 </ul></li>
 <li><p><em>2.c</em>. House prices</p>
 <ul>
 <li>what scenario on house prices?</li>
 </ul></li>
 </ul>
+<section id="accessibility-data" class="level4" data-number="4.1.1.1">
+<h4 data-number="4.1.1.1" class="anchored" data-anchor-id="accessibility-data"><span class="header-section-number">4.1.1.1</span> Accessibility data</h4>
+<p>Some useful and valuable datasets on <em>accessibility</em> by several means of transport was (apparently?) available from DFT until 2012.<br> After some strenuous research managed to find the archive for it <a href="https://webarchive.nationalarchives.gov.uk/ukgwa/20131223133629mp_/https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/240307/accessibility-statistics-2012.pdf">here</a>.</p>
+<p><strong>Accessibility Destination Datasets</strong></p>
+<ul>
+<li>they measure accessibility to key services like:
+<ul>
+<li>food stores</li>
+<li>education</li>
+<li>health care</li>
+<li>town centres</li>
+<li>employment centres</li>
+</ul></li>
+<li>published for England at national, regional, LAD and LSOA level.</li>
+<li>have they been substited by <a href="https://www.gov.uk/government/collections/journey-time-statistics">Journey time statistics</a> data?</li>
+</ul>
+<p><em>Errata corrige</em> data at LSOA level is also available in gov.uk <a href="https://www.gov.uk/government/statistical-data-sets/acs05-travel-time-destination-and-origin-indicators-to-key-sites-and-services-by-lower-super-output-area-lsoa">in xls format</a></p>
+<blockquote class="blockquote">
+Excel datasets containing raw destination data for calculating Accessibility statistics. This gives the locations of the different services used within these calculations: Primary schools, Secondary Schools, Further Education, Hospitals, GPs, Town Centres, Employment Centres
+</blockquote>
+<p>these makes up to 8 tables of accessibility:</p>
+<p><img src="images/accessibility_data.png" class="img-fluid"> <em>screenshot of the available tables from gov.uk</em></p>
+<p><a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/372139/accessibility-statistics-guidance.pdf">Accessibility Statistics Guidance 2014</a></p>
+</section>
 </section>
 <section id="some-literature-on-lur" class="level3" data-number="4.1.2">
 <h3 data-number="4.1.2" class="anchored" data-anchor-id="some-literature-on-lur"><span class="header-section-number">4.1.2</span> Some literature on LUR</h3>
