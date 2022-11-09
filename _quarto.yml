@@ -2,7 +2,7 @@ project:
   type: book 
   output-dir: docs
 book:
-  title: "Land Use Demonstrators"
+  title: "Land Use Demonstrator"
   author: "Anna Zanchetta"
   date: today
   search: true

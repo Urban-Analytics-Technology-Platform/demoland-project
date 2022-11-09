@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Land Use Demonstrators - 4&nbsp; Notes</title>
+<title>Land Use Demonstrator - 4&nbsp; Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,10 +85,10 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Land Use Demonstrators</a> 
+      <a href="./">Land Use Demonstrator</a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/ciupava/LandUseDemonstrator/tree/main/docs" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-    <a href="./Land-Use-Demonstrators.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+    <a href="./Land-Use-Demonstrator.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -264,7 +264,60 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <section id="accessibility-data" class="level4" data-number="4.1.1.1">
 <h4 data-number="4.1.1.1" class="anchored" data-anchor-id="accessibility-data"><span class="header-section-number">4.1.1.1</span> Accessibility data</h4>
-<p>Some useful and valuable datasets on <em>accessibility</em> by several means of transport was (apparently?) available from DFT until 2012.<br> After some strenuous research managed to find the archive for it <a href="https://webarchive.nationalarchives.gov.uk/ukgwa/20131223133629mp_/https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/240307/accessibility-statistics-2012.pdf">here</a>.</p>
+<p><mark><strong>UPDATE</strong></mark></p>
+<p>It seems that from 2014 the same type of data is released as <a href="https://www.gov.uk/government/publications/journey-time-statistics-guidance">Journeytime Statistics</a></p>
+<p>with the list of tables available <a href="https://www.gov.uk/government/statistical-data-sets/journey-time-statistics-data-tables-jts#user-access-to-key-services-by-journey-time-jts02">here</a></p>
+<p>NEED TO CHECK if they give also number of people, that seems missing in the new data format.<br> For example the variable:</p>
+<table class="table">
+<tbody>
+<tr class="odd">
+<td><code>All20_PT/walk</code></td>
+<td>EMPLO049</td>
+<td>Users within 20 minutes by PT/walk</td>
+</tr>
+</tbody>
+</table>
+<p>does not appear in the new tables, though, we have the total population (<code>Empl_pop</code>) AND the percentage of population per each mode of transport + time, for example:<br></p>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Alternate name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>100EmpPT15pct</code></td>
+<td>Emp106</td>
+<td>% users within 15 minutes of employment centres with 100 to 499 jobs available by PT/walk</td>
+</tr>
+<tr class="even">
+<td><code>100EmpPT30pct</code></td>
+<td>Emp107</td>
+<td>% users within 30 minutes of employment centres with 100 to 499 jobs available by PT/walk</td>
+</tr>
+<tr class="odd">
+<td><code>100EmpPT45pct</code></td>
+<td>Emp108</td>
+<td>% users within 45 minutes of employment centres with 100 to 499 jobs available by PT/walk</td>
+</tr>
+<tr class="even">
+<td><code>100EmpPT60pct</code></td>
+<td>Emp109</td>
+<td>% users within 60 minutes of employment centres with 100 to 499 jobs available by PT/walk</td>
+</tr>
+</tbody>
+</table>
+<p>… from which we could infer the variable above? <br></p>
+<hr>
+<hr>
+<p>Some useful and valuable datasets on <em>accessibility</em> by several means of transport was (apparently?) available from DFT until 2012, in csv format.<br> After some strenuous research managed to find the archive for it <a href="https://webarchive.nationalarchives.gov.uk/ukgwa/20131223133629mp_/https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/240307/accessibility-statistics-2012.pdf">here</a>.</p>
 <p><strong>Accessibility Destination Datasets</strong></p>
 <ul>
 <li>they measure accessibility to key services like:
@@ -278,12 +331,14 @@ ul.task-list li input[type="checkbox"] {
 <li>published for England at national, regional, LAD and LSOA level.</li>
 <li>have they been substited by <a href="https://www.gov.uk/government/collections/journey-time-statistics">Journey time statistics</a> data?</li>
 </ul>
-<p><em>Errata corrige</em> data at LSOA level is also available in gov.uk <a href="https://www.gov.uk/government/statistical-data-sets/acs05-travel-time-destination-and-origin-indicators-to-key-sites-and-services-by-lower-super-output-area-lsoa">in xls format</a></p>
+<p><strong><em>Note</em></strong> data at LSOA level is also available in gov.uk <a href="https://www.gov.uk/government/statistical-data-sets/acs05-travel-time-destination-and-origin-indicators-to-key-sites-and-services-by-lower-super-output-area-lsoa">in xls format</a></p>
+<p>where also 2013 is included!</p>
 <blockquote class="blockquote">
 Excel datasets containing raw destination data for calculating Accessibility statistics. This gives the locations of the different services used within these calculations: Primary schools, Secondary Schools, Further Education, Hospitals, GPs, Town Centres, Employment Centres
 </blockquote>
 <p>these makes up to 8 tables of accessibility:</p>
-<p><img src="images/accessibility_data.png" class="img-fluid"> <em>screenshot of the available tables from gov.uk</em></p>
+<p><img src="images/accessibility_data.png" class="img-fluid"></p>
+<p><em>screenshot (from gov.uk webpage) of some of the the available tables</em></p>
 <p><a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/372139/accessibility-statistics-guidance.pdf">Accessibility Statistics Guidance 2014</a></p>
 </section>
 </section>

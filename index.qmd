@@ -11,4 +11,4 @@ date: today
 #     chalkboard: true
 ---
 
-Document to keep track of the development of the Land Use Demonstrators project.
+Document to keep track of the development of the Land Use Demonstrator project.

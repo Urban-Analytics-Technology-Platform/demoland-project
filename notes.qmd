@@ -105,7 +105,37 @@ We search now for data to be used as variables (land use features) to predict 4 
 
 #### Accessibility data
 
-Some useful and valuable datasets on *accessibility* by several means of transport was (apparently?) available from DFT until 2012.<br/>
+<mark>**UPDATE**</mark>
+
+It seems that from 2014 the same type of data is released as [Journeytime Statistics](https://www.gov.uk/government/publications/journey-time-statistics-guidance)
+
+with the list of tables available [here](https://www.gov.uk/government/statistical-data-sets/journey-time-statistics-data-tables-jts#user-access-to-key-services-by-journey-time-jts02)
+
+NEED TO CHECK if they give also number of people, that seems missing in the new data format.<br/>
+For example the variable:
+
+| | | |
+|-|-|-|
+`All20_PT/walk` | EMPLO049 | Users within 20 minutes by PT/walk
+
+does not appear in the new tables, though, we have the total population (`Empl_pop`) AND the percentage of population per each mode of transport + time, for example:<br/>
+
+
+|Field|Alternate name|Description|
+|-|-|-|
+`100EmpPT15pct` | Emp106 | % users within 15 minutes of employment centres with 100 to 499 jobs available by PT/walk
+`100EmpPT30pct` | Emp107 | % users within 30 minutes of employment centres with 100 to 499 jobs available by PT/walk
+`100EmpPT45pct` | Emp108 | % users within 45 minutes of employment centres with 100 to 499 jobs available by PT/walk
+`100EmpPT60pct` | Emp109 | % users within 60 minutes of employment centres with 100 to 499 jobs available by PT/walk
+
+... from which we could infer the variable above?
+<br/>
+
+---
+
+---
+
+Some useful and valuable datasets on *accessibility* by several means of transport was (apparently?) available from DFT until 2012, in csv format.<br/>
 After some strenuous research managed to find the archive for it [here](https://webarchive.nationalarchives.gov.uk/ukgwa/20131223133629mp_/https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/240307/accessibility-statistics-2012.pdf).
 
 **Accessibility Destination Datasets**
@@ -119,14 +149,17 @@ After some strenuous research managed to find the archive for it [here](https://
 - published for England at national, regional, LAD and LSOA level. 
 - have they been substited by [Journey time statistics](https://www.gov.uk/government/collections/journey-time-statistics) data?
 
-*Errata corrige* data at LSOA level is also available in gov.uk [in xls format](https://www.gov.uk/government/statistical-data-sets/acs05-travel-time-destination-and-origin-indicators-to-key-sites-and-services-by-lower-super-output-area-lsoa)
+***Note*** data at LSOA level is also available in gov.uk [in xls format](https://www.gov.uk/government/statistical-data-sets/acs05-travel-time-destination-and-origin-indicators-to-key-sites-and-services-by-lower-super-output-area-lsoa)
+
+where also 2013 is included!
 
 <blockquote>Excel datasets containing raw destination data for calculating Accessibility statistics. This gives the locations of the different services used within these calculations: Primary schools, Secondary Schools, Further Education, Hospitals, GPs, Town Centres, Employment Centres</blockquote>
 
 these makes up to 8 tables of accessibility:
 
 ![](images/accessibility_data.png)
-*screenshot of the available tables from gov.uk*
+
+*screenshot (from gov.uk webpage) of some of the the available tables*
 
 [Accessibility Statistics Guidance 2014](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/372139/accessibility-statistics-guidance.pdf)
 
