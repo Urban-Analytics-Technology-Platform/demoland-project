@@ -191,16 +191,21 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <section id="variables-creation" class="level3" data-number="4.1.1">
 <h3 data-number="4.1.1" class="anchored" data-anchor-id="variables-creation"><span class="header-section-number">4.1.1</span> Variables creation</h3>
-<p>We search now for data to be used as variables (land use features) to predict 4 indicators (see Intro <a href="./intro.html#indicators-building">here</a>):</p>
-<ul>
-<li><p><em>1.a/b</em>. Pollution/emissions</p>
+<p>We are searching for data to be used as variables (land use features) to predict 4 indicators (see Intro <a href="./intro.html#indicators-building">here</a>) AND for the indicators as well:</p>
+<hr>
+<p><em>1.a/b</em>. <strong>Pollution/emissions</strong></p>
+<p><strong>Indicator:</strong> <em>GHG emissions</em></p>
+<p><strong>Predictive variables:</strong> <em>no. of trips, distance travelled, mode of transport</em></p>
 <ul>
 <li><p>data for actual GHG emissions (total, IE comprehensive of mobility, housing, etc) is <a href="#data-availability">only at LAD level</a></p></li>
-<li></li>
-</ul></li>
-<li><p><em>1.c</em>. Green space accessibility</p>
+<li><p>…</p></li>
+</ul>
+<hr>
+<p><em>1.c</em>. <strong>Green space accessibility</strong></p>
+<p><strong>Indicator:</strong> <em>Green space accessibility</em></p>
+<p><strong>Predictive variables:</strong> <em>number of access points, areal extention of greenspaces, distance from greenspace</em></p>
 <blockquote class="blockquote">
-<p>proportion of an urban population living within a certain distance from a green space boundary</p>
+proportion of an urban population living within a certain distance from a green space boundary
 </blockquote>
 <p><br> <a href="https://pubmed.ncbi.nlm.nih.gov/26573907/">Van Den Bosch et al., 2016</a></p>
 <ul>
@@ -211,13 +216,13 @@ ul.task-list li input[type="checkbox"] {
 <li><p><strong>EEA Urban Atlas</strong> for UGS data (landcover map) <a href="https://www.eea.europa.eu/data-and-maps/data/copernicus-land-monitoring-service-urban-atlas">data available here</a> <br> Download per each metro areas <a href="https://land.copernicus.eu/local/urban-atlas/urban-atlas-2018?tab=download">here</a><br> Method described in <a href="https://www.euro.who.int/__data/assets/pdf_file/0005/321971/Urban-green-spaces-and-health-review-evidence.pdf">WHO Europe 2016 report</a></p>
 <blockquote class="blockquote">
 <p><strong>European Urban Atlas Class 1.4.1 (vector data code 14100):<br>Green Urban Areas</strong> (European Commission, 2011)<br> Minimum mapping resolution 0.25 ha, Minimum width: 10 m<br> <em>Included:</em><br> • Public green areas for predominantly recreational use such as gardens, zoos, parks, castle parks.<br> • Suburban natural areas that have become and are managed as urban parks.<br> • Forests or green areas extending from the surroundings into urban areas are mapped as green urban areas when at least two sides are bordered by urban areas and structures, and traces of recreational use are visible.<br> <em>Not included:</em><br> • Private gardens within housing areas<br> • Cemeteries<br> • Buildings within parks, such as castles or museums<br> • Patches of natural vegetation or agricultural areas enclosed by built‐up areas without being managed as green urban areas</p>
-</blockquote></li>
-</ul>
+</blockquote>
 <p>Note that several green areas in Newcastle fall under the category “Pasture” (see for example Nuns Moor)</p>
 <blockquote class="blockquote">
 <p>Lands that are permanently used (at least 5 years) for fodder production. Includes natural or sown herbaceous species, unimproved or lightly improved meadows and grazed or mechanically harvested meadows. Regular agriculture impact influences the natural development of natural herbaceous species composition.</p>
 </blockquote>
-<p>and allotments fall into “Sports and leisure facilities”</p>
+<p>and allotments fall into “Sports and leisure facilities”</p></li>
+</ul>
 <p><img src="images/WHO_method_for_UGS.png" class="img-fluid"></p>
 <ul>
 <li><mark><strong>UK SOURCES</strong></mark><br>
@@ -246,21 +251,23 @@ ul.task-list li input[type="checkbox"] {
 <li>not available as open data</li>
 </ul></li>
 </ul></li>
-</ul></li>
-<li><p><em>2.b</em>. Jobs accessibility</p>
+</ul>
+<hr>
+<p><em>2.b</em>. <strong>Jobs accessibility</strong></p>
+<p><strong>Indicator:</strong> <em>accessibility to jobs (measured/calculated)</em></p>
+<p><strong>Predictive variables:</strong> <em>working population, n.&nbsp;of avaialble jobs</em></p>
 <ul>
 <li>accessibility is not actual data (like emissions for instance) but it’s itself calculated as an index, so what is the meaning in modeling it?</li>
-<li>QUANT <a href="http://quant.casa.ucl.ac.uk/map2.aspx?v=JobAccessibilityObs">map</a>
-<ul>
-<li>how is it calculated</li>
-<li>how to download it … format, etc</li>
-</ul></li>
+<li>QUANT <a href="http://quant.casa.ucl.ac.uk/map2.aspx?v=JobAccessibilityObs">map</a> - how is it calculated - how to download it … format, etc</li>
 <li><a href="#accessibility-data">Accessibility Destination Datasets</a> see paragraph below</li>
-</ul></li>
-<li><p><em>2.c</em>. House prices</p>
+</ul>
+<hr>
+<p><em>2.c</em>. <strong>House prices</strong></p>
+<p><strong>Indicator:</strong> <em>house price (avg … ???)</em></p>
+<p><strong>Predictive variables:</strong> <em>dwellings availability, …</em></p>
 <ul>
-<li>what scenario on house prices?</li>
-</ul></li>
+<li><p>what scenario on house prices?</p></li>
+<li></li>
 </ul>
 <section id="accessibility-data" class="level4" data-number="4.1.1.1">
 <h4 data-number="4.1.1.1" class="anchored" data-anchor-id="accessibility-data"><span class="header-section-number">4.1.1.1</span> Accessibility data</h4>
@@ -277,7 +284,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p>does not appear in the new tables, though, we have the total population (<code>Empl_pop</code>) AND the percentage of population per each mode of transport + time, for example:<br></p>
+<p>does not appear in the new tables, though, we have the total population (<code>Empl_pop</code>) AND the percentage of population per each mode of transport + time, for example (for table 0501):<br></p>
 <table class="table">
 <colgroup>
 <col style="width: 33%">
@@ -390,7 +397,7 @@ A Python toolbox for ArcGIS Pro that enables the development and application of 
 </section>
 <section id="theoretical-framework" class="level3" data-number="4.1.3">
 <h3 data-number="4.1.3" class="anchored" data-anchor-id="theoretical-framework"><span class="header-section-number">4.1.3</span> Theoretical framework</h3>
-<p>In a general non-linear linear regression model we have a given dependent variable which we try to explain by several independent explanatory variables. <br> In our case for a LUR model we have, considering GHG emissions from mobility or housing:</p>
+<p>In a general non-linear linear regression model we have a given dependent variable which we try to explain by several independent explanatory variables. <br> In our case for a LUR model we have, considering for example GHG emissions from mobility or housing:</p>
 <table class="table">
 <colgroup>
 <col style="width: 33%">

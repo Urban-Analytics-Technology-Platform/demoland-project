@@ -26,81 +26,109 @@ $\rightarrow$ _ideally we'd like to perform this as well_
 
 ### Variables creation
 
-We search now for data to be used as variables (land use features) to predict 4 indicators (see Intro [here ](intro.qmd#indicators-building)):
+We are searching for data to be used as variables (land use features) to predict 4 indicators (see Intro [here ](intro.qmd#indicators-building)) AND for the indicators as well:
 
-- _1.a/b_. Pollution/emissions
+--- 
 
-    - data for actual GHG emissions (total, IE comprehensive of mobility, housing, etc) is [only at LAD level](#data-availability)
+_1.a/b_. **Pollution/emissions**
 
-    - 
+**Indicator:** *GHG emissions*
 
-- _1.c_. Green space accessibility
-    <blockquote> proportion of an urban population living within a certain distance from a green space boundary</blockquote><br/>
-    [Van Den Bosch et al., 2016](https://pubmed.ncbi.nlm.nih.gov/26573907/)
+**Predictive variables:** *no. of trips, distance travelled, mode of transport*
 
-     - UGS = Urban Green Space
 
-     - see [Issue](https://github.com/ciupava/LandUseDemonstrator/issues/5) on GitHub for relevant literature on indicators, definitions, methodology to generate UGS maps
+- data for actual GHG emissions (total, IE comprehensive of mobility, housing, etc) is [only at LAD level](#data-availability)
 
-     - accessibility is not actual data (like emissions for instance) but it's itself calculated as an index, so what is the meaning in modeling it?
-     
-     - how we calculate the distance to the nearest green space... or the entrance gate (tricky)
+- ...
 
-     - **EEA Urban Atlas** for UGS data (landcover map) [data available here](https://www.eea.europa.eu/data-and-maps/data/copernicus-land-monitoring-service-urban-atlas) <br/>
-     Download per each metro areas [here](https://land.copernicus.eu/local/urban-atlas/urban-atlas-2018?tab=download)<br/>
-     Method described in [WHO Europe 2016 report](https://www.euro.who.int/__data/assets/pdf_file/0005/321971/Urban-green-spaces-and-health-review-evidence.pdf)
-     <blockquote>
-     **European Urban Atlas Class 1.4.1 (vector data code 14100):<br/>Green Urban Areas** (European Commission, 2011)<br/>
-        Minimum mapping resolution 0.25 ha, Minimum width: 10 m<br/>
-        *Included:*<br/>
-        • Public green areas for predominantly recreational use such as gardens, zoos, parks, castle parks.<br/>
-        • Suburban natural areas that have become and are managed as urban parks.<br/>
-        • Forests or green areas extending from the surroundings into urban areas are mapped as green urban areas when at least two sides are bordered by urban areas and structures, and traces of recreational use are visible.<br/>
-        *Not included:*<br/>
-        • Private gardens within housing areas<br/>
-        • Cemeteries<br/>
-        • Buildings within parks, such as castles or museums<br/>
-        • Patches of natural vegetation or agricultural areas enclosed by built‐up areas without being managed as green urban areas
-    </blockquote>
+---
+
+_1.c_. **Green space accessibility**
+
+**Indicator:** *Green space accessibility*
+
+**Predictive variables:** *number of access points, areal extention of greenspaces, distance from greenspace*
+
+<blockquote> proportion of an urban population living within a certain distance from a green space boundary</blockquote><br/>
+[Van Den Bosch et al., 2016](https://pubmed.ncbi.nlm.nih.gov/26573907/)
+
+- UGS = Urban Green Space
+
+- see [Issue](https://github.com/ciupava/LandUseDemonstrator/issues/5) on GitHub for relevant literature on indicators, definitions, methodology to generate UGS maps
+
+- accessibility is not actual data (like emissions for instance) but it's itself calculated as an index, so what is the meaning in modeling it?
+
+- how we calculate the distance to the nearest green space... or the entrance gate (tricky)
+
+- **EEA Urban Atlas** for UGS data (landcover map) [data available here](https://www.eea.europa.eu/data-and-maps/data/copernicus-land-monitoring-service-urban-atlas) <br/>
+Download per each metro areas [here](https://land.copernicus.eu/local/urban-atlas/urban-atlas-2018?tab=download)<br/>
+Method described in [WHO Europe 2016 report](https://www.euro.who.int/__data/assets/pdf_file/0005/321971/Urban-green-spaces-and-health-review-evidence.pdf)
+<blockquote>
+**European Urban Atlas Class 1.4.1 (vector data code 14100):<br/>Green Urban Areas** (European Commission, 2011)<br/>
+Minimum mapping resolution 0.25 ha, Minimum width: 10 m<br/>
+*Included:*<br/>
+• Public green areas for predominantly recreational use such as gardens, zoos, parks, castle parks.<br/>
+• Suburban natural areas that have become and are managed as urban parks.<br/>
+• Forests or green areas extending from the surroundings into urban areas are mapped as green urban areas when at least two sides are bordered by urban areas and structures, and traces of recreational use are visible.<br/>
+*Not included:*<br/>
+• Private gardens within housing areas<br/>
+• Cemeteries<br/>
+• Buildings within parks, such as castles or museums<br/>
+• Patches of natural vegetation or agricultural areas enclosed by built‐up areas without being managed as green urban areas
+</blockquote>
 
     Note that several green areas in Newcastle fall under the category "Pasture" (see for example Nuns Moor)
-    <blockquote>
+<blockquote>
     Lands that are permanently used (at least 5 years) for fodder production. Includes natural or sown herbaceous species, unimproved or lightly improved meadows and grazed or mechanically harvested meadows. Regular agriculture impact influences the natural development of natural herbaceous species composition.
-    </blockquote>
+</blockquote>
     and allotments fall into "Sports and leisure facilities"
 
-    ![](images/WHO_method_for_UGS.png)
+![](images/WHO_method_for_UGS.png)
 
-    - <mark>**UK SOURCES**</mark><br/>
-        - **Ordnance Survey** [Open greenspace map](https://osdatahub.os.uk/downloads/open/OpenGreenspace) with technical notes [here](https://www.ordnancesurvey.co.uk/business-government/tools-support/open-map-greenspace-support) <br/>
-        $\rightarrow \rightarrow$ *open data!* <br/>
-        Advantages:<br/>
-            - more accurate
-            - covers England, Scotland, Wales
-            - **has access points!!**
-            - need for data cleaning, as many sport facilities/playgrounds are drawn with a separate polygon within the big park they are part of (overlapping features in the shp)
-            - the file includes cemeteries AND allottments
-        - **Natural England** [Accessible Natural Green Space Standards in Towns and Cities: A Review and Toolkit for their Implementation (ENRR526)](http://publications.naturalengland.org.uk/publication/65021)
-            - review and toolkit
-        - **Public Health England** [report](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/904439/Improving_access_to_greenspace_2020_review.pdf) 
-            - ... data??
-        - **Fields in trust** [Green Space Index](https://www.fieldsintrust.org/green-space-index)
-            - [interactive map](https://experience.arcgis.com/experience/5301c55a8189410b9428a90f05596af4)
-            - they launched GSI in 2019
-            - they use OS Open Greenspace Map (above) and ArcGIS
-            - not available as open data
+- <mark>**UK SOURCES**</mark><br/>
+    - **Ordnance Survey** [Open greenspace map](https://osdatahub.os.uk/downloads/open/OpenGreenspace) with technical notes [here](https://www.ordnancesurvey.co.uk/business-government/tools-support/open-map-greenspace-support) <br/>
+    $\rightarrow \rightarrow$ *open data!* <br/>
+    Advantages:<br/>
+        - more accurate
+        - covers England, Scotland, Wales
+        - **has access points!!**
+        - need for data cleaning, as many sport facilities/playgrounds are drawn with a separate polygon within the big park they are part of (overlapping features in the shp)
+        - the file includes cemeteries AND allottments
+    - **Natural England** [Accessible Natural Green Space Standards in Towns and Cities: A Review and Toolkit for their Implementation (ENRR526)](http://publications.naturalengland.org.uk/publication/65021)
+        - review and toolkit
+    - **Public Health England** [report](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/904439/Improving_access_to_greenspace_2020_review.pdf) 
+        - ... data??
+    - **Fields in trust** [Green Space Index](https://www.fieldsintrust.org/green-space-index)
+        - [interactive map](https://experience.arcgis.com/experience/5301c55a8189410b9428a90f05596af4)
+        - they launched GSI in 2019
+        - they use OS Open Greenspace Map (above) and ArcGIS
+        - not available as open data
 
-- _2.b_. Jobs accessibility
+---
 
-    - accessibility is not actual data (like emissions for instance) but it's itself calculated as an index, so what is the meaning in modeling it?
-    - QUANT [map](http://quant.casa.ucl.ac.uk/map2.aspx?v=JobAccessibilityObs)
+_2.b_. **Jobs accessibility**
+
+**Indicator:** *accessibility to jobs (measured/calculated)*
+
+**Predictive variables:** *working population, n. of avaialble jobs*
+
+- accessibility is not actual data (like emissions for instance) but it's itself calculated as an index, so what is the meaning in modeling it?
+- QUANT [map](http://quant.casa.ucl.ac.uk/map2.aspx?v=JobAccessibilityObs)
         - how is it calculated
         - how to download it ... format, etc
-    - [Accessibility Destination Datasets](#accessibility-data) see paragraph below
+- [Accessibility Destination Datasets](#accessibility-data) see paragraph below
 
-- _2.c_. House prices
+---
 
-    - what scenario on house prices?
+_2.c_. **House prices**
+
+**Indicator:** *house price (avg ... ???)*
+
+**Predictive variables:** *dwellings availability, ...*
+
+   - what scenario on house prices?
+
+   - 
 
 
 #### Accessibility data
@@ -118,7 +146,7 @@ For example the variable:
 |-|-|-|
 `All20_PT/walk` | EMPLO049 | Users within 20 minutes by PT/walk
 
-does not appear in the new tables, though, we have the total population (`Empl_pop`) AND the percentage of population per each mode of transport + time, for example:<br/>
+does not appear in the new tables, though, we have the total population (`Empl_pop`) AND the percentage of population per each mode of transport + time, for example (for table 0501):<br/>
 
 
 |Field|Alternate name|Description|
@@ -216,7 +244,7 @@ PyLUR out-performs <mark>RLUR</mark> for modelling in the Bradford and Auckland 
 ### Theoretical framework
 
 In a general non-linear linear regression model we have a given dependent variable which we try to explain by several independent explanatory variables. <br/>
-In our case for a LUR model we have, considering GHG emissions from mobility or housing:
+In our case for a LUR model we have, considering for example GHG emissions from mobility or housing:
 
 | | | |
 |-|-|-|
