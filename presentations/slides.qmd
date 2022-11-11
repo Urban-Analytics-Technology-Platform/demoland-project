@@ -1,0 +1,185 @@
+---
+title: "Land Use Demonstrator"
+subtitle: "a project"
+author: "<br/>**Anna Zanchetta**<br/>--<br/>PDRA, The Alan Turing Institute"
+format:
+  revealjs:
+    logo: logo2.png
+    progress: false
+    menu: false
+    theme: custom.scss
+    footer: UA 2.0 - Inequalities in the recovery of cities and regions --- **Liverpool**, November 2022--- 
+from: markdown+emoji
+---
+
+# Intro
+
+## Intro {.smaller}
+
+. . .
+
+
+![](GSC.png){.absolute bottom="200" right="530" width="500"}
+<!-- support the goals of -->
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+National Land Development Programme (NLDP)
+
+
+
+## Intro 
+
+<br/>
+
++----------------+--------------------------------------------------+
+| **Objective**  | modelling system to quantify features<br/>       |
+|                | of <mark>land use</mark> in :office: environment |
++----------------+--------------------------------------------------+
+
+. . .
+
+<br/>
+
++----------------+--------------------------------------------------+
+| **Output**     | Landcover map for the :uk: <br/>(MSOA level)     |
+|                | 
++----------------+--------------------------------------------------+
+
+---
+
+## Intro {.smaller}
+![](tynewear.png){.absolute bottom="20" right="200" width="580"}
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+*Tyne and Wear county*
+<!-- ## Intro {.smaller background-image=tynewear.png background-size="700px"} -->
+<!-- <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+*Tyne and Wear county* -->
+
+---
+
+## Intro 
+
+<br/>
+
++----------------+--------------------------------------------------+
+| **Objective**  | modelling system to quantify features<br/>       |
+|                | of <mark>land use</mark> in :office: environment |
++----------------+--------------------------------------------------+
+
+<br/>
+
++----------------+--------------------------------------------------+
+| **Output**     | Landcover map for the :uk: <br/>(MSOA level)     |
+|                | 
++----------------+--------------------------------------------------+
+
+<br/>
+
++----------------+--------------------------------------------------+
+| **How**        | Building several :key: <mark>indicators</mark>   |
++----------------+--------------------------------------------------+
+
+
+# :key: Indicators
+
+## Indicators
+::: {layout-ncol="2" layout-nrow="2"}
+base scenario
+![](egg.jpg)
+
+future scenario
+:::
+
+## Indicators
+::: {layout-ncol="2"}
+base scenario
+![](egg.jpg)
+
+future scenario
+<br/>
+![](hen.png)
+:::
+
+## Indicators
+::: {layout-ncol="2"}
+base scenario
+![](egg.jpg)
+
+future scenario
+![](egg_boiled.png){width="380"}
+:::
+
+## Indicators
+::: {layout-ncol="2"}
+base scenario
+![](egg.jpg)
+
+future scenario
+<br/><br/>
+![](egg_broken.png)
+:::
+
+## Base scenario
+::: {layout-ncol="2"}
+![](egg.jpg)
+
+**Land Use Regression** (LUR)
+      :point_down: <br/>
+land use as explanatory variables
+:::
+
+## Base scenario
+::: {layout-ncol="2"}
+![](egg.jpg)
+
+**4 indicators** (LUR)
+<br/><br/>
+• GHG emissions<br/><br/>
+• Green space accessibility<br/><br/>
+• Jobs accessibility<br/><br/>
+• House prices
+:::
+
+
+## Base scenario
+::: {layout-ncol="2"}
+<br/><br/>
+     ![](data.png){width="300"}
+
+**4 indicators** (LUR)
+<br/><br/>
+• GHG emissions<br/><br/>
+• Green space accessibility<br/><br/>
+• Jobs accessibility<br/><br/>
+• House prices
+:::
+
+## Futures scenarios
+::: {layout-ncol="2"}
+<br/><br/>
+effects of <mark>targeted intervention</mark> on land use
+
+![](hen.png)
+:::
+
+## Futures scenarios
+::: {layout-ncol="2"}
+<br/><br/>
+effects of <mark>targeted intervention</mark> on land use
+<br/><br/>
+AI scenario builder
+
+<br/>
+![](egg_electronic.png){width="350"}
+:::
+
+---
+
+<!-- :::{.bigger layout-align="center"} -->
+<!-- :::{.absolute top=50 right=350}
+<br/><br/><br/> -->
+<br/><br/>
+Anna Zanchetta
+<br/><br/><br/>
+*azanchetta@turing.ac.uk*
+<br/><br/>
+[https://github.com/ciupava/LandUseDemonstrator](https://github.com/ciupava/LandUseDemonstrator)
