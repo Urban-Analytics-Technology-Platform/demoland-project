@@ -3,6 +3,7 @@ title: "Land Use Demonstrator"
 subtitle: "Notes"
 author: "Anna Zanchetta"
 date: today
+from: markdown+emoji
 # format:
 #   revealjs:
 #     slide-number: true

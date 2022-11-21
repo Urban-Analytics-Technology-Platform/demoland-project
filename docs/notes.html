@@ -188,10 +188,15 @@ ul.task-list li input[type="checkbox"] {
 <li><p>LUR potential predictor variables extraction … relevant for us? (limited number of variables) <span class="math inline">\(\rightarrow\)</span> <em>ideally we’d like to perform this as well</em></p></li>
 <li><p>LUR output is raster VS vectorial <span class="math inline">\(\rightarrow\)</span> <em>we’ll need to aggregate the data at some spatial level (MSOAs for instance), introducing some level of approximation</em></p></li>
 <li><p>not clear how the <em>spatial</em> connotation enter the model, just because we use data defined at (some) geographic level?</p></li>
+<li><p>A <mark><strong>good name</strong></mark> for the project? (acronym)</p></li>
 </ol>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">demoland</li>
+<li><input type="checkbox" disabled="">:chicken: and :egg:</li>
+</ul>
 <section id="variables-creation" class="level3" data-number="4.1.1">
 <h3 data-number="4.1.1" class="anchored" data-anchor-id="variables-creation"><span class="header-section-number">4.1.1</span> Variables creation</h3>
-<p>We are searching for data to be used as variables (land use features) to predict 4 indicators (see Intro <a href="./intro.html#indicators-building">here</a>) AND for the indicators as well:</p>
+<p>We are searching for data for the variables (land use features) to predict the 4 indicators (see Intro <a href="./intro.html#indicators-building">here</a>) AND for the indicators as well:</p>
 <hr>
 <p><em>1.a/b</em>. <strong>Pollution/emissions</strong></p>
 <p><strong>Indicator:</strong> <em>GHG emissions</em></p>
@@ -203,7 +208,8 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 <p><em>1.c</em>. <strong>Green space accessibility</strong></p>
 <p><strong>Indicator:</strong> <em>Green space accessibility</em></p>
-<p><strong>Predictive variables:</strong> <em>number of access points, areal extention of greenspaces, distance from greenspace</em></p>
+<p><strong>Predictive variables:</strong> <em>number of access points, areal extention of greenspaces, distance from greenspace (access point)</em></p>
+<p>Definition:</p>
 <blockquote class="blockquote">
 proportion of an urban population living within a certain distance from a green space boundary
 </blockquote>
@@ -227,7 +233,7 @@ proportion of an urban population living within a certain distance from a green 
 <ul>
 <li><mark><strong>UK SOURCES</strong></mark><br>
 <ul>
-<li><strong>Ordnance Survey</strong> <a href="https://osdatahub.os.uk/downloads/open/OpenGreenspace">Open greenspace map</a> with technical notes <a href="https://www.ordnancesurvey.co.uk/business-government/tools-support/open-map-greenspace-support">here</a> <br> <span class="math inline">\(\rightarrow \rightarrow\)</span> <em>open data!</em> <br> Advantages:<br>
+<li><p><strong>Ordnance Survey</strong> <a href="https://osdatahub.os.uk/downloads/open/OpenGreenspace">Open greenspace map</a> with technical notes <a href="https://www.ordnancesurvey.co.uk/business-government/tools-support/open-map-greenspace-support">here</a> <br> <span class="math inline">\(\rightarrow \rightarrow\)</span> <em>open data!</em> <br> Advantages:<br></p>
 <ul>
 <li>more accurate</li>
 <li>covers England, Scotland, Wales</li>
@@ -235,21 +241,49 @@ proportion of an urban population living within a certain distance from a green 
 <li>need for data cleaning, as many sport facilities/playgrounds are drawn with a separate polygon within the big park they are part of (overlapping features in the shp)</li>
 <li>the file includes cemeteries AND allottments</li>
 </ul></li>
-<li><strong>Natural England</strong> <a href="http://publications.naturalengland.org.uk/publication/65021">Accessible Natural Green Space Standards in Towns and Cities: A Review and Toolkit for their Implementation (ENRR526)</a>
+<li><p><strong>Natural England</strong> <a href="http://publications.naturalengland.org.uk/publication/65021">Accessible Natural Green Space Standards in Towns and Cities: A Review and Toolkit for their Implementation (ENRR526)</a></p>
 <ul>
 <li>review and toolkit</li>
 </ul></li>
-<li><strong>Public Health England</strong> <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/904439/Improving_access_to_greenspace_2020_review.pdf">report</a>
+<li><p><strong>Public Health England</strong> <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/904439/Improving_access_to_greenspace_2020_review.pdf">report</a></p>
 <ul>
 <li>… data??</li>
 </ul></li>
-<li><strong>Fields in trust</strong> <a href="https://www.fieldsintrust.org/green-space-index">Green Space Index</a>
+<li><p><strong>Fields in trust</strong> <a href="https://www.fieldsintrust.org/green-space-index">Green Space Index</a></p>
 <ul>
 <li><a href="https://experience.arcgis.com/experience/5301c55a8189410b9428a90f05596af4">interactive map</a></li>
 <li>they launched GSI in 2019</li>
 <li>they use OS Open Greenspace Map (above) and ArcGIS</li>
 <li>not available as open data</li>
 </ul></li>
+<li><p><strong>AHAH <a href="https://data.cdrc.ac.uk/dataset/access-healthy-assets-hazards-ahah">Access to Healthy Assets &amp; Hazards</a></strong> (Dani suggested)</p>
+<p>• A multi-dimensional index developed by the CDRC for Great Britain at LSOA level, contains also access to greenspace (passive) - already calculated</p>
+<p>• … different versions:</p>
+<p>VERSION 3 (2022)<br> <a href="https://www.nature.com/articles/s41597-019-0114-6#MOESM1">Daras K., Green M. A., Davies A., Barr B., Singleton A. 2019. Open data on health-related neighbourhood features in Great Britain. Scientific data 6 (1), 107. DOI:</a></p>
+<p>apparently they use NDVI for greenspace (from Sentinel) <img src="images/ahah_why.png" class="img-fluid" alt="screenshot from the metadata file"></p>
+<blockquote class="blockquote">
+<p>From all the available types of ‘green’ spaces in the <strong>OSM data</strong>, we selected only areas tagged as public accessible with the following area types: <mark>cemetery, common, dog park, scrub, fell, forest, garden, greenfield, golf course, grass, grassland, heath, meadow, nature reserve, orchard, park, pitch, recreation ground, village green, vineyard and wood </mark><br> …<br> The green space indicator has been defined as an area measure of access to green space available to each postcode that intersect with a 900 meters buffer zone</p>
+</blockquote>
+<p>…“passive” greenspace</p>
+<p>• VERSION 2 (2017) and VERSION 1 (2016)</p>
+<p>• here it seems they are using the OS dataset (note that apparently the older versions had both active and passive access to greenspaces: <br> <a href="https://figshare.com/articles/online_resource/Access_to_Healthy_Assets_and_Hazards_AHAH_-_Updated_version_2017/8295842/1">Daras, K., Green, MA., Davies, A., Singleton, A., Barr, B. 2019. Access to Healthy Assets and Hazards (AHAH) - Updated version 2017. figshare. Short Technical Report. DOI: 10.6084/m9.figshare.8295842.v1</a></p>
+<blockquote class="blockquote">
+<p>Open data from OS on Green spaces was used for preparing two variables related to the distance from the nearest green space (active) and the total green space areas available to each postcode in a range of a 900-meter buffer (passive) before creating LSOA level averages</p>
+</blockquote>
+<p><a href="https://data.cdrc.ac.uk/dataset/access-healthy-assets-hazards-ahah/resource/note-active-and-passive-green-spaces-v2">Note on Active and Passive Green Spaces</a></p>
+<p>the previous version though uses OSM (like described above):<br> <a href="https://doi.org/10.1016/j.healthplace.2018.08.019">Green, M. A., Daras, K., Davies, A., Barr, B. &amp; Singleton, A. 2018. Developing an openly accessible multi-dimensional small area index of ‘Access to Healthy Assets and Hazards’ for Great Britain,</a></p>
+<blockquote class="blockquote">
+<p>We then defined the amount of green space within a 900 m2 buffer of a postcode.</p>
+</blockquote>
+<p>but is aware of OS, from the Appendix:</p>
+<blockquote class="blockquote">
+<p>There were few open source alternatives (or data that could be shared openly within the terms of their licences) containing similar data during the construction of the indicators and our index. <mark>Since then, the <strong>Ordnance Survey (OS)</strong> have released an open resource of locations of green space </mark>(OS Green Space Layer; https://getoutside.ordnancesurvey.co.uk/greenspaces/) . We are currently undertaking a full comparison of OSM and OS to explore the strengths and weaknesses of each data source with the aim of improving our green space metrics, however such an evaluation is beyond the scope of this paper.</p>
+</blockquote>
+<p>• They use <em>Routino</em> open source software <a href="https://www.routino.org">https://www.routino.org</a> to identify the shortest path between two locations using the OSM transport network</p>
+<blockquote class="blockquote">
+<p>measured the network distance between the population-weighted centroid of each postcode in the National Statistics Postcode Lookup (NSPL) and the coordinates of the nearest service (e.g.&nbsp;a population-weighted centroid of postcode for off-license)</p>
+</blockquote>
+<p>code <a href="https://github.com/GDSL-UL/AHAH">here</a></p></li>
 </ul></li>
 </ul>
 <hr>
