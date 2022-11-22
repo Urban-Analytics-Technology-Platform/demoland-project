@@ -157,7 +157,7 @@ Minimum mapping resolution 0.25 ha, Minimum width: 10 m<br/>
         'active' is based on the distance people have to travel to their nearest greenspace access point conducive to physical activity [...]<br/>
         The measure is built up from analysis at the postcode level. Distances from each postcode centroid along road networks to the nearest greenspace access point are calculated. Postcodes are matched to LSOAs and an average is taken to get an LSOA score (mean value).<br/>
 
-        The second greenspace indicator labelled as ' passive' is based on the proportion of greenspace within a 900 meter buffer (~15 mins walk) from where people live
+        The second greenspace indicator labelled as 'passive' is based on the proportion of greenspace within a 900 meter buffer (~15 mins walk) from where people live
         </blockquote>
 
         the (assumed?) first version though uses OSM (like described above):<br/>
@@ -173,11 +173,11 @@ Minimum mapping resolution 0.25 ha, Minimum width: 10 m<br/>
         </blockquote>
         code [here](https://github.com/GDSL-UL/AHAH)
 
-        - [X] not enough METADATA to be able to understand what to use
+        - **Conclusions:**
+            - not enough METADATA to be able to understand what to use (missing field names)
+            - not clear which data source they use in which version (NDVI, OS, OSM?)
+            - only passive accessibility available in last version
 
-        - [ ] provaaaa
-
-        - [ ] one more
 
 ---
 
