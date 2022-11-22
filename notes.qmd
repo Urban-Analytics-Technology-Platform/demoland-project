@@ -110,7 +110,7 @@ Minimum mapping resolution 0.25 ha, Minimum width: 10 m<br/>
         - they launched GSI in 2019
         - they use OS Open Greenspace Map (above) and ArcGIS
         - not available as open data
-    - **AHAH [Access to Healthy Assets & Hazards](https://data.cdrc.ac.uk/dataset/access-healthy-assets-hazards-ahah)** (Dani suggested) 
+    - **[AHAH](#ahah) [Access to Healthy Assets & Hazards](https://data.cdrc.ac.uk/dataset/access-healthy-assets-hazards-ahah)** (Dani suggested) 
         
         • A multi-dimensional index developed by the CDRC for Great Britain at LSOA level, contains also access to greenspace (passive) - already calculated
         
