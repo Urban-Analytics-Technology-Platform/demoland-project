@@ -299,21 +299,19 @@ proportion of an urban population living within a certain distance from a green 
 <blockquote class="blockquote">
 <p>measured the network distance between the population-weighted centroid of each postcode in the National Statistics Postcode Lookup (NSPL) and the coordinates of the nearest service (e.g.&nbsp;a population-weighted centroid of postcode for off-license)</p>
 </blockquote>
-<p>code <a href="https://github.com/GDSL-UL/AHAH">here</a></p>
-<ul>
-<li><strong>Conclusions:</strong>
+<p>code <a href="https://github.com/GDSL-UL/AHAH">here</a></p></li>
+<li><p><strong>Conclusions:</strong></p>
 <ul>
 <li>not enough METADATA to be able to understand what to use (missing field names)</li>
 <li>not clear which data source they use in which version (NDVI, OS, OSM?)</li>
 <li>only passive accessibility available in last version</li>
 </ul></li>
 </ul></li>
-</ul></li>
 </ul>
 <hr>
 <p><em>2.b</em>. <strong>Jobs accessibility</strong></p>
 <p><strong>Indicator:</strong> <em>accessibility to jobs (measured/calculated)</em></p>
-<p><strong>Predictive variables:</strong> <em>working population, n.&nbsp;of avaialble jobs</em></p>
+<p><strong>Predictive variables:</strong> <em>working population, n.&nbsp;of available jobs</em></p>
 <ul>
 <li>accessibility is not actual data (like emissions for instance) but it’s itself calculated as an index, so what is the meaning in modeling it?</li>
 <li>QUANT <a href="http://quant.casa.ucl.ac.uk/map2.aspx?v=JobAccessibilityObs">map</a> - how is it calculated - how to download it … format, etc</li>
@@ -321,12 +319,60 @@ proportion of an urban population living within a certain distance from a green 
 </ul>
 <hr>
 <p><em>2.c</em>. <strong>House prices</strong></p>
-<p><strong>Indicator:</strong> <em>house price (avg … ???)</em></p>
-<p><strong>Predictive variables:</strong> <em>dwellings availability, …</em></p>
+<p><strong>Indicator:</strong> <em>house price (avg / zonal effect / dimension / amenities ???)</em></p>
+<p><strong>Predictive variables:</strong> <em>dwellings availability, services, accessibility to PT</em></p>
 <ul>
-<li><p>what scenario on house prices?</p></li>
-<li></li>
+<li>what scenario on house prices?</li>
+<li><strong><a href="https://www.data.gov.uk/search?q=house+price">gov.uk data</a></strong><br> most recent source:<br> <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/housing/bulletins/housepricestatisticsforsmallareas/yearendingmarch2022">House price statistics for small areas in England and Wales: year ending March 2022</a>
+<ul>
+<li><strong>Differences to other house price statistics:</strong>
+<blockquote class="blockquote">
+There are two sets of official statistics for house prices. In addition to these <strong>HPSSAs</strong>, the Office for National Statistics (ONS) also produces the <strong>UK House Price Index (UK HPI)</strong>. The HPSSAs measure the number of property transactions and the price paid for properties sold in a given period, while the UK HPI measures the changing value of properties in the housing market. You can find out more about the differences and uses of these outputs in our House price statistics for small areas Quality and Methodology Information (QMI).
+</blockquote></li>
+</ul></li>
+<li>available at MSOA level:</li>
 </ul>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dataset No.</th>
+<th>Dataset Name</th>
+<th>Periodicity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>HPSSA dataset 1</td>
+<td>Number of sales of residential properties for middle layer super output areas</td>
+<td>Quarterly</td>
+</tr>
+<tr class="even">
+<td>HPSSA dataset 2</td>
+<td>Median price paid for middle layer super output areas</td>
+<td>Quarterly</td>
+</tr>
+<tr class="odd">
+<td>HPSSA dataset 3</td>
+<td>Mean house prices for middle layer super output areas</td>
+<td>Quarterly</td>
+</tr>
+<tr class="even">
+<td>HPSSA dataset 4</td>
+<td>Lower quartile house prices for middle layer super output areas</td>
+<td>Annually</td>
+</tr>
+<tr class="odd">
+<td>HPSSA dataset 5</td>
+<td>Tenth percentile house prices for middle layer super output areas</td>
+<td>Quarterly</td>
+</tr>
+</tbody>
+</table>
 <section id="accessibility-data" class="level4" data-number="4.1.1.1">
 <h4 data-number="4.1.1.1" class="anchored" data-anchor-id="accessibility-data"><span class="header-section-number">4.1.1.1</span> Accessibility data</h4>
 <p><mark><strong>UPDATE</strong></mark></p>

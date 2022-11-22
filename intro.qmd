@@ -57,7 +57,7 @@ c.	**Transport networks and connectivity**
 ### Society and Health 
 a.	*Physical health*
 b.	*Mental health*
-c.	*Healthy living and lifestyles*
+c. | *Healthy living and lifestyles*
 
 
 The data hunting is still in progress, see (Issues)[https://github.com/ciupava/LandUseDemonstrator/issues] in the GitHub page, [Notes](notes.qmd) and [Data Sources](data_sources.qmd) to follow the latest developments.
