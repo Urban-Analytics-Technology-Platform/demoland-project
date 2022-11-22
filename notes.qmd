@@ -122,33 +122,46 @@ Minimum mapping resolution 0.25 ha, Minimum width: 10 m<br/>
         
         VERSION 1 (2016)
         
-        • the current version seems to use NDVI for greenspace (from Sentinel)
+        • the current version (3) only gives the 'passive' greenspace, in terms of NDVI values (from Sentinel)
         <figure>
             <img src="images/ahah_why.png"/ width="650">
-            <figcaption>Screenshot from the `metadata` file</figcaption>
+            <figcaption>Screenshot from the `metadata` file (Version 3)</figcaption>
         </figure>
         <!-- ![screenshot from the `metadata` file](images/ahah_why.png) -->
+        where the values range between ... and ... (that's the index)
 
-        though the latest pubblication claims to use OSM data:
+        though, by the description the "passive" greenspace should be a measure of surface (km2):
+
+        <figure>
+            <img src="images/ahah_2017.png"/ width="650">
+            <figcaption>Screenshot from the Version 2 Short Technical Report</figcaption>
+        </figure>
+        ... see "active" and "passive" greenspace definition below
+
+        • the latest pubblication claims to use OSM data:<br/>
+        [Daras K., Green M. A., Davies A., Barr B., Singleton A. 2019. Open data on health-related neighbourhood features in Great Britain. Scientific data 6 (1), 107. DOI: 10.1038/s41597-019-0114-6](https://www.nature.com/articles/s41597-019-0114-6)
         <blockquote>
         From all the available types of ‘green’ spaces in the **OSM data**, we selected only areas tagged as public accessible with the following area types: <mark>cemetery, common, dog park, scrub, fell, forest, garden, greenfield, golf course, grass, grassland, heath, meadow, nature reserve, orchard, park, pitch, recreation ground, village green, vineyard and wood </mark><br/>
         ...<br/>
         The green space indicator has been defined as an area measure of access to green space available to each postcode that intersect with a 900 meters buffer zone
         </blockquote>
-        ..."passive" greenspace :
 
-        • here it seems they are using the OS dataset (note that apparently the older versions had both active and passive access to greenspaces: <br/>
+
+        but, from this 2019 publication, it looks like they are using the OS dataset (and giving both active and passive access): <br/>
         [Daras, K., Green, MA., Davies, A., Singleton, A., Barr, B. 2019. Access to Healthy Assets and Hazards (AHAH) - Updated version 2017. figshare. Short Technical Report. DOI: 10.6084/m9.figshare.8295842.v1](https://figshare.com/articles/online_resource/Access_to_Healthy_Assets_and_Hazards_AHAH_-_Updated_version_2017/8295842/1)
         <blockquote>
         Open data from OS on Green spaces was used for preparing two variables related to the distance from the nearest green space (active) and the total green space areas available to each postcode in a range of a 900-meter buffer (passive) before creating LSOA level averages
         </blockquote>
         [Note on Active and Passive Green Spaces](https://data.cdrc.ac.uk/dataset/access-healthy-assets-hazards-ahah/resource/note-active-and-passive-green-spaces-v2)
-
-        the previous version though uses OSM (like described above):<br/>
-        [Green, M. A., Daras, K., Davies, A., Barr, B. & Singleton, A. 2018. Developing an openly accessible multi-dimensional small area index of ‘Access to Healthy Assets and Hazards’ for Great Britain,](https://doi.org/10.1016/j.healthplace.2018.08.019)
         <blockquote>
-        We then defined the amount of green space within a 900 m2 buffer of a postcode.
+        'active' is based on the distance people have to travel to their nearest greenspace access point conducive to physical activity [...]<br/>
+        The measure is built up from analysis at the postcode level. Distances from each postcode centroid along road networks to the nearest greenspace access point are calculated. Postcodes are matched to LSOAs and an average is taken to get an LSOA score (mean value).<br/>
+
+        The second greenspace indicator labelled as ' passive' is based on the proportion of greenspace within a 900 meter buffer (~15 mins walk) from where people live
         </blockquote>
+
+        the (assumed?) first version though uses OSM (like described above):<br/>
+        [Green, M. A., Daras, K., Davies, A., Barr, B. & Singleton, A. 2018. Developing an openly accessible multi-dimensional small area index of ‘Access to Healthy Assets and Hazards’ for Great Britain,](https://doi.org/10.1016/j.healthplace.2018.08.019) <br/>
         but is aware of OS, from the Appendix:
         <blockquote>
         There were few open source alternatives (or data that could be shared openly within the terms of their licences) containing similar data during the construction of the indicators and our index. <mark>Since then, the **Ordnance Survey (OS)** have released an open resource of locations of green space </mark>(OS Green Space Layer; https://getoutside.ordnancesurvey.co.uk/greenspaces/) . We are currently undertaking a full comparison of OSM and OS to explore the strengths and weaknesses of each data source with the aim of improving our green space metrics, however such an evaluation is beyond the scope of this paper. 
@@ -160,8 +173,7 @@ Minimum mapping resolution 0.25 ha, Minimum width: 10 m<br/>
         </blockquote>
         code [here](https://github.com/GDSL-UL/AHAH)
 
-
-
+        - [X] not enough METADATA to be able to understand what to use
 ---
 
 _2.b_. **Jobs accessibility**
