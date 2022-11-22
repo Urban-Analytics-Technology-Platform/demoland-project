@@ -117,21 +117,26 @@ Minimum mapping resolution 0.25 ha, Minimum width: 10 m<br/>
         • ... different versions:
 
         VERSION 3 (2022)<br/>
-        [Daras K., Green M. A., Davies A., Barr B., Singleton A. 2019. Open data on health-related neighbourhood features in Great Britain. Scientific data 6 (1), 107. DOI:](https://www.nature.com/articles/s41597-019-0114-6#MOESM1)
         
-        apparently they use NDVI for greenspace (from Sentinel)
-        ![screenshot from the `metadata` file](images/ahah_why.png)
+        VERSION 2 (2017) <br/>
+        
+        VERSION 1 (2016)
+        
+        • the current version seems to use NDVI for greenspace (from Sentinel)
+        <figure>
+            <img src="images/ahah_why.png"/ width="650">
+            <figcaption>Screenshot from the `metadata` file</figcaption>
+        </figure>
+        <!-- ![screenshot from the `metadata` file](images/ahah_why.png) -->
 
+        though the latest pubblication claims to use OSM data:
         <blockquote>
         From all the available types of ‘green’ spaces in the **OSM data**, we selected only areas tagged as public accessible with the following area types: <mark>cemetery, common, dog park, scrub, fell, forest, garden, greenfield, golf course, grass, grassland, heath, meadow, nature reserve, orchard, park, pitch, recreation ground, village green, vineyard and wood </mark><br/>
         ...<br/>
         The green space indicator has been defined as an area measure of access to green space available to each postcode that intersect with a 900 meters buffer zone
         </blockquote>
-        ..."passive" greenspace
+        ..."passive" greenspace :
 
-
-        • VERSION 2 (2017) and VERSION 1 (2016)
-        
         • here it seems they are using the OS dataset (note that apparently the older versions had both active and passive access to greenspaces: <br/>
         [Daras, K., Green, MA., Davies, A., Singleton, A., Barr, B. 2019. Access to Healthy Assets and Hazards (AHAH) - Updated version 2017. figshare. Short Technical Report. DOI: 10.6084/m9.figshare.8295842.v1](https://figshare.com/articles/online_resource/Access_to_Healthy_Assets_and_Hazards_AHAH_-_Updated_version_2017/8295842/1)
         <blockquote>
