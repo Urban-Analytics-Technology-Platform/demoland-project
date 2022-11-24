@@ -26,14 +26,14 @@ $\rightarrow$ _ideally we'd like to perform this as well_
 
 5. A <mark>**good name**</mark> for the project? (acronym)
 
-what does "demonstrator" stand for, why should we stick to that term?
+    what does "demonstrator" stand for, why should we stick to that term?
 
-- [ ] demoland &#x1F3D9;
-- [ ] &#x1F95A; and &#x1F425; ... &#x1F373;
-         - LAID = LAnd Use Indicators Demonstrator 
-         - NEST (?)
-- [ ] LOUSE = Land (o) USe Explanator &#x1FAB2; ('louse' is singular for lice)
-- [ ] DODO &#x1F9A4;
+    - [ ] **demoland** &#x1F3D9;
+    - [ ] &#x1F95A; and &#x1F425; ... &#x1F373;
+        - **LAID** = LAnd Use Indicators Demonstrator &#x1FAB9;
+        - **NEST** (?) &#x1FABA;
+    - [ ] **LOUSE** = Land (o) USe Explanator &#x1FAB2; <br/> ('louse' is singular for lice)
+    - [ ] **DODO** &#x1F9A4; ... just because it's a catchy name
 
 
 ### Variables creation
