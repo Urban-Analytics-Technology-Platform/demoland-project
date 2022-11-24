@@ -1,16 +1,10 @@
 # Notes
 
----
-John P. Pritchard, Anna Zanchetta, Karel Martens, _A new index to assess the situation of subgroups, with an application to public transport disadvantage in US metropolitan areas_, Transportation Research Part A: Policy and Practice, 2022, 166.86-100<br/>
-[https://www.sciencedirect.com/science/article/pii/S0965856422002609](https://www.sciencedirect.com/science/article/pii/S0965856422002609)
-
-
 This page is constantly updated on an (almost) daily base, meaning that the order is not dictated by a specific structure, just temporary adding up ideas and development of the project.
 
 NB: in reverse order, that is more recent stuff is at the top of the document.
 
-
-## Agenda 2022, November 29 [Tue] - In office
+## Agenda - November, 29 [Tue] - In office
 
 - [ ] review of the project (objective, idea...)
 - [ ] discussing the data
@@ -18,10 +12,11 @@ NB: in reverse order, that is more recent stuff is at the top of the document.
   - GHG emission (resolution)
   - house price (the least concern?)
 - [ ] discussing methodology
-  - 2 processes to generate indicators: LUR and ... (accessibility)
+  - 2 processes to generate indicators:
+     - LUR
+     - <mark>_____________</mark> (accessibility)
   - output
 - [ ] name
-
 
 ## November
 
@@ -34,35 +29,27 @@ Within these two types, we aim at generating anyways a <mark>comprehensive metho
 
 ---
 
-1. LUR is generally used for air quality prediction <br/>
-_...FIND examples of non-air pollutants applications?_
+### Name
 
-2. LUR potential predictor variables extraction ... relevant for us? (limited number of variables)
-$\rightarrow$ _ideally we'd like to perform this as well_
+A <mark>**good name**</mark> for the project? (acronym*)
 
-3. LUR output is raster VS vectorial $\rightarrow$ _we'll need to aggregate the data at some spatial level (MSOAs for instance), introducing some level of approximation_
+what does "demonstrator" stand for, why should we stick to that term?
 
-4. not clear how the _spatial_ connotation enters the model, just because we use data defined at (some) geographic level? _YES_
-
-5. A <mark>**good name**</mark> for the project? (acronym*)
-
-    what does "demonstrator" stand for, why should we stick to that term?
-
-    - [ ] **demoland** &#x1F3D9;
-    - [ ] &#x1F95A; and &#x1F425; ... &#x1F373;
-        - **LAID** = LAnd Use Indicators Demonstrator &#x1FAB9;
-        - **NEST** (?) &#x1FABA;
-    - [ ] **LOUSE** = Land (o) USe Explanator &#x1FAB2; <br/> ('louse' is singular for lice)
-    - [ ] **DODO** &#x1F9A4; ... just because it's a catchy name
+- [ ] **demoland** &#x1F3D9;
+- [ ] &#x1F95A; and &#x1F425; ... &#x1F373;
+    - **LAID** = LAnd Use Indicators Demonstrator &#x1FAB9;
+    - **NEST** (?) &#x1FABA;
+- [ ] **LOUSE** = Land (o) USe Explanator <br/>  &#x1FAB2; ('louse' is singular for lice)
+- [ ] **DODO** &#x1F9A4; ... just because it's a nice name
 
 ### Variables creation
 
-We are searching for data for:
+We are searching data for:
 
 - the indicators
 - the variables (land use features) to predict the indicators
 
-In the first stage, we are concentrating on 4 of the indicators (the numbering refers to the Intro list [here](intro.qmd#indicators-building)):<br/>
+In a first phase we are concentrating on 4 of the indicators (the numbering refers to the Intro list [here](intro.qmd#indicators-building)):<br/>
 _1.a/b_. **Pollution/emissions**<br/>
 _1.c_. **Green space accessibility**<br/>
 _2.b_. **Jobs accessibility**<br/>
@@ -215,6 +202,8 @@ Minimum mapping resolution 0.25 ha, Minimum width: 10 m<br/>
         - not clear which data source they use in which version (NDVI, OS, OSM?)
         - only passive accessibility available in last version
 
+        <mark>WRITE TO THE TEAM</mark> detailed list of questions
+
 
 ---
 
@@ -289,8 +278,6 @@ does not appear in the new tables, though, we have the total population (`Empl_p
 
 ---
 
----
-
 Some useful and valuable datasets on *accessibility* by several means of transport was (apparently?) available from DFT until 2012, in csv format.<br/>
 After some strenuous research managed to find the archive for it [here](https://webarchive.nationalarchives.gov.uk/ukgwa/20131223133629mp_/https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/240307/accessibility-statistics-2012.pdf).
 
@@ -321,6 +308,20 @@ these makes up to 8 tables of accessibility:
 
 
 ### Some literature on LUR
+
+**Questions**
+
+1. LUR is generally used for air quality prediction <br/>
+_...FIND examples of non-air pollutants applications?_
+
+2. LUR potential predictor variables extraction ... relevant for us? (limited number of variables)
+$\rightarrow$ _ideally we'd like to perform this as well_
+
+3. LUR output is raster VS vectorial $\rightarrow$ _we'll need to aggregate the data at some spatial level (MSOAs for instance), introducing some level of approximation_
+
+4. not clear how the _spatial_ connotation enters the model, just because we use data defined at (some) geographic level? _YES_
+
+---
 
 - [https://en.wikipedia.org/wiki/Land_use_regression_model](https://en.wikipedia.org/wiki/Land_use_regression_model)
 <blockquote>
@@ -379,7 +380,11 @@ In our case for a LUR model we have, considering for example GHG emissions from 
 | Dependent variable     | actual data for GHG emissions       | |
 | Explanatory variables  | landuse variables |(ex. n. of trips, distance, <br> mode of transport...)  |
 
+<br/><br/>
+
 *Formulas here*
+<br/><br/>
+---
 
 ### LUR in Python
 
