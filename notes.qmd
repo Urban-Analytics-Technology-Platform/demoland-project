@@ -26,8 +26,15 @@ $\rightarrow$ _ideally we'd like to perform this as well_
 
 5. A <mark>**good name**</mark> for the project? (acronym)
 
-- [ ] demoland
-- [ ] :chicken: and :egg:
+what does "demonstrator" stand for, why should we stick to that term?
+
+- [ ] demoland &#x1F3D9;
+- [ ] &#x1F95A; and &#x1F425; ... &#x1F373;
+         - LAID = LAnd Use Indicators Demonstrator 
+         - NEST (?)
+- [ ] LOUSE = Land (o) USe Explanator &#x1FAB2; ('louse' is singular for lice)
+- [ ] DODO &#x1F9A4;
+
 
 ### Variables creation
 
@@ -211,7 +218,7 @@ _2.c_. **House prices**
     </blockquote>
 
    - available at MSOA level:
-   
+
 | Dataset No.| Dataset Name| Periodicity |
 |-|-|-|
 HPSSA dataset 1 | Number of sales of residential properties for middle layer super output areas | Quarterly
