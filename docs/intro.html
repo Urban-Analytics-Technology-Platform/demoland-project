@@ -137,7 +137,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#infrastructure-stock-vacancy" id="toc-infrastructure-stock-vacancy" class="nav-link" data-scroll-target="#infrastructure-stock-vacancy"><span class="toc-section-number">2.2.3</span>  Infrastructure stock (vacancy)</a></li>
   <li><a href="#society-and-health" id="toc-society-and-health" class="nav-link" data-scroll-target="#society-and-health"><span class="toc-section-number">2.2.4</span>  Society and Health</a></li>
   </ul></li>
-  <li><a href="#time-plan" id="toc-time-plan" class="nav-link" data-scroll-target="#time-plan"><span class="toc-section-number">2.3</span>  Time plan</a></li>
+  <li><a href="#scenarios-building" id="toc-scenarios-building" class="nav-link" data-scroll-target="#scenarios-building"><span class="toc-section-number">2.3</span>  Scenarios building</a></li>
+  <li><a href="#time-plan" id="toc-time-plan" class="nav-link" data-scroll-target="#time-plan"><span class="toc-section-number">2.4</span>  Time plan</a></li>
   </ul>
 </nav>
     </div>
@@ -194,8 +195,8 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="indicators-building" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="indicators-building"><span class="header-section-number">2.2</span> Indicators building</h2>
-<p>The indicators will be predicted for a <strong>baseline scenario</strong> using a regression/predictive model on several variables of interest, where several <em>land use</em> features will be used as explanatory variables.<br> Once the baseline is created, <strong>scenarios</strong> can be built, for instance, as effects of targeted intervention on land use and (ultimately) through AI methods via optimisation algorithms.</p>
-<p>The initial plan wants to make use of the following <strong>data sources</strong> (see below for each indicator what source is intended to be used)</p>
+<p>The indicators will be predicted for a <strong>baseline scenario</strong> using a regression/predictive model on several variables of interest, where several <em>land use</em> features will be used as explanatory variables.<br> Once the baseline is created, <strong>scenarios</strong> can be built, for instance, as effects of <mark>targeted intervention</mark> on land use and (ultimately) through AI methods via optimisation algorithms, IE generating an <mark>AI scenario builder</mark> (see <a href="#scenarios-building">Scenarios building</a> below).</p>
+<p>The initial plan wants to try to make use of the following <strong>data sources</strong> (see below for each indicator what source is intended to be used)</p>
 <hr>
 <p><em>Suggested data sources:</em></p>
 <ul>
@@ -235,11 +236,38 @@ ul.task-list li input[type="checkbox"] {
 <li><em>Mental health</em></li>
 <li><em>Healthy living and lifestyles</em></li>
 </ol>
-<p>The data hunting is still in progress, see (Issues)[https://github.com/ciupava/LandUseDemonstrator/issues] in the GitHub page, <a href="./notes.html">Notes</a> and <a href="./data_sources.html">Data Sources</a> to follow the latest developments.</p>
+<p>The data hunting is still in progress, see <a href="https://github.com/ciupava/LandUseDemonstrator/issues">Issues</a> in GitHub, <a href="./notes.html">Notes</a> to follow the latest developments.<br> The page <a href="./data_sources.html">Data Sources</a> will be updated accordingly, once the sources are determined and actually used in the analysis.</p>
 </section>
 </section>
-<section id="time-plan" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="time-plan"><span class="header-section-number">2.3</span> Time plan</h2>
+<section id="scenarios-building" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="scenarios-building"><span class="header-section-number">2.3</span> Scenarios building</h2>
+<p>The existing baseline will be modified through indicative scenarios of relevance, underlining the ability of the modelling system to illustrate the trade-offs between competing objectives through evaluation of the key indicators.</p>
+<p>Scenarios will be generated as:</p>
+<ul>
+<li><em>Type I</em> <mark>what if?</mark> scenarios: the consequence of a range of concrete actions (e.g.&nbsp;construct a new tram line);</li>
+<li><em>Type II</em> <mark>what could be?</mark> scenarios: to explore more aspirational targets (e.g.&nbsp;reduce emissions by 10%)</li>
+</ul>
+<p>Although the final set of scenarios will be co-produced with the partners, an illustration is provided below:</p>
+<ul>
+<li>Infrastructure scenarios:
+<ul>
+<li>S1A – Add new jobs through significant inward investment (e.g., construction of Government offices/public buildings) - <em>Type I</em></li>
+<li>S1B – reorient to new mobility targets through modal shift (increased pedestrian and public transport) - <em>Type II</em></li>
+<li>S1C – Increase access to jobs (e.g., more roads/transit/cycle lanes) - <em>Type I or II</em></li>
+</ul></li>
+<li>Environmental scenarios:
+<ul>
+<li>S2A – create a new urban park or nature reserve - <em>Type I</em></li>
+<li>S2B – design a future urban space with net zero emissions - <em>Type II</em></li>
+</ul></li>
+<li>Housing stock:
+<ul>
+<li>Retrofit existing neighbourhoods to increase density/decrease sprawl - <em>Type I or II</em></li>
+</ul></li>
+</ul>
+</section>
+<section id="time-plan" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="time-plan"><span class="header-section-number">2.4</span> Time plan</h2>
 <p><strong>To be defined</strong></p>
 <p>6 months project … roughly:</p>
 <ul>
