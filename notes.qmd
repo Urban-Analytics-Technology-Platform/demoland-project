@@ -8,9 +8,11 @@ NB: in reverse order, that is more recent stuff is at the top of the document.
 
 - [ ] review of the project (objective, idea...)
 - [ ] discussing the data
-  - accessibility (how to calculate, sources)
-  - GHG emission (resolution)
-  - house price (the least concern?)
+  - see table in [data page](data_sources.qmd)
+  - see sources below:
+     - accessibility (how to calculate, sources)
+     - GHG emission (resolution)
+     - house prices (the least concern?)
 - [ ] discussing methodology
   - 2 processes to generate indicators:
      - LUR
@@ -66,9 +68,9 @@ _1.a/b_. **Pollution/emissions**
 **Predictive variables:** *no. of trips, distance travelled, mode of transport*
 
 
-- data for actual GHG emissions (total, IE comprehensive of mobility, housing, etc) is [only at LAD level](#data-availability)
+- data for actual GHG emissions (total, IE comprehensive of mobility, housing, etc) is available from gov.uk [only at LAD level](#data-availability)
 
-- ...
+- [not relevant] _estimated_ Per Capita Consumption-Based Greenhouse Gas Emissions for UK Lower and Middle Layer Super Output Areas, 2016. [Data Collection](https://reshare.ukdataservice.ac.uk/854888/)<br/>Kilian, Lena and Owen, Anne and Newing, Andy and Ivanova, Diana (2021).<br/>UK Data Service. 10.5255/UKDA-SN-854888
 
 ---
 
@@ -565,7 +567,7 @@ We get the emission factors per mode of transport from the tab "Business travel-
 ---
 
 #### b. housing based emissions
-Sub-national electricity and gad consumption data, [overview link](https://www.gov.uk/government/statistical-data-sets/stacked-electricity-consumption-statistics-data)
+Sub-national electricity and gas consumption data, [overview link](https://www.gov.uk/government/statistical-data-sets/stacked-electricity-consumption-statistics-data)
 
 
 - [electricity consumption](https://www.gov.uk/government/collections/sub-national-electricity-consumption-data):

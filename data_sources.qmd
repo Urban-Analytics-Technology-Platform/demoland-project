@@ -1,8 +1,39 @@
 
 # Data Sources
 
+## Comprehensive table
 
-## Time Use Survey
+Indicators (columns) and plausible variables data (rows)
+
+| _Variables_ | Mobility emissions | Greenspace<br/> acc | Jobs acc | House<br/> prices |
+|-|:-:|:-:|:-:|:-:|
+|n. of trips| X | | | |
+| distance  | X | | | |
+| mode      | X | | | |
+| distance to greenspace |  | X |  | X |
+| n. available jobs |  |  | X | X |
+| distance to employment center |  |  | X | X |
+| access to public transport |  |  | X | X |
+
+... distinguish landuse as explanatory variable from landuse as indicator...<br/>
+**VERY CONFUSING FOR ME!**
+
+## List of sources
+
+Data hunting still in progress, to be filled up when data use is certain.<br/>
+See [notes](notes.qmd) to follow the development.
+
+### gov.uk
+
+...
+
+
+### CDRC
+
+...
+
+
+### Time Use Survey
 
 Time Use Survey for UK is available from UK Data Service website at [http://dx.doi.org/10.5255/UKDA-SN-8128-1](http://dx.doi.org/10.5255/UKDA-SN-8128-1)
 
