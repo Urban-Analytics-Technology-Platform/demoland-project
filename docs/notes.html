@@ -134,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#name" id="toc-name" class="nav-link" data-scroll-target="#name"><span class="toc-section-number">4.2.1</span>  Name</a></li>
   <li><a href="#variables-creation" id="toc-variables-creation" class="nav-link" data-scroll-target="#variables-creation"><span class="toc-section-number">4.2.2</span>  Variables creation</a></li>
-  <li><a href="#some-literature-on-lur" id="toc-some-literature-on-lur" class="nav-link" data-scroll-target="#some-literature-on-lur"><span class="toc-section-number">4.2.3</span>  Some literature on LUR</a></li>
-  <li><a href="#theoretical-framework" id="toc-theoretical-framework" class="nav-link" data-scroll-target="#theoretical-framework"><span class="toc-section-number">4.2.4</span>  Theoretical framework</a></li>
+  <li><a href="#theoretical-framework" id="toc-theoretical-framework" class="nav-link" data-scroll-target="#theoretical-framework"><span class="toc-section-number">4.2.3</span>  Theoretical framework</a></li>
+  <li><a href="#some-literature-on-lur" id="toc-some-literature-on-lur" class="nav-link" data-scroll-target="#some-literature-on-lur"><span class="toc-section-number">4.2.4</span>  Some literature on LUR</a></li>
   <li><a href="#lur-in-python" id="toc-lur-in-python" class="nav-link" data-scroll-target="#lur-in-python"><span class="toc-section-number">4.2.5</span>  LUR in Python</a></li>
   <li><a href="#facts-on-ghg-emissions" id="toc-facts-on-ghg-emissions" class="nav-link" data-scroll-target="#facts-on-ghg-emissions"><span class="toc-section-number">4.2.6</span>  Facts on GHG emissions</a></li>
   </ul></li>
@@ -488,8 +488,34 @@ Excel datasets containing raw destination data for calculating Accessibility sta
 <p><a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/372139/accessibility-statistics-guidance.pdf">Accessibility Statistics Guidance 2014</a></p>
 </section>
 </section>
-<section id="some-literature-on-lur" class="level3" data-number="4.2.3">
-<h3 data-number="4.2.3" class="anchored" data-anchor-id="some-literature-on-lur"><span class="header-section-number">4.2.3</span> Some literature on LUR</h3>
+<section id="theoretical-framework" class="level3" data-number="4.2.3">
+<h3 data-number="4.2.3" class="anchored" data-anchor-id="theoretical-framework"><span class="header-section-number">4.2.3</span> Theoretical framework</h3>
+<p>In a general (non-linear/linear) <em>regression model</em> we have a given dependent variable which we try to explain by several independent/explanatory variables. <br> In our case for a LUR model we have, considering for example GHG emissions from mobility or housing:</p>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Dependent variable</td>
+<td>actual data for GHG emissions</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Explanatory variables</td>
+<td>landuse variables</td>
+<td>(ex. n.&nbsp;of trips, distance, <br> mode of transport…)</td>
+</tr>
+</tbody>
+</table>
+<p><br><br></p>
+<p><em>Formulas here</em> <br><br></p>
+<hr>
+</section>
+<section id="some-literature-on-lur" class="level3" data-number="4.2.4">
+<h3 data-number="4.2.4" class="anchored" data-anchor-id="some-literature-on-lur"><span class="header-section-number">4.2.4</span> Some literature on LUR</h3>
 <p><strong>Questions</strong></p>
 <ol type="1">
 <li><p>LUR is generally used for air quality prediction <br> <em>…FIND examples of non-air pollutants applications?</em></p></li>
@@ -541,32 +567,6 @@ PyLUR out-performs <mark>RLUR</mark> for modelling in the Bradford and Auckland 
 A Python toolbox for ArcGIS Pro that enables the development and application of land use regression models
 </blockquote>
 <p>… relevant for literature (it’s developed for ArcGIS, so no use)</p>
-</section>
-<section id="theoretical-framework" class="level3" data-number="4.2.4">
-<h3 data-number="4.2.4" class="anchored" data-anchor-id="theoretical-framework"><span class="header-section-number">4.2.4</span> Theoretical framework</h3>
-<p>In a general non-linear linear regression model we have a given dependent variable which we try to explain by several independent explanatory variables. <br> In our case for a LUR model we have, considering for example GHG emissions from mobility or housing:</p>
-<table class="table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>Dependent variable</td>
-<td>actual data for GHG emissions</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Explanatory variables</td>
-<td>landuse variables</td>
-<td>(ex. n.&nbsp;of trips, distance, <br> mode of transport…)</td>
-</tr>
-</tbody>
-</table>
-<p><br><br></p>
-<p><em>Formulas here</em> <br><br></p>
-<hr>
 </section>
 <section id="lur-in-python" class="level3" data-number="4.2.5">
 <h3 data-number="4.2.5" class="anchored" data-anchor-id="lur-in-python"><span class="header-section-number">4.2.5</span> LUR in Python</h3>

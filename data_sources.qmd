@@ -3,7 +3,7 @@
 
 ## Comprehensive table
 
-Indicators (columns) and plausible variables data (rows)
+Indicators (columns) and plausible explanatory variables (rows - landuse variables)
 
 | _Variables_ | Mobility emissions | Greenspace<br/> acc | Jobs acc | House<br/> prices |
 |-|:-:|:-:|:-:|:-:|

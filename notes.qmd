@@ -308,6 +308,21 @@ these makes up to 8 tables of accessibility:
 
 [Accessibility Statistics Guidance 2014](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/372139/accessibility-statistics-guidance.pdf)
 
+### Theoretical framework
+
+In a general (non-linear/linear) _regression model_ we have a given dependent variable which we try to explain by several independent/explanatory variables. <br/>
+In our case for a LUR model we have, considering for example GHG emissions from mobility or housing:
+
+| | | |
+|-|-|-|
+| Dependent variable     | actual data for GHG emissions       | |
+| Explanatory variables  | landuse variables |(ex. n. of trips, distance, <br> mode of transport...)  |
+
+<br/><br/>
+
+*Formulas here*
+<br/><br/>
+---
 
 ### Some literature on LUR
 
@@ -371,22 +386,6 @@ PyLUR out-performs <mark>RLUR</mark> for modelling in the Bradford and Auckland 
 
 <blockquote>A Python toolbox for ArcGIS Pro that enables the development and application of land use regression models</blockquote>
 ... relevant for literature (it's developed for ArcGIS, so no use)
-
-### Theoretical framework
-
-In a general non-linear linear regression model we have a given dependent variable which we try to explain by several independent explanatory variables. <br/>
-In our case for a LUR model we have, considering for example GHG emissions from mobility or housing:
-
-| | | |
-|-|-|-|
-| Dependent variable     | actual data for GHG emissions       | |
-| Explanatory variables  | landuse variables |(ex. n. of trips, distance, <br> mode of transport...)  |
-
-<br/><br/>
-
-*Formulas here*
-<br/><br/>
----
 
 ### LUR in Python
 
