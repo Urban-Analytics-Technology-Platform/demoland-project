@@ -27,8 +27,7 @@
 | distance to employment center |  |  | X | X | 
 | access to public transport |  |  | X | X |
 
-... distinguish landuse as explanatory variable from landuse as indicator...<br/>
-**VERY CONFUSING FOR ME!**
+... distinguish landuse as explanatory variable from landuse as indicator...
 
 ## List of sources
 
