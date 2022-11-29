@@ -129,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#comprehensive-table" id="toc-comprehensive-table" class="nav-link active" data-scroll-target="#comprehensive-table"><span class="toc-section-number">3.1</span>  Comprehensive table</a></li>
+  <li><a href="#comprehensive-tables" id="toc-comprehensive-tables" class="nav-link active" data-scroll-target="#comprehensive-tables"><span class="toc-section-number">3.1</span>  Comprehensive tables</a></li>
   <li><a href="#list-of-sources" id="toc-list-of-sources" class="nav-link" data-scroll-target="#list-of-sources"><span class="toc-section-number">3.2</span>  List of sources</a>
   <ul class="collapse">
   <li><a href="#gov.uk" id="toc-gov.uk" class="nav-link" data-scroll-target="#gov.uk"><span class="toc-section-number">3.2.1</span>  gov.uk</a></li>
@@ -158,16 +158,60 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="comprehensive-table" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="comprehensive-table"><span class="header-section-number">3.1</span> Comprehensive table</h2>
-<p>Indicators (columns) and plausible explanatory variables (rows - landuse variables)</p>
+<section id="comprehensive-tables" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="comprehensive-tables"><span class="header-section-number">3.1</span> Comprehensive tables</h2>
+<p><strong>Table 1 - </strong>4 indicators and data we use to quantify them:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">real (X) VS estimated (O)</th>
+<th>Indicator</th>
+<th>Definition</th>
+<th>Data source</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">O</td>
+<td>Mobility emissions</td>
+<td></td>
+<td>gov uk data estimates <br><em>at LAD level</em> (only)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">O</td>
+<td>Greenspace accessibility</td>
+<td></td>
+<td>OS greenspace layer</td>
+<td><a href="">link</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">O</td>
+<td>Jobs accessibility</td>
+<td>n.&nbsp;jobs within certain time interval by transport mode</td>
+<td>to be created</td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">X</td>
+<td>House prices</td>
+<td>Median house prices for administrative geographies</td>
+<td>ONS</td>
+<td><a href="https://www.ons.gov.uk/peoplepopulationandcommunity/housing/bulletins/housepricestatisticsforsmallareas/yearendingmarch2022">2022 data</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>Table 2 - </strong> Indicators (columns) and plausible explanatory/building variables (rows - landuse variables)</p>
 <table class="table">
 <colgroup>
 <col style="width: 7%">
-<col style="width: 23%">
-<col style="width: 23%">
-<col style="width: 23%">
-<col style="width: 23%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 7%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -176,6 +220,7 @@ ul.task-list li input[type="checkbox"] {
 <th style="text-align: center;">Greenspace<br> acc</th>
 <th style="text-align: center;">Jobs acc</th>
 <th style="text-align: center;">House<br> prices</th>
+<th><em>Sources</em></th>
 </tr>
 </thead>
 <tbody>
@@ -185,6 +230,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
+<td>OD data (Nomis)</td>
 </tr>
 <tr class="even">
 <td>distance</td>
@@ -192,41 +238,55 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
+<td>OD data (Nomis)</td>
 </tr>
 <tr class="odd">
-<td>mode</td>
+<td>mode transport</td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
+<td>OD data (Nomis)</td>
 </tr>
 <tr class="even">
-<td>distance to greenspace</td>
+<td>distance to access point</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">X</td>
+<td>from OS layer</td>
 </tr>
 <tr class="odd">
+<td>areal extension of gs</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+<td>from OS layer</td>
+</tr>
+<tr class="even">
 <td>n.&nbsp;available jobs</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;">X</td>
+<td>NA</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>distance to employment center</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;">X</td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>access to public transport</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">X</td>
 <td style="text-align: center;">X</td>
+<td></td>
 </tr>
 </tbody>
 </table>

@@ -1,18 +1,30 @@
 
 # Data Sources
 
-## Comprehensive table
+## Comprehensive tables
 
-Indicators (columns) and plausible explanatory variables (rows - landuse variables)
+**Table 1 - **4 indicators and data we use to quantify them:
+ 
+| real (X) VS estimated (O)| Indicator | Definition |Data source | Link |
+|:-:|-|-|-|-|
+|O| Mobility emissions | | gov uk data estimates <br/>*at LAD level* (only) |  |
+|O| Greenspace accessibility | | OS greenspace layer | [link]()|
+|O| Jobs accessibility| n. jobs within certain time interval by transport mode| to be created| | 
+|X| House prices | Median house prices for administrative geographies|ONS| [2022 data](https://www.ons.gov.uk/peoplepopulationandcommunity/housing/bulletins/housepricestatisticsforsmallareas/yearendingmarch2022)|
 
-| _Variables_ | Mobility emissions | Greenspace<br/> acc | Jobs acc | House<br/> prices |
-|-|:-:|:-:|:-:|:-:|
-|n. of trips| X | | | |
-| distance  | X | | | |
-| mode      | X | | | |
-| distance to greenspace |  | X |  | X |
-| n. available jobs |  |  | X | X |
-| distance to employment center |  |  | X | X |
+---
+
+**Table 2 - ** Indicators (columns) and plausible explanatory/building variables (rows - landuse variables)
+
+| _Variables_ | Mobility emissions | Greenspace<br/> acc | Jobs acc | House<br/> prices | _Sources_ |
+|-|:-:|:-:|:-:|:-:|-|
+| n. of trips| X | | | | OD data (Nomis)|
+| distance  | X | | | | OD data (Nomis)|
+| mode transport| X | | | | OD data (Nomis)|
+| distance to access point |  | X |  | X | from OS layer |
+| areal extension of gs |  | X |  | X | from OS layer |
+| n. available jobs |  |  | X | X | NA |
+| distance to employment center |  |  | X | X | 
 | access to public transport |  |  | X | X |
 
 ... distinguish landuse as explanatory variable from landuse as indicator...<br/>

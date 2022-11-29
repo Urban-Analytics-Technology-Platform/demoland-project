@@ -316,7 +316,7 @@ In our case for a LUR model we have, considering for example GHG emissions from 
 | | | |
 |-|-|-|
 | Dependent variable     | actual data for GHG emissions       | |
-| Explanatory variables  | landuse variables |(ex. n. of trips, distance, <br> mode of transport...)  |
+| Explanatory variables  | landuse variables |(ex. n. of trips, distance, <br/> mode of transport...)  |
 
 <br/><br/>
 
