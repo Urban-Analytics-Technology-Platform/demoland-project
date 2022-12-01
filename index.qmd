@@ -1,6 +1,6 @@
 ---
 title: "L(:egg:)UD"
-subtitle: "Land Use Demonstrator - project notes"
+subtitle: "Land (0) Use Demonstrator - project notes"
 author: "Anna Zanchetta"
 date: today
 from: markdown+emoji
@@ -13,3 +13,5 @@ from: markdown+emoji
 ---
 
 Document to keep track of the development of the Land Use Demonstrator project.
+
+YES IT IS WORKING

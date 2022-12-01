@@ -2,7 +2,8 @@
 name: Render and deploy Quarto files
 on:
   push:
-    branches: [main]
+    branches:
+      -main
 
 jobs:
   quarto-render-and-deploy:
