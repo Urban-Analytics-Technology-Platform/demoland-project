@@ -1,8 +1,11 @@
 project:
   type: book 
   output-dir: docs
+execute:
+  freeze: true
 book:
-  title: "Land Use Demonstrator"
+  title: "L(O)UD"
+  subtutle: "Land Use Demonstrator project"
   author: "Anna Zanchetta"
   date: today
   search: true
@@ -13,13 +16,6 @@ book:
     - intro.qmd
     - data_sources.qmd
     - notes.qmd
-    # - jobacc.qmd
-    # - part: "Running TPI"
-    #   chapters:
-    #     - data.qmd
-    #     - data_prep.qmd
-    #     - workflow.qmd
-
 
 format:
   html:
