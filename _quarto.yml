@@ -5,7 +5,7 @@ execute:
   freeze: true
 book:
   title: "L(O)UD"
-  subtutle: "Land Use Demonstrator project"
+  subtitle: "Land Use Demonstrator project"
   author: "Anna Zanchetta"
   date: today
   search: true

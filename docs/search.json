@@ -53,7 +53,7 @@
     "href": "notes.html",
     "title": "4  Notes",
     "section": "",
-    "text": "This page is constantly updated on an (almost) daily base, meaning that the order is not dictated by a specific structure, just temporary adding up ideas and development of the project.\nNB: in reverse order, that is more recent stuff is at the top of the document."
+    "text": "This page is constantly updated on an (almost) daily base, meaning that the order is not dictated by a specific structure, just temporary adding up ideas and development of the project.\nNB: in reverse order, that is more recent stuff is at the top of the document.\ntrying to run automatic publishing with quarto rendering through gh-pages"
   },
   {
     "objectID": "notes.html#december",

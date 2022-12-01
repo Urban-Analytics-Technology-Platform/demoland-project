@@ -12,6 +12,8 @@ Hands on code finally?
 
 Let's start from the indicator of House prices, as it is the only one indicator we have atm that is actual values data, not deterministically defined (see [table here](data_sources.qmd#comprehensive-tables)).
 
+editing random stuff to see if the automatic publication on push works...
+
 ## Agenda - November, 29 [Tue] - In office
 
 - [ ] review of the project (objective, idea...)
