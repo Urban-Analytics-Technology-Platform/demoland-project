@@ -3,22 +3,32 @@ name: Render and deploy Quarto files
 on:
   push:
     branches:
-      -main
+      - main
 
 jobs:
   quarto-render-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v2
 
-      - name: "Install Quarto and render"
-        uses: pommevilla/quarto-render@main
+      # - name: "Install Quarto and render"
+      #   uses: pommevilla/quarto-render@main
+
+      # Grab a copy of quarto and render the document in all formats
+      - uses: quarto-dev/quarto-actions/install-quarto@v1
+      - run: |
+          quarto render --to all
 
       - name: "Deploy to gh-pages"
-        uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/main'
+        # uses: peaceiris/actions-gh-pages@v3
+        # if: github.ref == 'refs/heads/main'
+        # with:
+          # github_token: ${{ secrets.GITHUB_TOKEN }}
+          # publish_dir: ./_site
+        if: github.event_name != 'pull_request'
+        uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages
           folder: _book
-          # github_token: ${{ secrets.GITHUB_TOKEN }}
-          # publish_dir: ./_site
