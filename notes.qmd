@@ -43,6 +43,7 @@ what does "demonstrator" stand for, why should we stick to that term?
     - **NEST** (?) &#x1FABA;
 - [ ] **LOUSE** = Land (o) USe Explanator <br/>  &#x1FAB2; ('louse' is singular for lice)
 - [ ] **DODO** &#x1F9A4; ... just because it's a nice name
+- [ ] **L(O)UD** = Land (O) Use Demonstrator :mega:
 
 ### Variables creation
 
@@ -68,7 +69,7 @@ _1.a/b_. **Pollution/emissions**
 **Predictive variables:** *no. of trips, distance travelled, mode of transport*
 
 
-- data for actual GHG emissions (total, IE comprehensive of mobility, housing, etc) is available from gov.uk [only at LAD level](#data-availability)
+- data for GHG emissions (total, IE comprehensive of mobility, housing, etc) is available from gov.uk [only at LAD level](#data-availability)
 
 - [not relevant] _estimated_ Per Capita Consumption-Based Greenhouse Gas Emissions for UK Lower and Middle Layer Super Output Areas, 2016. [Data Collection](https://reshare.ukdataservice.ac.uk/854888/)<br/>Kilian, Lena and Owen, Anne and Newing, Andy and Ivanova, Diana (2021).<br/>UK Data Service. 10.5255/UKDA-SN-854888
 
