@@ -47,7 +47,8 @@ jobs:
       - name: Publish HTML book
         uses: quarto-dev/quarto-actions/publish@v2
         with:
-          target: main/docs # this must be consistent with the "Settings/Pages/Build and deployment" tab in GitHub 
+          target: gh-pages # name of the brunch in GitHub where to deploy the book to
+           # this must be consistent with the "Settings/Pages/Build and deployment" tab in GitHub 
           render: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions

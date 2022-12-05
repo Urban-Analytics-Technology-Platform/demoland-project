@@ -5,3 +5,4 @@
 .csv
 /internal/
 /.github/workflows/*._yaml
+/docs/ # no need of this folder anymore since the quarto render is automated
