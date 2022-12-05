@@ -1,6 +1,6 @@
 project:
   type: book 
-  output-dir: docs
+  output-dir: ../docs
 execute:
   freeze: true
 book:
@@ -12,10 +12,10 @@ book:
   repo-url: https://github.com/ciupava/LandUseDemonstrator/
   downloads: [pdf]
   chapters:
-    - book/index.qmd
-    - book/intro.qmd
-    - book/data_sources.qmd
-    - book/notes.qmd
+    - index.qmd
+    - intro.qmd
+    - data_sources.qmd
+    - notes.qmd
 
 format:
   html:
