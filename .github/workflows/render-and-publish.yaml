@@ -43,7 +43,6 @@ jobs:
         uses: quarto-dev/quarto-actions/render@v2
         with:
           to: html
-          path: ./book
 
       - name: Publish HTML book
         uses: quarto-dev/quarto-actions/publish@v2
