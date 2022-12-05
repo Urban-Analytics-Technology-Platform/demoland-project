@@ -4,3 +4,4 @@
 /data/
 .csv
 /internal/
+/.github/workflows/*._yaml
