@@ -13,5 +13,3 @@ from: markdown+emoji
 ---
 
 Document to keep track of the development of the Land Use Demonstrator project.
-
-YES IT IS WORKING

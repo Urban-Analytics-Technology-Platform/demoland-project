@@ -9,13 +9,13 @@ book:
   author: "Anna Zanchetta"
   date: today
   search: true
-  repo-url: https://github.com/ciupava/LandUseDemonstrator/tree/main/docs
+  repo-url: https://github.com/ciupava/LandUseDemonstrator/
   downloads: [pdf]
   chapters:
-    - index.qmd
-    - intro.qmd
-    - data_sources.qmd
-    - notes.qmd
+    - book/index.qmd
+    - book/intro.qmd
+    - book/data_sources.qmd
+    - book/notes.qmd
 
 format:
   html:
