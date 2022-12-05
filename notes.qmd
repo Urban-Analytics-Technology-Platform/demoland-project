@@ -47,13 +47,13 @@ A <mark>**good name**</mark> for the project? (acronym*)
 
 what does "demonstrator" stand for, why should we stick to that term?
 
+- [ ] **L(O)UD** = Land (:egg:) Use Demonstrator :mega:
 - [ ] **demoland** &#x1F3D9;
 - [ ] &#x1F95A; and &#x1F425; ... &#x1F373;
     - **LAID** = LAnd Use Indicators Demonstrator &#x1FAB9;
     - **NEST** (?) &#x1FABA;
 - [ ] **LOUSE** = Land (o) USe Explanator <br/>  &#x1FAB2; ('louse' is singular for lice)
 - [ ] **DODO** &#x1F9A4; ... just because it's a nice name
-- [ ] **L(O)UD** = Land (O) Use Demonstrator :mega:
 
 ### Variables creation
 
