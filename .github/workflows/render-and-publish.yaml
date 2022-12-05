@@ -47,7 +47,7 @@ jobs:
       - name: Publish HTML book
         uses: quarto-dev/quarto-actions/publish@v2
         with:
-          target: main
+          target: gh-pages
           render: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions
