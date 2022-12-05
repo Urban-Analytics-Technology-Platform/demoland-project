@@ -41,8 +41,10 @@ jobs:
       - name: Publish to GitHub Pages (and render)
         uses: quarto-dev/quarto-actions/publish@v2
         with:
-          target: gh-pages
-          folder: docs/_site
+          # target: gh-pages
+          # taking inspiration from https://github.com/rstudio/r-manuals/blob/main/.github/workflows/build-website.yaml
+          branch: gh-pages # The branch the action should deploy to.
+          folder: docs/_site # The folder the action should deploy.
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions
       
