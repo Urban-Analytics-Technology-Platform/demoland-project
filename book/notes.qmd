@@ -8,11 +8,20 @@ trying to run automatic publishing with quarto rendering through gh-pages
 
 ## December
 
-Hands on code finally?
+<mark>Hands on code finally?</mark>
 
-Let's start from the indicator of House prices, as it is the only one indicator we have atm that is actual values data, not deterministically defined (see [table here](data_sources.qmd#comprehensive-tables)).
+Let's start from the indicator of `House prices`, as it is the only one indicator we have atm that is actual values data, not deterministically defined (see [table here](data_sources.qmd#comprehensive-tables)).
 
-editing random stuff to see if the automatic publication on push works...
+
+- Putting in doubt the use of LUR for what we want to do <mark>as we are gonna have aggregated outputs</mark>
+<blockquote>
+This regression-based approach estimates the ambient pollutant concentrations at un-sampled points of interest by considering the relationship between ambient concentrations and several predictor variables selected from the surrounding environment
+</blockquote>
+
+<blockquote>This regression-based approach estimates the ambient pollutant concentrations at un-sampled points of interest by considering the relationship between ambient concentrations and several predictor variables selected from the surrounding environment</blockquote>
+
+Example of a raster as output of a LUR analysis:
+![](images/rlur_example.png)
 
 ## Agenda - November, 29 [Tue] - In office
 
