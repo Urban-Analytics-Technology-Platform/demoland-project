@@ -53,7 +53,7 @@
     "href": "notes.html#december",
     "title": "4  Notes",
     "section": "4.1 December",
-    "text": "4.1 December\nHands on code finally?\nLet’s start from the indicator of House prices, as it is the only one indicator we have atm that is actual values data, not deterministically defined (see table here).\nediting random stuff to see if the automatic publication on push works…"
+    "text": "4.1 December\nHands on code finally?\nLet’s start from the indicator of House prices, as it is the only one indicator we have atm that is actual values data, not deterministically defined (see table here).\n\nPutting in doubt the use of LUR for what we want to do as we are gonna have aggregated outputs\n\nThis regression-based approach estimates the ambient pollutant concentrations at un-sampled points of interest by considering the relationship between ambient concentrations and several predictor variables selected from the surrounding environment\n\n\n\nThis regression-based approach estimates the ambient pollutant concentrations at un-sampled points of interest by considering the relationship between ambient concentrations and several predictor variables selected from the surrounding environment\n\nExample of a raster as output of a LUR analysis:"
   },
   {
     "objectID": "notes.html#agenda---november-29-tue---in-office",
