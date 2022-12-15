@@ -4,7 +4,7 @@ project:
 execute:
   freeze: true
 book:
-  title: "L(O)UD"
+  title: "DemoLand"
   subtitle: "Land Use Demonstrator project"
   author: "Anna Zanchetta"
   date: today
