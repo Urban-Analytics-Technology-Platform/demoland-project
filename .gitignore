@@ -2,6 +2,7 @@
 # # momentaneously ignoring .png files until plan image is ready
 *._png
 /data/*.pb
+/data/gis
 .csv
 /internal/
 /.github/workflows/*._yaml
