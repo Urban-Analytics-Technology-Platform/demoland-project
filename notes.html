@@ -129,7 +129,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#december" id="toc-december" class="nav-link active" data-scroll-target="#december"><span class="toc-section-number">4.1</span>  December</a></li>
+  <li><a href="#december" id="toc-december" class="nav-link active" data-scroll-target="#december"><span class="toc-section-number">4.1</span>  December</a>
+  <ul class="collapse">
+  <li><a href="#house-prices-indicator" id="toc-house-prices-indicator" class="nav-link" data-scroll-target="#house-prices-indicator"><span class="toc-section-number">4.1.1</span>  House prices indicator</a></li>
+  </ul></li>
   <li><a href="#agenda---november-29-tue---in-office" id="toc-agenda---november-29-tue---in-office" class="nav-link" data-scroll-target="#agenda---november-29-tue---in-office"><span class="toc-section-number">4.2</span>  Agenda - November, 29 [Tue] - In office</a></li>
   <li><a href="#november" id="toc-november" class="nav-link" data-scroll-target="#november"><span class="toc-section-number">4.3</span>  November</a>
   <ul class="collapse">
@@ -216,6 +219,15 @@ A raster graphic image of the area is generated and intersected with area-level 
 <li>estimates at detailed geographical and industrial levels (from country down to LSOA)</li>
 </ul></li>
 </ul>
+<section id="house-prices-indicator" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="house-prices-indicator"><span class="header-section-number">4.1.1</span> House prices indicator</h3>
+<p><strong>Data processing workflow</strong></p>
+<ul>
+<li>The (file)[https://www.ons.gov.uk/peoplepopulationandcommunity/housing/datasets/hpssadataset2medianhousepricebymsoaquarterlyrollingyear] (September 2022) comes in <em>.xls</em> format:<br>“HPSSA Dataset 2 - Median price paid by MSOA.xls”</li>
+<li>need to estrapolate just the tab with the relevant info … <span class="math inline">\(\rightarrow\)</span> <mark>automate this??</mark> <br> <em>table 1a (all house types)</em> = “Median price paid by MSOA, England and Wales, year ending Dec 1995 to year ending Mar 2022”</li>
+<li>filtering just the relevant MSOAs for Tyne and Wear county (see <a href="./../data/MSOAs_Tyne-Wear.txt">list</a>) <span class="math inline">\(\rightarrow\)</span> <mark>automate this??</mark></li>
+</ul>
+</section>
 </section>
 <section id="agenda---november-29-tue---in-office" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="agenda---november-29-tue---in-office"><span class="header-section-number">4.2</span> Agenda - November, 29 [Tue] - In office</h2>
