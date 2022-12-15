@@ -16,12 +16,23 @@ Let's start from the indicator of `House prices`, as it is the only one indicato
 - Putting in doubt the use of LUR for what we want to do <mark>as we are gonna have aggregated outputs</mark>
 <blockquote>
 This regression-based approach estimates the ambient pollutant concentrations at un-sampled points of interest by considering the relationship between ambient concentrations and several predictor variables selected from the surrounding environment
-</blockquote>
-
-<blockquote>This regression-based approach estimates the ambient pollutant concentrations at un-sampled points of interest by considering the relationship between ambient concentrations and several predictor variables selected from the surrounding environment</blockquote>
+</blockquote><br/>
+<blockquote>A raster graphic image of the area is generated and intersected with area-level population data to formulate the exposure distribution.</blockquote>
 
 Example of a raster as output of a LUR analysis:
 ![](images/rlur_example.png)
+
+- Inputs from call with Federico (14 Dec):
+  - [jobs posting tracker](https://github.com/hiring-lab/job_postings_tracker) (ONS ???)
+      - from Indeed Hiring Lab (employment website for job listings)
+      - In the United Kingdom, they provide:
+         - `regional_postings_gb.csv` This file contains the % change in seasonally-adjusted postings since February 1, 2020 for total job postings in each region in the UK.
+         - `city_postings_gb.csv` This file contains the % change in seasonally-adjusted postings since February 1, 2020 for total job postings in each city in the UK.
+  - BRES (Business Registry and Employment Survey) [data](https://www.nomisweb.co.uk/sources/bres)
+      - An employer survey of the number of jobs held, broken down by industry
+      - estimates at detailed geographical and industrial levels (from country down to LSOA)
+
+
 
 ## Agenda - November, 29 [Tue] - In office
 
