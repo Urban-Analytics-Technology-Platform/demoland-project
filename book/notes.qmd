@@ -43,10 +43,13 @@ Inputs from call with Federico (14 Dec):
 ### House prices indicator
 
 **Data processing workflow**
+
+
 - See available datasets for House Price Statistics for Small Areas (HPSSAs) save [here](./../data/houseprices_available-data_HPSSA.xlsx)
 - The [tables](https://www.ons.gov.uk/peoplepopulationandcommunity/housing/bulletins/housepricestatisticsforsmallareas/yearendingmarch2022) come in _.xls_ format
 - choose either MSOA or LSOA level:
-     - **HPSSA Dataset 2** - Median price paid by MSOA.xls [file](https://www.ons.gov.uk/peoplepopulationandcommunity/housing/datasets/hpssadataset2medianhousepricebymsoaquarterlyrollingyear) (September 2022 version)
+     - **HPSSA Dataset 2** - Median price paid by MSOA.xls [file](https://www.ons.gov.uk/peoplepopulationandcommunity/housing/datasets/hpssadataset2medianhousepricebymsoaquarterlyrollingyear) (September 2022 version);<br/>
+     note that this dataset contains also breakdown by house type (detached, semidetached, terraced) and by newly/existing dwellings
      - **HPSSA Dataset 46** - Median house prices by LSOA.xls [file](https://www.ons.gov.uk/peoplepopulationandcommunity/housing/datasets/medianpricepaidbylowerlayersuperoutputareahpssadataset46)
 - need to estrapolate just the tab with the relevant info ... $\rightarrow$ <mark>automate this??</mark> <br/>
 _table 1a (all house types)_ = "Median price paid by MSOA, England and Wales, year ending Dec 1995 to year ending Mar 2022"
