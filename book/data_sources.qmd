@@ -5,7 +5,7 @@
 
 **Table 1 - **4 indicators and data we use to quantify them:
  
-| real (X) VS estimated (O)| Indicator | Definition |Data source | Link |
+| actual (X) VS estimated (O)| Indicator | Definition |Data source | Link |
 |:-:|-|-|-|-|
 |O| Mobility emissions | | gov uk data estimates <br/>*at LAD level* (only) |  |
 |O| Greenspace accessibility | | OS greenspace layer | [link]()|

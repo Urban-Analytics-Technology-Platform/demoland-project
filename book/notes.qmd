@@ -40,6 +40,16 @@ Inputs from call with Federico (14 Dec):
       - An employer survey of the number of jobs held, broken down by industry
       - estimates at detailed geographical and industrial levels (from country down to LSOA)
 
+### House prices indicator
+
+**Data processing workflow**
+
+- The (file)[https://www.ons.gov.uk/peoplepopulationandcommunity/housing/datasets/hpssadataset2medianhousepricebymsoaquarterlyrollingyear] (September 2022) comes in _.xls_ format:<br/>"HPSSA Dataset 2 - Median price paid by MSOA.xls"
+- need to estrapolate just the tab with the relevant info ... $\rightarrow$ <mark>automate this??</mark> <br/>
+_table 1a (all house types)_ = "Median price paid by MSOA, England and Wales, year ending Dec 1995 to year ending Mar 2022"
+- filtering just the relevant MSOAs for Tyne and Wear county (see [list](./../data/MSOAs_Tyne-Wear.txt)) $\rightarrow$  <mark>automate this??</mark>
+
+
 ## Agenda - November, 29 [Tue] - In office
 
 - [ ] review of the project (objective, idea...)
