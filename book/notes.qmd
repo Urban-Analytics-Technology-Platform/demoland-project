@@ -18,10 +18,11 @@ Exploring [Valhalla](https://valhalla.readthedocs.io/en/latest/valhalla-intro/) 
 Putting in doubt the use of LUR for what we want to do <mark>as we are gonna have aggregated outputs</mark>
 <blockquote>
 This regression-based approach estimates the ambient pollutant concentrations at un-sampled points of interest by considering the relationship between ambient concentrations and several predictor variables selected from the surrounding environment
-</blockquote><br/>
+</blockquote>
 <blockquote>A raster graphic image of the area is generated and intersected with area-level population data to formulate the exposure distribution.</blockquote>
 
 Example of a raster as output of a LUR analysis:
+
 ![](./../images/rlur_example.png)
 
 **QUESTION:** WHY do we want aggregated (MSOAs) outputs? <br/>*I think it's because we want to be able to compare among scenarios*
@@ -29,6 +30,7 @@ Example of a raster as output of a LUR analysis:
 ---
 
 Inputs from call with Federico (14 Dec):
+
   - [jobs posting tracker](https://github.com/hiring-lab/job_postings_tracker) (ONS ???)
       - from Indeed Hiring Lab (employment website for job listings)
       - In the United Kingdom, they provide:

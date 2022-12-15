@@ -1,7 +1,7 @@
 /.quarto/
 # # momentaneously ignoring .png files until plan image is ready
 *._png
-/data/
+/data/*.pb
 .csv
 /internal/
 /.github/workflows/*._yaml

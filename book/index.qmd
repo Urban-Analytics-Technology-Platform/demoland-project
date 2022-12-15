@@ -1,6 +1,6 @@
 ---
-title: "L(0)UD"
-subtitle: "Land (:egg:) Use Demonstrator - project notes"
+title: "DemoLand"
+subtitle: "Land Use Demonstrator :egg: :chick: :chicken: - project notes"
 author: "Anna Zanchetta"
 date: today
 from: markdown+emoji
