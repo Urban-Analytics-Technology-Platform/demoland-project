@@ -131,7 +131,8 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#december" id="toc-december" class="nav-link active" data-scroll-target="#december"><span class="toc-section-number">4.1</span>  December</a>
   <ul class="collapse">
-  <li><a href="#house-prices-indicator" id="toc-house-prices-indicator" class="nav-link" data-scroll-target="#house-prices-indicator"><span class="toc-section-number">4.1.1</span>  House prices indicator</a></li>
+  <li><a href="#exploratory-phase" id="toc-exploratory-phase" class="nav-link" data-scroll-target="#exploratory-phase"><span class="toc-section-number">4.1.1</span>  Exploratory phase</a></li>
+  <li><a href="#house-prices-indicator" id="toc-house-prices-indicator" class="nav-link" data-scroll-target="#house-prices-indicator"><span class="toc-section-number">4.1.2</span>  House prices indicator</a></li>
   </ul></li>
   <li><a href="#agenda---november-29-tue---in-office" id="toc-agenda---november-29-tue---in-office" class="nav-link" data-scroll-target="#agenda---november-29-tue---in-office"><span class="toc-section-number">4.2</span>  Agenda - November, 29 [Tue] - In office</a></li>
   <li><a href="#november" id="toc-november" class="nav-link" data-scroll-target="#november"><span class="toc-section-number">4.3</span>  November</a>
@@ -189,7 +190,11 @@ ul.task-list li input[type="checkbox"] {
 <section id="december" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="december"><span class="header-section-number">4.1</span> December</h2>
 <p><mark>Hands on code finally?</mark></p>
-<p>Let’s start from the indicator of <code>House prices</code>, as it is the only one indicator we have atm that is actual values data, not deterministically defined (see <a href="./data_sources.html#comprehensive-tables">table here</a>).<br> Exploring <a href="https://valhalla.readthedocs.io/en/latest/valhalla-intro/">Valhalla</a> to start with.</p>
+<ol type="1">
+<li>Let’s start from the indicator of <code>House prices</code>, as it is the only one indicator we have atm that is actual values data, not deterministically defined (see <a href="./data_sources.html#comprehensive-tables">table here</a>).<br></li>
+<li>Also <code>greenspace</code> is a possible candidate to start the analysis, for determining a method for <mark>accessibility calculation</mark>. In this case consider <a href="https://valhalla.readthedocs.io/en/latest/valhalla-intro/">Valhalla</a>.</li>
+</ol>
+<p><img src="./../images/tynewear_lads_msoas.png" class="img-fluid">*The 5 LADs in Tine and Wear (labelled by <code>LAD20NM</code> and <code>LAD20CD</code>), highlighted in gray the major urban areas</p>
 <hr>
 Putting in doubt the use of LUR for what we want to do <mark>as we are gonna have aggregated outputs</mark>
 <blockquote class="blockquote">
@@ -219,20 +224,29 @@ A raster graphic image of the area is generated and intersected with area-level 
 <li>estimates at detailed geographical and industrial levels (from country down to LSOA)</li>
 </ul></li>
 </ul>
-<section id="house-prices-indicator" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="house-prices-indicator"><span class="header-section-number">4.1.1</span> House prices indicator</h3>
+<hr>
+<section id="exploratory-phase" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="exploratory-phase"><span class="header-section-number">4.1.1</span> Exploratory phase</h3>
+<p>The idea is to plot/visualise/put together a few pieces of information and see how they interact with each other, get ideas on what to do with them:</p>
+</section>
+<section id="house-prices-indicator" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="house-prices-indicator"><span class="header-section-number">4.1.2</span> House prices indicator</h3>
 <p><strong>Data processing workflow</strong></p>
 <ul>
-<li>See available datasets for House Price Statistics for Small Areas (HPSSAs) save <a href="./../data/houseprices_available-data_HPSSA.xlsx">here</a></li>
+<li>See available datasets for House Price Statistics for Small Areas (HPSSAs) from <a href="./../data/houseprices_available-data_HPSSA.xlsx">here</a></li>
 <li>The <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/housing/bulletins/housepricestatisticsforsmallareas/yearendingmarch2022">tables</a> come in <em>.xls</em> format</li>
 <li>choose either MSOA or LSOA level:
 <ul>
 <li><strong>HPSSA Dataset 2</strong> - Median price paid by MSOA.xls <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/housing/datasets/hpssadataset2medianhousepricebymsoaquarterlyrollingyear">file</a> (September 2022 version);<br> note that this dataset contains also breakdown by house type (detached, semidetached, terraced) and by newly/existing dwellings</li>
 <li><strong>HPSSA Dataset 46</strong> - Median house prices by LSOA.xls <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/housing/datasets/medianpricepaidbylowerlayersuperoutputareahpssadataset46">file</a></li>
 </ul></li>
-<li>need to estrapolate just the tab with the relevant info … <span class="math inline">\(\rightarrow\)</span> <mark>automate this??</mark> <br> <em>table 1a (all house types)</em> = “Median price paid by MSOA, England and Wales, year ending Dec 1995 to year ending Mar 2022”</li>
-<li>filtering just the relevant MSOAs for Tyne and Wear county (see <a href="./../data/MSOAs_Tyne-Wear.txt">list</a>) <span class="math inline">\(\rightarrow\)</span> <mark>automate this??</mark></li>
-<li>choose time … data published quarterly (4 times a year) with all editions back to 1995 to current version</li>
+<li>need to estrapolate just the tab with the relevant info … <span class="math inline">\(\rightarrow\)</span> <mark>automate this??</mark> <br> “table 1a (all house types)”” = <em>Median price paid by MSOA, England and Wales, year ending Dec 1995 to year ending Mar 2022</em></li>
+<li>filtering just the relevant grographies for Tyne and Wear county: <span class="math inline">\(\rightarrow\)</span> <mark>automate this??</mark>
+<ul>
+<li>MSOAs: <a href="./../data/MSOAs_Tyne-Wear.txt">list</a><br> <code>MSOA20CD</code> = <code>MSOA code</code><br> <code>MSOA20NM</code> = <code>MSOA name</code><br></li>
+<li>LSOAs: <a href="./../data/TyneWear_LADs_list.csv">list</a> filter by Local authority:<br> code <code>LAD20CD</code> = <code>Local authority code</code><br> name <code>LAD20NM</code> = <code>Local authority name</code></li>
+</ul></li>
+<li>choose time … data published quarterly (4 times a year) with all editions back to 1995</li>
 </ul>
 </section>
 </section>
