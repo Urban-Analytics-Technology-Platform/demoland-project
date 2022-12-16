@@ -67,6 +67,14 @@ The idea is to plot/visualise/put together a few pieces of information and see h
        code `LAD20CD` = `Local authority code`<br/>
        name `LAD20NM` = `Local authority name`
 - choose time ... data published quarterly (4 times a year) with all editions back to 1995
+- 
+
+### Accessibility (... Greenspaces)
+
+- routing $\rightarrow$ Valhalla [isochrones](https://valhalla.readthedocs.io/en/latest/api/isochrone/api-reference/)
+- census data
+- relevant layers: public venues (schools, hospitals), green/blue spaces, 
+
 
 
 ## Agenda - November, 29 [Tue] - In office
