@@ -131,9 +131,8 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#december" id="toc-december" class="nav-link active" data-scroll-target="#december"><span class="toc-section-number">4.1</span>  December</a>
   <ul class="collapse">
-  <li><a href="#exploratory-phase" id="toc-exploratory-phase" class="nav-link" data-scroll-target="#exploratory-phase"><span class="toc-section-number">4.1.1</span>  Exploratory phase</a></li>
-  <li><a href="#house-prices-indicator" id="toc-house-prices-indicator" class="nav-link" data-scroll-target="#house-prices-indicator"><span class="toc-section-number">4.1.2</span>  House prices indicator</a></li>
-  <li><a href="#accessibility-greenspaces" id="toc-accessibility-greenspaces" class="nav-link" data-scroll-target="#accessibility-greenspaces"><span class="toc-section-number">4.1.3</span>  Accessibility (… Greenspaces)</a></li>
+  <li><a href="#house-prices-indicator" id="toc-house-prices-indicator" class="nav-link" data-scroll-target="#house-prices-indicator"><span class="toc-section-number">4.1.1</span>  House prices indicator</a></li>
+  <li><a href="#accessibility-greenspaces" id="toc-accessibility-greenspaces" class="nav-link" data-scroll-target="#accessibility-greenspaces"><span class="toc-section-number">4.1.2</span>  Accessibility (… Greenspaces)</a></li>
   </ul></li>
   <li><a href="#agenda---november-29-tue---in-office" id="toc-agenda---november-29-tue---in-office" class="nav-link" data-scroll-target="#agenda---november-29-tue---in-office"><span class="toc-section-number">4.2</span>  Agenda - November, 29 [Tue] - In office</a></li>
   <li><a href="#november" id="toc-november" class="nav-link" data-scroll-target="#november"><span class="toc-section-number">4.3</span>  November</a>
@@ -226,12 +225,10 @@ A raster graphic image of the area is generated and intersected with area-level 
 </ul></li>
 </ul>
 <hr>
-<section id="exploratory-phase" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="exploratory-phase"><span class="header-section-number">4.1.1</span> Exploratory phase</h3>
-<p>The idea is to plot/visualise/put together a few pieces of information and see how they interact with each other, get ideas on what to do with them:</p>
-</section>
-<section id="house-prices-indicator" class="level3" data-number="4.1.2">
-<h3 data-number="4.1.2" class="anchored" data-anchor-id="house-prices-indicator"><span class="header-section-number">4.1.2</span> House prices indicator</h3>
+<p><strong>Exploratory phase</strong> The idea is to plot/visualise/put together a few pieces of information and see how they interact with each other, get ideas on what to do with them.</p>
+<p>Steps: - [ ] understanding Python VS excel (for house prices data) - [ ] understanding Python VS shp (for greenspace data) - [ ] plot house prices VS greenspace locations - [ ] understanding json (valhalla) VS maps/python etc… know nothing</p>
+<section id="house-prices-indicator" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="house-prices-indicator"><span class="header-section-number">4.1.1</span> House prices indicator</h3>
 <p><strong>Data processing workflow</strong></p>
 <ul>
 <li>See available datasets for House Price Statistics for Small Areas (HPSSAs) from <a href="./../data/houseprices_available-data_HPSSA.xlsx">here</a></li>
@@ -251,12 +248,14 @@ A raster graphic image of the area is generated and intersected with area-level 
 <li></li>
 </ul>
 </section>
-<section id="accessibility-greenspaces" class="level3" data-number="4.1.3">
-<h3 data-number="4.1.3" class="anchored" data-anchor-id="accessibility-greenspaces"><span class="header-section-number">4.1.3</span> Accessibility (… Greenspaces)</h3>
+<section id="accessibility-greenspaces" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="accessibility-greenspaces"><span class="header-section-number">4.1.2</span> Accessibility (… Greenspaces)</h3>
 <ul>
-<li>routing <span class="math inline">\(\rightarrow\)</span> Valhalla <a href="https://valhalla.readthedocs.io/en/latest/api/isochrone/api-reference/">isochrones</a></li>
-<li>census data</li>
-<li>relevant layers: public venues (schools, hospitals), green/blue spaces,</li>
+<li><p>remove “private” spaces from the analysis (IE golf clubs)?</p></li>
+<li><p>check “overlapping” features like pitches/leisure centres/etc within parks</p></li>
+<li><p>routing <span class="math inline">\(\rightarrow\)</span> Valhalla <a href="https://valhalla.readthedocs.io/en/latest/api/isochrone/api-reference/">isochrones</a></p></li>
+<li><p>census data</p></li>
+<li><p>relevant layers: public venues (schools, hospitals), green/blue spaces,</p></li>
 </ul>
 </section>
 </section>
