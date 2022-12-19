@@ -25,7 +25,7 @@ This regression-based approach estimates the ambient pollutant concentrations at
 
 Example of a raster as output of a LUR analysis:
 
-![](./images/rlur_example.png)
+![](images/rlur_example.png)
 
 **QUESTION:** WHY do we want aggregated (MSOAs) outputs? <br/>*I think it's because we want to be able to compare among scenarios*
 
