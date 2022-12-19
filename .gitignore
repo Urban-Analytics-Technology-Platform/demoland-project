@@ -1,12 +1,21 @@
+# ignoring specific folders
 /.quarto/
+
+
 # # momentaneously ignoring .png files until plan image is ready
 *._png
+
+# ignoring some data file formats
 /data/*.pb
 /data/gis
-.csv
-/internal/
+/data/*.xlsx
+/data/*.xls
+
+# ignoring temporary file used for trials
 /.github/workflows/*._yaml
 
+# ignoring doc folder originated by quarto/gh-pages on render
 /docs/
 /docs/*/
 /docs/*/*/
+
