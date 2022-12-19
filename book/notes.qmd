@@ -48,8 +48,9 @@ Inputs from call with Federico (14 Dec):
 The idea is to plot/visualise/put together a few pieces of information and see how they interact with each other, get ideas on what to do with them.
 
 Steps:
-- [ ] understanding Python VS excel (for house prices data)
-- [ ] understanding Python VS shp (for greenspace data)
+
+- [X] understanding Python VS excel (for house prices data)
+- [ ] understanding Python VS shp (for greenspace data + admin boundaries)
 - [ ] plot house prices VS greenspace locations
 - [ ] understanding json (valhalla) VS maps/python etc... know nothing
 
