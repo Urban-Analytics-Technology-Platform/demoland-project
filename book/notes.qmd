@@ -50,7 +50,7 @@ The idea is to plot/visualise/put together a few pieces of information and see h
 Steps:
 
 - [X] understanding Python VS excel (for house prices data)
-- [ ] understanding Python VS shp (for greenspace data + admin boundaries)
+- [X] understanding Python VS shp (for greenspace data + admin boundaries)
 - [ ] plot house prices VS greenspace locations
 - [ ] understanding json (valhalla) VS maps/python etc... know nothing
 
