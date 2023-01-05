@@ -19,7 +19,7 @@ trying to run automatic publishing with quarto rendering through gh-pages
 
 and more trials here,
 
-it's a long learning process
+it's a long learnnnnnnnnnnnnnnnnning process
 
 ![](https://github.com/ciupava/LandUseDemonstrator/blob/main/images/tynewear_lads_msoas.png?raw=true)*The 5 LADs in Tine and Wear (labelled by `LAD20NM` and `LAD20CD`), highlighted in gray the major urban areas, bordered in blue the 145 MSOAs*
 
