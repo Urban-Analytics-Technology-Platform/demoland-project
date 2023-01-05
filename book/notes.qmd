@@ -15,7 +15,7 @@ trying to run automatic publishing with quarto rendering through gh-pages
 
 <!-- ![](./../images/tynewear_lads_msoas.png)*The 5 LADs in Tine and Wear (labelled by `LAD20NM` and `LAD20CD`), highlighted in gray the major urban areas, bordered in blue the 145 MSOAs* -->
 
-![](./../images/tynewear_lads_msoas.png)*The 5 LADs in Tine and Wear (labelled by `LAD20NM` and `LAD20CD`), highlighted in gray the major urban areas, bordered in blue the 145 MSOAs*
+![](./images/tynewear_lads_msoas.png)*The 5 LADs in Tine and Wear (labelled by `LAD20NM` and `LAD20CD`), highlighted in gray the major urban areas, bordered in blue the 145 MSOAs*
 
 and more trials here,
 
