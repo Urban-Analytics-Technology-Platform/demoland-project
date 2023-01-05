@@ -12,14 +12,7 @@ To reproduce the stuff I do, the code is in `/python` and there atm the code is 
 (Some stuff is also in `/R`, but it's mainly first trials and not currently used in the analysis)
 
 For your convenience, a yaml file for creating a python environment is available. Install via:
-<!-- <blockquote> -->
-> text trial
->`cd python` # name of the folder where the yml is located, if not there yet <br/>
->`conda env create -f env.yml`  # generates an environment called "demoland" <br/>
->`conda activate demoland` # to active the environment
-<!-- </blockquote> -->
 
-> text trial
 > ```python
 > cd python # name of the folder where the yml is located, if not there yet <br/>
 > conda env create -f env.yml  # generates an environment called "demoland" <br/>

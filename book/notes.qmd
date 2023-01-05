@@ -13,7 +13,10 @@ trying to run automatic publishing with quarto rendering through gh-pages
 1. Let's start from the indicator of `House prices`, as it is the only one indicator we have atm that is actual values data, not deterministically defined (see [table here](data_sources.qmd#comprehensive-tables)).<br/>
 2. Also `greenspace` is a possible candidate to start the analysis, for determining a method for <mark>accessibility calculation</mark>. In this case consider [Valhalla](https://valhalla.readthedocs.io/en/latest/valhalla-intro/).
 
-![](./../images/tynewear_lads_msoas.png)*The 5 LADs in Tine and Wear (labelled by `LAD20NM` and `LAD20CD`), highlighted in gray the major urban areas, bordered in blue the 145 MSOAs*
+<!-- ![](./../images/tynewear_lads_msoas.png)*The 5 LADs in Tine and Wear (labelled by `LAD20NM` and `LAD20CD`), highlighted in gray the major urban areas, bordered in blue the 145 MSOAs* -->
+![](images/tynewear_lads_msoas.png)*The 5 LADs in Tine and Wear (labelled by `LAD20NM` and `LAD20CD`), highlighted in gray the major urban areas, bordered in blue the 145 MSOAs*
+
+![](https://github.com/ciupava/LandUseDemonstrator/blob/main/images/tynewear_lads_msoas.png)*The 5 LADs in Tine and Wear (labelled by `LAD20NM` and `LAD20CD`), highlighted in gray the major urban areas, bordered in blue the 145 MSOAs*
 
 ---
 
@@ -28,6 +31,7 @@ Example of a raster as output of a LUR analysis:
 ![](images/rlur_example.png)
 
 **QUESTION:** WHY do we want aggregated (MSOAs) outputs? <br/>*I think it's because we want to be able to compare among scenarios*
+<br/>+ (quoting Dani) *because SPC data is at MSOAs scale*
 
 ---
 
@@ -59,7 +63,7 @@ Steps:
 
 **Data processing workflow**
 
-- See available datasets for House Price Statistics for Small Areas (HPSSAs) from [here](./../data/houseprices_available-data_HPSSA.xlsx)
+- See available datasets for House Price Statistics for Small Areas (HPSSAs) from [here: houseprices_available-data_HPSSA.xlsx](https://github.com/ciupava/LandUseDemonstrator/tree/main/data)
 - The [tables](https://www.ons.gov.uk/peoplepopulationandcommunity/housing/bulletins/housepricestatisticsforsmallareas/yearendingmarch2022) come in _.xls_ format
 - choose either MSOA or LSOA level:
      - **HPSSA Dataset 2** - Median price paid by MSOA.xls [file](https://www.ons.gov.uk/peoplepopulationandcommunity/housing/datasets/hpssadataset2medianhousepricebymsoaquarterlyrollingyear) (September 2022 version);<br/>
@@ -68,10 +72,10 @@ Steps:
 - need to estrapolate just the tab with the relevant info ... $\rightarrow$ <mark>automate this??</mark> <br/>
 "table 1a (all house types)"" = _Median price paid by MSOA, England and Wales, year ending Dec 1995 to year ending Mar 2022_
 - filtering just the relevant grographies for Tyne and Wear county: $\rightarrow$  <mark>automate this??</mark>
-     - MSOAs: [list](./../data/MSOAs_Tyne-Wear.txt)<br/>
+     - MSOAs: [list in MSOAs_Tyne-Wear.txt](https://github.com/ciupava/LandUseDemonstrator/tree/main/data)<br/>
      `MSOA20CD` = `MSOA code`<br/>
      `MSOA20NM` = `MSOA name`<br/>
-     - LSOAs: [list](./../data/TyneWear_LADs_list.csv) filter by Local authority:<br/>
+     - LSOAs: [list in TyneWear_LADs_list.csv](https://github.com/ciupava/LandUseDemonstrator/tree/main/data) filter by Local authority:<br/>
        code `LAD20CD` = `Local authority code`<br/>
        name `LAD20NM` = `Local authority name`
 - choose time ... data published quarterly (4 times a year) with all editions back to 1995
