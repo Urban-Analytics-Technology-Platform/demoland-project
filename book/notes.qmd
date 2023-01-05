@@ -13,10 +13,13 @@ trying to run automatic publishing with quarto rendering through gh-pages
 1. Let's start from the indicator of `House prices`, as it is the only one indicator we have atm that is actual values data, not deterministically defined (see [table here](data_sources.qmd#comprehensive-tables)).<br/>
 2. Also `greenspace` is a possible candidate to start the analysis, for determining a method for <mark>accessibility calculation</mark>. In this case consider [Valhalla](https://valhalla.readthedocs.io/en/latest/valhalla-intro/).
 
-<!-- ![](./../images/tynewear_lads_msoas.png)*The 5 LADs in Tine and Wear (labelled by `LAD20NM` and `LAD20CD`), highlighted in gray the major urban areas, bordered in blue the 145 MSOAs* -->
+![](./../images/tynewear_lads_msoas.png)*The 5 LADs in Tine and Wear (labelled by `LAD20NM` and `LAD20CD`), highlighted in gray the major urban areas, bordered in blue the 145 MSOAs*
+
 ![](images/tynewear_lads_msoas.png)*The 5 LADs in Tine and Wear (labelled by `LAD20NM` and `LAD20CD`), highlighted in gray the major urban areas, bordered in blue the 145 MSOAs*
 
 ![](https://github.com/ciupava/LandUseDemonstrator/blob/main/images/tynewear_lads_msoas.png)*The 5 LADs in Tine and Wear (labelled by `LAD20NM` and `LAD20CD`), highlighted in gray the major urban areas, bordered in blue the 145 MSOAs*
+
+![](images/WHO_method_for_UGS.png)*another trial with already uploaded image*
 
 ---
 
