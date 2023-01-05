@@ -1,10 +1,9 @@
-
+# Notes
 <!-- Note that for images the relative path doesn't work since moved the book to separate repo and automated quarto publishing -->
 <!-- links like "![](./../images/tynewear_lads_msoas.png)" nor "![](images/tynewear_lads_msoas.png)"" (as done before) wouldn't work-->
 <!-- followed the suggestions from here  https://stackoverflow.com/questions/51002481/images-not-loading-when-deploying-to-github-pages-->
 <!-- eventually the actual path + "?raw=true" works, though try to get back to a relative path when possible -->
 
-# Notes
 
 This page is constantly updated on an (almost) daily base, meaning that the order is not dictated by a specific structure, just temporary adding up ideas and development of the project.
 
