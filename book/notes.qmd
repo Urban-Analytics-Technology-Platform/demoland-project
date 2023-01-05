@@ -19,13 +19,7 @@ trying to run automatic publishing with quarto rendering through gh-pages
 1. Let's start from the indicator of `House prices`, as it is the only one indicator we have atm that is actual values data, not deterministically defined (see [table here](data_sources.qmd#comprehensive-tables)).<br/>
 2. Also `greenspace` is a possible candidate to start the analysis, for determining a method for <mark>accessibility calculation</mark>. In this case consider [Valhalla](https://valhalla.readthedocs.io/en/latest/valhalla-intro/).
 
-
-
 ![](https://github.com/ciupava/LandUseDemonstrator/blob/main/images/tynewear_lads_msoas.png?raw=true)*The 5 LADs in Tine and Wear (labelled by `LAD20NM` and `LAD20CD`), highlighted in gray the major urban areas, bordered in blue the 145 MSOAs*
-
-and here ???????
-
-![](imagestynewear_lads_msoas.png?raw=true)*another trial with already uploaded image*
 
 ---
 
@@ -37,7 +31,7 @@ This regression-based approach estimates the ambient pollutant concentrations at
 
 Example of a raster as output of a LUR analysis:
 
-![](images/rlur_example.png)
+![](https://github.com/ciupava/LandUseDemonstrator/blob/main/images/rlur_example.png?raw=true)
 
 **QUESTION:** WHY do we want aggregated (MSOAs) outputs? <br/>*I think it's because we want to be able to compare among scenarios*
 <br/>+ (quoting Dani) *because SPC data is at MSOAs scale*
