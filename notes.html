@@ -129,7 +129,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#january" id="toc-january" class="nav-link active" data-scroll-target="#january"><span class="toc-section-number">4.1</span>  January</a></li>
+  <li><a href="#january" id="toc-january" class="nav-link active" data-scroll-target="#january"><span class="toc-section-number">4.1</span>  January</a>
+  <ul class="collapse">
+  <li><a href="#accessibility-accessibility-accessibility" id="toc-accessibility-accessibility-accessibility" class="nav-link" data-scroll-target="#accessibility-accessibility-accessibility"><span class="toc-section-number">4.1.1</span>  Accessibility accessibility accessibility</a></li>
+  </ul></li>
   <li><a href="#december" id="toc-december" class="nav-link" data-scroll-target="#december"><span class="toc-section-number">4.2</span>  December</a>
   <ul class="collapse">
   <li><a href="#house-prices-indicator" id="toc-house-prices-indicator" class="nav-link" data-scroll-target="#house-prices-indicator"><span class="toc-section-number">4.2.1</span>  House prices indicator</a></li>
@@ -194,7 +197,34 @@ ul.task-list li input[type="checkbox"] {
 <section id="january" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="january"><span class="header-section-number">4.1</span> January</h2>
 <p>January starts basically as a contination of work started in December.</p>
-<p><em>Warming up</em><br> Image created in Qgis showing median house prices (Mar 2022) and green spaces in Tyne and Wear county (case study): <img src="https://github.com/ciupava/LandUseDemonstrator/blob/main/images/tynewear_houseprices2022_greenspace_lsoa.png?raw=true" class="img-fluid"> Note:<br>houseprices <a href="#house-prices-indicator">data</a> are associated to the LSOA boundaries shp via the python code in <a href="./../python/data_prep.ipynb"><code>data_prep.ipynb</code></a> <br>green spaces are from the OS open data base <a href="#">see description here</a></p>
+<p><em>Warming up</em><br> Image created in Qgis showing median house prices (Mar 2022) and green spaces in Tyne and Wear county (case study): <img src="https://github.com/ciupava/LandUseDemonstrator/blob/main/images/tynewear_houseprices2022_greenspace_lsoa.png?raw=true" class="img-fluid"> <em>Note:</em></p>
+<ul>
+<li>houseprices <a href="#house-prices-indicator">data</a> are associated to the LSOA boundaries shp via the python code in <a href="./../python/data_prep.ipynb"><code>data_prep.ipynb</code></a></li>
+<li>green spaces are from the OS open data base <a href="#variables-creation">see description here</a></li>
+</ul>
+<section id="accessibility-accessibility-accessibility" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="accessibility-accessibility-accessibility"><span class="header-section-number">4.1.1</span> Accessibility accessibility accessibility</h3>
+<p>Let’s start from green spaces (easier?) to create methodology, then pass on to jobs…</p>
+<ul>
+<li>resolution LSOA</li>
+<li>find relation to land use</li>
+<li>generate indicators:
+<ul>
+<li>relevant variables</li>
+<li>relevant scenarios</li>
+</ul></li>
+</ul>
+<p>Identify the shortest path between two locations using the OSM transport network:</p>
+<ul>
+<li><a href="https://www.routino.org/">routino</a> application for finding a route between two points using OSM</li>
+<li><a href="https://valhalla.github.io/valhalla/">valhalla</a> open source routing engine and accompanying libraries for use with OSM</li>
+<li><a href="https://wiki.openstreetmap.org/wiki/OpenTripPlanner">OpenTripPlanner</a> open-source multimodal trip planning software system</li>
+<li>Plan4better <a href="https://plan4better.de/en/">Geo Open Accessibility</a> GOAT tool</li>
+<li><a href="https://osmnx.readthedocs.io/en/stable/">OSMnx</a> Python package</li>
+<li>build from OSM and implementing Dijkstra myslef (??? <span class="citation" data-cites="Dustin">@Dustin</span> suggestion)</li>
+</ul>
+<p>… check Propensity to Cycle Tool by Robin? [PTC]</p>
+</section>
 </section>
 <section id="december" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="december"><span class="header-section-number">4.2</span> December</h2>
@@ -302,7 +332,7 @@ A raster graphic image of the area is generated and intersected with area-level 
 <h2 data-number="4.4" class="anchored" data-anchor-id="november"><span class="header-section-number">4.4</span> November</h2>
 <p>Need to fine-tune things after last talk with Dani (end of October).</p>
 <p>Instead of trying to reproduce <a href="#did-someone-already-do-this">carbon.place results</a>, we want to produce a <mark><strong>Land Use regression model</strong></mark> <span class="math inline">\(\rightarrow\)</span> <strong><a href="#some-literature-on-lur">LUR</a></strong></p>
-<p><strong>MAJOR UPDATE</strong> - We can’t use a regression model for indicators such as <em>accessibility</em>, where the dataset is derived/generated by us and not coming from “actual” measurement (like is the case for GHG emissions or house prices, for instance). <br>In this case we will need to find another procedure to generate a modelisation. We will then have <mark><strong>2 different procedures</strong></mark> to generate the indicators, depending on the type of indicator.<br> Within these two types, we aim at generating anyways a <mark>comprehensive methodology</mark> accross indicators to assess/analyse the different scenarios.<br>A certain scenario can in fact affect different indicators, for example removing a green area to add a working compound can impact positively jobs accessibility, lowering greenspace accessibility.</p>
+<p><strong>MAJOR UPDATE</strong> - We can’t use a regression model for indicators such as <em>accessibility</em>, where the dataset is derived/generated by us and not coming from “actual” measurement (like is the case for <del>GHG emissions or</del> house prices, for instance). <br>In this case we will need to find another procedure to generate a modelisation. We will then have <mark><strong>2 different procedures</strong></mark> to generate the indicators, depending on the type of indicator.<br> Within these two types, we aim at generating anyways a <mark>comprehensive methodology</mark> accross indicators to assess/analyse the different scenarios.<br>A certain scenario can in fact affect different indicators, for example removing a green area to add a working compound can impact positively jobs accessibility, lowering greenspace accessibility.</p>
 <hr>
 <section id="project-name" class="level3" data-number="4.4.1">
 <h3 data-number="4.4.1" class="anchored" data-anchor-id="project-name"><span class="header-section-number">4.4.1</span> Project name</h3>

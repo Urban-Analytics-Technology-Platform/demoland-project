@@ -53,7 +53,7 @@
     "href": "notes.html#january",
     "title": "4  Notes",
     "section": "4.1 January",
-    "text": "4.1 January\nJanuary starts basically as a contination of work started in December.\nWarming up Image created in Qgis showing median house prices (Mar 2022) and green spaces in Tyne and Wear county (case study):  Note:houseprices data are associated to the LSOA boundaries shp via the python code in data_prep.ipynb green spaces are from the OS open data base see description here"
+    "text": "4.1 January\nJanuary starts basically as a contination of work started in December.\nWarming up Image created in Qgis showing median house prices (Mar 2022) and green spaces in Tyne and Wear county (case study):  Note:\n\nhouseprices data are associated to the LSOA boundaries shp via the python code in data_prep.ipynb\ngreen spaces are from the OS open data base see description here\n\n\n4.1.1 Accessibility accessibility accessibility\nLet’s start from green spaces (easier?) to create methodology, then pass on to jobs…\n\nresolution LSOA\nfind relation to land use\ngenerate indicators:\n\nrelevant variables\nrelevant scenarios\n\n\nIdentify the shortest path between two locations using the OSM transport network:\n\nroutino application for finding a route between two points using OSM\nvalhalla open source routing engine and accompanying libraries for use with OSM\nOpenTripPlanner open-source multimodal trip planning software system\nPlan4better Geo Open Accessibility GOAT tool\nOSMnx Python package\nbuild from OSM and implementing Dijkstra myslef (??? @Dustin suggestion)\n\n… check Propensity to Cycle Tool by Robin? [PTC]"
   },
   {
     "objectID": "notes.html#december",
