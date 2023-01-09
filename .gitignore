@@ -1,7 +1,6 @@
 # ignoring specific folders
 /.quarto/
 
-
 # # momentaneously ignoring .png files until plan image is ready
 *._png
 
@@ -19,3 +18,9 @@
 /docs/*/
 /docs/*/*/
 
+# ignoring shp in ouput folder
+/output/*.shp
+/output/*.cpg
+/output/*.dbf
+/output/*.prj
+/output/*.shx

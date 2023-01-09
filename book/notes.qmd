@@ -4,12 +4,20 @@
 <!-- followed the suggestions from here  https://stackoverflow.com/questions/51002481/images-not-loading-when-deploying-to-github-pages-->
 <!-- eventually the actual path + "?raw=true" works, though try to get back to a relative path when possible -->
 
-
 This page is constantly updated on an (almost) daily base, meaning that the order is not dictated by a specific structure, just temporary adding up ideas and development of the project.
 
 NB: in reverse order, that is more recent stuff is at the top of the document.
 
-trying to run automatic publishing with quarto rendering through gh-pages
+## January
+
+January starts basically as a contination of work started in December.
+
+_Warming up_<br/>
+Image created in Qgis showing median house prices (Mar 2022) and green spaces in Tyne and Wear county (case study):
+![](https://github.com/ciupava/LandUseDemonstrator/blob/main/images/tynewear_houseprices2022_greenspace_lsoa.png?raw=true)
+Note:<br/>houseprices [data](#house-prices-indicator) are associated to the LSOA boundaries shp via the python code in [`data_prep.ipynb`](./../python/data_prep.ipynb)
+<br/>green spaces are from the OS open data base [see description here](#)
+
 
 ## December
 
@@ -122,14 +130,14 @@ Within these two types, we aim at generating anyways a <mark>comprehensive metho
 
 ---
 
-### Name
+### Project name
 
 A <mark>**good name**</mark> for the project? (acronym*)
 
 what does "demonstrator" stand for, why should we stick to that term?
 
 - [ ] **L(O)UD** = Land (:egg:) Use Demonstrator :mega:
-- [ ] **demoland** &#x1F3D9;
+- [X] **demoland** &#x1F3D9;
 - [ ] &#x1F95A; and &#x1F425; ... &#x1F373;
     - **LAID** = LAnd Use Indicators Demonstrator &#x1FAB9;
     - **NEST** (?) &#x1FABA;
