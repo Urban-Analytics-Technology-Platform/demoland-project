@@ -196,17 +196,20 @@ ul.task-list li input[type="checkbox"] {
 <p>NB: in reverse order, that is more recent stuff is at the top of the document.</p>
 <section id="january" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="january"><span class="header-section-number">4.1</span> January</h2>
-<p>January starts basically as a contination of work started in December.</p>
-<p><em>Warming up</em><br> Image created in Qgis showing median house prices (Mar 2022) and green spaces in Tyne and Wear county (case study): <img src="https://github.com/ciupava/LandUseDemonstrator/blob/main/images/tynewear_houseprices2022_greenspace_lsoa.png?raw=true" class="img-fluid"> <em>Note:</em></p>
+<p>January starts basically as a continuation of the work started in December.</p>
+<p><em>Warming up</em><br> Image created in Qgis showing median house prices (year ending March 2022) and green spaces in Tyne and Wear county (current case study): <img src="https://github.com/ciupava/LandUseDemonstrator/blob/main/images/tynewear_houseprices2022_greenspace_lsoa.png?raw=true" class="img-fluid"> <em>Note:</em></p>
 <ul>
 <li>houseprices <a href="#house-prices-indicator">data</a> are associated to the LSOA boundaries shp via the python code in <a href="./../python/data_prep.ipynb"><code>data_prep.ipynb</code></a></li>
 <li>green spaces are from the OS open data base <a href="#variables-creation">see description here</a></li>
 </ul>
 <section id="accessibility-accessibility-accessibility" class="level3" data-number="4.1.1">
 <h3 data-number="4.1.1" class="anchored" data-anchor-id="accessibility-accessibility-accessibility"><span class="header-section-number">4.1.1</span> Accessibility accessibility accessibility</h3>
-<p>Let’s start from green spaces (easier?) to create methodology, then pass on to jobs…</p>
+<blockquote class="blockquote">
+<p>Accessibility is understood as the ease with which a person can reach places and opportunities from a given location and it results from the interaction between the transport system, land-use patterns, and the constraints of individuals <br> (Pereira et al.&nbsp;2019, <em>Distributional effects of transport policies on inequalities in access to opportunities in Rio de Janeiro</em>, Journal of Transport and Land Use 12(1): 741-764)</p>
+</blockquote>
+<p>Let’s start from <em>green spaces</em> (easier?) to create methodology, then pass on to <em>jobs</em>…</p>
 <ul>
-<li>resolution LSOA</li>
+<li>resolution (LSOA…?)</li>
 <li>find relation to land use</li>
 <li>generate indicators:
 <ul>
@@ -214,16 +217,32 @@ ul.task-list li input[type="checkbox"] {
 <li>relevant scenarios</li>
 </ul></li>
 </ul>
-<p>Identify the shortest path between two locations using the OSM transport network:</p>
+<hr>
 <ul>
+<li><p><input type="checkbox" disabled="">accessibility definition??</p></li>
+<li><p><input type="checkbox" disabled="">Identify the shortest path between two locations using the OSM transport network:</p><ul>
 <li><a href="https://www.routino.org/">routino</a> application for finding a route between two points using OSM</li>
 <li><a href="https://valhalla.github.io/valhalla/">valhalla</a> open source routing engine and accompanying libraries for use with OSM</li>
 <li><a href="https://wiki.openstreetmap.org/wiki/OpenTripPlanner">OpenTripPlanner</a> open-source multimodal trip planning software system</li>
 <li>Plan4better <a href="https://plan4better.de/en/">Geo Open Accessibility</a> GOAT tool</li>
 <li><a href="https://osmnx.readthedocs.io/en/stable/">OSMnx</a> Python package</li>
 <li>build from OSM and implementing Dijkstra myslef (??? <span class="citation" data-cites="Dustin">@Dustin</span> suggestion)</li>
+</ul></li>
+<li><p>[ ]… check Propensity to Cycle Tool by Robin? [PTC]</p></li>
+<li><p><input type="checkbox" disabled="">define the paths we want to see https://en.wikipedia.org/wiki/Shortest_path_problem#Algorithms</p><ul>
+<li>from where to where?</li>
+<li>how to define people’s home… <del>centroids</del> buildings??</li>
+</ul></li>
 </ul>
-<p>… check Propensity to Cycle Tool by Robin? [PTC]</p>
+<hr>
+<p>2 ways of seeing accessibility: - between areas (IE “from this LSOA I can access N schools/jobs/… located in other LSOAS”)<br> calculated using origin/destination matrix for centroids (pop weighted likely) and cumjulative sum of opportunities - from the amenity (school/job/hospital…) <br> generate a N-min “isochrone” (depending on mode) and see how it overlaps with population distribution (at LSOA level? the more detailed as possible)</p>
+<hr>
+<p><em>Note</em> <br> When you have available the 2 datasets:</p>
+<ol type="1">
+<li><code>land_use_data</code> - file with columns like <code>population</code>, <code>jobs</code>, <code>school</code> per LSOA (or whichever geography unit)</li>
+<li><code>travel_matrix</code> - origin destination matrix with travel time column (rather than distance, as a cost proxy) per LSOAs (<code>from_id</code>, <code>to_id</code>, <code>travel_time</code>)</li>
+</ol>
+<p>you can run and play around with the package from <a href="https://github.com/ipeaGIT/accessibility">Rafa Pereira</a>, see if it comes useful</p>
 </section>
 </section>
 <section id="december" class="level2" data-number="4.2">
