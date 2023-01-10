@@ -10,10 +10,10 @@ NB: in reverse order, that is more recent stuff is at the top of the document.
 
 ## January
 
-January starts basically as a contination of work started in December.
+January starts basically as a continuation of the work started in December.
 
 _Warming up_<br/>
-Image created in Qgis showing median house prices (Mar 2022) and green spaces in Tyne and Wear county (case study):
+Image created in Qgis showing median house prices (year ending March 2022) and green spaces in Tyne and Wear county (current case study):
 ![](https://github.com/ciupava/LandUseDemonstrator/blob/main/images/tynewear_houseprices2022_greenspace_lsoa.png?raw=true)
 *Note:*
 
@@ -22,24 +22,52 @@ Image created in Qgis showing median house prices (Mar 2022) and green spaces in
 
 ### Accessibility accessibility accessibility
 
-Let's start from green spaces (easier?) to create methodology, then pass on to jobs...
+> Accessibility is understood as the ease with which a person can reach places and opportunities from a given location and it results from the interaction between the transport system, land-use patterns, and the constraints of individuals <br/> (Pereira et al. 2019, _Distributional effects of transport policies on inequalities in access to opportunities in Rio de Janeiro_, Journal of Transport and Land Use 12(1): 741-764)
 
-- resolution LSOA
+Let's start from *green spaces* (easier?) to create methodology, then pass on to *jobs*...
+
+- resolution (LSOA...?)
 - find relation to land use
 - generate indicators: 
      - relevant variables
      - relevant scenarios
 
-Identify the shortest path between two locations using the OSM transport network:
+---
 
-- [routino](https://www.routino.org/) application for finding a route between two points using OSM
-- [valhalla](https://valhalla.github.io/valhalla/) open source routing engine and accompanying libraries for use with OSM
-- [OpenTripPlanner](https://wiki.openstreetmap.org/wiki/OpenTripPlanner) open-source multimodal trip planning software system
-- Plan4better [Geo Open Accessibility](https://plan4better.de/en/) GOAT tool
-- [OSMnx](https://osmnx.readthedocs.io/en/stable/) Python package
-- build from OSM and implementing Dijkstra myslef (??? @Dustin suggestion)
+- [ ] accessibility definition??
 
-... check Propensity to Cycle Tool by Robin? [PTC]
+- [ ] Identify the shortest path between two locations using the OSM transport network:
+
+     - [routino](https://www.routino.org/) application for finding a route between two points using OSM
+     - [valhalla](https://valhalla.github.io/valhalla/) open source routing engine and accompanying libraries for use with OSM
+     - [OpenTripPlanner](https://wiki.openstreetmap.org/wiki/OpenTripPlanner) open-source multimodal trip planning software system
+     - Plan4better [Geo Open Accessibility](https://plan4better.de/en/) GOAT tool
+     - [OSMnx](https://osmnx.readthedocs.io/en/stable/) Python package
+     - build from OSM and implementing Dijkstra myslef (??? @Dustin suggestion)
+
+- [ ]... check Propensity to Cycle Tool by Robin? [PTC]
+
+- [ ] define the paths we want to see https://en.wikipedia.org/wiki/Shortest_path_problem#Algorithms
+     - from where to where?
+     - how to define people's home... ~~centroids~~ buildings??
+
+---
+
+2 ways of seeing accessibility:
+- between areas (IE "from this LSOA I can access N schools/jobs/... located in other LSOAS")<br/>
+    calculated using origin/destination matrix for centroids (pop weighted likely) and cumjulative sum of opportunities
+- from the amenity (school/job/hospital...) <br/>
+    generate a N-min "isochrone" (depending on mode) and see how it overlaps with population distribution (at LSOA level? the more detailed as possible)
+
+---
+
+*Note* <br/>
+When you have available the 2 datasets:
+
+1. `land_use_data` - file with columns like `population`, `jobs`, `school` per LSOA (or whichever geography unit)
+2. `travel_matrix` - origin destination matrix with travel time column (rather than distance, as a cost proxy) per LSOAs (`from_id`, `to_id`, `travel_time`)
+
+you can run and play around with the package from [Rafa Pereira](https://github.com/ipeaGIT/accessibility), see if it comes useful
 
 ## December
 
