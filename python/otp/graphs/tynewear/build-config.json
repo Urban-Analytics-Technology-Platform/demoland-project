@@ -1,0 +1,9 @@
+// build-config.json
+{
+  "osm": [
+    {
+      "source": "file:///Users/azanchetta/OTP/graphs/tynewear/tyne-and-wear-latest.osm.pbf",
+      "osmTagMapping": "uk"
+    }
+  ]
+}

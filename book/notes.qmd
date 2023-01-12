@@ -37,18 +37,14 @@ Let's start from *green spaces* (easier?) to create methodology, then pass on to
 **IDEAS in random order**
 
 - [ ] accessibility definition??
-
 - [ ] Identify the shortest path between two locations using the OSM transport network:
-
      - [routino](https://www.routino.org/) application for finding a route between two points using OSM
      - [valhalla](https://valhalla.github.io/valhalla/) open source routing engine and accompanying libraries for use with OSM
      - [OpenTripPlanner](https://wiki.openstreetmap.org/wiki/OpenTripPlanner) open-source multimodal trip planning software system
      - Plan4better [Geo Open Accessibility](https://plan4better.de/en/) GOAT tool
      - [OSMnx](https://osmnx.readthedocs.io/en/stable/) Python package
      - build from OSM and implementing Dijkstra myslef (??? @Dustin suggestion)
-
 - [ ]... check Propensity to Cycle Tool by Robin? [PTC]
-
 - [ ] define the paths we want to see https://en.wikipedia.org/wiki/Shortest_path_problem#Algorithms
      - from where to where?
      - how to define people's home... ~~centroids~~ buildings??
@@ -56,12 +52,14 @@ Let's start from *green spaces* (easier?) to create methodology, then pass on to
 ---
 
 2 ways of seeing accessibility:
+
 - between areas (IE "from this LSOA I can access N schools/jobs/... located in other LSOAS")<br/>
     calculated using origin/destination matrix for centroids (pop weighted likely) and cumjulative sum of opportunities
 - from the amenity (school/job/hospital...) <br/>
     generate a N-min "isochrone" (depending on mode) and see how it overlaps with population distribution (at LSOA level? the more detailed the merrier)
 
 apparently the distinction is between passive and active accessibility [see](https://github.com/jamaps/tracc)
+
 ---
 
 *Note* <br/>
@@ -89,16 +87,18 @@ In order to run these functions we need to create/have the following input files
           - QGIS analysis (sure a function exists for this, but this solution is valid only temporarily, better the next one)
           - in Python with Geopandas (or similar stuff) I assume it's doable
 
-- [ ] time travel matrix $\rightarrow$ using OTP OpenTripPlanner
+- [] time travel matrix $\rightarrow$ using OTP OpenTripPlanner
      - [X] find GTFS data
      - [X] download OSM data
+     - [X] build graph.boj
 - [ ] supply data
 - [ ] run `tracc` for calculating accessibility
 
-Following the tutorial at https://github.com/marcusyoung/otp-tutorial
+Following the tutorial at [https://github.com/marcusyoung/otp-tutorial](https://github.com/marcusyoung/otp-tutorial)
+
 > Young, M. (2021). OpenTripPlanner - creating and querying your own multi-modal route planner.
 
-![](https://github.com/ciupava/LandUseDemonstrator/blob/main/images/tynewear_isochrones_withOTP.png?raw=true)*Examples of 15-90 minisochrones from (54.96835, -1.60778) generated using OTP for walk/transit mode, at 9am on 01-19-2-23)
+![](https://github.com/ciupava/LandUseDemonstrator/blob/main/images/tynewear_isochrones_withOTP.png?raw=true)*Examples of 15-90 minisochrones from (54.96835, -1.60778) generated using OTP for walk/transit mode, at 9am on 01-19-2-23)*
 
 
 ## December
