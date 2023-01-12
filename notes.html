@@ -220,8 +220,8 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 <p><strong>IDEAS in random order</strong></p>
 <ul>
-<li><p><input type="checkbox" disabled="">accessibility definition??</p></li>
-<li><p><input type="checkbox" disabled="">Identify the shortest path between two locations using the OSM transport network:</p><ul>
+<li><input type="checkbox" disabled="">accessibility definition??</li>
+<li><input type="checkbox" disabled="">Identify the shortest path between two locations using the OSM transport network:<ul>
 <li><a href="https://www.routino.org/">routino</a> application for finding a route between two points using OSM</li>
 <li><a href="https://valhalla.github.io/valhalla/">valhalla</a> open source routing engine and accompanying libraries for use with OSM</li>
 <li><a href="https://wiki.openstreetmap.org/wiki/OpenTripPlanner">OpenTripPlanner</a> open-source multimodal trip planning software system</li>
@@ -229,14 +229,18 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="https://osmnx.readthedocs.io/en/stable/">OSMnx</a> Python package</li>
 <li>build from OSM and implementing Dijkstra myslef (??? <span class="citation" data-cites="Dustin">@Dustin</span> suggestion)</li>
 </ul></li>
-<li><p>[ ]… check Propensity to Cycle Tool by Robin? [PTC]</p></li>
-<li><p><input type="checkbox" disabled="">define the paths we want to see https://en.wikipedia.org/wiki/Shortest_path_problem#Algorithms</p><ul>
+<li>[ ]… check Propensity to Cycle Tool by Robin? [PTC]</li>
+<li><input type="checkbox" disabled="">define the paths we want to see https://en.wikipedia.org/wiki/Shortest_path_problem#Algorithms<ul>
 <li>from where to where?</li>
 <li>how to define people’s home… <del>centroids</del> buildings??</li>
 </ul></li>
 </ul>
 <hr>
-<p>2 ways of seeing accessibility: - between areas (IE “from this LSOA I can access N schools/jobs/… located in other LSOAS”)<br> calculated using origin/destination matrix for centroids (pop weighted likely) and cumjulative sum of opportunities - from the amenity (school/job/hospital…) <br> generate a N-min “isochrone” (depending on mode) and see how it overlaps with population distribution (at LSOA level? the more detailed the merrier)</p>
+<p>2 ways of seeing accessibility:</p>
+<ul>
+<li>between areas (IE “from this LSOA I can access N schools/jobs/… located in other LSOAS”)<br> calculated using origin/destination matrix for centroids (pop weighted likely) and cumjulative sum of opportunities</li>
+<li>from the amenity (school/job/hospital…) <br> generate a N-min “isochrone” (depending on mode) and see how it overlaps with population distribution (at LSOA level? the more detailed the merrier)</li>
+</ul>
 <p>apparently the distinction is between passive and active accessibility <a href="https://github.com/jamaps/tracc">see</a></p>
 <hr>
 <p><em>Note</em> <br> When you have available the 2 datasets:</p>
@@ -256,16 +260,21 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </blockquote>
 <p>… see application and comments directly in <code>[accessib.ipynb](#./../../python/accessib.ipynb)</code><br> In order to run these functions we need to create/have the following input files: - transit time data (origin destination matrix with time) per area - supply: - a. <em>job counts per area</em> can download data at LSOA level (one file per LAD) from <a href="https://www.nomisweb.co.uk/sources/bres">Nomis BRES</a> - b. <em>other type of opportunity</em> (ex: n of groceries, n of schools, etc… extension of greenspace? <mark><strong>n of access points?</strong></mark>)<br><br> as a proxy for future complicated stuff and to try something for now, let’s generate the number of access points (to greenspaces) per LSOA… <br>what would be the fastest way: - QGIS analysis (sure a function exists for this, but this solution is valid only temporarily, better the next one) - in Python with Geopandas (or similar stuff) I assume it’s doable</p>
+<ul>
+<li>[] time travel matrix <span class="math inline">\(\rightarrow\)</span> using OTP OpenTripPlanner
 <ul class="task-list">
-<li><input type="checkbox" disabled="">time travel matrix <span class="math inline">\(\rightarrow\)</span> using OTP OpenTripPlanner<ul class="task-list">
 <li><input type="checkbox" disabled="" checked="">find GTFS data</li>
 <li><input type="checkbox" disabled="" checked="">download OSM data</li>
+<li><input type="checkbox" disabled="" checked="">build graph.boj</li>
 </ul></li>
 <li><input type="checkbox" disabled="">supply data</li>
 <li><input type="checkbox" disabled="">run <code>tracc</code> for calculating accessibility</li>
 </ul>
-<p>Following the tutorial at https://github.com/marcusyoung/otp-tutorial &gt; Young, M. (2021). OpenTripPlanner - creating and querying your own multi-modal route planner.</p>
-<p><img src="https://github.com/ciupava/LandUseDemonstrator/blob/main/images/tynewear_isochrones_withOTP.png?raw=true" class="img-fluid">*Examples of 15-90 minisochrones from (54.96835, -1.60778) generated using OTP for walk/transit mode, at 9am on 01-19-2-23)</p>
+<p>Following the tutorial at <a href="https://github.com/marcusyoung/otp-tutorial">https://github.com/marcusyoung/otp-tutorial</a></p>
+<blockquote class="blockquote">
+<p>Young, M. (2021). OpenTripPlanner - creating and querying your own multi-modal route planner.</p>
+</blockquote>
+<p><img src="https://github.com/ciupava/LandUseDemonstrator/blob/main/images/tynewear_isochrones_withOTP.png?raw=true" class="img-fluid"><em>Examples of 15-90 minisochrones from (54.96835, -1.60778) generated using OTP for walk/transit mode, at 9am on 01-19-2-23)</em></p>
 </section>
 </section>
 <section id="december" class="level2" data-number="4.2">
