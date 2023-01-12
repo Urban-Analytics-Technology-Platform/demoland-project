@@ -1,7 +1,6 @@
 # ignoring specific folders
 /.quarto/
-/python/otp/graphs/tynewear/*.zip
-/python/otp/graphs/tynewear/*.pbf
+/python/otp
 
 
 # # momentaneously ignoring .png files until plan image is ready

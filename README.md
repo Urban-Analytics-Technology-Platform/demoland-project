@@ -7,7 +7,7 @@ Most of the information related to the project are stored in the [book](https://
 
 **IN PROGRESS**
 
-To reproduce the stuff I do, the code is in `/python` and there atm the code is just in `data_prep.ipynb`.
+To reproduce the stuff I do, the code is in `/python` and there atm the code I am most working on is `accessib.ipynb`, I did some preliminary stuff (simple data handling) in `data_prep.ipynb`.
 
 (Some stuff is also in `/R`, but it's mainly first trials and not currently used in the analysis)
 
