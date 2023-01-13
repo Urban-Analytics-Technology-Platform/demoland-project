@@ -38,13 +38,13 @@ Let's start from *green spaces* (easier?) to create methodology, then pass on to
 
 - [ ] accessibility definition??
 - [ ] Identify the shortest path between two locations using the OSM transport network:
-     - [routino](https://www.routino.org/) application for finding a route between two points using OSM
-     - [valhalla](https://valhalla.github.io/valhalla/) open source routing engine and accompanying libraries for use with OSM
-     - [OpenTripPlanner](https://wiki.openstreetmap.org/wiki/OpenTripPlanner) open-source multimodal trip planning software system
-     - Plan4better [Geo Open Accessibility](https://plan4better.de/en/) GOAT tool
-     - [OSMnx](https://osmnx.readthedocs.io/en/stable/) Python package
-     - build from OSM and implementing Dijkstra myslef (??? @Dustin suggestion)
-- [ ]... check Propensity to Cycle Tool by Robin? [PTC]
+     - [ ] [routino](https://www.routino.org/) application for finding a route between two points using OSM
+     - [ ] [valhalla](https://valhalla.github.io/valhalla/) open source routing engine and accompanying libraries for use with OSM
+     - [X] [OpenTripPlanner](https://wiki.openstreetmap.org/wiki/OpenTripPlanner) open-source multimodal trip planning software system
+     - [ ] Plan4better [Geo Open Accessibility](https://plan4better.de/en/) GOAT tool
+     - [ ] [OSMnx](https://osmnx.readthedocs.io/en/stable/) Python package
+     - [ ] build from OSM and implementing Dijkstra myslef (??? @Dustin suggestion)
+- [ ] ... check Propensity to Cycle Tool by Robin? [PTC]
 - [ ] define the paths we want to see https://en.wikipedia.org/wiki/Shortest_path_problem#Algorithms
      - from where to where?
      - how to define people's home... ~~centroids~~ buildings??
