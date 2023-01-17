@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DemoLand - 3&nbsp; Data Sources</title>
+<title>DemoLand - 4&nbsp; Methodology</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./method.html" rel="next">
-<link href="./intro.html" rel="prev">
+<link href="./notes.html" rel="next">
+<link href="./data_sources.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -72,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Sources</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Methodology</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -112,12 +112,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data_sources.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Sources</span></a>
+  <a href="./data_sources.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Sources</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./method.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Methodology</span></a>
+  <a href="./method.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Methodology</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -134,13 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#comprehensive-tables" id="toc-comprehensive-tables" class="nav-link active" data-scroll-target="#comprehensive-tables"><span class="toc-section-number">3.1</span>  Comprehensive tables</a></li>
-  <li><a href="#list-of-sources" id="toc-list-of-sources" class="nav-link" data-scroll-target="#list-of-sources"><span class="toc-section-number">3.2</span>  List of sources</a>
-  <ul class="collapse">
-  <li><a href="#gov.uk" id="toc-gov.uk" class="nav-link" data-scroll-target="#gov.uk"><span class="toc-section-number">3.2.1</span>  gov.uk</a></li>
-  <li><a href="#cdrc" id="toc-cdrc" class="nav-link" data-scroll-target="#cdrc"><span class="toc-section-number">3.2.2</span>  CDRC</a></li>
-  <li><a href="#time-use-survey" id="toc-time-use-survey" class="nav-link" data-scroll-target="#time-use-survey"><span class="toc-section-number">3.2.3</span>  Time Use Survey</a></li>
-  </ul></li>
+  <li><a href="#modelling-regression-analysis" id="toc-modelling-regression-analysis" class="nav-link active" data-scroll-target="#modelling-regression-analysis"><span class="toc-section-number">4.1</span>  Modelling / regression analysis</a></li>
+  <li><a href="#accessibility-calculation" id="toc-accessibility-calculation" class="nav-link" data-scroll-target="#accessibility-calculation"><span class="toc-section-number">4.2</span>  Accessibility calculation</a></li>
   </ul>
 </nav>
     </div>
@@ -149,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Sources</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Methodology</span></h1>
 </div>
 
 
@@ -164,158 +159,15 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="comprehensive-tables" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="comprehensive-tables"><span class="header-section-number">3.1</span> Comprehensive tables</h2>
-<p><strong>Table 1 - </strong>4 indicators and data we use to quantify them:</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th style="text-align: center;">actual (X) VS estimated (O)</th>
-<th>Indicator</th>
-<th>Definition</th>
-<th>Data source</th>
-<th>Link</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">O</td>
-<td>Mobility emissions</td>
-<td></td>
-<td>gov uk data estimates <br><em>at LAD level</em> (only)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">O</td>
-<td>Greenspace accessibility</td>
-<td></td>
-<td>OS greenspace layer</td>
-<td><a href="">link</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">O</td>
-<td>Jobs accessibility</td>
-<td>n.&nbsp;jobs within certain time interval by transport mode</td>
-<td>to be created</td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">X</td>
-<td>House prices</td>
-<td>Median house prices for administrative geographies</td>
-<td>ONS</td>
-<td><a href="https://www.ons.gov.uk/peoplepopulationandcommunity/housing/bulletins/housepricestatisticsforsmallareas/yearendingmarch2022">2022 data</a></td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p><strong>Table 2 - </strong> Indicators (columns) and plausible explanatory/building variables (rows - landuse variables)</p>
-<table class="table">
-<colgroup>
-<col style="width: 7%">
-<col style="width: 21%">
-<col style="width: 21%">
-<col style="width: 21%">
-<col style="width: 21%">
-<col style="width: 7%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><em>Variables</em></th>
-<th style="text-align: center;">Mobility emissions</th>
-<th style="text-align: center;">Greenspace<br> acc</th>
-<th style="text-align: center;">Jobs acc</th>
-<th style="text-align: center;">House<br> prices</th>
-<th><em>Sources</em></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>n.&nbsp;of trips</td>
-<td style="text-align: center;">X</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td>OD data (Nomis)</td>
-</tr>
-<tr class="even">
-<td>distance</td>
-<td style="text-align: center;">X</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td>OD data (Nomis)</td>
-</tr>
-<tr class="odd">
-<td>mode transport</td>
-<td style="text-align: center;">X</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td>OD data (Nomis)</td>
-</tr>
-<tr class="even">
-<td>distance to access point</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">X</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">X</td>
-<td>from OS layer</td>
-</tr>
-<tr class="odd">
-<td>areal extension of gs</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">X</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">X</td>
-<td>from OS layer</td>
-</tr>
-<tr class="even">
-<td>n.&nbsp;available jobs</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">X</td>
-<td style="text-align: center;">X</td>
-<td>NA</td>
-</tr>
-<tr class="odd">
-<td>distance to employment center</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">X</td>
-<td style="text-align: center;">X</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>access to public transport</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">X</td>
-<td style="text-align: center;">X</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>… distinguish landuse as explanatory variable from landuse as indicator…</p>
+<section id="modelling-regression-analysis" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="modelling-regression-analysis"><span class="header-section-number">4.1</span> Modelling / regression analysis</h2>
 </section>
-<section id="list-of-sources" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="list-of-sources"><span class="header-section-number">3.2</span> List of sources</h2>
-<p>Data hunting still in progress, to be filled up when data use is certain.<br> See <a href="./notes.html">notes</a> to follow the development.</p>
-<section id="gov.uk" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="gov.uk"><span class="header-section-number">3.2.1</span> gov.uk</h3>
-<p>…</p>
-</section>
-<section id="cdrc" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored" data-anchor-id="cdrc"><span class="header-section-number">3.2.2</span> CDRC</h3>
-<p>…</p>
-</section>
-<section id="time-use-survey" class="level3" data-number="3.2.3">
-<h3 data-number="3.2.3" class="anchored" data-anchor-id="time-use-survey"><span class="header-section-number">3.2.3</span> Time Use Survey</h3>
-<p>Time Use Survey for UK is available from UK Data Service website at <a href="http://dx.doi.org/10.5255/UKDA-SN-8128-1">http://dx.doi.org/10.5255/UKDA-SN-8128-1</a></p>
-<hr>
+<section id="accessibility-calculation" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="accessibility-calculation"><span class="header-section-number">4.2</span> Accessibility calculation</h2>
+<p><strong>1. Build time travel matrix</strong></p>
+<p><strong>2. Run accessibility analysis</strong></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -569,13 +421,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./intro.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Intro</span></span>
+      <a href="./data_sources.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Sources</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./method.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Methodology</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./notes.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Notes</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
