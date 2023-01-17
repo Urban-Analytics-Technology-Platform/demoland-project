@@ -1,0 +1,9 @@
+# Methodology
+
+## Modelling / regression analysis
+
+## Accessibility calculation
+
+**1. Build time travel matrix**
+
+**2. Run accessibility analysis**

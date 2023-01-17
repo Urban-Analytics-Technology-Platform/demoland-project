@@ -15,6 +15,7 @@ book:
     - index.qmd
     - intro.qmd
     - data_sources.qmd
+    - method.qmd
     - notes.qmd
 
 format:
