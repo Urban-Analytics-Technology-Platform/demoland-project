@@ -70,7 +70,7 @@ When you have available the 2 datasets:
 
 you can run and play around with the package from [Rafa Pereira](https://github.com/ipeaGIT/accessibility), see if it comes useful
 
-*even better:*<br/>
+_**even better:**_<br/>
 from the above (written in `R`), reference to Python stuff here:
 <blockquote>
 - [tracc](https://github.com/jamaps/tracc): Transport accessibility measures in Python
@@ -78,21 +78,26 @@ from the above (written in `R`), reference to Python stuff here:
      - [aceso](https://github.com/tetraptych/aceso): a lightweight Python package for measuring spatial accessibility
 </blockquote>
 
-... see application and comments directly in `[accessib.ipynb](#./../../python/accessib.ipynb)`<br/>
+... see application and comments directly in [accessib.ipynb](./../python/accessib.ipynb)<br/>
+
 In order to run these functions we need to create/have the following input files:
+
  - transit time data (origin destination matrix with time) per area
  - supply:
+
      - a. _job counts per area_ can download data at LSOA level (one file per LAD) from [Nomis BRES](https://www.nomisweb.co.uk/sources/bres)
      - b. _other type of opportunity_ (ex: n of groceries, n of schools, etc... extension of greenspace? <mark>**n of access points?**</mark>)<br/><br/> as a proxy for future complicated stuff and to try something for now, let's generate the number of access points (to greenspaces) per LSOA... <br/>what would be the fastest way:
+
           - QGIS analysis (sure a function exists for this, but this solution is valid only temporarily, better the next one)
           - in Python with Geopandas (or similar stuff) I assume it's doable
 
-- [] time travel matrix $\rightarrow$ using OTP OpenTripPlanner
+- [X] time travel matrix $\rightarrow$ using OTP OpenTripPlanner
+
      - [X] find GTFS data
      - [X] download OSM data
-     - [X] build graph.boj
-- [ ] supply data
-- [ ] run `tracc` for calculating accessibility
+     - [X] build graph.obj
+ - [X] supply data
+ - [X] run `tracc` for calculating accessibility to jobs... see [basic_accessibility_example_TRACC.ipynb](./../python/basic_accessibility_example_TRACC.ipynb)
 
 Following the tutorial at [https://github.com/marcusyoung/otp-tutorial](https://github.com/marcusyoung/otp-tutorial)
 
@@ -100,6 +105,19 @@ Following the tutorial at [https://github.com/marcusyoung/otp-tutorial](https://
 
 ![](https://github.com/ciupava/LandUseDemonstrator/blob/main/images/tynewear_isochrones_withOTP.png?raw=true)*Examples of 15-90 minisochrones from (54.96835, -1.60778) generated using OTP for walk/transit mode, at 9am on 01-19-2-23)*
 
+---
+
+<mark>**TO_DO:**</mark>  (once run the above stuff, first trial with jobs accessibilty) <br/>
+
+ - try to run also for green spaces
+
+**generalise** the procedure above in order to create indicators for accessibility:
+
+ - input variables format (table fields, etc)
+ - understand how to edit parameters of time travel matrix and generate more of them
+ - scenarios?
+
+---
 
 ## December
 
