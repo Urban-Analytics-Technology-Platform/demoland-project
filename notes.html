@@ -254,7 +254,7 @@ ul.task-list li input[type="checkbox"] {
 <li><code>travel_matrix</code> - origin destination matrix with travel cost column (they use time rather than distance, as a cost proxy) per LSOAs (<code>from_id</code>, <code>to_id</code>, <code>travel_time</code>)</li>
 </ol>
 <p>you can run and play around with the package from <a href="https://github.com/ipeaGIT/accessibility">Rafa Pereira</a>, see if it comes useful</p>
-<em>even better:</em><br> from the above (written in <code>R</code>), reference to Python stuff here:
+<em><strong>even better:</strong></em><br> from the above (written in <code>R</code>), reference to Python stuff here:
 <blockquote class="blockquote">
 <ul>
 <li><a href="https://github.com/jamaps/tracc">tracc</a>: Transport accessibility measures in Python</li>
@@ -264,22 +264,48 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ul>
 </blockquote>
-<p>… see application and comments directly in <code>[accessib.ipynb](#./../../python/accessib.ipynb)</code><br> In order to run these functions we need to create/have the following input files: - transit time data (origin destination matrix with time) per area - supply: - a. <em>job counts per area</em> can download data at LSOA level (one file per LAD) from <a href="https://www.nomisweb.co.uk/sources/bres">Nomis BRES</a> - b. <em>other type of opportunity</em> (ex: n of groceries, n of schools, etc… extension of greenspace? <mark><strong>n of access points?</strong></mark>)<br><br> as a proxy for future complicated stuff and to try something for now, let’s generate the number of access points (to greenspaces) per LSOA… <br>what would be the fastest way: - QGIS analysis (sure a function exists for this, but this solution is valid only temporarily, better the next one) - in Python with Geopandas (or similar stuff) I assume it’s doable</p>
+<p>… see application and comments directly in <a href="./../python/accessib.ipynb">accessib.ipynb</a><br></p>
+<p>In order to run these functions we need to create/have the following input files:</p>
 <ul>
-<li>[] time travel matrix <span class="math inline">\(\rightarrow\)</span> using OTP OpenTripPlanner
-<ul class="task-list">
+<li><p>transit time data (origin destination matrix with time) per area</p></li>
+<li><p>supply:</p>
+<ul>
+<li><ol type="a">
+<li><em>job counts per area</em> can download data at LSOA level (one file per LAD) from <a href="https://www.nomisweb.co.uk/sources/bres">Nomis BRES</a></li>
+</ol></li>
+<li><ol start="2" type="a">
+<li><p><em>other type of opportunity</em> (ex: n of groceries, n of schools, etc… extension of greenspace? <mark><strong>n of access points?</strong></mark>)<br><br> as a proxy for future complicated stuff and to try something for now, let’s generate the number of access points (to greenspaces) per LSOA… <br>what would be the fastest way:</p>
+<ul>
+<li>QGIS analysis (sure a function exists for this, but this solution is valid only temporarily, better the next one)</li>
+<li>in Python with Geopandas (or similar stuff) I assume it’s doable</li>
+</ul></li>
+</ol></li>
+</ul></li>
+<li><p><input type="checkbox" disabled="" checked="">time travel matrix <span class="math inline">\(\rightarrow\)</span> using OTP OpenTripPlanner</p><ul class="task-list">
 <li><input type="checkbox" disabled="" checked="">find GTFS data</li>
 <li><input type="checkbox" disabled="" checked="">download OSM data</li>
-<li><input type="checkbox" disabled="" checked="">build graph.boj</li>
+<li><input type="checkbox" disabled="" checked="">build graph.obj</li>
 </ul></li>
-<li><input type="checkbox" disabled="">supply data</li>
-<li><input type="checkbox" disabled="">run <code>tracc</code> for calculating accessibility</li>
+<li><p><input type="checkbox" disabled="" checked="">supply data</p></li>
+<li><p><input type="checkbox" disabled="" checked="">run <code>tracc</code> for calculating accessibility to jobs… see <a href="./../python/basic_accessibility_example_TRACC.ipynb">basic_accessibility_example_TRACC.ipynb</a></p></li>
 </ul>
 <p>Following the tutorial at <a href="https://github.com/marcusyoung/otp-tutorial">https://github.com/marcusyoung/otp-tutorial</a></p>
 <blockquote class="blockquote">
 <p>Young, M. (2021). OpenTripPlanner - creating and querying your own multi-modal route planner.</p>
 </blockquote>
 <p><img src="https://github.com/ciupava/LandUseDemonstrator/blob/main/images/tynewear_isochrones_withOTP.png?raw=true" class="img-fluid"><em>Examples of 15-90 minisochrones from (54.96835, -1.60778) generated using OTP for walk/transit mode, at 9am on 01-19-2-23)</em></p>
+<hr>
+<p><mark><strong>TO_DO:</strong></mark> (once run the above stuff, first trial with jobs accessibilty) <br></p>
+<ul>
+<li>try to run also for green spaces</li>
+</ul>
+<p><strong>generalise</strong> the procedure above in order to create indicators for accessibility:</p>
+<ul>
+<li>input variables format (table fields, etc)</li>
+<li>understand how to edit parameters of time travel matrix and generate more of them</li>
+<li>scenarios?</li>
+</ul>
+<hr>
 </section>
 </section>
 <section id="december" class="level2" data-number="5.2">
