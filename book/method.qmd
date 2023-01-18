@@ -1,9 +1,36 @@
 # Methodology
 
-## Modelling / regression analysis
+_add workflow_
 
-## Accessibility calculation
+## Building Indicators
 
-**1. Build time travel matrix**
+### Modelling / regression analysis
+
+### Accessibility calculation
+
+**1. Build time travel matrix (TTM)**
+
+- get GTFS data
+- get OSM data
+- run OTP to build graph
+
+... or alternative routing system (check)
+
+- use OTP to generate TTM
+
+... or `5r5` from [ipeagit](https://ipeagit.github.io/r5r/reference/travel_time_matrix.html)
+
 
 **2. Run accessibility analysis**
+
+- get land use data (ex location of jobs, healthcare, population) or "supply" or "opportunities"
+     - procedure for greenspaces
+
+- run `tracc` or `pysal/access` on the TTM
+
+in R could use `accessibility` from [ipeagit](https://ipeagit.github.io/accessibility/articles/accessibility.html)
+
+> calculate active and passive accessibility levels using multiple accessibility metrics, such as cumulative opportunities (using either a travel cost cutoff or a travel cost interval), minimum travel cost to closest N number of activities, gravitational measures and different floating catchment area methods.
+
+## Building scenarios
+
