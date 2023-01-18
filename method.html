@@ -134,8 +134,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#modelling-regression-analysis" id="toc-modelling-regression-analysis" class="nav-link active" data-scroll-target="#modelling-regression-analysis"><span class="toc-section-number">4.1</span>  Modelling / regression analysis</a></li>
-  <li><a href="#accessibility-calculation" id="toc-accessibility-calculation" class="nav-link" data-scroll-target="#accessibility-calculation"><span class="toc-section-number">4.2</span>  Accessibility calculation</a></li>
+  <li><a href="#building-indicators" id="toc-building-indicators" class="nav-link active" data-scroll-target="#building-indicators"><span class="toc-section-number">4.1</span>  Building Indicators</a>
+  <ul class="collapse">
+  <li><a href="#modelling-regression-analysis" id="toc-modelling-regression-analysis" class="nav-link" data-scroll-target="#modelling-regression-analysis"><span class="toc-section-number">4.1.1</span>  Modelling / regression analysis</a></li>
+  <li><a href="#accessibility-calculation" id="toc-accessibility-calculation" class="nav-link" data-scroll-target="#accessibility-calculation"><span class="toc-section-number">4.1.2</span>  Accessibility calculation</a></li>
+  </ul></li>
+  <li><a href="#building-scenarios" id="toc-building-scenarios" class="nav-link" data-scroll-target="#building-scenarios"><span class="toc-section-number">4.2</span>  Building scenarios</a></li>
   </ul>
 </nav>
     </div>
@@ -159,13 +163,41 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="modelling-regression-analysis" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="modelling-regression-analysis"><span class="header-section-number">4.1</span> Modelling / regression analysis</h2>
+<p><em>add workflow</em></p>
+<section id="building-indicators" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="building-indicators"><span class="header-section-number">4.1</span> Building Indicators</h2>
+<section id="modelling-regression-analysis" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="modelling-regression-analysis"><span class="header-section-number">4.1.1</span> Modelling / regression analysis</h3>
 </section>
-<section id="accessibility-calculation" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="accessibility-calculation"><span class="header-section-number">4.2</span> Accessibility calculation</h2>
-<p><strong>1. Build time travel matrix</strong></p>
+<section id="accessibility-calculation" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="accessibility-calculation"><span class="header-section-number">4.1.2</span> Accessibility calculation</h3>
+<p><strong>1. Build time travel matrix (TTM)</strong></p>
+<ul>
+<li>get GTFS data</li>
+<li>get OSM data</li>
+<li>run OTP to build graph</li>
+</ul>
+<p>… or alternative routing system (check)</p>
+<ul>
+<li>use OTP to generate TTM</li>
+</ul>
+<p>… or <code>5r5</code> from <a href="https://ipeagit.github.io/r5r/reference/travel_time_matrix.html">ipeagit</a></p>
 <p><strong>2. Run accessibility analysis</strong></p>
+<ul>
+<li>get land use data (ex location of jobs, healthcare, population) or “supply” or “opportunities”
+<ul>
+<li>procedure for greenspaces</li>
+</ul></li>
+<li>run <code>tracc</code> or <code>pysal/access</code> on the TTM</li>
+</ul>
+<p>in R could use <code>accessibility</code> from <a href="https://ipeagit.github.io/accessibility/articles/accessibility.html">ipeagit</a></p>
+<blockquote class="blockquote">
+<p>calculate active and passive accessibility levels using multiple accessibility metrics, such as cumulative opportunities (using either a travel cost cutoff or a travel cost interval), minimum travel cost to closest N number of activities, gravitational measures and different floating catchment area methods.</p>
+</blockquote>
+</section>
+</section>
+<section id="building-scenarios" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="building-scenarios"><span class="header-section-number">4.2</span> Building scenarios</h2>
 
 
 </section>
