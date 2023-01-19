@@ -44,6 +44,9 @@ Let's start from *green spaces* (easier?) to create methodology, then pass on to
      - [ ] Plan4better [Geo Open Accessibility](https://plan4better.de/en/) GOAT tool
      - [ ] [OSMnx](https://osmnx.readthedocs.io/en/stable/) Python package
      - [ ] build from OSM and implementing Dijkstra myslef (??? @Dustin suggestion)
+     - [X] [R5 - Conveyal](https://github.com/conveyal/r5):
+          - in R: [r5r](https://ipeagit.github.io/r5r/)
+          - in Python: <mark>[r5py](https://r5py.readthedocs.io/en/stable/index.html)</mark>
 - [ ] ... check Propensity to Cycle Tool by Robin? [PTC]
 - [ ] define the paths we want to see https://en.wikipedia.org/wiki/Shortest_path_problem#Algorithms
      - from where to where?
@@ -53,8 +56,8 @@ Let's start from *green spaces* (easier?) to create methodology, then pass on to
 
 2 ways of seeing accessibility:
 
-- between areas (IE "from this LSOA I can access N schools/jobs/... located in other LSOAS")<br/>
-    calculated using origin/destination matrix for centroids (pop weighted likely) and cumjulative sum of opportunities
+- between "areas" (IE "from this LSOA I can access N schools/jobs/... located in other LSOAS")<br/>
+    calculated using origin/destination matrix for centroids (pop weighted likely) and cumulative sum of opportunities
 - from the amenity (school/job/hospital...) <br/>
     generate a N-min "isochrone" (depending on mode) and see how it overlaps with population distribution (at LSOA level? the more detailed the merrier)
 
@@ -66,7 +69,7 @@ apparently the distinction is between passive and active accessibility [see](htt
 When you have available the 2 datasets:
 
 1. `land_use_data` - file with columns like `population`, `jobs`, `school` per LSOA (or whichever geography unit)
-2. `travel_matrix` - origin destination matrix with travel cost column (they use time rather than distance, as a cost proxy) per LSOAs (`from_id`, `to_id`, `travel_time`)
+2. `travel_matrix` - origin destination matrix with travel cost column (can use time rather than distance, as a cost proxy) per LSOAs (`from_id`, `to_id`, `travel_time`)
 
 you can run and play around with the package from [Rafa Pereira](https://github.com/ipeaGIT/accessibility), see if it comes useful
 
@@ -91,12 +94,14 @@ In order to run these functions we need to create/have the following input files
           - QGIS analysis (sure a function exists for this, but this solution is valid only temporarily, better the next one)
           - in Python with Geopandas (or similar stuff) I assume it's doable
 
-- [X] time travel matrix $\rightarrow$ using OTP OpenTripPlanner
-     - [X] find GTFS data
-     - [X] download OSM data
-     - [X] build graph.obj
-- [X] supply data
-- [X] run `tracc` for calculating accessibility to jobs... see [basic_accessibility_example_TRACC.ipynb](./../python/basic_accessibility_example_TRACC.ipynb)
+A good explanation of the process is in the [r5py documentation](https://r5py.readthedocs.io/en/stable/notebooks/basic-usage.html#data-requirements)
+
+
+---
+
+**Trials**
+
+Everything is on [accessib.ipynb](./../python/accessib.ipynb)
 
 Following the tutorial at [https://github.com/marcusyoung/otp-tutorial](https://github.com/marcusyoung/otp-tutorial)
 
@@ -104,12 +109,28 @@ Following the tutorial at [https://github.com/marcusyoung/otp-tutorial](https://
 
 ![](https://github.com/ciupava/LandUseDemonstrator/blob/main/images/tynewear_isochrones_withOTP.png?raw=true)*Examples of 15-90 minisochrones from (54.96835, -1.60778) generated using OTP for walk/transit mode, at 9am on 01-19-2-23)*
 
+- [X] time travel matrix $\rightarrow$ using OTP OpenTripPlanner with M Young instructions
+     - [X] find GTFS data
+     - [X] download OSM data
+     - [X] build graph.obj
+- [X] supply data (opportunities / land use / ...)
+- [X] run `tracc` for calculating accessibility to jobs... see [basic_accessibility_example_TRACC.ipynb](./../python/basic_accessibility_example_TRACC.ipynb)
+- [X] run also for green spaces, as in "minimum travel time to reach n destinations" (see above link)
+
+**Feedback**<br/>
+The above procedure makes it unclear to understand the results PLUS editing the parameters by own requirements, **so** trying to re-do the same <mark>**using r5py**</mark>:
+
+- [ ] time travel matrix
+     - [X] find GTFS data
+     - [X] download OSM data
+     - [ ] build graph.obj
+- [X] supply data (opportunities / land use / ...)
+- [ ] calculating accessibility to jobs
+- [ ] run also for green spaces, as in "minimum travel time to reach n destinations"
+
 ---
 
 <mark>**TO_DO:**</mark>  (once run the above stuff, first trial with jobs accessibilty) <br/>
-
- - try to run also for green spaces
-
 **generalise** the procedure above in order to create indicators for accessibility:
 
  - input variables format (table fields, etc)
