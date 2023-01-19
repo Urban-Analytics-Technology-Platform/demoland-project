@@ -6,6 +6,8 @@ _add workflow_
 
 ### Modelling / regression analysis
 
+
+
 ### Accessibility calculation
 
 **1. Build time travel matrix (TTM)**
@@ -16,9 +18,10 @@ _add workflow_
 
 ... or alternative routing system (check)
 
-- use OTP to generate TTM
+- use OTP/r5 to generate TTM
 
-... or `5r5` from [ipeagit](https://ipeagit.github.io/r5r/reference/travel_time_matrix.html)
+... see `r5r` from [ipeagit](https://ipeagit.github.io/r5r/reference/travel_time_matrix.html)<br/>
+or `rpy5` [here](https://r5py.readthedocs.io/en/stable/index.html)
 
 
 **2. Run accessibility analysis**
@@ -26,11 +29,18 @@ _add workflow_
 - get land use data (ex location of jobs, healthcare, population) or "supply" or "opportunities"
      - procedure for greenspaces
 
-- run `tracc` or `pysal/access` on the TTM
+- run `tracc` or `pysal/access` pr `rpy5` on the TTM
 
 in R could use `accessibility` from [ipeagit](https://ipeagit.github.io/accessibility/articles/accessibility.html)
 
 > calculate active and passive accessibility levels using multiple accessibility metrics, such as cumulative opportunities (using either a travel cost cutoff or a travel cost interval), minimum travel cost to closest N number of activities, gravitational measures and different floating catchment area methods.
+
+... still TBC
+
+**3. Indicator definition**
+
+a. for jobs accessiibility
+b. for green spaces accessibility
 
 ## Building scenarios
 
