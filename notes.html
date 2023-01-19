@@ -233,6 +233,10 @@ ul.task-list li input[type="checkbox"] {
 <li><input type="checkbox" disabled="">Plan4better <a href="https://plan4better.de/en/">Geo Open Accessibility</a> GOAT tool</li>
 <li><input type="checkbox" disabled=""><a href="https://osmnx.readthedocs.io/en/stable/">OSMnx</a> Python package</li>
 <li><input type="checkbox" disabled="">build from OSM and implementing Dijkstra myslef (??? <span class="citation" data-cites="Dustin">@Dustin</span> suggestion)</li>
+<li><input type="checkbox" disabled="" checked=""><a href="https://github.com/conveyal/r5">R5 - Conveyal</a>:<ul>
+<li>in R: <a href="https://ipeagit.github.io/r5r/">r5r</a></li>
+<li>in Python: <mark><a href="https://r5py.readthedocs.io/en/stable/index.html">r5py</a></mark></li>
+</ul></li>
 </ul></li>
 <li><input type="checkbox" disabled="">… check Propensity to Cycle Tool by Robin? [PTC]</li>
 <li><input type="checkbox" disabled="">define the paths we want to see https://en.wikipedia.org/wiki/Shortest_path_problem#Algorithms<ul>
@@ -243,7 +247,7 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 <p>2 ways of seeing accessibility:</p>
 <ul>
-<li>between areas (IE “from this LSOA I can access N schools/jobs/… located in other LSOAS”)<br> calculated using origin/destination matrix for centroids (pop weighted likely) and cumjulative sum of opportunities</li>
+<li>between “areas” (IE “from this LSOA I can access N schools/jobs/… located in other LSOAS”)<br> calculated using origin/destination matrix for centroids (pop weighted likely) and cumulative sum of opportunities</li>
 <li>from the amenity (school/job/hospital…) <br> generate a N-min “isochrone” (depending on mode) and see how it overlaps with population distribution (at LSOA level? the more detailed the merrier)</li>
 </ul>
 <p>apparently the distinction is between passive and active accessibility <a href="https://github.com/jamaps/tracc">see</a></p>
@@ -251,7 +255,7 @@ ul.task-list li input[type="checkbox"] {
 <p><em>Note</em> <br> When you have available the 2 datasets:</p>
 <ol type="1">
 <li><code>land_use_data</code> - file with columns like <code>population</code>, <code>jobs</code>, <code>school</code> per LSOA (or whichever geography unit)</li>
-<li><code>travel_matrix</code> - origin destination matrix with travel cost column (they use time rather than distance, as a cost proxy) per LSOAs (<code>from_id</code>, <code>to_id</code>, <code>travel_time</code>)</li>
+<li><code>travel_matrix</code> - origin destination matrix with travel cost column (can use time rather than distance, as a cost proxy) per LSOAs (<code>from_id</code>, <code>to_id</code>, <code>travel_time</code>)</li>
 </ol>
 <p>you can run and play around with the package from <a href="https://github.com/ipeaGIT/accessibility">Rafa Pereira</a>, see if it comes useful</p>
 <em><strong>even better:</strong></em><br> from the above (written in <code>R</code>), reference to Python stuff here:
@@ -281,25 +285,39 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ol></li>
 </ul></li>
-<li><p><input type="checkbox" disabled="" checked="">time travel matrix <span class="math inline">\(\rightarrow\)</span> using OTP OpenTripPlanner</p><ul class="task-list">
-<li><input type="checkbox" disabled="" checked="">find GTFS data</li>
-<li><input type="checkbox" disabled="" checked="">download OSM data</li>
-<li><input type="checkbox" disabled="" checked="">build graph.obj</li>
-</ul></li>
-<li><p><input type="checkbox" disabled="" checked="">supply data</p></li>
-<li><p><input type="checkbox" disabled="" checked="">run <code>tracc</code> for calculating accessibility to jobs… see <a href="./../python/basic_accessibility_example_TRACC.ipynb">basic_accessibility_example_TRACC.ipynb</a></p></li>
 </ul>
+<p>A good explanation of the process is in the <a href="https://r5py.readthedocs.io/en/stable/notebooks/basic-usage.html#data-requirements">r5py documentation</a></p>
+<hr>
+<p><strong>Trials</strong></p>
+<p>Everything is on <a href="./../python/accessib.ipynb">accessib.ipynb</a></p>
 <p>Following the tutorial at <a href="https://github.com/marcusyoung/otp-tutorial">https://github.com/marcusyoung/otp-tutorial</a></p>
 <blockquote class="blockquote">
 <p>Young, M. (2021). OpenTripPlanner - creating and querying your own multi-modal route planner.</p>
 </blockquote>
 <p><img src="https://github.com/ciupava/LandUseDemonstrator/blob/main/images/tynewear_isochrones_withOTP.png?raw=true" class="img-fluid"><em>Examples of 15-90 minisochrones from (54.96835, -1.60778) generated using OTP for walk/transit mode, at 9am on 01-19-2-23)</em></p>
-<hr>
-<p><mark><strong>TO_DO:</strong></mark> (once run the above stuff, first trial with jobs accessibilty) <br></p>
-<ul>
-<li>try to run also for green spaces</li>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" checked="">time travel matrix <span class="math inline">\(\rightarrow\)</span> using OTP OpenTripPlanner with M Young instructions<ul class="task-list">
+<li><input type="checkbox" disabled="" checked="">find GTFS data</li>
+<li><input type="checkbox" disabled="" checked="">download OSM data</li>
+<li><input type="checkbox" disabled="" checked="">build graph.obj</li>
+</ul></li>
+<li><input type="checkbox" disabled="" checked="">supply data (opportunities / land use / …)</li>
+<li><input type="checkbox" disabled="" checked="">run <code>tracc</code> for calculating accessibility to jobs… see <a href="./../python/basic_accessibility_example_TRACC.ipynb">basic_accessibility_example_TRACC.ipynb</a></li>
+<li><input type="checkbox" disabled="" checked="">run also for green spaces, as in “minimum travel time to reach n destinations” (see above link)</li>
 </ul>
-<p><strong>generalise</strong> the procedure above in order to create indicators for accessibility:</p>
+<p><strong>Feedback</strong><br> The above procedure makes it unclear to understand the results PLUS editing the parameters by own requirements, <strong>so</strong> trying to re-do the same <mark><strong>using r5py</strong></mark>:</p>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">time travel matrix<ul class="task-list">
+<li><input type="checkbox" disabled="" checked="">find GTFS data</li>
+<li><input type="checkbox" disabled="" checked="">download OSM data</li>
+<li><input type="checkbox" disabled="">build graph.obj</li>
+</ul></li>
+<li><input type="checkbox" disabled="" checked="">supply data (opportunities / land use / …)</li>
+<li><input type="checkbox" disabled="">calculating accessibility to jobs</li>
+<li><input type="checkbox" disabled="">run also for green spaces, as in “minimum travel time to reach n destinations”</li>
+</ul>
+<hr>
+<p><mark><strong>TO_DO:</strong></mark> (once run the above stuff, first trial with jobs accessibilty) <br> <strong>generalise</strong> the procedure above in order to create indicators for accessibility:</p>
 <ul>
 <li>input variables format (table fields, etc)</li>
 <li>understand how to edit parameters of time travel matrix and generate more of them</li>
