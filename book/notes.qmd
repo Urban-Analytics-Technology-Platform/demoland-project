@@ -118,15 +118,22 @@ Following the tutorial at [https://github.com/marcusyoung/otp-tutorial](https://
 - [X] run also for green spaces, as in "minimum travel time to reach n destinations" (see above link)
 
 **Feedback**<br/>
-The above procedure makes it unclear to understand the results PLUS editing the parameters by own requirements, **so** trying to re-do the same <mark>**using r5py**</mark>:
+The above procedure makes it unclear to understand the results PLUS editing the parameters by own requirements (in particular in creating the TTM), **so** trying to re-do the same <mark>**using r5py**</mark>:
 
-- [ ] time travel matrix
+- [ ] time travel matrix   --> more editable??
      - [X] find GTFS data
      - [X] download OSM data
-     - [ ] build graph.obj
+     - [ ] build ~~graph.obj?~~ network
 - [X] supply data (opportunities / land use / ...)
 - [ ] calculating accessibility to jobs
 - [ ] run also for green spaces, as in "minimum travel time to reach n destinations"
+
+Note that the accessibility thing is not supported in the `r5py` (see [here](https://r5py.readthedocs.io/en/stable/notebooks/basic-usage.html#introduction))
+
+> At the time of this writing, only the computation of travel time matrices has been fully implemented. Over time, r5py will be expanded to incorporate other functionalities from R5.
+
+but you can run this `r5` functionality (and everything that _Conveyal_ does, IE "COnveyal Analysis") using `MongoDB` locally:<br/>
+[github page](https://github.com/conveyal/r5#configuration)
 
 ---
 
