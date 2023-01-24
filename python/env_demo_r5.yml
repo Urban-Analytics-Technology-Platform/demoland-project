@@ -1,0 +1,26 @@
+name: demoland_r5
+channels:
+  - defaults
+  - conda-forge # for r5py
+dependencies:
+  - python
+  - pip
+  - numpy
+  - pandas
+  # - scipy=1.5.2 
+  # - click
+  # - synthpop_pb2
+  # - protobuf
+  - geopandas==0.10
+  - ipykernel
+  - xlrd
+  - openpyxl
+  - libpysal
+  - folium # * dependencies added for r5py (from https://github.com/r5py/r5py/blob/main/ci/r5py_distro.yaml) 
+  - fiona
+  - matplotlib
+  - mapclassify
+  - r5py
+  - shapely # * up to here
+  - pip:
+      - tracc # library for transport accessibility
