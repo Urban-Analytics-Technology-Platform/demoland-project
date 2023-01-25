@@ -232,7 +232,7 @@ ul.task-list li input[type="checkbox"] {
 <li><input type="checkbox" disabled="" checked=""><a href="https://wiki.openstreetmap.org/wiki/OpenTripPlanner">OpenTripPlanner</a> open-source multimodal trip planning software system</li>
 <li><input type="checkbox" disabled="">Plan4better <a href="https://plan4better.de/en/">Geo Open Accessibility</a> GOAT tool</li>
 <li><input type="checkbox" disabled=""><a href="https://osmnx.readthedocs.io/en/stable/">OSMnx</a> Python package</li>
-<li><input type="checkbox" disabled="">build from OSM and implementing Dijkstra myslef (??? <span class="citation" data-cites="Dustin">@Dustin</span> suggestion)</li>
+<li><input type="checkbox" disabled="">build from OSM and implementing Dijkstra myself (??? <span class="citation" data-cites="Dustin">@Dustin</span> suggestion)</li>
 <li><input type="checkbox" disabled="" checked=""><a href="https://github.com/conveyal/r5">R5 - Conveyal</a>:<ul>
 <li>in R: <a href="https://ipeagit.github.io/r5r/">r5r</a></li>
 <li>in Python: <mark><a href="https://r5py.readthedocs.io/en/stable/index.html">r5py</a></mark></li>
@@ -271,7 +271,7 @@ ul.task-list li input[type="checkbox"] {
 <p>… see application and comments directly in <a href="./../python/accessib.ipynb">accessib.ipynb</a><br></p>
 <p>In order to run these functions we need to create/have the following input files:</p>
 <ul>
-<li><p>transit time data (origin destination matrix with time) per area</p></li>
+<li><p>transit time data (origin-destination matrix with time) per area</p></li>
 <li><p>supply:</p>
 <ul>
 <li><ol type="a">
@@ -289,8 +289,10 @@ ul.task-list li input[type="checkbox"] {
 <p>A good explanation of the process is in the <a href="https://r5py.readthedocs.io/en/stable/notebooks/basic-usage.html#data-requirements">r5py documentation</a></p>
 <hr>
 <p><strong>Trials</strong></p>
-<p>Everything is on <a href="./../python/accessib.ipynb">accessib.ipynb</a></p>
-<p>Following the tutorial at <a href="https://github.com/marcusyoung/otp-tutorial">https://github.com/marcusyoung/otp-tutorial</a></p>
+<p>Different trials for accessibility calculation are accessible as notebook files within the <a href="./../python/">python folder</a>, generally named as <code>accessib_****_.ipynb</code></p>
+<p><strong>1. OTP</strong></p>
+<p>Calculations for OTP in the script <code>[accessib_OTP.ipynb](./../python/accessib_OTP.ipynb)</code></p>
+<p>Started by the tutorial at <a href="https://github.com/marcusyoung/otp-tutorial">https://github.com/marcusyoung/otp-tutorial</a></p>
 <blockquote class="blockquote">
 <p>Young, M. (2021). OpenTripPlanner - creating and querying your own multi-modal route planner.</p>
 </blockquote>
@@ -305,27 +307,30 @@ ul.task-list li input[type="checkbox"] {
 <li><input type="checkbox" disabled="" checked="">run <code>tracc</code> for calculating accessibility to jobs… see <a href="./../python/basic_accessibility_example_TRACC.ipynb">basic_accessibility_example_TRACC.ipynb</a></li>
 <li><input type="checkbox" disabled="" checked="">run also for green spaces, as in “minimum travel time to reach n destinations” (see above link)</li>
 </ul>
-<p><strong>Feedback</strong><br> The above procedure makes it unclear to understand the results PLUS editing the parameters by own requirements (in particular in creating the TTM), <strong>so</strong> trying to re-do the same <mark><strong>using r5py</strong></mark>:</p>
+<p><strong>Feedback</strong><br> The above procedure makes it unclear to understand the results PLUS editing the parameters by own requirements (in particular in creating the TTM), <strong>so</strong> trying to re-do the same <mark><strong>using r5py</strong></mark></p>
+<p><strong>2. r5py + tracc</strong></p>
 <ul class="task-list">
-<li><input type="checkbox" disabled="">time travel matrix –&gt; more editable??<ul class="task-list">
+<li><input type="checkbox" disabled="" checked="">time travel matrix –&gt; more editable?? <em>shorter to generate, no nedd of a graph building</em><ul class="task-list">
 <li><input type="checkbox" disabled="" checked="">find GTFS data</li>
 <li><input type="checkbox" disabled="" checked="">download OSM data</li>
-<li><input type="checkbox" disabled="">build <del>graph.obj?</del> network</li>
+<li><input type="checkbox" disabled="" checked="">build <del>graph.obj?</del> network</li>
 </ul></li>
 <li><input type="checkbox" disabled="" checked="">supply data (opportunities / land use / …)</li>
-<li><input type="checkbox" disabled="">calculating accessibility to jobs</li>
-<li><input type="checkbox" disabled="">run also for green spaces, as in “minimum travel time to reach n destinations”</li>
+<li><input type="checkbox" disabled="" checked="">calculating accessibility to jobs <em>using <code>tracc</code></em></li>
+<li><input type="checkbox" disabled="" checked="">run also for green spaces, as in “minimum travel time to reach n destinations” <em>using <code>tracc</code></em></li>
 </ul>
-<p>Note that the accessibility thing is not supported in the <code>r5py</code> (see <a href="https://r5py.readthedocs.io/en/stable/notebooks/basic-usage.html#introduction">here</a>)</p>
+<p>Note that the accessibility calcualtion is not supported in the <code>r5py</code> (see <a href="https://r5py.readthedocs.io/en/stable/notebooks/basic-usage.html#introduction">here</a>)</p>
 <blockquote class="blockquote">
 <p>At the time of this writing, only the computation of travel time matrices has been fully implemented. Over time, r5py will be expanded to incorporate other functionalities from R5.</p>
 </blockquote>
-<p>but you can run this <code>r5</code> functionality (and everything that <em>Conveyal</em> does, IE “COnveyal Analysis”) using <code>MongoDB</code> locally:<br> <a href="https://github.com/conveyal/r5#configuration">github page</a></p>
+<p>but you can run this <code>r5</code> functionality (and everything that <em>Conveyal</em> does, IE “Conveyal Analysis”) using <code>MongoDB</code> locally:<br> <a href="https://github.com/conveyal/r5#configuration">github page</a></p>
+<p><strong>-STILL NEED TO CHECK THIS OPTION-</strong></p>
 <hr>
 <p><mark><strong>TO_DO:</strong></mark> (once run the above stuff, first trial with jobs accessibilty) <br> <strong>generalise</strong> the procedure above in order to create indicators for accessibility:</p>
 <ul>
 <li>input variables format (table fields, etc)</li>
 <li>understand how to edit parameters of time travel matrix and generate more of them</li>
+<li>understand how travel time matrix work, as atm it seems to only generate transit mode matrix</li>
 <li>scenarios?</li>
 </ul>
 <hr>
