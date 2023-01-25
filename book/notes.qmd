@@ -43,7 +43,7 @@ Let's start from *green spaces* (easier?) to create methodology, then pass on to
      - [X] [OpenTripPlanner](https://wiki.openstreetmap.org/wiki/OpenTripPlanner) open-source multimodal trip planning software system
      - [ ] Plan4better [Geo Open Accessibility](https://plan4better.de/en/) GOAT tool
      - [ ] [OSMnx](https://osmnx.readthedocs.io/en/stable/) Python package
-     - [ ] build from OSM and implementing Dijkstra myslef (??? @Dustin suggestion)
+     - [ ] build from OSM and implementing Dijkstra myself (??? @Dustin suggestion)
      - [X] [R5 - Conveyal](https://github.com/conveyal/r5):
           - in R: [r5r](https://ipeagit.github.io/r5r/)
           - in Python: <mark>[r5py](https://r5py.readthedocs.io/en/stable/index.html)</mark>
@@ -85,7 +85,7 @@ from the above (written in `R`), reference to Python stuff here:
 
 In order to run these functions we need to create/have the following input files:
 
- - transit time data (origin destination matrix with time) per area
+ - transit time data (origin-destination matrix with time) per area
  - supply:
 
      - a. _job counts per area_ can download data at LSOA level (one file per LAD, or full county) from [Nomis BRES](https://www.nomisweb.co.uk/sources/bres)
@@ -101,9 +101,13 @@ A good explanation of the process is in the [r5py documentation](https://r5py.re
 
 **Trials**
 
-Everything is on [accessib.ipynb](./../python/accessib.ipynb)
+Different trials for accessibility calculation are accessible as notebook files within the [python folder](./../python/), generally named as `accessib_****_.ipynb`
 
-Following the tutorial at [https://github.com/marcusyoung/otp-tutorial](https://github.com/marcusyoung/otp-tutorial)
+**1. OTP**
+
+Calculations for OTP in the script `[accessib_OTP.ipynb](./../python/accessib_OTP.ipynb)`
+
+Started by the tutorial at [https://github.com/marcusyoung/otp-tutorial](https://github.com/marcusyoung/otp-tutorial)
 
 > Young, M. (2021). OpenTripPlanner - creating and querying your own multi-modal route planner.
 
@@ -118,22 +122,26 @@ Following the tutorial at [https://github.com/marcusyoung/otp-tutorial](https://
 - [X] run also for green spaces, as in "minimum travel time to reach n destinations" (see above link)
 
 **Feedback**<br/>
-The above procedure makes it unclear to understand the results PLUS editing the parameters by own requirements (in particular in creating the TTM), **so** trying to re-do the same <mark>**using r5py**</mark>:
+The above procedure makes it unclear to understand the results PLUS editing the parameters by own requirements (in particular in creating the TTM), **so** trying to re-do the same <mark>**using r5py**</mark>
 
-- [ ] time travel matrix   --> more editable??
+**2. r5py + tracc**
+
+- [X] time travel matrix   --> more editable?? _shorter to generate, no nedd of a graph building_
      - [X] find GTFS data
      - [X] download OSM data
-     - [ ] build ~~graph.obj?~~ network
+     - [X] build ~~graph.obj?~~ network
 - [X] supply data (opportunities / land use / ...)
-- [ ] calculating accessibility to jobs
-- [ ] run also for green spaces, as in "minimum travel time to reach n destinations"
+- [X] calculating accessibility to jobs  _using `tracc`_
+- [X] run also for green spaces, as in "minimum travel time to reach n destinations" _using `tracc`_
 
-Note that the accessibility thing is not supported in the `r5py` (see [here](https://r5py.readthedocs.io/en/stable/notebooks/basic-usage.html#introduction))
+Note that the accessibility calcualtion is not supported in the `r5py` (see [here](https://r5py.readthedocs.io/en/stable/notebooks/basic-usage.html#introduction))
 
 > At the time of this writing, only the computation of travel time matrices has been fully implemented. Over time, r5py will be expanded to incorporate other functionalities from R5.
 
-but you can run this `r5` functionality (and everything that _Conveyal_ does, IE "COnveyal Analysis") using `MongoDB` locally:<br/>
+but you can run this `r5` functionality (and everything that _Conveyal_ does, IE "Conveyal Analysis") using `MongoDB` locally:<br/>
 [github page](https://github.com/conveyal/r5#configuration)
+
+**-STILL NEED TO CHECK THIS OPTION-**
 
 ---
 
@@ -142,6 +150,7 @@ but you can run this `r5` functionality (and everything that _Conveyal_ does, IE
 
  - input variables format (table fields, etc)
  - understand how to edit parameters of time travel matrix and generate more of them
+ - understand how travel time matrix work, as atm it seems to only generate transit mode matrix
  - scenarios?
 
 ---

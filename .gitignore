@@ -14,6 +14,9 @@
 
 # ignoring temporary file used for trials
 /.github/workflows/*._yaml
+/python/*._py
+/python/*._csv
+/python/*._yml
 
 # ignoring doc folder originated by quarto/gh-pages on render
 /docs/
