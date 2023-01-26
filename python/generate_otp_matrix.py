@@ -2,6 +2,8 @@
 # inspired from https://github.com/rafapereirabr/otp-travel-time-matrix/blob/master/python_script.py
 # and https://github.com/opentripplanner/OpenTripPlanner/blob/master/src/test/resources/scripts/test.py
 
+# *note:* graph object file is quite large and only sits in local laptop, not online
+
 from org.opentripplanner.scripting.api import OtpsEntryPoint
 
 # Instantiate an OtpsEntryPoint
