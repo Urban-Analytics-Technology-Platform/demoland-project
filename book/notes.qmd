@@ -8,6 +8,31 @@ This page is constantly updated on an (almost) daily base, meaning that the orde
 
 NB: in reverse order, that is more recent stuff is at the top of the document.
 
+## February
+
+### Open issues/questions on indicators building
+
+**Accessibility**
+
+accessibility measures:
+
+- routing engine: *5r*
+     - in python:
+         - together with `tracc` or `pysal/access`
+         - use `conveyal` with `mongoDB` <mark>(not tried yet)</mark>
+     - in R: wrapped within *r5r* <mark>(not tried yet)</mark>
+- ttm generation:
+     - we only consider origins within the county, what about extra zonal areas?
+     - can generate one single table with multimodal trip
+     - how does it work with scenarios generation
+- GTFS data:
+     - good source for UK or do we need to generate it ourselves from
+- measuring acc to jobs:
+     - can we find more detailed data of _where_ people work?
+     - and of where people live?
+- 15 min neighborhoods
+
+
 ## January
 
 January starts basically as a continuation of the work started in December.
@@ -134,7 +159,7 @@ The above procedure makes it unclear to understand the results PLUS editing the 
 - [X] calculating accessibility to jobs  _using `tracc`_
 - [X] run also for green spaces, as in "minimum travel time to reach n destinations" _using `tracc`_
 
-Note that the accessibility calcualtion is not supported in the `r5py` (see [here](https://r5py.readthedocs.io/en/stable/notebooks/basic-usage.html#introduction))
+Note that the accessibility calculation is not supported in the `r5py` (see [here](https://r5py.readthedocs.io/en/stable/notebooks/basic-usage.html#introduction))
 
 > At the time of this writing, only the computation of travel time matrices has been fully implemented. Over time, r5py will be expanded to incorporate other functionalities from R5.
 
