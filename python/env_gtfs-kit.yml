@@ -1,0 +1,21 @@
+name: gtfskit_env
+
+channels:
+    - defaults
+    - conda-forge
+
+dependencies:
+    - python
+    - ipykernel
+    - folium
+    - fiona
+    - pip
+    - geopandas==0.10.2
+    - matplotlib
+    - mapclassify
+    - numpy
+    - pandas
+    - r5py
+    - shapely
+    - pip:
+      - gtfs_kit
