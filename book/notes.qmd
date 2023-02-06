@@ -47,6 +47,10 @@ working with the files in `raw/GTFS`:
      - GTFS file downloaded from https://data.bus-data.dft.gov.uk/timetable/download/gtfs-file/all/
      - this file was accessed though the website https://www.transit.land/feeds/f-bus~dft~gov~uk
      - It contains all the UK buses only? <mark>**CHECKING**</mark>
+ - `itm_north_east.gtfs.zip`:
+     - should be a subset of the one above for North East England
+     - downloaded from same source, where I have managed to get subset (don't remember how)
+     - 
  - `NE.zip`:
      - GTFS generated and downloaded from UK2GTFS https://github.com/ITSLeeds/UK2GTFS, see _releases_
      - this file has no shape.txt but it’s for North East England
@@ -57,9 +61,18 @@ It might be a disadvantage to use the whole UK data, but it might be more comple
 
 We would like also to be able to edit the GTFS data, adding a line/stop.
 
+:mega: **update** :mega:
 
+decided that the best source to use (compromise of coverage, file size, reliability) is the `north_east` version of bus-data.dft.gov
 
+in fact it looks loike the metro line (yellow) is included
 
+screenshot from crossed sources:<br.>
+1. Dustin's bus spotting website ([bus spotting](https://dabreegster.github.io/bus_spotting/))
+![](https://github.com/ciupava/LandUseDemonstrator/blob/main/images/gtfs_bus_spotting.png?raw=true)
+
+2. personal map on [Felt](https://felt.com/map/TyneWear-sXwTHCjIQLGJGDS0dYAF9AD) with added transport network layer
+![](https://github.com/ciupava/LandUseDemonstrator/blob/main/images/gtfs_felt.png?raw=true)
 
 
 ## January
