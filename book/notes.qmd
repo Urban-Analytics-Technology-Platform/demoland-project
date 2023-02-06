@@ -61,13 +61,13 @@ It might be a disadvantage to use the whole UK data, but it might be more comple
 
 We would like also to be able to edit the GTFS data, adding a line/stop.
 
-:mega: **update** :mega:
+:bangbang: :loud_sound: **update** :loud_sound: :bangbang:
 
 decided that the best source to use (compromise of coverage, file size, reliability) is the `north_east` version of bus-data.dft.gov
 
 in fact it looks loike the metro line (yellow) is included
 
-screenshot from crossed sources:<br.>
+Two screenshots from sources used to cross-check the data:<br/>
 1. Dustin's bus spotting website ([bus spotting](https://dabreegster.github.io/bus_spotting/))
 ![](https://github.com/ciupava/LandUseDemonstrator/blob/main/images/gtfs_bus_spotting.png?raw=true)
 
