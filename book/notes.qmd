@@ -25,15 +25,21 @@ accessibility measures:
      - we only consider origins within the county, what about extra zonal areas?
      - can generate one single table with multimodal trip
      - how does it work with scenarios generation - especially for OSM
+     - using random date and time in database: `2023,1,19,8,30`;
+         - could generate several network graphs and get median value of them all (see Pereira about this)
+         - optimal date? ([Journey Time Statistics](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/853603/notes-and-definitions.pdf) use a _Tuesday in October_)
+     - the ttm with origins OAs (centroids) to destinations LSOAs (centroids) for transit (leg_mode walk) takes 39 min!
+     - OAs as origins ... while we could "force" the points to the nearest road node (see Statistics method mentioned above)
 - GTFS data:
      - good source for UK or do we need to generate it ourselves from
      - can we change the file, in case we want add a route / stop?
+     - editing GTFS data?
 - measuring acc to jobs:
      - can we find more detailed data of _where_ people work?
      - and of where people live?
 - 15 min neighborhoods
-     - it doesn't seem relevant until we do not have where people live, IE what we'd do is only measuring 15 min between centroids
-- editing GTFS data?
+     - approximating where people live, IE can we improve the location from actual approximation to population weighted centroids?
+
 
 
 **Work in progress**
