@@ -224,11 +224,19 @@ ul.task-list li input[type="checkbox"] {
 <li>we only consider origins within the county, what about extra zonal areas?</li>
 <li>can generate one single table with multimodal trip</li>
 <li>how does it work with scenarios generation - especially for OSM</li>
+<li>using random date and time in database: <code>2023,1,19,8,30</code>;
+<ul>
+<li>could generate several network graphs and get median value of them all (see Pereira about this)</li>
+<li>optimal date? (<a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/853603/notes-and-definitions.pdf">Journey Time Statistics</a> use a <em>Tuesday in October</em>)</li>
+</ul></li>
+<li>the ttm with origins OAs (centroids) to destinations LSOAs (centroids) for transit (leg_mode walk) takes 39 min!</li>
+<li>OAs as origins … while we could “force” the points to the nearest road node (see Statistics method mentioned above)</li>
 </ul></li>
 <li>GTFS data:
 <ul>
 <li>good source for UK or do we need to generate it ourselves from</li>
 <li>can we change the file, in case we want add a route / stop?</li>
+<li>editing GTFS data?</li>
 </ul></li>
 <li>measuring acc to jobs:
 <ul>
@@ -237,9 +245,8 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 <li>15 min neighborhoods
 <ul>
-<li>it doesn’t seem relevant until we do not have where people live, IE what we’d do is only measuring 15 min between centroids</li>
+<li>approximating where people live, IE can we improve the location from actual approximation to population weighted centroids?</li>
 </ul></li>
-<li>editing GTFS data?</li>
 </ul>
 <p><strong>Work in progress</strong></p>
 <p>Checking the possibility to view and edit GTFS data with <code>[gtfs_kit](https://gitlab.com/mrcagney/gtfs_kit)</code> in Python.<br> All the trials are in <code>python/gtfs_kit_trials.ipynb</code>.<br> Note: created env_gtfs-kit.yml environment to test the package.</p>
