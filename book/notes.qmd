@@ -33,6 +33,7 @@ accessibility measures:
      - and of where people live?
 - 15 min neighborhoods
      - it doesn't seem relevant until we do not have where people live, IE what we'd do is only measuring 15 min between centroids
+- editing GTFS data?
 
 
 **Work in progress**
