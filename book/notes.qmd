@@ -42,7 +42,7 @@ accessibility measures:
 
 
 
-**Work in progress**
+**GTFS data handling**
 
 Checking the possibility to view and edit GTFS data with `[gtfs_kit](https://gitlab.com/mrcagney/gtfs_kit)` in Python.<br/>
 All the trials are in `python/gtfs_kit_trials.ipynb`.<br/>
@@ -80,6 +80,44 @@ Two screenshots from sources used to cross-check the data:<br/>
 
 2. personal map on [Felt](https://felt.com/map/TyneWear-sXwTHCjIQLGJGDS0dYAF9AD) with added transport network layer
 ![](https://github.com/ciupava/LandUseDemonstrator/blob/main/images/gtfs_felt.png?raw=true)
+
+
+**Jobs location**
+
+We have number of jobs as a datum down to LSOA level, it comes from [nomis](https://www.nomisweb.co.uk/sources/bres)
+
+<blockquote> An employer survey of the number of jobs held by employees broken down by full/part-time and detailed industry (5 digit SIC2007). The survey records a job at the location of an employees workplace. Available from country down to lower level super output area and Scottish datazone.</blockquote>
+
+For destinations, when calculating the travel time matrix (TTM) to jobs locations, we can use then the population weighted centroids (PWC) of LSOAs areas. This assumption though affects the distances we calculate, in particular when considering vast industrial/business estates, where very few population is present - in this case in fact the PWC centroid will be probably (or could be) located in a marginal point of the polygon (IE LSOA area), resulting in invalid results.
+
+See as an example the image below (created in Qgis) showing the Team Valley trading estate in Gateshead[location](https://goo.gl/maps/zsKWLGDe5jDH1pRJ7)
+
+![](https://github.com/ciupava/LandUseDemonstrator/blob/main/images/compare_LSOAvsWPZ.png?raw=true)
+Red dots = OA centroids (our origins)<br/>pink lines = LSOAs boundaries<br/>
+yellow dots = LSOAs centroids <br/>blue dots = WPS centroids
+
+Looking for alternatives, I have found a geography for the Census that takes into account the working population.
+
+[Workplace Zones (WPZ)](https://www.ons.gov.uk/methodology/geography/geographicalproducts/areaclassifications/2011workplacebasedareaclassification/classificationofworkplacezonesfortheukabouttheareaclassifications)
+
+> Workplace Zones are a small-area geography designed to contain a consistent number of workers allowing workplace statistics to be released at a more granular level. 
+
+The data available at this geographic level are [here](https://www.nomisweb.co.uk/sources/census_2011_wp) and they include the _Workplace population (table WP101EW)_ 
+
+>This dataset provides 2011 Census estimates of the workplace population in England and Wales by residence type (household or communal resident), by sex and by age. The estimates are as at census day, 27 March 2011.
+
+
+**Conclusions:** In any case we need to make an approximation: using LSOA we give up on location, using WPZ we give up on actual (estimated?) job count.<br/>
+
+The ideal situation would be to have the number of jobs and their location / employment centres.<br/>
+A way to deal with the lack of data on this, could be to generate it using [Free Company Data Product](http://download.companieshouse.gov.uk/en_output.html)
+
+> downloadable data snapshot containing basic company data of live companies on the register
+
+From this data set we can get number of companies registered _at postcode level_ (see data fields [here](https://resources.companieshouse.gov.uk/toolsToHelp/pdf/freeDataProductDataset.pdf)) which is quite detailed, and then find a way to aggregate/interpolate them to identify “job centres”.<br/>
+We have postcodes centroids from geoportal-gov.
+
+As a future improvement, keep in mind the idea to generate more precise job locations, either by using the House company data, or other sources (and ideas).
 
 
 ## January
