@@ -300,6 +300,7 @@ An employer survey of the number of jobs held by employees broken down by full/p
 <blockquote class="blockquote">
 <p>This dataset provides 2011 Census estimates of the workplace population in England and Wales by residence type (household or communal resident), by sex and by age. The estimates are as at census day, 27 March 2011.</p>
 </blockquote>
+<p>We have decided to use the number of workers as a proxy for jobs count (STRONG ASSUMPTION).<br> We can then use as destinations the WPZ centroids, and as n.&nbsp;of jobs (opportunities) the working population for the WPZ.<br> A stronger variable could be generated using the location from the WPZ (destination), and as opportunities a interpolation from the LSOA jobs count to the WPZ areas.<br> Note that the relation between Output Areas and WPZ is that “in England and Wales they [WPS] are designed to align with Middle Layer Super Output Areas (MSOAs)”.</p>
 <p><strong>Conclusions:</strong> In any case we need to make an approximation: using LSOA we give up on location, using WPZ we give up on actual (estimated?) job count.<br></p>
 <p>The ideal situation would be to have the number of jobs and their location / employment centres.<br> A way to deal with the lack of data on this, could be to generate it using <a href="http://download.companieshouse.gov.uk/en_output.html">Free Company Data Product</a></p>
 <blockquote class="blockquote">
