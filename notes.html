@@ -248,7 +248,7 @@ ul.task-list li input[type="checkbox"] {
 <li>approximating where people live, IE can we improve the location from actual approximation to population weighted centroids?</li>
 </ul></li>
 </ul>
-<p><strong>Work in progress</strong></p>
+<p><strong>GTFS data handling</strong></p>
 <p>Checking the possibility to view and edit GTFS data with <code>[gtfs_kit](https://gitlab.com/mrcagney/gtfs_kit)</code> in Python.<br> All the trials are in <code>python/gtfs_kit_trials.ipynb</code>.<br> Note: created env_gtfs-kit.yml environment to test the package.</p>
 <p>working with the files in <code>raw/GTFS</code>:</p>
 <ul>
@@ -280,6 +280,30 @@ ul.task-list li input[type="checkbox"] {
 <ol start="2" type="1">
 <li>personal map on <a href="https://felt.com/map/TyneWear-sXwTHCjIQLGJGDS0dYAF9AD">Felt</a> with added transport network layer <img src="https://github.com/ciupava/LandUseDemonstrator/blob/main/images/gtfs_felt.png?raw=true" class="img-fluid"></li>
 </ol>
+<p><strong>Jobs location</strong></p>
+<p>We have number of jobs as a datum down to LSOA level, it comes from <a href="https://www.nomisweb.co.uk/sources/bres">nomis</a></p>
+<blockquote class="blockquote">
+An employer survey of the number of jobs held by employees broken down by full/part-time and detailed industry (5 digit SIC2007). The survey records a job at the location of an employees workplace. Available from country down to lower level super output area and Scottish datazone.
+</blockquote>
+<p>For destinations, when calculating the travel time matrix (TTM) to jobs locations, we can use then the population weighted centroids (PWC) of LSOAs areas. This assumption though affects the distances we calculate, in particular when considering vast industrial/business estates, where very few population is present - in this case in fact the PWC centroid will be probably (or could be) located in a marginal point of the polygon (IE LSOA area), resulting in invalid results.</p>
+<p>See as an example the image below (created in Qgis) showing the Team Valley trading estate in Gateshead<a href="https://goo.gl/maps/zsKWLGDe5jDH1pRJ7">location</a></p>
+<p><img src="https://github.com/ciupava/LandUseDemonstrator/blob/main/images/compare_LSOAvsWPZ.png?raw=true" class="img-fluid"> Red dots = OA centroids (our origins)<br>pink lines = LSOAs boundaries<br> yellow dots = LSOAs centroids <br>blue dots = WPS centroids</p>
+<p>Looking for alternatives, I have found a geography for the Census that takes into account the working population.</p>
+<p><a href="https://www.ons.gov.uk/methodology/geography/geographicalproducts/areaclassifications/2011workplacebasedareaclassification/classificationofworkplacezonesfortheukabouttheareaclassifications">Workplace Zones (WPZ)</a></p>
+<blockquote class="blockquote">
+<p>Workplace Zones are a small-area geography designed to contain a consistent number of workers allowing workplace statistics to be released at a more granular level.</p>
+</blockquote>
+<p>The data available at this geographic level are <a href="https://www.nomisweb.co.uk/sources/census_2011_wp">here</a> and they include the <em>Workplace population (table WP101EW)</em></p>
+<blockquote class="blockquote">
+<p>This dataset provides 2011 Census estimates of the workplace population in England and Wales by residence type (household or communal resident), by sex and by age. The estimates are as at census day, 27 March 2011.</p>
+</blockquote>
+<p><strong>Conclusions:</strong> In any case we need to make an approximation: using LSOA we give up on location, using WPZ we give up on actual (estimated?) job count.<br></p>
+<p>The ideal situation would be to have the number of jobs and their location / employment centres.<br> A way to deal with the lack of data on this, could be to generate it using <a href="http://download.companieshouse.gov.uk/en_output.html">Free Company Data Product</a></p>
+<blockquote class="blockquote">
+<p>downloadable data snapshot containing basic company data of live companies on the register</p>
+</blockquote>
+<p>From this data set we can get number of companies registered <em>at postcode level</em> (see data fields <a href="https://resources.companieshouse.gov.uk/toolsToHelp/pdf/freeDataProductDataset.pdf">here</a>) which is quite detailed, and then find a way to aggregate/interpolate them to identify “job centres”.<br> We have postcodes centroids from geoportal-gov.</p>
+<p>As a future improvement, keep in mind the idea to generate more precise job locations, either by using the House company data, or other sources (and ideas).</p>
 </section>
 </section>
 <section id="january" class="level2" data-number="5.2">
