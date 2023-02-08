@@ -4,9 +4,6 @@ _add workflow_
 
 ## Building Indicators
 
-### Modelling / regression analysis
-
-
 
 ### Accessibility calculation
 
@@ -41,6 +38,40 @@ in R could use `accessibility` from [ipeagit](https://ipeagit.github.io/accessib
 
 a. for jobs accessiibility
 b. for green spaces accessibility
+
+
+### Air quality index
+
+We develop an air quality index as a composite of $PM_{2.5}$, $PM_{10}$, $NO_{2}$ and $SO_{2}$ particle values derived from the UK AIR project run by DEFRA with data avauilable as a 1km grid (https://uk-air.defra.gov.uk/data/pcm-data). The composite index follows the methodology of European Environmental Agency, reflecting the relative health risk associated to the exposure to particle intensities.
+
+> The bands are based on the relative risks associated to short-term exposure to PM2.5, O3 and NO2, as defined by the World Health Organization in its report on the Health Risks of Air Pollution in Europe project (HRAPIE project report).
+>
+> The relative risk of exposure to PM2.5 is taken as basis for driving the index, specifically the increase in the risk of mortality per 10 µg/m3 increase in the daily mean concentration of PM2.5.
+>
+> Assuming linearity across the relative risks functions for O3 and NO2, we calculate the concentrations of these pollutants that pose an equivalent relative risk to a 10 µg/m3 increase in the daily mean of PM2.5.
+>
+> For PM10 concentrations, a constant ratio between PM10 and PM2.5 of 1:2 is assumed, in line with the World Health Organization´s air quality guidelines for Europe.
+>
+> For SO2, the bands reflect the limit values set under the EU Air Quality Directive.
+
+The relationship between $PM_{2.5}$ : $PM_{10}$ : $NO_{2}$ : $O_{3}$ : $SO_{2}$ is then equal to 1 : 2 : 4 : 5 : 10. The combined index can then be computed as
+$$Q_{air} = \frac{PM_{2.5}}{1} + \frac{PM_{10}}{2} + \frac{NO_{2}}{4} + \frac{O_{3}}{5} + \frac{SO_{2}}{10}$$
+
+Except for the $O_{3}$, UK AIR reports all as a concentration in $\mu g \cdot m^{-3}$. $O_{3}$ is reported as a number of days above a threshold of 120 $\mu g \cdot m^{-3}$ and cannot be used in this formula but even EEA omits data when unavailable so we shall be able to create the index based on 4 remaning measurements.
+
+It shall also be condsidered that UK AIR is not representing a direct measurements but a model.
+
+The data from the 1km grid are spatially interpolated to Output Area geometry. The index itself is computed on the grid.
+
+### House price
+
+An optimal way of working with house prices in the modelling exercise like ours is to use price per sqm. However, those are not generally available at the level of Output Area or similar. Lucklily, we can retrieve such data from the "A new attribute-linked residential property price dataset for England and Wales 2011-2019" project by Chi et al. available from https://dx.doi.org/10.5255/UKDA-SN-854240. That contains individual house prices, total floor area and a resulting price per sqm resulting from a combination of Land Registry Price Paid Data and Domestic Energy Performance Certificates.
+
+We use the data from years 2018-2019 and compute the mean price per sqm per output area. Given the data is not fully up-to-date, the modelling results will be presented as a percentual incerease or decrease compared to the baseline value rather than in absolute values.
+
+
+### Modelling / regression analysis
+
 
 ## Building scenarios
 
