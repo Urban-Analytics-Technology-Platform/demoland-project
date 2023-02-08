@@ -82,7 +82,7 @@ Two screenshots from sources used to cross-check the data:<br/>
 ![](https://github.com/ciupava/LandUseDemonstrator/blob/main/images/gtfs_felt.png?raw=true)
 
 
-**Jobs location**
+### Jobs location
 
 We have number of jobs as a datum down to LSOA level, it comes from [nomis](https://www.nomisweb.co.uk/sources/bres)
 
