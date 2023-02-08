@@ -106,6 +106,11 @@ The data available at this geographic level are [here](https://www.nomisweb.co.u
 
 >This dataset provides 2011 Census estimates of the workplace population in England and Wales by residence type (household or communal resident), by sex and by age. The estimates are as at census day, 27 March 2011.
 
+We have decided to use the number of workers as a proxy for jobs count (STRONG ASSUMPTION).<br/>
+We can then use as destinations the WPZ centroids, and as n. of jobs (opportunities) the working population for the WPZ.<br/>
+A stronger variable could be generated using the location from the WPZ (destination), and as opportunities a interpolation from the LSOA jobs count to the WPZ areas.<br/>
+Note that the relation between Output Areas and WPZ is that "in England and Wales they [WPS] are designed to align with Middle Layer Super Output Areas (MSOAs)".
+
 
 **Conclusions:** In any case we need to make an approximation: using LSOA we give up on location, using WPZ we give up on actual (estimated?) job count.<br/>
 
