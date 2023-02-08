@@ -140,9 +140,16 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#accessibility-calculation" id="toc-accessibility-calculation" class="nav-link" data-scroll-target="#accessibility-calculation"><span class="toc-section-number">4.1.1</span>  Accessibility calculation</a></li>
   <li><a href="#air-quality-index" id="toc-air-quality-index" class="nav-link" data-scroll-target="#air-quality-index"><span class="toc-section-number">4.1.2</span>  Air quality index</a></li>
   <li><a href="#house-price" id="toc-house-price" class="nav-link" data-scroll-target="#house-price"><span class="toc-section-number">4.1.3</span>  House price</a></li>
-  <li><a href="#modelling-regression-analysis" id="toc-modelling-regression-analysis" class="nav-link" data-scroll-target="#modelling-regression-analysis"><span class="toc-section-number">4.1.4</span>  Modelling / regression analysis</a></li>
   </ul></li>
-  <li><a href="#building-scenarios" id="toc-building-scenarios" class="nav-link" data-scroll-target="#building-scenarios"><span class="toc-section-number">4.2</span>  Building scenarios</a></li>
+  <li><a href="#explanatory-variables" id="toc-explanatory-variables" class="nav-link" data-scroll-target="#explanatory-variables"><span class="toc-section-number">4.2</span>  Explanatory variables</a>
+  <ul class="collapse">
+  <li><a href="#ons-population-estimates" id="toc-ons-population-estimates" class="nav-link" data-scroll-target="#ons-population-estimates"><span class="toc-section-number">4.2.1</span>  ONS population estimates</a></li>
+  <li><a href="#workplace-population-by-industry" id="toc-workplace-population-by-industry" class="nav-link" data-scroll-target="#workplace-population-by-industry"><span class="toc-section-number">4.2.2</span>  Workplace population by industry</a></li>
+  <li><a href="#corine-land-cover-classification" id="toc-corine-land-cover-classification" class="nav-link" data-scroll-target="#corine-land-cover-classification"><span class="toc-section-number">4.2.3</span>  CORINE Land Cover classification</a></li>
+  <li><a href="#urban-morphometrics" id="toc-urban-morphometrics" class="nav-link" data-scroll-target="#urban-morphometrics"><span class="toc-section-number">4.2.4</span>  Urban morphometrics</a></li>
+  <li><a href="#modelling-regression-analysis" id="toc-modelling-regression-analysis" class="nav-link" data-scroll-target="#modelling-regression-analysis"><span class="toc-section-number">4.2.5</span>  Modelling / regression analysis</a></li>
+  </ul></li>
+  <li><a href="#building-scenarios" id="toc-building-scenarios" class="nav-link" data-scroll-target="#building-scenarios"><span class="toc-section-number">4.3</span>  Building scenarios</a></li>
   </ul>
 </nav>
     </div>
@@ -203,7 +210,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="air-quality-index" class="level3" data-number="4.1.2">
 <h3 data-number="4.1.2" class="anchored" data-anchor-id="air-quality-index"><span class="header-section-number">4.1.2</span> Air quality index</h3>
-<p>We develop an air quality index as a composite of <span class="math inline">\(PM_{2.5}\)</span>, <span class="math inline">\(PM_{10}\)</span>, <span class="math inline">\(NO_{2}\)</span> and <span class="math inline">\(SO_{2}\)</span> particle values derived from the UK AIR project run by DEFRA with data avauilable as a 1km grid (https://uk-air.defra.gov.uk/data/pcm-data). The composite index follows the methodology of European Environmental Agency, reflecting the relative health risk associated to the exposure to particle intensities.</p>
+<p>We develop an air quality index as a composite of <span class="math inline">\(PM_{2.5}\)</span>, <span class="math inline">\(PM_{10}\)</span>, <span class="math inline">\(NO_{2}\)</span> and <span class="math inline">\(SO_{2}\)</span> particle values derived from the UK AIR project run by DEFRA with data available as a 1km grid (https://uk-air.defra.gov.uk/data/pcm-data). The composite index follows the methodology of European Environmental Agency, reflecting the relative health risk associated to the exposure to particle intensities.</p>
 <blockquote class="blockquote">
 <p>The bands are based on the relative risks associated to short-term exposure to PM2.5, O3 and NO2, as defined by the World Health Organization in its report on the Health Risks of Air Pollution in Europe project (HRAPIE project report).</p>
 <p>The relative risk of exposure to PM2.5 is taken as basis for driving the index, specifically the increase in the risk of mortality per 10 µg/m3 increase in the daily mean concentration of PM2.5.</p>
@@ -218,15 +225,55 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="house-price" class="level3" data-number="4.1.3">
 <h3 data-number="4.1.3" class="anchored" data-anchor-id="house-price"><span class="header-section-number">4.1.3</span> House price</h3>
-<p>An optimal way of working with house prices in the modelling exercise like ours is to use price per sqm. However, those are not generally available at the level of Output Area or similar. Lucklily, we can retrieve such data from the “A new attribute-linked residential property price dataset for England and Wales 2011-2019” project by Chi et al.&nbsp;available from https://dx.doi.org/10.5255/UKDA-SN-854240. That contains individual house prices, total floor area and a resulting price per sqm resulting from a combination of Land Registry Price Paid Data and Domestic Energy Performance Certificates.</p>
+<p>An optimal way of working with house prices in the modelling exercise like ours is to use price per sqm. However, those are not generally available at the level of Output Area or similar. Lucklily, we can retrieve such data from the “<em>A new attribute-linked residential property price dataset for England and Wales 2011-2019</em>” project by Chi et al.&nbsp;available from <a href="https://dx.doi.org/10.5255/UKDA-SN-854240">10.5255/UKDA-SN-854240</a>. That contains individual house prices, total floor area and a resulting price per sqm resulting from a combination of Land Registry Price Paid Data and Domestic Energy Performance Certificates.</p>
 <p>We use the data from years 2018-2019 and compute the mean price per sqm per output area. Given the data is not fully up-to-date, the modelling results will be presented as a percentual incerease or decrease compared to the baseline value rather than in absolute values.</p>
 </section>
-<section id="modelling-regression-analysis" class="level3" data-number="4.1.4">
-<h3 data-number="4.1.4" class="anchored" data-anchor-id="modelling-regression-analysis"><span class="header-section-number">4.1.4</span> Modelling / regression analysis</h3>
+</section>
+<section id="explanatory-variables" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="explanatory-variables"><span class="header-section-number">4.2</span> Explanatory variables</h2>
+<p>We use a set of explanatory variables describing the environment that are can be changed to model different scenarios and have, at the same time, explanatory power to predict our four indicators.</p>
+<section id="ons-population-estimates" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="ons-population-estimates"><span class="header-section-number">4.2.1</span> ONS population estimates</h3>
+<p>We use the ONS population estimates on the OA level for mid-2020. The other data used in the project are generally reflecting the period 2018-2020, so we want to ensure we describe the compatible point in time. The dataset is retrieved from the <a href="https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/censusoutputareaestimatesinthenortheastregionofengland/mid2020sape23dt10d/sape23dt10dmid2020coaunformattedsyoaestimatesnortheast.xlsx">ONS</a>. Given it is reported on Output Area level, it can be simply joined.</p>
+</section>
+<section id="workplace-population-by-industry" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="workplace-population-by-industry"><span class="header-section-number">4.2.2</span> Workplace population by industry</h3>
+<p>Workplace population is coming from the Census 2011 and is reported on Workplace Zone geometries. We use the data preprocessed in the Urban Grammar project that aggregated industries into following groups:</p>
+<ul>
+<li>A, B, D, E. Agriculture, energy and water</li>
+<li>C. Manufacturing’, ’F. Construction</li>
+<li>G, I. Distribution, hotels and restaurants</li>
+<li>H, J. Transport and communication</li>
+<li>K, L, M, N. Financial, real estate, professional and administrative activities</li>
+<li>O,P,Q. Public administration, education and health</li>
+<li>R, S, T, U. Other</li>
+</ul>
+<p>The data is the interpolated from Workplace Zones to Output Areas.</p>
+</section>
+<section id="corine-land-cover-classification" class="level3" data-number="4.2.3">
+<h3 data-number="4.2.3" class="anchored" data-anchor-id="corine-land-cover-classification"><span class="header-section-number">4.2.3</span> CORINE Land Cover classification</h3>
+<p>We use CORINE Land Cover Classification for 2018 distributed as polygons of contiguous areas belonging to the same classs. We use the data extracted for the Great Britain within the Urban Grammar project and interpolate the data onto Output Areas capturing a proportion of each OA covered by each class. We further filter out fully or nearly invariant classes and use only:</p>
+<ul>
+<li>Discontinuous urban fabric</li>
+<li>Continuous urban fabric</li>
+<li>Non-irrigated arable land</li>
+<li>Industrial or commercial units</li>
+<li>Green urban areas</li>
+<li>Pastures</li>
+<li>Sport and leisure facilities</li>
+</ul>
+</section>
+<section id="urban-morphometrics" class="level3" data-number="4.2.4">
+<h3 data-number="4.2.4" class="anchored" data-anchor-id="urban-morphometrics"><span class="header-section-number">4.2.4</span> Urban morphometrics</h3>
+<p>Urban morphometrics offers a way of describing physical built environment (buildings, streets) in a set of measurements capturing different aspects of morphological elements. We directly use the set measured within the Urban Grammar project</p>
+<p>TODO: remove some useless characters and describe it here.</p>
+</section>
+<section id="modelling-regression-analysis" class="level3" data-number="4.2.5">
+<h3 data-number="4.2.5" class="anchored" data-anchor-id="modelling-regression-analysis"><span class="header-section-number">4.2.5</span> Modelling / regression analysis</h3>
 </section>
 </section>
-<section id="building-scenarios" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="building-scenarios"><span class="header-section-number">4.2</span> Building scenarios</h2>
+<section id="building-scenarios" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="building-scenarios"><span class="header-section-number">4.3</span> Building scenarios</h2>
 
 
 </section>
