@@ -173,38 +173,32 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p><em>add workflow</em></p>
+<p><em>add workflow (comprehensive of all the steps)</em></p>
 <section id="building-indicators" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="building-indicators"><span class="header-section-number">4.1</span> Building Indicators</h2>
 <section id="accessibility-calculation" class="level3" data-number="4.1.1">
 <h3 data-number="4.1.1" class="anchored" data-anchor-id="accessibility-calculation"><span class="header-section-number">4.1.1</span> Accessibility calculation</h3>
 <p><strong>1. Build time travel matrix (TTM)</strong></p>
 <ul>
-<li>get GTFS data</li>
-<li>get OSM data</li>
-<li>run OTP to build graph</li>
+<li>get time table for public transport -&gt; GTFS data</li>
+<li>get roads network -&gt; OSM data</li>
+<li>generate network graph -&gt; OTP, routino, r5, etc</li>
+<li>generate ttm for different modes, time (day of the year/week, time of the day), multi o single time</li>
 </ul>
-<p>… or alternative routing system (check)</p>
-<ul>
-<li>use OTP/r5 to generate TTM</li>
-</ul>
-<p>… see <code>r5r</code> from <a href="https://ipeagit.github.io/r5r/reference/travel_time_matrix.html">ipeagit</a><br> or <code>rpy5</code> <a href="https://r5py.readthedocs.io/en/stable/index.html">here</a></p>
+<p>r5</p>
 <p><strong>2. Run accessibility analysis</strong></p>
 <ul>
-<li>get land use data (ex location of jobs, healthcare, population) or “supply” or “opportunities”
-<ul>
-<li>procedure for greenspaces</li>
-</ul></li>
-<li>run <code>tracc</code> or <code>pysal/access</code> pr <code>rpy5</code> on the TTM</li>
+<li><p>get land use data or “supply” or “opportunities” (ex location of jobs, healthcare, shopping, education, population, leisure)</p></li>
+<li><p>procedure for greenspaces</p></li>
+<li><p>run <code>tracc</code> or <code>pysal/access</code> pr <code>rpy5</code> on the TTM</p></li>
 </ul>
 <p>in R could use <code>accessibility</code> from <a href="https://ipeagit.github.io/accessibility/articles/accessibility.html">ipeagit</a></p>
 <blockquote class="blockquote">
 <p>calculate active and passive accessibility levels using multiple accessibility metrics, such as cumulative opportunities (using either a travel cost cutoff or a travel cost interval), minimum travel cost to closest N number of activities, gravitational measures and different floating catchment area methods.</p>
 </blockquote>
-<p>… still TBC</p>
 <p><strong>3. Indicator definition</strong></p>
 <ol type="a">
-<li>for jobs accessiibility</li>
+<li>for jobs accessibility</li>
 <li>for green spaces accessibility</li>
 </ol>
 </section>
@@ -220,18 +214,18 @@ ul.task-list li input[type="checkbox"] {
 </blockquote>
 <p>The relationship between <span class="math inline">\(PM_{2.5}\)</span> : <span class="math inline">\(PM_{10}\)</span> : <span class="math inline">\(NO_{2}\)</span> : <span class="math inline">\(O_{3}\)</span> : <span class="math inline">\(SO_{2}\)</span> is then equal to 1 : 2 : 4 : 5 : 10. The combined index can then be computed as <span class="math display">\[Q_{air} = \frac{PM_{2.5}}{1} + \frac{PM_{10}}{2} + \frac{NO_{2}}{4} + \frac{O_{3}}{5} + \frac{SO_{2}}{10}\]</span></p>
 <p>Except for the <span class="math inline">\(O_{3}\)</span>, UK AIR reports all as a concentration in <span class="math inline">\(\mu g \cdot m^{-3}\)</span>. <span class="math inline">\(O_{3}\)</span> is reported as a number of days above a threshold of 120 <span class="math inline">\(\mu g \cdot m^{-3}\)</span> and cannot be used in this formula but even EEA omits data when unavailable so we shall be able to create the index based on 4 remaning measurements.</p>
-<p>It shall also be condsidered that UK AIR is not representing a direct measurements but a model.</p>
+<p>It shall also be considered that UK AIR is not representing a direct measurements but a model.</p>
 <p>The data from the 1km grid are spatially interpolated to Output Area geometry. The index itself is computed on the grid.</p>
 </section>
 <section id="house-price" class="level3" data-number="4.1.3">
 <h3 data-number="4.1.3" class="anchored" data-anchor-id="house-price"><span class="header-section-number">4.1.3</span> House price</h3>
-<p>An optimal way of working with house prices in the modelling exercise like ours is to use price per sqm. However, those are not generally available at the level of Output Area or similar. Lucklily, we can retrieve such data from the “<em>A new attribute-linked residential property price dataset for England and Wales 2011-2019</em>” project by Chi et al.&nbsp;available from <a href="https://dx.doi.org/10.5255/UKDA-SN-854240">10.5255/UKDA-SN-854240</a>. That contains individual house prices, total floor area and a resulting price per sqm resulting from a combination of Land Registry Price Paid Data and Domestic Energy Performance Certificates.</p>
-<p>We use the data from years 2018-2019 and compute the mean price per sqm per output area. Given the data is not fully up-to-date, the modelling results will be presented as a percentual incerease or decrease compared to the baseline value rather than in absolute values.</p>
+<p>An optimal way of working with house prices in the modelling exercise like ours is to use price per sqm. However, those are not generally available at the level of Output Area or similar. Luckily, we can retrieve such data from the “<em>A new attribute-linked residential property price dataset for England and Wales 2011-2019</em>” project by Chi et al.&nbsp;available from <a href="https://dx.doi.org/10.5255/UKDA-SN-854240">10.5255/UKDA-SN-854240</a>. That contains individual house prices, total floor area and a resulting price per sqm resulting from a combination of Land Registry Price Paid Data and Domestic Energy Performance Certificates.</p>
+<p>We use the data from years 2018-2019 and compute the mean price per sqm per output area. Given the data is not fully up-to-date, the modelling results will be presented as a percentual increase or decrease compared to the baseline value rather than in absolute values.</p>
 </section>
 </section>
 <section id="explanatory-variables" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="explanatory-variables"><span class="header-section-number">4.2</span> Explanatory variables</h2>
-<p>We use a set of explanatory variables describing the environment that are can be changed to model different scenarios and have, at the same time, explanatory power to predict our four indicators.</p>
+<p>We use a set of explanatory variables describing the environment that can be changed to model different scenarios and have, at the same time, explanatory power to predict our four indicators.</p>
 <section id="ons-population-estimates" class="level3" data-number="4.2.1">
 <h3 data-number="4.2.1" class="anchored" data-anchor-id="ons-population-estimates"><span class="header-section-number">4.2.1</span> ONS population estimates</h3>
 <p>We use the ONS population estimates on the OA level for mid-2020. The other data used in the project are generally reflecting the period 2018-2020, so we want to ensure we describe the compatible point in time. The dataset is retrieved from the <a href="https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/censusoutputareaestimatesinthenortheastregionofengland/mid2020sape23dt10d/sape23dt10dmid2020coaunformattedsyoaestimatesnortheast.xlsx">ONS</a>. Given it is reported on Output Area level, it can be simply joined.</p>
@@ -248,7 +242,7 @@ ul.task-list li input[type="checkbox"] {
 <li>O,P,Q. Public administration, education and health</li>
 <li>R, S, T, U. Other</li>
 </ul>
-<p>The data is the interpolated from Workplace Zones to Output Areas.</p>
+<p>The data is then interpolated from Workplace Zones to Output Areas.</p>
 </section>
 <section id="corine-land-cover-classification" class="level3" data-number="4.2.3">
 <h3 data-number="4.2.3" class="anchored" data-anchor-id="corine-land-cover-classification"><span class="header-section-number">4.2.3</span> CORINE Land Cover classification</h3>
