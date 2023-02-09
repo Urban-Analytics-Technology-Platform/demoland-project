@@ -32,8 +32,7 @@ accessibility measures:
      - OAs as origins ... while we could "force" the points to the nearest road node (see Statistics method mentioned above)
 - GTFS data:
      - good source for UK or do we need to generate it ourselves from
-     - can we change the file, in case we want add a route / stop?
-     - editing GTFS data?
+     - can we edit the GTFS file, in case we want add a route / stop?
 - measuring acc to jobs:
      - can we find more detailed data of _where_ people work?
      - and of where people live?
@@ -90,7 +89,7 @@ We have number of jobs as a datum down to LSOA level, it comes from [nomis](http
 
 For destinations, when calculating the travel time matrix (TTM) to jobs locations, we can use then the population weighted centroids (PWC) of LSOAs areas. This assumption though affects the distances we calculate, in particular when considering vast industrial/business estates, where very few population is present - in this case in fact the PWC centroid will be probably (or could be) located in a marginal point of the polygon (IE LSOA area), resulting in invalid results.
 
-See as an example the image below (created in Qgis) showing the Team Valley trading estate in Gateshead[location](https://goo.gl/maps/zsKWLGDe5jDH1pRJ7)
+See as an example the image below (created in Qgis) showing the Team Valley trading estate in Gateshead [location](https://goo.gl/maps/zsKWLGDe5jDH1pRJ7)
 
 ![](https://github.com/ciupava/LandUseDemonstrator/blob/main/images/compare_LSOAvsWPZ.png?raw=true)
 Red dots = OA centroids (our origins)<br/>pink lines = LSOAs boundaries<br/>
