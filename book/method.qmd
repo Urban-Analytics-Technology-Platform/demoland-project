@@ -1,6 +1,6 @@
 # Methodology
 
-_add workflow_
+_add workflow (comprehensive of all the steps)_
 
 ## Building Indicators
 
@@ -9,22 +9,20 @@ _add workflow_
 
 **1. Build time travel matrix (TTM)**
 
-- get GTFS data
-- get OSM data
-- run OTP to build graph
+- get time table for public transport -> GTFS data
+- get roads network -> OSM data
+- generate network graph -> OTP, routino, r5, etc
+- generate ttm for different modes, time (day of the year/week, time of the day), multi o single time
 
-... or alternative routing system (check)
-
-- use OTP/r5 to generate TTM
-
-... see `r5r` from [ipeagit](https://ipeagit.github.io/r5r/reference/travel_time_matrix.html)<br/>
-or `rpy5` [here](https://r5py.readthedocs.io/en/stable/index.html)
+r5
 
 
 **2. Run accessibility analysis**
 
-- get land use data (ex location of jobs, healthcare, population) or "supply" or "opportunities"
-     - procedure for greenspaces
+- get land use data or "supply" or "opportunities" (ex location of jobs, healthcare, shopping, education, population, leisure)
+
+
+- procedure for greenspaces
 
 - run `tracc` or `pysal/access` pr `rpy5` on the TTM
 
@@ -32,11 +30,10 @@ in R could use `accessibility` from [ipeagit](https://ipeagit.github.io/accessib
 
 > calculate active and passive accessibility levels using multiple accessibility metrics, such as cumulative opportunities (using either a travel cost cutoff or a travel cost interval), minimum travel cost to closest N number of activities, gravitational measures and different floating catchment area methods.
 
-... still TBC
 
 **3. Indicator definition**
 
-a. for jobs accessiibility
+a. for jobs accessibility
 b. for green spaces accessibility
 
 
@@ -67,7 +64,7 @@ $\mu g \cdot m^{-3}$. $O_{3}$ is reported as a number of days above a threshold 
 120 $\mu g \cdot m^{-3}$ and cannot be used in this formula but even EEA omits data when
 unavailable so we shall be able to create the index based on 4 remaning measurements.
 
-It shall also be condsidered that UK AIR is not representing a direct measurements but a model.
+It shall also be considered that UK AIR is not representing a direct measurements but a model.
 
 The data from the 1km grid are spatially interpolated to Output Area geometry. The index
 itself is computed on the grid.
@@ -76,7 +73,7 @@ itself is computed on the grid.
 
 An optimal way of working with house prices in the modelling exercise like ours is to
 use price per sqm. However, those are not generally available at the level of Output
-Area or similar. Lucklily, we can retrieve such data from the "_A new attribute-linked
+Area or similar. Luckily, we can retrieve such data from the "_A new attribute-linked
 residential property price dataset for England and Wales 2011-2019_" project by Chi et
 al. available from [10.5255/UKDA-SN-854240](https://dx.doi.org/10.5255/UKDA-SN-854240). That contains individual
 house prices, total floor area and a resulting price per sqm resulting from a
@@ -84,12 +81,12 @@ combination of Land Registry Price Paid Data and Domestic Energy Performance Cer
 
 We use the data from years 2018-2019 and compute the mean price per sqm per output area.
 Given the data is not fully up-to-date, the modelling results will be presented as a
-percentual incerease or decrease compared to the baseline value rather than in absolute
+percentual increase or decrease compared to the baseline value rather than in absolute
 values.
 
 ## Explanatory variables
 
-We use a set of explanatory variables describing the environment that are can be changed
+We use a set of explanatory variables describing the environment that can be changed
 to model different scenarios and have, at the same time, explanatory power to predict our
 four indicators.
 
@@ -114,7 +111,7 @@ following groups:
 - O,P,Q. Public administration, education and health
 - R, S, T, U. Other
 
-The data is the interpolated from Workplace Zones to Output Areas.
+The data is then interpolated from Workplace Zones to Output Areas.
 
 ### CORINE Land Cover classification
 
