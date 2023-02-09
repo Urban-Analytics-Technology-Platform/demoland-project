@@ -21,7 +21,7 @@ Artwork specifications [link](https://mcusercontent.com/1f2de10f51f0f966ed4e6454
 
 ## Key dates
 
-| Thu 19 Jan| Whitespace XPO will contact all demonstrators to communicate the launch of the demonstrator portal, introducing various stand packages that can be selected by demonstrators
+| Thu 19 Jan | Whitespace XPO will contact all demonstrators to communicate the launch of the demonstrator portal, introducing various stand packages that can be selected by demonstrators
 | Fri 20 Jan | Deadline for demonstrator and team members to register for AI UK 2023
 | Mon 23 Jan | AI UK 2023 agenda launch
 | Wed 01 Feb | Demonstrator webinar (further information will be

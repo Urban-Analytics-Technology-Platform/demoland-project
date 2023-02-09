@@ -7,7 +7,8 @@
  
 | actual (X) VS estimated (O)| Indicator | Definition |Data source | Link |
 |:-:|-|-|-|-|
-|O| Mobility emissions | | gov uk data estimates <br/>*at LAD level* (only) |  |
+|O| ~~Mobility emissions~~ | | ~~gov uk data estimates <br/>*at LAD level* (only)~~ |  |
+|X| Air pollution hazard | | Local Authority + European data |  |
 |O| Greenspace accessibility | | OS greenspace layer | [link]()|
 |O| Jobs accessibility| n. jobs within certain time interval by transport mode| to be created| | 
 |X| House prices | Median house prices for administrative geographies|ONS| [2022 data](https://www.ons.gov.uk/peoplepopulationandcommunity/housing/bulletins/housepricestatisticsforsmallareas/yearendingmarch2022)|
@@ -23,9 +24,9 @@
 | mode transport| X | | | | OD data (Nomis)|
 | distance to access point |  | X |  | X | from OS layer |
 | areal extension of gs |  | X |  | X | from OS layer |
-| n. available jobs |  |  | X | X | NA |
-| distance to employment center |  |  | X | X | 
-| access to public transport |  |  | X | X |
+| n. available jobs |  |  | X | X | Nomis BRES |
+| distance to employment center |  |  | X | generated | 
+| access to public transport |  |  | X | generated |
 
 ... distinguish landuse as explanatory variable from landuse as indicator...
 
