@@ -367,34 +367,42 @@ An employer survey of the number of jobs held by employees broken down by full/p
 <li><code>land_use_data</code> - file with columns like <code>population</code>, <code>jobs</code>, <code>school</code> per LSOA (or whichever geography unit)</li>
 <li><code>travel_matrix</code> - origin destination matrix with travel cost column (can use time rather than distance, as a cost proxy) per LSOAs (<code>from_id</code>, <code>to_id</code>, <code>travel_time</code>)</li>
 </ol>
-<p>you can run and play around with the package from <a href="https://github.com/ipeaGIT/accessibility">Rafa Pereira</a>, see if it comes useful</p>
+<p>you can run and play around with <code>accessibility</code>, a <a href="https://github.com/ipeaGIT/accessibility">package</a> in R from Rafa Pereira from <a href="https://ipeagit.github.io/accessibility/articles/accessibility.html">ipeagit</a></p>
+<blockquote class="blockquote">
+<p>calculate active and passive accessibility levels using multiple accessibility metrics, such as cumulative opportunities (using either a travel cost cutoff or a travel cost interval), minimum travel cost to closest N number of activities, gravitational measures and different floating catchment area methods.</p>
+</blockquote>
+<ul>
+<li>or run <code>tracc</code> or <code>pysal/access</code> pr <code>rpy5</code> on the TTM</li>
+</ul>
 <em><strong>even better:</strong></em><br> from the above (written in <code>R</code>), reference to Python stuff here:
 <blockquote class="blockquote">
 <ul>
 <li><a href="https://github.com/jamaps/tracc">tracc</a>: Transport accessibility measures in Python</li>
-<li><a href="https://access.readthedocs.io/en/latest/">access</a>: Spatial Accessfor PySAL
+<li><a href="https://access.readthedocs.io/en/latest/">access</a>: Spatial Access for PySAL
 <ul>
 <li><a href="https://github.com/tetraptych/aceso">aceso</a>: a lightweight Python package for measuring spatial accessibility</li>
 </ul></li>
 </ul>
 </blockquote>
 <p>… see application and comments directly in <a href="./../python/accessib.ipynb">accessib.ipynb</a><br></p>
+<hr>
 <p>In order to run these functions we need to create/have the following input files:</p>
 <ul>
-<li><p>transit time data (origin-destination matrix with time) per area</p></li>
-<li><p>supply:</p>
+<li><p>transit time data (origin-destination matrix with time) between origins and destinations</p></li>
+<li><p>supply / opportunity:</p>
 <ul>
 <li><ol type="a">
 <li><em>job counts per area</em> can download data at LSOA level (one file per LAD, or full county) from <a href="https://www.nomisweb.co.uk/sources/bres">Nomis BRES</a></li>
 </ol></li>
 <li><ol start="2" type="a">
-<li><p><em>other type of opportunity</em> (ex: n of groceries, n of schools, etc… extension of greenspace? <mark><strong>n of access points?</strong></mark>)<br><br> as a proxy for future complicated stuff and to try something for now, let’s generate the number of access points (to greenspaces) per LSOA… <br>what would be the fastest way:</p>
+<li><em>other type of opportunity</em> (ex: n of groceries, n of schools, etc… extension of greenspace? <mark><strong>n of access points?</strong></mark>)</li>
+</ol></li>
+</ul></li>
+</ul>
+<p><br><br> as a proxy for future complicated stuff and to try something for now, let’s generate the number of access points (to greenspaces) per LSOA… <br>what would be the fastest way:</p>
 <ul>
 <li>QGIS analysis (sure a function exists for this, but this solution is valid only temporarily, better the next one)</li>
 <li>in Python with Geopandas (or similar stuff) I assume it’s doable</li>
-</ul></li>
-</ol></li>
-</ul></li>
 </ul>
 <p>A good explanation of the process is in the <a href="https://r5py.readthedocs.io/en/stable/notebooks/basic-usage.html#data-requirements">r5py documentation</a></p>
 <hr>
