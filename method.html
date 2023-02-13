@@ -147,7 +147,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#workplace-population-by-industry" id="toc-workplace-population-by-industry" class="nav-link" data-scroll-target="#workplace-population-by-industry"><span class="toc-section-number">4.2.2</span>  Workplace population by industry</a></li>
   <li><a href="#corine-land-cover-classification" id="toc-corine-land-cover-classification" class="nav-link" data-scroll-target="#corine-land-cover-classification"><span class="toc-section-number">4.2.3</span>  CORINE Land Cover classification</a></li>
   <li><a href="#urban-morphometrics" id="toc-urban-morphometrics" class="nav-link" data-scroll-target="#urban-morphometrics"><span class="toc-section-number">4.2.4</span>  Urban morphometrics</a></li>
-  <li><a href="#modelling-regression-analysis" id="toc-modelling-regression-analysis" class="nav-link" data-scroll-target="#modelling-regression-analysis"><span class="toc-section-number">4.2.5</span>  Modelling / regression analysis</a></li>
+  <li><a href="#variable-pruning" id="toc-variable-pruning" class="nav-link" data-scroll-target="#variable-pruning"><span class="toc-section-number">4.2.5</span>  Variable pruning</a></li>
+  <li><a href="#modelling-regression-analysis" id="toc-modelling-regression-analysis" class="nav-link" data-scroll-target="#modelling-regression-analysis"><span class="toc-section-number">4.2.6</span>  Modelling / regression analysis</a></li>
   </ul></li>
   <li><a href="#building-scenarios" id="toc-building-scenarios" class="nav-link" data-scroll-target="#building-scenarios"><span class="toc-section-number">4.3</span>  Building scenarios</a></li>
   </ul>
@@ -235,7 +236,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Workplace population is coming from the Census 2011 and is reported on Workplace Zone geometries. We use the data preprocessed in the Urban Grammar project that aggregated industries into following groups:</p>
 <ul>
 <li>A, B, D, E. Agriculture, energy and water</li>
-<li>C. Manufacturing’, ’F. Construction</li>
+<li>C. Manufacturing</li>
+<li>F. Construction</li>
 <li>G, I. Distribution, hotels and restaurants</li>
 <li>H, J. Transport and communication</li>
 <li>K, L, M, N. Financial, real estate, professional and administrative activities</li>
@@ -259,11 +261,76 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="urban-morphometrics" class="level3" data-number="4.2.4">
 <h3 data-number="4.2.4" class="anchored" data-anchor-id="urban-morphometrics"><span class="header-section-number">4.2.4</span> Urban morphometrics</h3>
-<p>Urban morphometrics offers a way of describing physical built environment (buildings, streets) in a set of measurements capturing different aspects of morphological elements. We directly use the set measured within the Urban Grammar project</p>
-<p>TODO: remove some useless characters and describe it here.</p>
+<p>Urban morphometrics offers a way of describing physical built environment (buildings, streets) in a set of measurements capturing different aspects of morphological elements. We directly use the set measured within the Urban Grammar project, presented as <em>individual</em> characters (prior contextualisation) and interpolate their values from the original geometry (enclosed tessellation cells) to output areas. That way, we already get a contextual version using the project-specific aggregation to OA. This gives us 59 morphometric variables.</p>
 </section>
-<section id="modelling-regression-analysis" class="level3" data-number="4.2.5">
-<h3 data-number="4.2.5" class="anchored" data-anchor-id="modelling-regression-analysis"><span class="header-section-number">4.2.5</span> Modelling / regression analysis</h3>
+<section id="variable-pruning" class="level3" data-number="4.2.5">
+<h3 data-number="4.2.5" class="anchored" data-anchor-id="variable-pruning"><span class="header-section-number">4.2.5</span> Variable pruning</h3>
+<p>Given some of the explanatory variable were collected for a different purpose than modelling and with a different geographical extent in mind, it may happen that within our limited area of interest (Tyne and Wear), some of the variable are collinear. Those may negatively affect the performance of the predictive models and it is better to limit their number to minimum. We, therefore, measure Pearson’s correlation index and Spearman Rank correlation index between all pairs of explanatory variables and from each pair with the absolute value of the index above 0.8 retain only one, ideally the one that is more interpretable.</p>
+<p>The final set contains 59 explanatory variables and the only morphometric were pruned down.</p>
+<ul>
+<li>population estimate</li>
+<li>A, B, D, E. Agriculture, energy and water</li>
+<li>C. Manufacturing</li>
+<li>F. Construction</li>
+<li>G, I. Distribution, hotels and restaurants</li>
+<li>H, J. Transport and communication</li>
+<li>K, L, M, N. Financial, real estate, professional and administrative activities</li>
+<li>O,P,Q. Public administration, education and health</li>
+<li>R, S, T, U. Other</li>
+<li>Land cover [Discontinuous urban fabric]</li>
+<li>Land cover [Continuous urban fabric]</li>
+<li>Land cover [Non-irrigated arable land]</li>
+<li>Land cover [Industrial or commercial units]</li>
+<li>Land cover [Green urban areas]</li>
+<li>Land cover [Pastures]</li>
+<li>Land cover [Sport and leisure facilities]</li>
+<li>area of building</li>
+<li>courtyard area of building</li>
+<li>circular compactness of building</li>
+<li>corners of building</li>
+<li>squareness of building</li>
+<li>equivalent rectangular index of building</li>
+<li>centroid - corner mean distance of building</li>
+<li>centroid - corner distance deviation of building</li>
+<li>orientation of building</li>
+<li>area of ETC</li>
+<li>circular compactness of ETC</li>
+<li>equivalent rectangular index of ETC</li>
+<li>covered area ratio of ETC</li>
+<li>cell alignment of building</li>
+<li>alignment of neighbouring buildings</li>
+<li>mean distance between neighbouring buildings</li>
+<li>perimeter-weighted neighbours of ETC</li>
+<li>mean inter-building distance</li>
+<li>width of street profile</li>
+<li>width deviation of street profile</li>
+<li>openness of street profile</li>
+<li>length of street segment</li>
+<li>linearity of street segment</li>
+<li>mean segment length within 3 steps</li>
+<li>node degree of junction</li>
+<li>local proportion of 3-way intersections of street network</li>
+<li>local proportion of 4-way intersections of street network</li>
+<li>local proportion of cul-de-sacs of street network</li>
+<li>local closeness of street network</li>
+<li>local cul-de-sac length of street network</li>
+<li>square clustering of street network</li>
+<li>local degree weighted node density of street network</li>
+<li>street alignment of building</li>
+<li>area covered by edge-attached ETCs</li>
+<li>buildings per meter of street segment</li>
+<li>reached ETCs by neighbouring segments</li>
+<li>reached ETCs by tessellation contiguity</li>
+<li>area of enclosure</li>
+<li>circular compactness of enclosure</li>
+<li>equivalent rectangular index of enclosure</li>
+<li>orientation of enclosure</li>
+<li>perimeter-weighted neighbours of enclosure</li>
+<li>area-weighted ETCs of enclosure</li>
+</ul>
+</section>
+<section id="modelling-regression-analysis" class="level3" data-number="4.2.6">
+<h3 data-number="4.2.6" class="anchored" data-anchor-id="modelling-regression-analysis"><span class="header-section-number">4.2.6</span> Modelling / regression analysis</h3>
 </section>
 </section>
 <section id="building-scenarios" class="level2" data-number="4.3">
