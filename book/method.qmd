@@ -104,7 +104,8 @@ We use the data preprocessed in the Urban Grammar project that aggregated indust
 following groups:
 
 - A, B, D, E. Agriculture, energy and water
-- C. Manufacturing 'F. Construction
+- C. Manufacturing
+- F. Construction
 - G, I. Distribution, hotels and restaurants
 - H, J. Transport and communication
 - K, L, M, N. Financial, real estate, professional and administrative activities
