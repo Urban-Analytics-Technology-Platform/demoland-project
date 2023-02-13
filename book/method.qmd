@@ -104,7 +104,8 @@ We use the data preprocessed in the Urban Grammar project that aggregated indust
 following groups:
 
 - A, B, D, E. Agriculture, energy and water
-- C. Manufacturing', 'F. Construction
+- C. Manufacturing
+- F. Construction
 - G, I. Distribution, hotels and restaurants
 - H, J. Transport and communication
 - K, L, M, N. Financial, real estate, professional and administrative activities
@@ -132,9 +133,82 @@ each OA covered by each class. We further filter out fully or nearly invariant c
 
 Urban morphometrics offers a way of describing physical built environment (buildings, streets)
 in a set of measurements capturing different aspects of morphological elements. We directly
-use the set measured within the Urban Grammar project
+use the set measured within the Urban Grammar project, presented as _individual_ characters
+(prior contextualisation) and interpolate their values from the original geometry (enclosed
+tessellation cells) to output areas. That way, we already get a contextual version using the
+project-specific aggregation to OA. This gives us 59 morphometric variables.
 
-TODO: remove some useless characters and describe it here.
+### Variable pruning
+
+Given some of the explanatory variable were collected for a different purpose than modelling
+and with a different geographical extent in mind, it may happen that within our limited area of
+interest (Tyne and Wear), some of the variable are collinear. Those may negatively affect the
+performance of the predictive models and it is better to limit their number to minimum. We, therefore,
+measure Pearson's correlation index and Spearman Rank correlation index between all pairs of
+explanatory variables and from each pair with the absolute value of the index above 0.8
+retain only one, ideally the one that is more interpretable.
+
+The final set contains 59 explanatory variables and the only morphometric were pruned down.
+
+- population estimate
+- A, B, D, E. Agriculture, energy and water
+- C. Manufacturing
+- F. Construction
+- G, I. Distribution, hotels and restaurants
+- H, J. Transport and communication
+- K, L, M, N. Financial, real estate, professional and administrative activities
+- O,P,Q. Public administration, education and health
+- R, S, T, U. Other
+- Land cover [Discontinuous urban fabric]
+- Land cover [Continuous urban fabric]
+- Land cover [Non-irrigated arable land]
+- Land cover [Industrial or commercial units]
+- Land cover [Green urban areas]
+- Land cover [Pastures]
+- Land cover [Sport and leisure facilities]
+- area of building
+- courtyard area of building
+- circular compactness of building
+- corners of building
+- squareness of building
+- equivalent rectangular index of building
+- centroid - corner mean distance of building
+- centroid - corner distance deviation of building
+- orientation of building
+- area of ETC
+- circular compactness of ETC
+- equivalent rectangular index of ETC
+- covered area ratio of ETC
+- cell alignment of building
+- alignment of neighbouring buildings
+- mean distance between neighbouring buildings
+- perimeter-weighted neighbours of ETC
+- mean inter-building distance
+- width of street profile
+- width deviation of street profile
+- openness of street profile
+- length of street segment
+- linearity of street segment
+- mean segment length within 3 steps
+- node degree of junction
+- local proportion of 3-way intersections of street network
+- local proportion of 4-way intersections of street network
+- local proportion of cul-de-sacs of street network
+- local closeness of street network
+- local cul-de-sac length of street network
+- square clustering of street network
+- local degree weighted node density of street network
+- street alignment of building
+- area covered by edge-attached ETCs
+- buildings per meter of street segment
+- reached ETCs by neighbouring segments
+- reached ETCs by tessellation contiguity
+- area of enclosure
+- circular compactness of enclosure
+- equivalent rectangular index of enclosure
+- orientation of enclosure
+- perimeter-weighted neighbours of enclosure
+- area-weighted ETCs of enclosure
 
 ### Modelling / regression analysis
 
