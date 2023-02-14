@@ -11,7 +11,7 @@ dependencies:
   # - click
   # - synthpop_pb2
   # - protobuf
-  - geopandas==0.10
+  - geopandas==0.10 # for geopandas.explore()
   - ipykernel
   - xlrd
   - openpyxl
