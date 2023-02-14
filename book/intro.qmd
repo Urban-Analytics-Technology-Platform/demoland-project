@@ -30,9 +30,8 @@ The initial plan wants to try to make use of the following **data sources** (see
 - *SPC* - Synthetic Population Catalyst [website](https://alan-turing-institute.github.io/uatk-spc/)
 - **SS** - Spatial Signature [website](https://urbangrammarai.xyz/great-britain/)
 - <span style="color:DarkViolet">both</span>
-<!-- - $\textcolor{red}{\text{both}}$ -->
 
-Indicators are grouped in 4 general themes to reflect the goals of the National Land Development Programme (NLDP) in relation to the environment, economy, infrastructure and society:
+Indicators are grouped into 4 general themes to reflect the goals of the National Land Development Programme (NLDP) in relation to the environment, economy, infrastructure and society:
 
 ###  Net-zero
 a. *Mobility-based emissions (e.g., trips x distance x mode —> CO<sub>2</sub>)*
@@ -56,8 +55,7 @@ b. *Mental health*
 c. *Healthy living and lifestyles*
 
 
-The data hunting is still in progress, see [Issues](https://github.com/ciupava/LandUseDemonstrator/issues) in GitHub, [Notes](notes.qmd) to follow the latest developments.<br/>
-The page [Data Sources](data_sources.qmd) will be updated accordingly, once the sources are determined and actually used in the analysis.
+The page [Data Sources](data_sources.qmd) will be updated once the sources are determined and actually used in the analysis.
 
 ## Scenarios building
 
@@ -79,47 +77,3 @@ Although the final set of scenarios will be co-produced with the partners, an il
      - S2B – design a future urban space with net zero emissions - _Type II_
 - Housing stock:
      - Retrofit existing neighbourhoods to increase density/decrease sprawl - _Type I or II_
-
-
-## Time plan
-
-**To be defined**
-
-6 months project ... roughly:
-
-- literature collection
-
-- data collection
-
-- base scenario building (interaction with stakeholders)
-
-- scenarios building (input from stakeholders)
-
-- AI scenario builder tool development
-
-- publication / visualisation / distribution
-
----
-
-<!-- ![](activities_wp_image.png)
-*Activities and work plans, as by internal communications* -->
-
-
-
-<!-- **Objective**
-
-Develop modelling system to quantify features of land use in urban environment
-
----
-
-**Output**
-
-Landcover map for several metro in UK (sample: NewCastle upon Tyne?)
-
-
----
-
-**How**
-
-Creating *indicators* to build a *baseline*  and *future scenarios* -->
-
