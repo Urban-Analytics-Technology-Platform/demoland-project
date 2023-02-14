@@ -215,3 +215,32 @@ The final set contains 59 explanatory variables and the only morphometric were p
 
 ## Building scenarios
 
+Newcastle suggested scenarios (email 14 Feb 23):
+
+
+1. Different built development scenarios (residential/ office/ digital & tech sector)
+2. Comparison with a natural open space/ bio diversity scenario
+3. Comparing densification and geographical distribution of built development- could we compare the urban core ( city centre) with the neighbourhoods and rural & villages
+4. Impact of land release in the green belt ( as a comparison to urban densification)
+
+"Original" table:
+
+| _NCC interests/Indicators_ | Air quality | House<br/>prices | Jobs acc | Greenspace<br/>acc |
+|-|:-:|:-:|:-:|:-:|-|
+| Accessibility | | X | X | X |
+| Environmental quality | X | | | X |
+| Neighbouring/clustering of land use | | | X | X |
+| Housing/employment supply and imbalance | | X | X | |
+| New planned sites impact | X | X | X | X |
+| Vertical vs horizontal growth | X | X | X | X |
+| 15min neighbourhoods | X | X | X | X |
+| Urban capacity/Housing requirements | | X | | |
+| Built development (competing) uses compared | X | X | X | X |
+| Land left to natural open space | X | | X | X |
+| Densification by 3 character areas (eg 10% uplift) | X | X | X | X |
+| Peripheral green belt release for built development | X | X | X | X |
+
+
+How it can relate to our indicators and variables:
+
+
