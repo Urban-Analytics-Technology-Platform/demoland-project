@@ -28,7 +28,7 @@ accessibility measures:
      - using random date and time in database: `2023,1,19,8,30`;
          - could generate several network graphs and get median value of them all (see Pereira about this)
          - optimal date? ([Journey Time Statistics](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/853603/notes-and-definitions.pdf) use a _Tuesday in October_)
-     - the ttm with origins OAs (centroids) to destinations LSOAs (centroids) for transit (leg_mode walk) takes 39 min!
+     - ~~the ttm with origins OAs (centroids) to destinations LSOAs (centroids) for transit (leg_mode walk) takes 39 min!~~
      - OAs as origins ... while we could "force" the points to the nearest road node (see Statistics method mentioned above)
 - GTFS data:
      - good source for UK or do we need to generate it ourselves from
@@ -250,7 +250,7 @@ The above procedure makes it unclear to understand the results PLUS editing the 
 
 **2. r5py + tracc**
 
-- [X] time travel matrix   --> more editable?? _shorter to generate, no nedd of a graph building_
+- [X] time travel matrix   --> more editable?? _shorter to generate, no need of a graph building_
      - [X] find GTFS data
      - [X] download OSM data
      - [X] build ~~graph.obj?~~ network

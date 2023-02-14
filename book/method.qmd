@@ -4,37 +4,55 @@ _add workflow (comprehensive of all the steps)_
 
 ## Building Indicators
 
+The original list of indicators (see Intro) was pruned after an initial review of the available data, software, interests of the stakeholders.We resolved to 4 indicators of interest:
+
+- Air quality
+- Green space accessibility
+- House prices
+- Jobs accessibility
+
+For each of these indicators, we have detailed below how they are generated. This step represents the _basic scenario_.
+
+We have two different types of indicators: while air quality and house prices are "actual data" measurements, accessibility is estimated and generated in a deterministic way, so it can't be modelled/predicted using some explanatory variables.
 
 ### Accessibility calculation
 
-**1. Build time travel matrix (TTM)**
+For accessibility computation, we use the same methodology both for green spaces and jobs. We consider a set of punctual origins and destinations and the time it takes to move between them on the road network, given different transport modes.<br/>
+
+**Origins** For the scope of the project, we consider as origins the coordinates of the Population Weighted Centroids (PWC) of [Output Areas](https://www.ons.gov.uk/census/2001censusandearlier/dataandproducts/outputgeography/outputareas) (OA).
+
+
+**Destinations** Per each destination we need to provide the coordinates and  a datum that gives the _opportunity_ (or 'supply', in our case this is the land use), for example the number of jobs available (could be number of schools, health centres, other types of countable features).
+
+For jobs count we consider as destinations the PWC of the working population per Working Place Zones (WPZ) from the 2011 Census ([data available](https://www.nomisweb.co.uk/sources/census_2011_wp) and [definition](https://www.ons.gov.uk/methodology/geography/geographicalproducts/areaclassifications/2011workplacebasedareaclassification/classificationofworkplacezonesfortheukabouttheareaclassifications)). As opportunity measure (the job counts) we make the approximation that the number of workers equals the number of jobs available.
+
+For green spaces accessibilty we use the open data set available from [Ordnance Survey](https://beta.ordnancesurvey.co.uk/products/os-open-greenspace) (OS). In particular as a first approximation we consider the layer "Access points" from this datum. This gives the coordinates of the access points to green spaces in all Great Britain, which take as destinations. As an opportunity, we count the cumulative sum of access points reachable within a defined time threshold (see definition below).
+
+In order to calculate the time needed to reach the destinations, we need to have a Time Travel Matrix (TTM) between origins and destinations. To build this, we can generate a graph/network starting from data the road network and for public transportation schedules.</br>
+Once a TTM is built between one set of origins and one set of destinations for a given mode of transport, we can run accessibility analysis on it.
+
+**1. Indicator definition**
+
+a. Jobs accessibility
+> Number of jobs accessible by public transport and walking in 15 minutes
+
+b. for green spaces accessibility
+> Number of access points accessible by walking in 15 minutes
+
+
+**2. Build time travel matrix (TTM)**
 
 - get time table for public transport -> GTFS data
 - get roads network -> OSM data
-- generate network graph -> OTP, routino, r5, etc
-- generate ttm for different modes, time (day of the year/week, time of the day), multi o single time
-
-r5
+- generate network graph -> r5
+- generate ttm for different modes, time (day of the year/week, time of the day), multi or single time
 
 
-**2. Run accessibility analysis**
+**3. Run accessibility analysis**
 
 - get land use data or "supply" or "opportunities" (ex location of jobs, healthcare, shopping, education, population, leisure)
 
-
-- procedure for greenspaces
-
-- run `tracc` or `pysal/access` pr `rpy5` on the TTM
-
-in R could use `accessibility` from [ipeagit](https://ipeagit.github.io/accessibility/articles/accessibility.html)
-
-> calculate active and passive accessibility levels using multiple accessibility metrics, such as cumulative opportunities (using either a travel cost cutoff or a travel cost interval), minimum travel cost to closest N number of activities, gravitational measures and different floating catchment area methods.
-
-
-**3. Indicator definition**
-
-a. for jobs accessibility
-b. for green spaces accessibility
+- run `tracc` (Python) on the TTM
 
 
 ### Air quality index
