@@ -177,7 +177,7 @@ ul.task-list li input[type="checkbox"] {
 <p><em>add workflow (comprehensive of all the steps)</em></p>
 <section id="building-indicators" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="building-indicators"><span class="header-section-number">4.1</span> Building Indicators</h2>
-<p>The original list of indicators (see Intro) was pruned after an initial review of the available data, software, interests of the stakeholders.We resolved to 4 indicators of interest:</p>
+<p>The original list of indicators (see Intro) was pruned after an initial review of the available data, software, interests of the stakeholders.<br>We resolved to 4 indicators of interest:</p>
 <ul>
 <li>Air quality</li>
 <li>Green space accessibility</li>
@@ -189,21 +189,32 @@ ul.task-list li input[type="checkbox"] {
 <section id="accessibility-calculation" class="level3" data-number="4.1.1">
 <h3 data-number="4.1.1" class="anchored" data-anchor-id="accessibility-calculation"><span class="header-section-number">4.1.1</span> Accessibility calculation</h3>
 <p>For accessibility computation, we use the same methodology both for green spaces and jobs. We consider a set of punctual origins and destinations and the time it takes to move between them on the road network, given different transport modes.<br></p>
-<p><strong>Origins</strong> For the scope of the project, we consider as origins the coordinates of the Population Weighted Centroids (PWC) of <a href="https://www.ons.gov.uk/census/2001censusandearlier/dataandproducts/outputgeography/outputareas">Output Areas</a> (OA).</p>
-<p><strong>Destinations</strong> Per each destination we need to provide the coordinates and a datum that gives the <em>opportunity</em> (or ‘supply’, in our case this is the land use), for example the number of jobs available (could be number of schools, health centres, other types of countable features).</p>
-<p>For jobs count we consider as destinations the PWC of the working population per Working Place Zones (WPZ) from the 2011 Census (<a href="https://www.nomisweb.co.uk/sources/census_2011_wp">data available</a> and <a href="https://www.ons.gov.uk/methodology/geography/geographicalproducts/areaclassifications/2011workplacebasedareaclassification/classificationofworkplacezonesfortheukabouttheareaclassifications">definition</a>). As opportunity measure (the job counts) we make the approximation that the number of workers equals the number of jobs available.</p>
-<p>For green spaces accessibilty we use the open data set available from <a href="https://beta.ordnancesurvey.co.uk/products/os-open-greenspace">Ordnance Survey</a> (OS). In particular as a first approximation we consider the layer “Access points” from this datum. This gives the coordinates of the access points to green spaces in all Great Britain, which take as destinations. As an opportunity, we count the cumulative sum of access points reachable within a defined time threshold (see definition below).</p>
-<p>In order to calculate the time needed to reach the destinations, we need to have a Time Travel Matrix (TTM) between origins and destinations. To build this, we can generate a graph/network starting from data the road network and for public transportation schedules.<br> Once a TTM is built between one set of origins and one set of destinations for a given mode of transport, we can run accessibility analysis on it.</p>
+<hr>
+<p><strong>Origins -</strong> For the scope of the project, we consider as origins the coordinates of the Population Weighted Centroids (PWC) of <a href="https://www.ons.gov.uk/census/2001censusandearlier/dataandproducts/outputgeography/outputareas">Output Areas</a> (OA).</p>
+<p><strong>Destinations -</strong> Per each destination we need to provide the coordinates and a datum that gives the <em>opportunity</em> (or ‘supply’, in our case this is the land use), for example the number of jobs available (could be number of schools, health centres, other types of countable features).</p>
+<p>For jobs count we consider as destinations the PWC of the working population per Working Place Zones (WPZ) from the 2011 Census (<a href="https://www.nomisweb.co.uk/sources/census_2011_wp">data available</a> and <a href="https://www.ons.gov.uk/methodology/geography/geographicalproducts/areaclassifications/2011workplacebasedareaclassification/classificationofworkplacezonesfortheukabouttheareaclassifications">definition</a>). As an opportunity measure (the job counts) we make the approximation that the number of workers equals the number of jobs available.</p>
+<p>For green spaces accessibility we use the open data set available from <a href="https://beta.ordnancesurvey.co.uk/products/os-open-greenspace">Ordnance Survey</a> (OS). In particular as a first approximation we consider the layer “Access points” from this datum. This gives the coordinates of the access points to green spaces in all Great Britain, which we take as destinations. As an opportunity, we count the cumulative sum of access points reachable within a defined time threshold (see definition below).</p>
+<hr>
+<p>In order to calculate the time needed to reach the destinations, we need to have a Time Travel Matrix (TTM) between origins and destinations. To build this, we can generate a graph/network starting from data for the road network and for public transportation schedules.<br> Once a TTM is built between one set of origins and one set of destinations for a given mode of transport, we can run accessibility analysis on it.</p>
+<hr>
 <p><strong>1. Indicator definition</strong></p>
 <ol type="a">
-<li><p>Jobs accessibility &gt; Number of jobs accessible by public transport and walking in 15 minutes</p></li>
-<li><p>for green spaces accessibility &gt; Number of access points accessible by walking in 15 minutes</p></li>
+<li>Jobs accessibility</li>
 </ol>
+<blockquote class="blockquote">
+<p>Number of jobs accessible by public transport and walking in 15 minutes</p>
+</blockquote>
+<ol start="2" type="a">
+<li>for green spaces accessibility</li>
+</ol>
+<blockquote class="blockquote">
+<p>Number of access points accessible by walking in 15 minutes</p>
+</blockquote>
 <p><strong>2. Build time travel matrix (TTM)</strong></p>
 <ul>
-<li>get time table for public transport -&gt; GTFS data</li>
-<li>get roads network -&gt; OSM data</li>
-<li>generate network graph -&gt; r5</li>
+<li>get time table for public transport &gt; GTFS data</li>
+<li>get roads network &gt; OSM data</li>
+<li>generate network graph &gt; r5 (conveyal)</li>
 <li>generate ttm for different modes, time (day of the year/week, time of the day), multi or single time</li>
 </ul>
 <p><strong>3. Run accessibility analysis</strong></p>
