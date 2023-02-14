@@ -6,17 +6,13 @@
 | **Objectives** | Develop modelling system to quantify features |
 |                | of land use in urban environment              |
 +----------------+-----------------------------------------------+
-| **Output**     | Landcover map for several urban areas in UK   |
+| **Output**     | Landcover map for several urban areas in the UK   |
 |                |                                               |
-|                | (study case: NewCastle upon Tyne?)            |
+|                | study case: Tyne and Wear County (Local Authorities: Gateshead, Newcastle Upon Tyne, North Tyneside, South Tyneside, Sunderland) |
 +----------------+-----------------------------------------------+
-| **How**        | Creating key *indicators* for assessing       |
-|                |                                               |
-|                | - a *baseline* scenario                       |
-|                | - *future scenarios*                          |
+| **How**        | Creating key *indicators* for assessing a *baseline* scenario and future scenarios  |
 +----------------+-----------------------------------------------+
 | **Duration**   | 6 months                                      |
-|                | (PDRA + REG)                                  |
 +----------------+-----------------------------------------------+
 
 
@@ -45,19 +41,19 @@ c. **Green space (area, access, fragmentation)**
 
 ### Economy
 
-a.	<span style="color:DarkViolet">Distance to nearest job (by industry)</span>
-b.	<span style="color:DarkViolet">Job volume within accessible distance</span>
-c.	**Availability of (appropriate) housing stock**
+a. <span style="color:DarkViolet">Distance to nearest job (by industry)</span>
+b. <span style="color:DarkViolet">Job volume within accessible distance</span>
+c. **Availability of (appropriate) housing stock**
 
 ### Infrastructure stock (vacancy)
-a.	**Brownfield areas**
-b.	**Vacant lots and properties**
-c.	**Transport networks and connectivity**
+a. **Brownfield areas**
+b. **Vacant lots and properties**
+c. **Transport networks and connectivity**
 
 ### Society and Health 
-a.	*Physical health*
-b.	*Mental health*
-c.	*Healthy living and lifestyles*
+a. *Physical health*
+b. *Mental health*
+c. *Healthy living and lifestyles*
 
 
 The data hunting is still in progress, see [Issues](https://github.com/ciupava/LandUseDemonstrator/issues) in GitHub, [Notes](notes.qmd) to follow the latest developments.<br/>
