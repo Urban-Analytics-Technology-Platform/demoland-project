@@ -18,6 +18,7 @@ We have two different types of indicators: while air quality and house prices ar
 ### Accessibility calculation
 
 For accessibility computation, we use the same methodology both for green spaces and jobs. We consider a set of punctual origins and destinations and the time it takes to move between them on the road network, given different transport modes.<br/>
+**TBC** until green spaces methodology is under definition
 
 ---
 
@@ -29,7 +30,8 @@ For accessibility computation, we use the same methodology both for green spaces
 
 For jobs count we consider as destinations the PWC of the working population per Working Place Zones (WPZ) from the 2011 Census ([data available](https://www.nomisweb.co.uk/sources/census_2011_wp) and [definition](https://www.ons.gov.uk/methodology/geography/geographicalproducts/areaclassifications/2011workplacebasedareaclassification/classificationofworkplacezonesfortheukabouttheareaclassifications)). As an opportunity measure (the job counts) we make the approximation that the number of workers equals the number of jobs available.
 
-For green spaces accessibility we use the open data set available from [Ordnance Survey](https://beta.ordnancesurvey.co.uk/products/os-open-greenspace) (OS). In particular as a first approximation we consider the layer "Access points" from this datum. This gives the coordinates of the access points to green spaces in all Great Britain, which we take as destinations. As an opportunity, we count the cumulative sum of access points reachable within a defined time threshold (see definition below).
+For green spaces accessibility we use the open data set available from [Ordnance Survey](https://beta.ordnancesurvey.co.uk/products/os-open-greenspace) (OS). In particular as a first approximation we consider the layer "Access points" from this datum. This gives the coordinates of the access points to green spaces in all Great Britain, which we take as destinations. ~~As an opportunity, we count the cumulative sum of access points reachable within a defined time threshold (see definition below).~~
+
 
 ---
 
@@ -44,12 +46,24 @@ a. Jobs accessibility
 
 > Number of jobs accessible by public transport and walking in 15 minutes
 
-b. for green spaces accessibility
+b. Green spaces accessibility
 
-> Number of access points accessible by walking in 15 minutes
+> ~~Number of access points accessible by walking in 15 minutes~~
+
+
+1. obtain greenspaces from OS
+    - filter out not relevant categories
+2. obtain "missing" areas from Corine or OSM
+3. get area size
+4. run ttm (15min by walking) and generate for each OA one accesspoint per reachable park
+5. generate metric per each OA as [n of parks] * [park size]
 
 
 **2. Build time travel matrix (TTM)**
+
+We can build a TTM from two data sources: the roads network and a time table for public transport. We can obtain the first by donwloading [OpenStreetMap (OSM)](https://wiki.openstreetmap.org/wiki/Downloading_data) data for the area of interest.<br/>
+Time table for public transport is available in England in ... _quote UK2GTFS_
+We use GTFS data because more used, also for feeding it into 
 
 - get time table for public transport > GTFS data
 - get roads network > OSM data

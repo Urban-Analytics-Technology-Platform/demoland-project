@@ -14,16 +14,16 @@ NB: in reverse order, that is more recent stuff is at the top of the document.
 
 **Accessibility**
 
-accessibility measures:
+accessibility computation:
 
 - routing engine: *5r*
      - in python:
          - together with `tracc` or `pysal/access`
-         - use `conveyal` with `mongoDB` <mark>(not tried yet)</mark>
+         - ~~use `conveyal` with `mongoDB` ~~<mark>(not tried yet)</mark>
      - in R: wrapped within *r5r* <mark>(not tried yet)</mark>
 - ttm generation:
      - we only consider origins within the county, what about extra zonal areas?
-     - can generate one single table with multimodal trip
+     - can generate one single table with multimodal trip > _can create a comprehensive table using scripting_
      - how does it work with scenarios generation - especially for OSM
      - using random date and time in database: `2023,1,19,8,30`;
          - could generate several network graphs and get median value of them all (see Pereira about this)
