@@ -154,6 +154,8 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#development-scenarios" id="toc-development-scenarios" class="nav-link" data-scroll-target="#development-scenarios"><span class="toc-section-number">4.3.1</span>  Development scenarios</a></li>
   <li><a href="#nature-and-biodiversity" id="toc-nature-and-biodiversity" class="nav-link" data-scroll-target="#nature-and-biodiversity"><span class="toc-section-number">4.3.2</span>  Nature and biodiversity</a></li>
+  <li><a href="#densification-strategies" id="toc-densification-strategies" class="nav-link" data-scroll-target="#densification-strategies"><span class="toc-section-number">4.3.3</span>  Densification strategies</a></li>
+  <li><a href="#land-release" id="toc-land-release" class="nav-link" data-scroll-target="#land-release"><span class="toc-section-number">4.3.4</span>  Land release</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -489,12 +491,20 @@ ul.task-list li input[type="checkbox"] {
 <section id="development-scenarios" class="level3" data-number="4.3.1">
 <h3 data-number="4.3.1" class="anchored" data-anchor-id="development-scenarios"><span class="header-section-number">4.3.1</span> Development scenarios</h3>
 <p>New devleopment can be modelled in two ways, depending on the scale.</p>
-<p>Small scale development affecting a single OA will translate into a manual change of the explanatory variables that may be affected. For example, an addition of a single large office building will require a change in the workplace population, possibly in land cover (may not be needed), and a slight manual change of morhometric characters. The latter may become a bit tricky as some characters are not suitable for a ballpark change. However, a direction shall be clear and an approximation can be made. The development will also affect the number of jobs available in the area, per sector.</p>
+<p>Small scale development affecting a single OA will translate into a manual change of the explanatory variables that may be affected. For example, an addition of a single large office building will require a change in the workplace population, possibly in land cover (may not be needed), and a slight manual change of morhometric characters. The latter may become a bit tricky as some characters are not suitable for a ballpark change. However, a direction shall be clear and an approximation can be made. The development will also affect the number of jobs available in the area, per sector. The effects of competing uses (e.g different idustries for job allocation) will have only minor effects on the indicators and make a little sense to model.</p>
 <p>Large scale development is a bit easier because it is in practice a transition from one signature type to the other. That way we can sample the values from existing areas of the same type and use them in the modelling. Land cover, population (both jobs and homes) will still need to be manually updated, as well as an approximation of jobs and greenspaces will been to be made. With no intentions to <em>design</em>, we may end up randomly sampling points from within the area of change to play the role of new jobs and parks in the scenario.</p>
 </section>
 <section id="nature-and-biodiversity" class="level3" data-number="4.3.2">
 <h3 data-number="4.3.2" class="anchored" data-anchor-id="nature-and-biodiversity"><span class="header-section-number">4.3.2</span> Nature and biodiversity</h3>
 <p>This one is tricky as if it does not involve a land cover change we do not have any variables capturing the biodiversity levels. Change of the natural settings is not something we can model. We can model change of the urbanised land to a park (e.g.&nbsp;brownfield) or a change of density from more to less dense (albeit that is not very realistic) as a switch between signature types in the other direction than in the case above.</p>
+</section>
+<section id="densification-strategies" class="level3" data-number="4.3.3">
+<h3 data-number="4.3.3" class="anchored" data-anchor-id="densification-strategies"><span class="header-section-number">4.3.3</span> Densification strategies</h3>
+<p>Densification is simlar to large-scale development scenario described above. It can be conceptualised as a change of the signature type along the signature hierarchy towards the higher degree of urbanisation. That way we can relatively easily sample data for the morphometric part. We will need to estimate populations and the changes of land cover. It is assumed that densification will not involve creation on new parks so the green space accessibility is not affected in any significant way.</p>
+</section>
+<section id="land-release" class="level3" data-number="4.3.4">
+<h3 data-number="4.3.4" class="anchored" data-anchor-id="land-release"><span class="header-section-number">4.3.4</span> Land release</h3>
+<p>Land release in the green belt will mean a change of signature type from non-urban to peripheral, significant change of land cover and all populations. Former can be automatised, the latter will be manual change. This may need to involve split of Output Areas if only a part of a large green OA will be affected, to avoid skewing the whole map. It will also mean move of the access points to the green belt greenery but the limitations outlined in <em>Development scenarios</em> regarding a placement of new parks remains.</p>
 
 
 </section>
