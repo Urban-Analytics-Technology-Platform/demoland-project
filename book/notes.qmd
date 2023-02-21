@@ -10,6 +10,57 @@ NB: in reverse order, that is more recent stuff is at the top of the document.
 
 ## February
 
+### Greens space sites
+
+A first accessibility computation using Ordnance Service (OS) open data was rejected, as not in line with expected results.
+
+The reason for this are:
+ - the data misses some vast green sites outside of town
+ - the chosen metric was not proper [IE count the n of access points accessible within 15 min from origins]
+
+
+Dealing with the two issues separately:
+
+--- 
+
+The good thing of the OS data is that they are accurate (resolution, categories) AND they contain also the access points (which for everyone's sake we are gonna refer to as _entrances_).<br/>
+**NOTE:** we need _entrances_ to green space as the destinations for our time travel matrices.<br/>
+A good candidate to make up for not covered areas is the _landuse_ layer from OpenStreetMap (OSM).<br/>
+
+[from OSM landuse layer we consider the tags/fields: `cemetery`, `forest`, `nature reserve`, `park`, `recreation ground`]<br/>
+
+OSM data has very much good cover of the existing green sites, but: lacks a proper classification, doesn't have entrances to sites, doesn't distinguish between public/private/military spaces, therefore the use of OSM would bring to _over_-estimate green spaces.
+Example: in OSM we have some side-road areas inside [Metrocentre](https://en.wikipedia.org/wiki/MetroCentre_(shopping_centre)) classified as forest.
+
+In order to understand parks where people actually can/does pass through, a cross-check was carried out manually looking for parks with existing trails (passing through them) using [https://hiking.waymarkedtrails.org/](https://hiking.waymarkedtrails.org/) AND Google Street View to check entrances to parks/greens/ etc [IE some entrances actually show a sign that make it clear if it's a public access or not]
+
+List of parks/green spaces which we would want to consider in the green belt/suburbs of Tyne and Wear (and their status, IE open/public etc):<br/>
+
+_TBC_
+
+---
+
+We want to generate a metric that take into account the proximity to a green space AND the size of the site you are accessing to. It doesn't matter how many access points are accessible, as long as one gives you access to the site within 15 min (walk, bike, other means)
+
+Metric: once generated the time travel matrix (OAs centroids to GS entrances) retain one access point per park, IE consider only once each park that is reachable at least through one access point in 15 min. Then sum up all the areas of the reachable parks.
+
+In order to do so, we need to clean the data from the eccessive entrances: many sites are included within other ones (for example a playground or tennis court can be enclosed in a public park). These enclosed sites also generate an overestimate of the accessible area, because they are overlapping with the main major park - which is the only category/feature/polygon we would like to consider.<br/>
+
+First of all we clean the OS data from not-wanted categories, IE areas which are green but not openly accessible by the public.<br/>
+These include: allottment, golf coursed, bowling greens.
+
+We then can do this consideration: most of the times it's the 2 categories `Playing Field` and `Public Park Or Garden` that contain other categories within their boundaries. We could play with this. `Other Sport Facilities` also contains and is contained, but mostly is contained.
+
+The hierarchy of the layers seems to be roughly this:<br/>
+`Public Park Or Garden` _contains_<br/>
+`Playing Field` _contains_<br/>
+`Other Sport Facilities` _contains_<br/>
+rest of categories.<br/>
+
+After several trials with spatial joins and other geospatial operations, have managed to obtain a good results by separating the above categories into single layers and performing operations among them.<br/>
+See notebook `greenspace_datacleaning.ipynb` for details.
+
+
 ### Open issues/questions on indicators building
 
 **Accessibility**
