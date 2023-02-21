@@ -136,8 +136,9 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#february" id="toc-february" class="nav-link active" data-scroll-target="#february"><span class="toc-section-number">5.1</span>  February</a>
   <ul class="collapse">
-  <li><a href="#open-issuesquestions-on-indicators-building" id="toc-open-issuesquestions-on-indicators-building" class="nav-link" data-scroll-target="#open-issuesquestions-on-indicators-building"><span class="toc-section-number">5.1.1</span>  Open issues/questions on indicators building</a></li>
-  <li><a href="#jobs-location" id="toc-jobs-location" class="nav-link" data-scroll-target="#jobs-location"><span class="toc-section-number">5.1.2</span>  Jobs location</a></li>
+  <li><a href="#greens-space-sites" id="toc-greens-space-sites" class="nav-link" data-scroll-target="#greens-space-sites"><span class="toc-section-number">5.1.1</span>  Greens space sites</a></li>
+  <li><a href="#open-issuesquestions-on-indicators-building" id="toc-open-issuesquestions-on-indicators-building" class="nav-link" data-scroll-target="#open-issuesquestions-on-indicators-building"><span class="toc-section-number">5.1.2</span>  Open issues/questions on indicators building</a></li>
+  <li><a href="#jobs-location" id="toc-jobs-location" class="nav-link" data-scroll-target="#jobs-location"><span class="toc-section-number">5.1.3</span>  Jobs location</a></li>
   </ul></li>
   <li><a href="#january" id="toc-january" class="nav-link" data-scroll-target="#january"><span class="toc-section-number">5.2</span>  January</a>
   <ul class="collapse">
@@ -206,8 +207,29 @@ ul.task-list li input[type="checkbox"] {
 <p>NB: in reverse order, that is more recent stuff is at the top of the document.</p>
 <section id="february" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="february"><span class="header-section-number">5.1</span> February</h2>
-<section id="open-issuesquestions-on-indicators-building" class="level3" data-number="5.1.1">
-<h3 data-number="5.1.1" class="anchored" data-anchor-id="open-issuesquestions-on-indicators-building"><span class="header-section-number">5.1.1</span> Open issues/questions on indicators building</h3>
+<section id="greens-space-sites" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="greens-space-sites"><span class="header-section-number">5.1.1</span> Greens space sites</h3>
+<p>A first accessibility computation using Ordnance Service (OS) open data was rejected, as not in line with expected results.</p>
+<p>The reason for this are: - the data misses some vast green sites outside of town - the chosen metric was not proper [IE count the n of access points accessible within 15 min from origins]</p>
+<p>Dealing with the two issues separately:</p>
+<hr>
+<p>The good thing of the OS data is that they are accurate (resolution, categories) AND they contain also the access points (which for everyone’s sake we are gonna refer to as <em>entrances</em>).<br> <strong>NOTE:</strong> we need <em>entrances</em> to green space as the destinations for our time travel matrices.<br> A good candidate to make up for not covered areas is the <em>landuse</em> layer from OpenStreetMap (OSM).<br></p>
+<p>[from OSM landuse layer we consider the tags/fields: <code>cemetery</code>, <code>forest</code>, <code>nature reserve</code>, <code>park</code>, <code>recreation ground</code>]<br></p>
+<p>OSM data has very much good cover of the existing green sites, but: lacks a proper classification, doesn’t have entrances to sites, doesn’t distinguish between public/private/military spaces, therefore the use of OSM would bring to <em>over</em>-estimate green spaces. Example: in OSM we have some side-road areas inside <a href="https://en.wikipedia.org/wiki/MetroCentre_(shopping_centre)">Metrocentre</a> classified as forest.</p>
+<p>In order to understand parks where people actually can/does pass through, a cross-check was carried out manually looking for parks with existing trails (passing through them) using <a href="https://hiking.waymarkedtrails.org/">https://hiking.waymarkedtrails.org/</a> AND Google Street View to check entrances to parks/greens/ etc [IE some entrances actually show a sign that make it clear if it’s a public access or not]</p>
+<p>List of parks/green spaces which we would want to consider in the green belt/suburbs of Tyne and Wear (and their status, IE open/public etc):<br></p>
+<p><em>TBC</em></p>
+<hr>
+<p>We want to generate a metric that take into account the proximity to a green space AND the size of the site you are accessing to. It doesn’t matter how many access points are accessible, as long as one gives you access to the site within 15 min (walk, bike, other means)</p>
+<p>Metric: once generated the time travel matrix (OAs centroids to GS entrances) retain one access point per park, IE consider only once each park that is reachable at least through one access point in 15 min. Then sum up all the areas of the reachable parks.</p>
+<p>In order to do so, we need to clean the data from the eccessive entrances: many sites are included within other ones (for example a playground or tennis court can be enclosed in a public park). These enclosed sites also generate an overestimate of the accessible area, because they are overlapping with the main major park - which is the only category/feature/polygon we would like to consider.<br></p>
+<p>First of all we clean the OS data from not-wanted categories, IE areas which are green but not openly accessible by the public.<br> These include: allottment, golf coursed, bowling greens.</p>
+<p>We then can do this consideration: most of the times it’s the 2 categories <code>Playing Field</code> and <code>Public Park Or Garden</code> that contain other categories within their boundaries. We could play with this. <code>Other Sport Facilities</code> also contains and is contained, but mostly is contained.</p>
+<p>The hierarchy of the layers seems to be roughly this:<br> <code>Public Park Or Garden</code> <em>contains</em><br> <code>Playing Field</code> <em>contains</em><br> <code>Other Sport Facilities</code> <em>contains</em><br> rest of categories.<br></p>
+<p>After several trials with spatial joins and other geospatial operations, have managed to obtain a good results by separating the above categories into single layers and performing operations among them.<br> See notebook <code>greenspace_datacleaning.ipynb</code> for details.</p>
+</section>
+<section id="open-issuesquestions-on-indicators-building" class="level3" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="open-issuesquestions-on-indicators-building"><span class="header-section-number">5.1.2</span> Open issues/questions on indicators building</h3>
 <p><strong>Accessibility</strong></p>
 <p>accessibility computation:</p>
 <ul>
@@ -281,8 +303,8 @@ ul.task-list li input[type="checkbox"] {
 <li>personal map on <a href="https://felt.com/map/TyneWear-sXwTHCjIQLGJGDS0dYAF9AD">Felt</a> with added transport network layer <img src="https://github.com/ciupava/LandUseDemonstrator/blob/main/images/gtfs_felt.png?raw=true" class="img-fluid"></li>
 </ol>
 </section>
-<section id="jobs-location" class="level3" data-number="5.1.2">
-<h3 data-number="5.1.2" class="anchored" data-anchor-id="jobs-location"><span class="header-section-number">5.1.2</span> Jobs location</h3>
+<section id="jobs-location" class="level3" data-number="5.1.3">
+<h3 data-number="5.1.3" class="anchored" data-anchor-id="jobs-location"><span class="header-section-number">5.1.3</span> Jobs location</h3>
 <p>We have number of jobs as a datum down to LSOA level, it comes from <a href="https://www.nomisweb.co.uk/sources/bres">nomis</a></p>
 <blockquote class="blockquote">
 An employer survey of the number of jobs held by employees broken down by full/part-time and detailed industry (5 digit SIC2007). The survey records a job at the location of an employees workplace. Available from country down to lower level super output area and Scottish datazone.
