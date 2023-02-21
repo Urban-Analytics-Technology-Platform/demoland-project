@@ -208,17 +208,17 @@ ul.task-list li input[type="checkbox"] {
 <li>Green spaces accessibility</li>
 </ol>
 <blockquote class="blockquote">
-<p><del>Number of access points accessible by walking in 15 minutes</del></p>
+<p>Sum of the areas of green space sites available within 15 minutes</p>
 </blockquote>
 <ol type="1">
 <li>obtain greenspaces from OS
 <ul>
-<li>filter out not relevant categories</li>
+<li>filter out not relevant categories (allottments, golf courses, bowling greens)</li>
 </ul></li>
 <li>obtain “missing” areas from Corine or OSM</li>
-<li>get area size</li>
-<li>run ttm (15min by walking) and generate for each OA one accesspoint per reachable park</li>
-<li>generate metric per each OA as [n of parks] * [park size]</li>
+<li>get sites’ area</li>
+<li>run ttm (15min by walking and other means) and generate for each origin amlist of accessible parks</li>
+<li>generate metric per each OA as <em>Sum[park size]</em></li>
 </ol>
 <p><strong>2. Build time travel matrix (TTM)</strong></p>
 <p>We can build a TTM from two data sources: the roads network and a time table for public transport. We can obtain the first by donwloading <a href="https://wiki.openstreetmap.org/wiki/Downloading_data">OpenStreetMap (OSM)</a> data for the area of interest.<br> Time table for public transport is available in England in … <em>quote UK2GTFS</em> We use GTFS data because more used, also for feeding it into</p>
