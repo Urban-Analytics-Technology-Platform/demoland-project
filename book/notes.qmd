@@ -47,7 +47,7 @@ Metric: once generated the time travel matrix (OAs centroids to GS entrances) re
 In order to do so, we need to clean the data from the eccessive entrances: many sites are included within other ones (for example a playground or tennis court can be enclosed in a public park). These enclosed sites also generate an overestimate of the accessible area, because they are overlapping with the main major park - which is the only category/feature/polygon we would like to consider.<br/>
 
 First of all we clean the OS data from not-wanted categories, IE areas which are green but not openly accessible by the public.<br/>
-These include: allottment, golf coursed, bowling greens.
+These include: allottments, golf courses, bowling greens.
 
 We then can do this consideration: most of the times it's the 2 categories `Playing Field` and `Public Park Or Garden` that contain other categories within their boundaries. We could play with this. `Other Sport Facilities` also contains and is contained, but mostly is contained.
 

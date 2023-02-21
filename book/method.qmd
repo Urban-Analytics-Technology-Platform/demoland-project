@@ -48,15 +48,15 @@ a. Jobs accessibility
 
 b. Green spaces accessibility
 
-> ~~Number of access points accessible by walking in 15 minutes~~
+> Sum of the areas of green space sites available within 15 minutes
 
 
 1. obtain greenspaces from OS
-    - filter out not relevant categories
+    - filter out not relevant categories (allottments, golf courses, bowling greens)
 2. obtain "missing" areas from Corine or OSM
-3. get area size
-4. run ttm (15min by walking) and generate for each OA one accesspoint per reachable park
-5. generate metric per each OA as [n of parks] * [park size]
+3. get sites' area
+4. run ttm (15min by walking and other means) and generate for each origin amlist of accessible parks
+5. generate metric per each OA as _Sum[park size]_
 
 
 **2. Build time travel matrix (TTM)**
