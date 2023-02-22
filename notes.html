@@ -210,7 +210,11 @@ ul.task-list li input[type="checkbox"] {
 <section id="greens-space-sites" class="level3" data-number="5.1.1">
 <h3 data-number="5.1.1" class="anchored" data-anchor-id="greens-space-sites"><span class="header-section-number">5.1.1</span> Greens space sites</h3>
 <p>A first accessibility computation using Ordnance Service (OS) open data was rejected, as not in line with expected results.</p>
-<p>The reason for this are: - the data misses some vast green sites outside of town - the chosen metric was not proper [IE count the n of access points accessible within 15 min from origins]</p>
+<p>The reason for this are:</p>
+<ul>
+<li>the data misses some vast green sites outside of town</li>
+<li>the chosen metric was not proper [IE count the n of access points accessible within 15 min from origins]</li>
+</ul>
 <p>Dealing with the two issues separately:</p>
 <hr>
 <p>The good thing of the OS data is that they are accurate (resolution, categories) AND they contain also the access points (which for everyone’s sake we are gonna refer to as <em>entrances</em>).<br> <strong>NOTE:</strong> we need <em>entrances</em> to green space as the destinations for our time travel matrices.<br> A good candidate to make up for not covered areas is the <em>landuse</em> layer from OpenStreetMap (OSM).<br></p>
@@ -218,7 +222,62 @@ ul.task-list li input[type="checkbox"] {
 <p>OSM data has very much good cover of the existing green sites, but: lacks a proper classification, doesn’t have entrances to sites, doesn’t distinguish between public/private/military spaces, therefore the use of OSM would bring to <em>over</em>-estimate green spaces. Example: in OSM we have some side-road areas inside <a href="https://en.wikipedia.org/wiki/MetroCentre_(shopping_centre)">Metrocentre</a> classified as forest.</p>
 <p>In order to understand parks where people actually can/does pass through, a cross-check was carried out manually looking for parks with existing trails (passing through them) using <a href="https://hiking.waymarkedtrails.org/">https://hiking.waymarkedtrails.org/</a> AND Google Street View to check entrances to parks/greens/ etc [IE some entrances actually show a sign that make it clear if it’s a public access or not]</p>
 <p>List of parks/green spaces which we would want to consider in the green belt/suburbs of Tyne and Wear (and their status, IE open/public etc):<br></p>
-<p><em>TBC</em></p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>park name</th>
+<th style="text-align: center;">status</th>
+<th>location</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Chopwell Woodland</td>
+<td style="text-align: center;">open</td>
+<td>SW</td>
+</tr>
+<tr class="even">
+<td>Milkweelburn Wood</td>
+<td style="text-align: center;">open</td>
+<td>SW</td>
+</tr>
+<tr class="odd">
+<td>Watergated Park</td>
+<td style="text-align: center;">open</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Silverhill Wood / Ravesworth Estate</td>
+<td style="text-align: center;">closed</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Banesley Lane woodland</td>
+<td style="text-align: center;">open</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Hedley Hall Woods</td>
+<td style="text-align: center;">open</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Spen Banks / Sherburn Green Woods</td>
+<td style="text-align: center;">open</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Clinty Wood</td>
+<td style="text-align: center;">?</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Gibside national Trust</td>
+<td style="text-align: center;">closed ($$)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <hr>
 <p>We want to generate a metric that take into account the proximity to a green space AND the size of the site you are accessing to. It doesn’t matter how many access points are accessible, as long as one gives you access to the site within 15 min (walk, bike, other means)</p>
 <p>Metric: once generated the time travel matrix (OAs centroids to GS entrances) retain one access point per park, IE consider only once each park that is reachable at least through one access point in 15 min. Then sum up all the areas of the reachable parks.</p>
