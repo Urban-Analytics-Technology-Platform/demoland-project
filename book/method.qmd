@@ -28,14 +28,14 @@ For accessibility computation, we use the same methodology both for green spaces
 
 **Destinations -** Per each destination we need to provide the coordinates and  a datum that gives the _opportunity_ (or 'supply', in our case this is the land use), for example the number of jobs available (could be number of schools, health centres, other types of countable features).
 
-For jobs count we consider as destinations the PWC of the working population per Working Place Zones (WPZ) from the 2011 Census ([data available](https://www.nomisweb.co.uk/sources/census_2011_wp) and [definition](https://www.ons.gov.uk/methodology/geography/geographicalproducts/areaclassifications/2011workplacebasedareaclassification/classificationofworkplacezonesfortheukabouttheareaclassifications)). As an opportunity measure (the job counts) we make the approximation that the number of workers equals the number of jobs available.
+For jobs count we consider as destinations the PWC of the working population per Working Place Zones (WPZ) from the 2011 Census ([data available](https://www.nomisweb.co.uk/sources/census_2011_wp) and [definition](https://www.ons.gov.uk/methodology/geography/geographicalproducts/areaclassifications/2011workplacebasedareaclassification/classificationofworkplacezonesfortheukabouttheareaclassifications)). <br/>As an opportunity measure (the job counts) we make the approximation that the number of workers equals the number of jobs available.
 
-For green spaces accessibility we use the open data set available from [Ordnance Survey](https://beta.ordnancesurvey.co.uk/products/os-open-greenspace) (OS). In particular as a first approximation we consider the layer "Access points" from this datum. This gives the coordinates of the access points to green spaces in all Great Britain, which we take as destinations. ~~As an opportunity, we count the cumulative sum of access points reachable within a defined time threshold (see definition below).~~
+For green spaces accessibility we use the open data set available from [Ordnance Survey](https://beta.ordnancesurvey.co.uk/products/os-open-greenspace) (OS). <br/>In particular as a first approximation we consider the layer "Access points" from this datum. This gives the coordinates of the access points to green spaces in all Great Britain, which we take as destinations.<br/>As an opportunity measure we count the areas of the greenspace sites to which these points give access to.
 
 
 ---
 
-In order to calculate the time needed to reach the destinations, we need to have a Time Travel Matrix (TTM) between origins and destinations. To build this, we can generate a graph/network starting from data for the road network and for public transportation schedules.</br>
+In order to calculate the time it takes from each origin to reach each destination, we need to have a Time Travel Matrix (TTM) between origins and destinations for different mean of transport.<br/>To build this, we can generate a graph/network starting from two data sources: data for the road network and data for public transportation schedules.</br>
 Once a TTM is built between one set of origins and one set of destinations for a given mode of transport, we can run accessibility analysis on it.
 
 ---
@@ -48,22 +48,22 @@ a. Jobs accessibility
 
 b. Green spaces accessibility
 
-> Sum of the areas of green space sites available within 15 minutes
+> Sum of the areas of green space sites reachable within 15 minutes
 
 
 1. obtain greenspaces from OS
     - filter out not relevant categories (allottments, golf courses, bowling greens)
 2. obtain "missing" areas from Corine or OSM
 3. get sites' area
-4. run ttm (15min by walking and other means) and generate for each origin amlist of accessible parks
-5. generate metric per each OA as _Sum[park size]_
+4. run ttm (15min by walking and other means) and generate for each origin a list of accessible sites
+5. generate metric per each OA as _Sum [site size]_
 
 
 **2. Build time travel matrix (TTM)**
 
 We can build a TTM from two data sources: the roads network and a time table for public transport. We can obtain the first by donwloading [OpenStreetMap (OSM)](https://wiki.openstreetmap.org/wiki/Downloading_data) data for the area of interest.<br/>
-Time table for public transport is available in England in ... _quote UK2GTFS_
-We use GTFS data because more used, also for feeding it into 
+Time table for public transport is available in England in ... _quote UK2GTFS_ <br/>
+We use GTFS data because more used, also for feeding it into the accessibility calculation package
 
 - get time table for public transport > GTFS data
 - get roads network > OSM data

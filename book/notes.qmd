@@ -15,6 +15,7 @@ NB: in reverse order, that is more recent stuff is at the top of the document.
 A first accessibility computation using Ordnance Service (OS) open data was rejected, as not in line with expected results.
 
 The reason for this are:
+
  - the data misses some vast green sites outside of town
  - the chosen metric was not proper [IE count the n of access points accessible within 15 min from origins]
 
@@ -36,7 +37,18 @@ In order to understand parks where people actually can/does pass through, a cros
 
 List of parks/green spaces which we would want to consider in the green belt/suburbs of Tyne and Wear (and their status, IE open/public etc):<br/>
 
-_TBC_
+| park name | status |location |
+|-|:-:|-|
+|Chopwell Woodland | open | SW |
+| Milkweelburn Wood | open | SW|
+| Watergated Park | open |  |
+| Silverhill Wood / Ravesworth Estate | closed |  |
+| Banesley Lane woodland | open |  |
+| Hedley Hall Woods | open |  |
+| Spen Banks / Sherburn Green Woods | open |  |
+| Clinty Wood | ? |  |
+| Gibside national Trust | closed ($$) |  |
+
 
 ---
 
