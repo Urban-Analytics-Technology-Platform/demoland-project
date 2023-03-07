@@ -7,10 +7,6 @@ dependencies:
   - pip
   - numpy
   - pandas
-  # - scipy=1.5.2 
-  # - click
-  # - synthpop_pb2
-  # - protobuf
   - geopandas==0.10 # for geopandas.explore()
   - ipykernel
   - xlrd
@@ -20,7 +16,8 @@ dependencies:
   - fiona
   - matplotlib
   - mapclassify
-  - r5py
+  # - r5py
   - shapely # * up to here
   - pip:
+      - git+https://github.com/r5py/r5py.git@main # to install last version of r5py 
       - tracc # library for transport accessibility
