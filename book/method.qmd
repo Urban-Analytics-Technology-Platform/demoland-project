@@ -13,12 +13,13 @@ The original list of indicators (see Intro) was pruned after an initial review o
 
 For each of these indicators, we have detailed below how they are generated. This step represents the _basic scenario_.
 
-We have two different types of indicators: while air quality and house prices are "actual data" measurements, accessibility is estimated and generated in a deterministic way, so it can't be modelled/predicted using some explanatory variables.
+We have two different types of indicators: while air quality and house prices are "actual data" measurements, accessibility is estimated and generated in a deterministic way, so it can't be directly modelled/predicted using some explanatory variables.
 
 ### Accessibility calculation
 
-For accessibility computation, we use the same methodology both for green spaces and jobs. We consider a set of punctual origins and destinations and the time it takes to move between them on the road network, given different transport modes.<br/>
-**TBC** until green spaces methodology is under definition
+For accessibility computation, we consider the potential accessibility (cumulative) to green spaces and jobs, that represent the opportunities. We consider a set of (punctual) origins and opportunities' destinations and the time it takes to move between them on the road network, given different transport modes.<br/>
+In order to calculate the time it takes from each origin to reach each destination, we need to have a Time Travel Matrix (TTM) between origins and destinations for different means of transport.<br/>To build this, we can generate a graph/network starting from two data sources: data for the road network and data for public transportation schedules.</br>
+Once a TTM is built between one set of origins and one set of destinations for a given mode of transport, we can run accessibility analysis on it.
 
 ---
 
@@ -26,17 +27,11 @@ For accessibility computation, we use the same methodology both for green spaces
 
 
 
-**Destinations -** Per each destination we need to provide the coordinates and  a datum that gives the _opportunity_ (or 'supply', in our case this is the land use), for example the number of jobs available (could be number of schools, health centres, other types of countable features).
+**Destinations -** Per each destination we need to provide the coordinates and a datum for the _opportunity_ (or 'supply', in our case this is the land use), for example the number of jobs available (other opportutnities could be number of schools, health centres, other types of countable features).
 
-For jobs count we consider as destinations the PWC of the working population per Working Place Zones (WPZ) from the 2011 Census ([data available](https://www.nomisweb.co.uk/sources/census_2011_wp) and [definition](https://www.ons.gov.uk/methodology/geography/geographicalproducts/areaclassifications/2011workplacebasedareaclassification/classificationofworkplacezonesfortheukabouttheareaclassifications)). <br/>As an opportunity measure (the job counts) we make the approximation that the number of workers equals the number of jobs available.
+For jobs count we consider as destinations the PWC of the working population per Working Place Zones (WPZ) from the 2011 Census ([data available](https://www.nomisweb.co.uk/sources/census_2011_wp) and [definition](https://www.ons.gov.uk/methodology/geography/geographicalproducts/areaclassifications/2011workplacebasedareaclassification/classificationofworkplacezonesfortheukabouttheareaclassifications)). <br/>As an opportunity measure (the job counts) we make the approximation that _the number of workers equals the number of jobs available_. This is an approximation we take in order to preserve the spatial location of the jobs, that is relevant in the calculation of the time travel matrix. In fact the number of jobs in the Census is at OAs level, but the PWC for this aggregated level can be off-centered in relation to where people work.
 
-For green spaces accessibility we use the open data set available from [Ordnance Survey](https://beta.ordnancesurvey.co.uk/products/os-open-greenspace) (OS). <br/>In particular as a first approximation we consider the layer "Access points" from this datum. This gives the coordinates of the access points to green spaces in all Great Britain, which we take as destinations.<br/>As an opportunity measure we count the areas of the greenspace sites to which these points give access to.
-
-
----
-
-In order to calculate the time it takes from each origin to reach each destination, we need to have a Time Travel Matrix (TTM) between origins and destinations for different mean of transport.<br/>To build this, we can generate a graph/network starting from two data sources: data for the road network and data for public transportation schedules.</br>
-Once a TTM is built between one set of origins and one set of destinations for a given mode of transport, we can run accessibility analysis on it.
+For green spaces accessibility we use the open data set available from [Ordnance Survey](https://beta.ordnancesurvey.co.uk/products/os-open-greenspace) (OS). <br/>In particular as a first approximation we consider the layer "Access points" from this datum. This gives the coordinates of the access points to green spaces in all Great Britain, which we take as destinations.<br/>As an opportunity measure we count the areas of the greenspace (layer "Sites") to which these points give access to, see below for details on how we consider the cumulative opportunity of this datum.
 
 ---
 
@@ -46,36 +41,48 @@ a. Jobs accessibility
 
 > Number of jobs accessible by public transport and walking in 15 minutes
 
+
 b. Green spaces accessibility
 
 > Sum of the areas of green space sites reachable within 15 minutes
 
-
-1. obtain greenspaces from OS
+1. obtain greenspace sites from OS
     - filter out not relevant categories (allottments, golf courses, bowling greens)
-2. obtain "missing" areas from Corine or OSM
+    - retain entrances on the edge of the sites
+    - associate 
+2. ~~ obtain "missing" areas from Corine or OSM~~ _idea for future improvement_
 3. get sites' area
-4. run ttm (15min by walking and other means) and generate for each origin a list of accessible sites
-5. generate metric per each OA as _Sum [site size]_
+4. filter entrances within time threshold (15min) per each origin (OA)
+5. consider unique values for parks (can be reached in )
+5. generate metric per each OA as _Sum [reachable site size]_
 
 
 **2. Build time travel matrix (TTM)**
 
 We can build a TTM from two data sources: the roads network and a time table for public transport. We can obtain the first by donwloading [OpenStreetMap (OSM)](https://wiki.openstreetmap.org/wiki/Downloading_data) data for the area of interest.<br/>
-Time table for public transport is available in England in ... _quote UK2GTFS_ <br/>
-We use GTFS data because more used, also for feeding it into the accessibility calculation package
+Time table for public transport in GTFS format is available in England from [UK2GTFS](https://itsleeds.github.io/UK2GTFS/).<br/>
+We use GTFS data because more of compatibility with the ttm calculation package.
 
 - get time table for public transport > GTFS data
 - get roads network > OSM data
-- generate network graph > r5 (conveyal)
-- generate ttm for different modes, time (day of the year/week, time of the day), multi or single time
+- generate network graph > `r5` engine ([Conveyal(https://github.com/conveyal/r5)]) > `r5py` [package](https://r5py.readthedocs.io/)
+- generate ttm for 4 different modes > 'transit', 'bike', 'car', 'walking'
+- time is fixed atm > _idea for future improvement_: edit for taking into account different day of the year/week, time of the day
 
 
 **3. Run accessibility analysis**
 
-- get land use data or "supply" or "opportunities" (ex location of jobs, healthcare, shopping, education, population, leisure)
-
-- run `tracc` (Python) on the TTM
+- get land use data (opportunities detailed above in _*Destinations_)
+- _jobs_ > run `tracc` [package](https://github.com/jamaps/tracc) on the ttm _per each transport mode_:
+    - compute impedance function based on a 15 minute cost (cumulative)
+    - setting up the accessibility object IE joining the destination data to the travel time data
+    - measuring potential accessibility to jobs as cumulative sum of opportunities at destination per each origin
+- _greenspace_ > convert the `tracc` functions to work only on reachable sites' area, on the ttm _per each transport mode_:
+    - compute impedance function based on a 15 minute cost (cumulative)
+    - join the destination data to the travel time data
+    - per each OA (origin), filtering only entrances with time travel within the threshold
+    - per each OA, filter entrances (only one per park)
+    - per each OA, assign metric as sum[parks' area]
 
 
 ### Air quality index
