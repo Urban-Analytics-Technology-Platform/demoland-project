@@ -1,4 +1,3 @@
-import geopandas as gpd
 import numpy as np
 import pandas as pd
 
@@ -7,14 +6,13 @@ iqr_form = pd.read_parquet("data/iqr_form.parquet")
 median_function = pd.read_parquet("data/median_function.parquet")
 iqr_function = pd.read_parquet("data/iqr_function.parquet")
 oa = (
-    gpd.read_parquet("data/all_oa.parquet")
+    pd.read_parquet("data/all_oa.parquet")
     .set_index("geo_code")
     .rename(columns={"population_estimate": "population"})
 )
 oa_key = pd.read_parquet("data/oa_key.parquet")
+oa_area = pd.read_parquet("data/oa_area.parquet").area
 
-
-oa_area = oa.area
 
 SIGS = {
     0: "Wild countryside",
