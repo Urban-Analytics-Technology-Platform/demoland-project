@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,7 +17,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -62,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
@@ -70,11 +71,16 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Notes</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./notes.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Notes</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -82,99 +88,105 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">DemoLand</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/ciupava/LandUseDemonstrator/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-    <a href="./DemoLand.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
-  <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+    <a href="https://github.com/ciupava/LandUseDemonstrator/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./DemoLand.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">DemoLand</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">DemoLand</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Intro</span></a>
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Intro</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data_sources.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Sources</span></a>
+  <a href="./data_sources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Sources</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./method.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Methodology</span></a>
+  <a href="./method.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Methodology</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notes.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Notes</span></a>
+  <a href="./notes.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Notes</span></span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#february" id="toc-february" class="nav-link active" data-scroll-target="#february"><span class="toc-section-number">5.1</span>  February</a>
+  <li><a href="#february" id="toc-february" class="nav-link active" data-scroll-target="#february"><span class="header-section-number">5.1</span> February</a>
   <ul class="collapse">
-  <li><a href="#greens-space-sites" id="toc-greens-space-sites" class="nav-link" data-scroll-target="#greens-space-sites"><span class="toc-section-number">5.1.1</span>  Greens space sites</a></li>
-  <li><a href="#open-issuesquestions-on-indicators-building" id="toc-open-issuesquestions-on-indicators-building" class="nav-link" data-scroll-target="#open-issuesquestions-on-indicators-building"><span class="toc-section-number">5.1.2</span>  Open issues/questions on indicators building</a></li>
-  <li><a href="#jobs-location" id="toc-jobs-location" class="nav-link" data-scroll-target="#jobs-location"><span class="toc-section-number">5.1.3</span>  Jobs location</a></li>
+  <li><a href="#greens-space-sites" id="toc-greens-space-sites" class="nav-link" data-scroll-target="#greens-space-sites"><span class="header-section-number">5.1.1</span> Greens space sites</a></li>
+  <li><a href="#open-issuesquestions-on-indicators-building" id="toc-open-issuesquestions-on-indicators-building" class="nav-link" data-scroll-target="#open-issuesquestions-on-indicators-building"><span class="header-section-number">5.1.2</span> Open issues/questions on indicators building</a></li>
+  <li><a href="#jobs-location" id="toc-jobs-location" class="nav-link" data-scroll-target="#jobs-location"><span class="header-section-number">5.1.3</span> Jobs location</a></li>
   </ul></li>
-  <li><a href="#january" id="toc-january" class="nav-link" data-scroll-target="#january"><span class="toc-section-number">5.2</span>  January</a>
+  <li><a href="#january" id="toc-january" class="nav-link" data-scroll-target="#january"><span class="header-section-number">5.2</span> January</a>
   <ul class="collapse">
-  <li><a href="#accessibility-accessibility-accessibility" id="toc-accessibility-accessibility-accessibility" class="nav-link" data-scroll-target="#accessibility-accessibility-accessibility"><span class="toc-section-number">5.2.1</span>  Accessibility accessibility accessibility</a></li>
+  <li><a href="#accessibility-accessibility-accessibility" id="toc-accessibility-accessibility-accessibility" class="nav-link" data-scroll-target="#accessibility-accessibility-accessibility"><span class="header-section-number">5.2.1</span> Accessibility accessibility accessibility</a></li>
   </ul></li>
-  <li><a href="#december" id="toc-december" class="nav-link" data-scroll-target="#december"><span class="toc-section-number">5.3</span>  December</a>
+  <li><a href="#december" id="toc-december" class="nav-link" data-scroll-target="#december"><span class="header-section-number">5.3</span> December</a>
   <ul class="collapse">
-  <li><a href="#house-prices-indicator" id="toc-house-prices-indicator" class="nav-link" data-scroll-target="#house-prices-indicator"><span class="toc-section-number">5.3.1</span>  House prices indicator</a></li>
-  <li><a href="#accessibility-greenspaces" id="toc-accessibility-greenspaces" class="nav-link" data-scroll-target="#accessibility-greenspaces"><span class="toc-section-number">5.3.2</span>  Accessibility (… Greenspaces)</a></li>
+  <li><a href="#house-prices-indicator" id="toc-house-prices-indicator" class="nav-link" data-scroll-target="#house-prices-indicator"><span class="header-section-number">5.3.1</span> House prices indicator</a></li>
+  <li><a href="#accessibility-greenspaces" id="toc-accessibility-greenspaces" class="nav-link" data-scroll-target="#accessibility-greenspaces"><span class="header-section-number">5.3.2</span> Accessibility (… Greenspaces)</a></li>
   </ul></li>
-  <li><a href="#agenda---november-29-tue---in-office" id="toc-agenda---november-29-tue---in-office" class="nav-link" data-scroll-target="#agenda---november-29-tue---in-office"><span class="toc-section-number">5.4</span>  Agenda - November, 29 [Tue] - In office</a></li>
-  <li><a href="#november" id="toc-november" class="nav-link" data-scroll-target="#november"><span class="toc-section-number">5.5</span>  November</a>
+  <li><a href="#agenda---november-29-tue---in-office" id="toc-agenda---november-29-tue---in-office" class="nav-link" data-scroll-target="#agenda---november-29-tue---in-office"><span class="header-section-number">5.4</span> Agenda - November, 29 [Tue] - In office</a></li>
+  <li><a href="#november" id="toc-november" class="nav-link" data-scroll-target="#november"><span class="header-section-number">5.5</span> November</a>
   <ul class="collapse">
-  <li><a href="#project-name" id="toc-project-name" class="nav-link" data-scroll-target="#project-name"><span class="toc-section-number">5.5.1</span>  Project name</a></li>
-  <li><a href="#variables-creation" id="toc-variables-creation" class="nav-link" data-scroll-target="#variables-creation"><span class="toc-section-number">5.5.2</span>  Variables creation</a></li>
-  <li><a href="#theoretical-framework" id="toc-theoretical-framework" class="nav-link" data-scroll-target="#theoretical-framework"><span class="toc-section-number">5.5.3</span>  Theoretical framework</a></li>
-  <li><a href="#some-literature-on-lur" id="toc-some-literature-on-lur" class="nav-link" data-scroll-target="#some-literature-on-lur"><span class="toc-section-number">5.5.4</span>  Some literature on LUR</a></li>
-  <li><a href="#lur-in-python" id="toc-lur-in-python" class="nav-link" data-scroll-target="#lur-in-python"><span class="toc-section-number">5.5.5</span>  LUR in Python</a></li>
-  <li><a href="#facts-on-ghg-emissions" id="toc-facts-on-ghg-emissions" class="nav-link" data-scroll-target="#facts-on-ghg-emissions"><span class="toc-section-number">5.5.6</span>  Facts on GHG emissions</a></li>
+  <li><a href="#project-name" id="toc-project-name" class="nav-link" data-scroll-target="#project-name"><span class="header-section-number">5.5.1</span> Project name</a></li>
+  <li><a href="#variables-creation" id="toc-variables-creation" class="nav-link" data-scroll-target="#variables-creation"><span class="header-section-number">5.5.2</span> Variables creation</a></li>
+  <li><a href="#theoretical-framework" id="toc-theoretical-framework" class="nav-link" data-scroll-target="#theoretical-framework"><span class="header-section-number">5.5.3</span> Theoretical framework</a></li>
+  <li><a href="#some-literature-on-lur" id="toc-some-literature-on-lur" class="nav-link" data-scroll-target="#some-literature-on-lur"><span class="header-section-number">5.5.4</span> Some literature on LUR</a></li>
+  <li><a href="#lur-in-python" id="toc-lur-in-python" class="nav-link" data-scroll-target="#lur-in-python"><span class="header-section-number">5.5.5</span> LUR in Python</a></li>
+  <li><a href="#facts-on-ghg-emissions" id="toc-facts-on-ghg-emissions" class="nav-link" data-scroll-target="#facts-on-ghg-emissions"><span class="header-section-number">5.5.6</span> Facts on GHG emissions</a></li>
   </ul></li>
-  <li><a href="#october" id="toc-october" class="nav-link" data-scroll-target="#october"><span class="toc-section-number">5.6</span>  October</a>
+  <li><a href="#october" id="toc-october" class="nav-link" data-scroll-target="#october"><span class="header-section-number">5.6</span> October</a>
   <ul class="collapse">
-  <li><a href="#defining-relations" id="toc-defining-relations" class="nav-link" data-scroll-target="#defining-relations"><span class="toc-section-number">5.6.1</span>  Defining relations</a></li>
-  <li><a href="#working-questions" id="toc-working-questions" class="nav-link" data-scroll-target="#working-questions"><span class="toc-section-number">5.6.2</span>  Working questions:</a></li>
-  <li><a href="#approximations" id="toc-approximations" class="nav-link" data-scroll-target="#approximations"><span class="toc-section-number">5.6.3</span>  Approximations</a></li>
-  <li><a href="#python-code" id="toc-python-code" class="nav-link" data-scroll-target="#python-code"><span class="toc-section-number">5.6.4</span>  Python code</a></li>
-  <li><a href="#preliminary-results" id="toc-preliminary-results" class="nav-link" data-scroll-target="#preliminary-results"><span class="toc-section-number">5.6.5</span>  Preliminary results</a></li>
+  <li><a href="#defining-relations" id="toc-defining-relations" class="nav-link" data-scroll-target="#defining-relations"><span class="header-section-number">5.6.1</span> Defining relations</a></li>
+  <li><a href="#working-questions" id="toc-working-questions" class="nav-link" data-scroll-target="#working-questions"><span class="header-section-number">5.6.2</span> Working questions:</a></li>
+  <li><a href="#approximations" id="toc-approximations" class="nav-link" data-scroll-target="#approximations"><span class="header-section-number">5.6.3</span> Approximations</a></li>
+  <li><a href="#python-code" id="toc-python-code" class="nav-link" data-scroll-target="#python-code"><span class="header-section-number">5.6.4</span> Python code</a></li>
+  <li><a href="#preliminary-results" id="toc-preliminary-results" class="nav-link" data-scroll-target="#preliminary-results"><span class="header-section-number">5.6.5</span> Preliminary results</a></li>
   </ul></li>
-  <li><a href="#september" id="toc-september" class="nav-link" data-scroll-target="#september"><span class="toc-section-number">5.7</span>  September</a>
+  <li><a href="#september" id="toc-september" class="nav-link" data-scroll-target="#september"><span class="header-section-number">5.7</span> September</a>
   <ul class="collapse">
-  <li><a href="#data-availability" id="toc-data-availability" class="nav-link" data-scroll-target="#data-availability"><span class="toc-section-number">5.7.1</span>  Data availability</a></li>
-  <li><a href="#did-someone-already-do-this" id="toc-did-someone-already-do-this" class="nav-link" data-scroll-target="#did-someone-already-do-this"><span class="toc-section-number">5.7.2</span>  Did someone already do this?</a></li>
+  <li><a href="#data-availability" id="toc-data-availability" class="nav-link" data-scroll-target="#data-availability"><span class="header-section-number">5.7.1</span> Data availability</a></li>
+  <li><a href="#did-someone-already-do-this" id="toc-did-someone-already-do-this" class="nav-link" data-scroll-target="#did-someone-already-do-this"><span class="header-section-number">5.7.2</span> Did someone already do this?</a></li>
   </ul></li>
-  <li><a href="#open-general-questions" id="toc-open-general-questions" class="nav-link" data-scroll-target="#open-general-questions"><span class="toc-section-number">5.8</span>  Open general questions</a>
+  <li><a href="#open-general-questions" id="toc-open-general-questions" class="nav-link" data-scroll-target="#open-general-questions"><span class="header-section-number">5.8</span> Open general questions</a>
   <ul class="collapse">
-  <li><a href="#output-map-generation" id="toc-output-map-generation" class="nav-link" data-scroll-target="#output-map-generation"><span class="toc-section-number">5.8.1</span>  Output / map generation</a></li>
+  <li><a href="#output-map-generation" id="toc-output-map-generation" class="nav-link" data-scroll-target="#output-map-generation"><span class="header-section-number">5.8.1</span> Output / map generation</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -184,7 +196,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Notes</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Notes</span></h1>
 </div>
 
 
@@ -416,21 +428,24 @@ An employer survey of the number of jobs held by employees broken down by full/p
 <hr>
 <p><strong>IDEAS in random order</strong></p>
 <ul class="task-list">
-<li><input type="checkbox" disabled="">accessibility definition??</li>
-<li><input type="checkbox" disabled="">Identify the shortest path between two locations using the OSM transport network:<ul class="task-list">
-<li><input type="checkbox" disabled=""><a href="https://www.routino.org/">routino</a> application for finding a route between two points using OSM</li>
-<li><input type="checkbox" disabled=""><a href="https://valhalla.github.io/valhalla/">valhalla</a> open source routing engine and accompanying libraries for use with OSM</li>
-<li><input type="checkbox" disabled="" checked=""><a href="https://wiki.openstreetmap.org/wiki/OpenTripPlanner">OpenTripPlanner</a> open-source multimodal trip planning software system</li>
-<li><input type="checkbox" disabled="">Plan4better <a href="https://plan4better.de/en/">Geo Open Accessibility</a> GOAT tool</li>
-<li><input type="checkbox" disabled=""><a href="https://osmnx.readthedocs.io/en/stable/">OSMnx</a> Python package</li>
-<li><input type="checkbox" disabled="">build from OSM and implementing Dijkstra myself (??? <span class="citation" data-cites="Dustin">@Dustin</span> suggestion)</li>
-<li><input type="checkbox" disabled="" checked=""><a href="https://github.com/conveyal/r5">R5 - Conveyal</a>:<ul>
+<li><input type="checkbox">accessibility definition??</li>
+<li><input type="checkbox">Identify the shortest path between two locations using the OSM transport network:
+<ul class="task-list">
+<li><input type="checkbox"><a href="https://www.routino.org/">routino</a> application for finding a route between two points using OSM</li>
+<li><input type="checkbox"><a href="https://valhalla.github.io/valhalla/">valhalla</a> open source routing engine and accompanying libraries for use with OSM</li>
+<li><input type="checkbox" checked=""><a href="https://wiki.openstreetmap.org/wiki/OpenTripPlanner">OpenTripPlanner</a> open-source multimodal trip planning software system</li>
+<li><input type="checkbox">Plan4better <a href="https://plan4better.de/en/">Geo Open Accessibility</a> GOAT tool</li>
+<li><input type="checkbox"><a href="https://osmnx.readthedocs.io/en/stable/">OSMnx</a> Python package</li>
+<li><input type="checkbox">build from OSM and implementing Dijkstra myself (??? <span class="citation" data-cites="Dustin">@Dustin</span> suggestion)</li>
+<li><input type="checkbox" checked=""><a href="https://github.com/conveyal/r5">R5 - Conveyal</a>:
+<ul>
 <li>in R: <a href="https://ipeagit.github.io/r5r/">r5r</a></li>
 <li>in Python: <mark><a href="https://r5py.readthedocs.io/en/stable/index.html">r5py</a></mark></li>
 </ul></li>
 </ul></li>
-<li><input type="checkbox" disabled="">… check Propensity to Cycle Tool by Robin? [PTC]</li>
-<li><input type="checkbox" disabled="">define the paths we want to see https://en.wikipedia.org/wiki/Shortest_path_problem#Algorithms<ul>
+<li><input type="checkbox">… check Propensity to Cycle Tool by Robin? [PTC]</li>
+<li><input type="checkbox">define the paths we want to see https://en.wikipedia.org/wiki/Shortest_path_problem#Algorithms
+<ul>
 <li>from where to where?</li>
 <li>how to define people’s home… <del>centroids</del> buildings??</li>
 </ul></li>
@@ -497,26 +512,28 @@ An employer survey of the number of jobs held by employees broken down by full/p
 </blockquote>
 <p><img src="https://github.com/ciupava/LandUseDemonstrator/blob/main/images/tynewear_isochrones_withOTP.png?raw=true" class="img-fluid"><em>Examples of 15-90 minisochrones from (54.96835, -1.60778) generated using OTP for walk/transit mode, at 9am on 01-19-2-23)</em></p>
 <ul class="task-list">
-<li><input type="checkbox" disabled="" checked="">time travel matrix <span class="math inline">\(\rightarrow\)</span> using OTP OpenTripPlanner with M Young instructions<ul class="task-list">
-<li><input type="checkbox" disabled="" checked="">find GTFS data</li>
-<li><input type="checkbox" disabled="" checked="">download OSM data</li>
-<li><input type="checkbox" disabled="" checked="">build graph.obj</li>
+<li><input type="checkbox" checked="">time travel matrix <span class="math inline">\(\rightarrow\)</span> using OTP OpenTripPlanner with M Young instructions
+<ul class="task-list">
+<li><input type="checkbox" checked="">find GTFS data</li>
+<li><input type="checkbox" checked="">download OSM data</li>
+<li><input type="checkbox" checked="">build graph.obj</li>
 </ul></li>
-<li><input type="checkbox" disabled="" checked="">supply data (opportunities / land use / …)</li>
-<li><input type="checkbox" disabled="" checked="">run <code>tracc</code> for calculating accessibility to jobs… see <a href="./../python/basic_accessibility_example_TRACC.ipynb">basic_accessibility_example_TRACC.ipynb</a></li>
-<li><input type="checkbox" disabled="" checked="">run also for green spaces, as in “minimum travel time to reach n destinations” (see above link)</li>
+<li><input type="checkbox" checked="">supply data (opportunities / land use / …)</li>
+<li><input type="checkbox" checked="">run <code>tracc</code> for calculating accessibility to jobs… see <a href="./../python/basic_accessibility_example_TRACC.ipynb">basic_accessibility_example_TRACC.ipynb</a></li>
+<li><input type="checkbox" checked="">run also for green spaces, as in “minimum travel time to reach n destinations” (see above link)</li>
 </ul>
 <p><strong>Feedback</strong><br> The above procedure makes it unclear to understand the results PLUS editing the parameters by own requirements (in particular in creating the TTM), <strong>so</strong> trying to re-do the same <mark><strong>using r5py</strong></mark></p>
 <p><strong>2. r5py + tracc</strong></p>
 <ul class="task-list">
-<li><input type="checkbox" disabled="" checked="">time travel matrix –&gt; more editable?? <em>shorter to generate, no need of a graph building</em><ul class="task-list">
-<li><input type="checkbox" disabled="" checked="">find GTFS data</li>
-<li><input type="checkbox" disabled="" checked="">download OSM data</li>
-<li><input type="checkbox" disabled="" checked="">build <del>graph.obj?</del> network</li>
+<li><input type="checkbox" checked="">time travel matrix –&gt; more editable?? <em>shorter to generate, no need of a graph building</em>
+<ul class="task-list">
+<li><input type="checkbox" checked="">find GTFS data</li>
+<li><input type="checkbox" checked="">download OSM data</li>
+<li><input type="checkbox" checked="">build <del>graph.obj?</del> network</li>
 </ul></li>
-<li><input type="checkbox" disabled="" checked="">supply data (opportunities / land use / …)</li>
-<li><input type="checkbox" disabled="" checked="">calculating accessibility to jobs <em>using <code>tracc</code></em></li>
-<li><input type="checkbox" disabled="" checked="">run also for green spaces, as in “minimum travel time to reach n destinations” <em>using <code>tracc</code></em></li>
+<li><input type="checkbox" checked="">supply data (opportunities / land use / …)</li>
+<li><input type="checkbox" checked="">calculating accessibility to jobs <em>using <code>tracc</code></em></li>
+<li><input type="checkbox" checked="">run also for green spaces, as in “minimum travel time to reach n destinations” <em>using <code>tracc</code></em></li>
 </ul>
 <p>Note that the accessibility calculation is not supported in the <code>r5py</code> (see <a href="https://r5py.readthedocs.io/en/stable/notebooks/basic-usage.html#introduction">here</a>)</p>
 <blockquote class="blockquote">
@@ -576,10 +593,10 @@ A raster graphic image of the area is generated and intersected with area-level 
 <p><strong>Exploratory phase</strong> The idea is to plot/visualise/put together a few pieces of information and see how they interact with each other, get ideas on what to do with them.</p>
 <p>Steps:</p>
 <ul class="task-list">
-<li><input type="checkbox" disabled="" checked="">understanding Python VS excel (for house prices data)</li>
-<li><input type="checkbox" disabled="" checked="">understanding Python VS shp (for greenspace data + admin boundaries)</li>
-<li><input type="checkbox" disabled="">plot house prices VS greenspace locations</li>
-<li><input type="checkbox" disabled="">understanding json (valhalla) VS maps/python etc… know nothing</li>
+<li><input type="checkbox" checked="">understanding Python VS excel (for house prices data)</li>
+<li><input type="checkbox" checked="">understanding Python VS shp (for greenspace data + admin boundaries)</li>
+<li><input type="checkbox">plot house prices VS greenspace locations</li>
+<li><input type="checkbox">understanding json (valhalla) VS maps/python etc… know nothing</li>
 </ul>
 <section id="house-prices-indicator" class="level3" data-number="5.3.1">
 <h3 data-number="5.3.1" class="anchored" data-anchor-id="house-prices-indicator"><span class="header-section-number">5.3.1</span> House prices indicator</h3>
@@ -616,8 +633,9 @@ A raster graphic image of the area is generated and intersected with area-level 
 <section id="agenda---november-29-tue---in-office" class="level2" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="agenda---november-29-tue---in-office"><span class="header-section-number">5.4</span> Agenda - November, 29 [Tue] - In office</h2>
 <ul class="task-list">
-<li><input type="checkbox" disabled="">review of the project (objective, idea…)</li>
-<li><input type="checkbox" disabled="">discussing the data<ul>
+<li><input type="checkbox">review of the project (objective, idea…)</li>
+<li><input type="checkbox">discussing the data
+<ul>
 <li>see table in <a href="./data_sources.html">data page</a></li>
 <li>see sources below:
 <ul>
@@ -626,7 +644,8 @@ A raster graphic image of the area is generated and intersected with area-level 
 <li>house prices (the least concern?)</li>
 </ul></li>
 </ul></li>
-<li><input type="checkbox" disabled="">discussing methodology<ul>
+<li><input type="checkbox">discussing methodology
+<ul>
 <li>2 processes to generate indicators:
 <ul>
 <li>LUR</li>
@@ -634,7 +653,7 @@ A raster graphic image of the area is generated and intersected with area-level 
 </ul></li>
 <li>output</li>
 </ul></li>
-<li><input type="checkbox" disabled="">name</li>
+<li><input type="checkbox">name</li>
 </ul>
 </section>
 <section id="november" class="level2" data-number="5.5">
@@ -648,14 +667,15 @@ A raster graphic image of the area is generated and intersected with area-level 
 <p>A <mark><strong>good name</strong></mark> for the project? (acronym*)</p>
 <p>what does “demonstrator” stand for, why should we stick to that term?</p>
 <ul class="task-list">
-<li><input type="checkbox" disabled=""><strong>L(O)UD</strong> = Land (:egg:) Use Demonstrator :mega:</li>
-<li><input type="checkbox" disabled="" checked=""><strong>demoland</strong> 🏙</li>
-<li><input type="checkbox" disabled="">🥚 and 🐥 … 🍳<ul>
+<li><input type="checkbox"><strong>L(O)UD</strong> = Land (:egg:) Use Demonstrator :mega:</li>
+<li><input type="checkbox" checked=""><strong>demoland</strong> 🏙</li>
+<li><input type="checkbox">🥚 and 🐥 … 🍳
+<ul>
 <li><strong>LAID</strong> = LAnd Use Indicators Demonstrator 🪹</li>
 <li><strong>NEST</strong> (?) 🪺</li>
 </ul></li>
-<li><input type="checkbox" disabled=""><strong>LOUSE</strong> = Land (o) USe Explanator <br> 🪲 (‘louse’ is singular for lice)</li>
-<li><input type="checkbox" disabled=""><strong>DODO</strong> 🦤 … just because it’s a nice name</li>
+<li><input type="checkbox"><strong>LOUSE</strong> = Land (o) USe Explanator <br> 🪲 (‘louse’ is singular for lice)</li>
+<li><input type="checkbox"><strong>DODO</strong> 🦤 … just because it’s a nice name</li>
 </ul>
 </section>
 <section id="variables-creation" class="level3" data-number="5.5.2">
@@ -1023,11 +1043,11 @@ A Python toolbox for ArcGIS Pro that enables the development and application of 
 <p>Building <em>base scenario</em></p>
 <p>Roadmap:</p>
 <ul class="task-list">
-<li><input type="checkbox" disabled="" checked="">Try to dl/open/visualise SPC data <span class="math inline">\(\rightarrow\)</span> <em>Note: study case Metropolitan county of Tyne and Wear</em></li>
-<li><input type="checkbox" disabled="">Investigate potentially relevant data from <a href="#people-behavior">UK Data Services</a> data <span class="math inline">\(\rightarrow\)</span> any other relevant dataset?</li>
-<li><input type="checkbox" disabled="">How to connect/integrate TUS to SPC dataset – why?</li>
-<li><input type="checkbox" disabled="">visualise the integrated dataset <span class="math inline">\(\rightarrow\)</span> <em>base scenario</em></li>
-<li><input type="checkbox" disabled="">think “future scenarios”</li>
+<li><input type="checkbox" checked="">Try to dl/open/visualise SPC data <span class="math inline">\(\rightarrow\)</span> <em>Note: study case Metropolitan county of Tyne and Wear</em></li>
+<li><input type="checkbox">Investigate potentially relevant data from <a href="#people-behavior">UK Data Services</a> data <span class="math inline">\(\rightarrow\)</span> any other relevant dataset?</li>
+<li><input type="checkbox">How to connect/integrate TUS to SPC dataset – why?</li>
+<li><input type="checkbox">visualise the integrated dataset <span class="math inline">\(\rightarrow\)</span> <em>base scenario</em></li>
+<li><input type="checkbox">think “future scenarios”</li>
 </ul>
 <p><img src="images/tynewear_county_lads.png" class="img-fluid"> <em>The 5 LADs in the Metropolitan County of Tyne and Wear, highlighted are also the 4 major town areas</em></p>
 <hr>
@@ -1066,11 +1086,11 @@ A Python toolbox for ArcGIS Pro that enables the development and application of 
 <section id="working-questions" class="level3" data-number="5.6.2">
 <h3 data-number="5.6.2" class="anchored" data-anchor-id="working-questions"><span class="header-section-number">5.6.2</span> Working questions:</h3>
 <ul class="task-list">
-<li><p><input type="checkbox" disabled="">which year to take into consideration for the analysis? (Census, conversion factors, surveys…)</p></li>
-<li><p><input type="checkbox" disabled="">when I calculate the distance home-place of work, how do I consider the intraMSOA trips (IE within the same MSOA), as I am only taking into account the centroids of the MSOAs?</p></li>
-<li><p><input type="checkbox" disabled="">how we count total number of people (age, people working)</p></li>
-<li><p><input type="checkbox" disabled="">do we give the results per capita (then see point above) or total per MSOA</p></li>
-<li><p><input type="checkbox" disabled="">how many hours for the working from home people (not counting for now, as not using transport)</p></li>
+<li><p><input type="checkbox">which year to take into consideration for the analysis? (Census, conversion factors, surveys…)</p></li>
+<li><p><input type="checkbox">when I calculate the distance home-place of work, how do I consider the intraMSOA trips (IE within the same MSOA), as I am only taking into account the centroids of the MSOAs?</p></li>
+<li><p><input type="checkbox">how we count total number of people (age, people working)</p></li>
+<li><p><input type="checkbox">do we give the results per capita (then see point above) or total per MSOA</p></li>
+<li><p><input type="checkbox">how many hours for the working from home people (not counting for now, as not using transport)</p></li>
 </ul>
 <hr>
 </section>
@@ -1177,15 +1197,15 @@ A Python toolbox for ArcGIS Pro that enables the development and application of 
 <h2 data-number="5.8" class="anchored" data-anchor-id="open-general-questions"><span class="header-section-number">5.8</span> Open general questions</h2>
 <p><em>And plausible answer</em></p>
 <ul class="task-list">
-<li><p><input type="checkbox" disabled="" checked="">importance of localised emissions and need for air-flow modelling … <em>not relevant for GHG</em></p></li>
-<li><p><input type="checkbox" disabled="" checked="">what is the Research Question <span class="math inline">\(\rightarrow\)</span> <em>What are the “best” values in the parametrisation of the land use variables? Could we train the computer to predict these values?</em></p></li>
-<li><p><input type="checkbox" disabled="" checked="">Resolution <del>LSOAS/</del> <em>MSOAS</em> ? feedback from Dani regarding SS: <em>SS gives conversion to LSOAs</em> <span class="math inline">\(\Downarrow\)</span></p></li>
-<li><p><input type="checkbox" disabled="" checked="">how to generate scenarios - <em>ideas: change parameters’ range/values, run ABstreet simulations…?</em></p></li>
-<li><p><input type="checkbox" disabled="" checked="">integrate with SPC - <em>need to integrate more Census variables? feasible?</em></p></li>
-<li><p><input type="checkbox" disabled="">Use SPC (individuals’ level data) as we aggregate at MSOA level… what variables are meaningful when aggregated?</p></li>
-<li><p><input type="checkbox" disabled="">can we actually build a methodology, given the different range of indicators and data?</p></li>
-<li><p><input type="checkbox" disabled="">how turn on/off scenarios in the visualisation- <em>different layers in the map</em></p></li>
-<li><p><input type="checkbox" disabled="">type of output - <em>map, web …</em> <del>MapBox</del> <em>MapLibre GL, Leaflet, …</em></p></li>
+<li><p><input type="checkbox" checked="">importance of localised emissions and need for air-flow modelling … <em>not relevant for GHG</em></p></li>
+<li><p><input type="checkbox" checked="">what is the Research Question <span class="math inline">\(\rightarrow\)</span> <em>What are the “best” values in the parametrisation of the land use variables? Could we train the computer to predict these values?</em></p></li>
+<li><p><input type="checkbox" checked="">Resolution <del>LSOAS/</del> <em>MSOAS</em> ? feedback from Dani regarding SS: <em>SS gives conversion to LSOAs</em> <span class="math inline">\(\Downarrow\)</span></p></li>
+<li><p><input type="checkbox" checked="">how to generate scenarios - <em>ideas: change parameters’ range/values, run ABstreet simulations…?</em></p></li>
+<li><p><input type="checkbox" checked="">integrate with SPC - <em>need to integrate more Census variables? feasible?</em></p></li>
+<li><p><input type="checkbox">Use SPC (individuals’ level data) as we aggregate at MSOA level… what variables are meaningful when aggregated?</p></li>
+<li><p><input type="checkbox">can we actually build a methodology, given the different range of indicators and data?</p></li>
+<li><p><input type="checkbox">how turn on/off scenarios in the visualisation- <em>different layers in the map</em></p></li>
+<li><p><input type="checkbox">type of output - <em>map, web …</em> <del>MapBox</del> <em>MapLibre GL, Leaflet, …</em></p></li>
 </ul>
 <hr>
 <section id="output-map-generation" class="level3" data-number="5.8.1">
@@ -1343,9 +1363,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1410,6 +1444,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
