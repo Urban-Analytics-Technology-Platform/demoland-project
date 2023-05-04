@@ -12,6 +12,7 @@ dependencies:
   - xlrd
   - openpyxl
   - libpysal
+  - xarray
   - folium # * dependencies added for r5py (from https://github.com/r5py/r5py/blob/main/ci/r5py_distro.yaml) 
   - fiona
   - matplotlib
