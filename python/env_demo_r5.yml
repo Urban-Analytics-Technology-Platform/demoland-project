@@ -6,18 +6,22 @@ dependencies:
   - python
   - pip
   - numpy
-  - pandas
+  - pandas==1.5.3
   - geopandas==0.10 # for geopandas.explore()
   - ipykernel
   - xlrd
   - openpyxl
-  - libpysal
+  - libpysal==4.7.0
+  - xarray==2023.1.0
   - folium # * dependencies added for r5py (from https://github.com/r5py/r5py/blob/main/ci/r5py_distro.yaml) 
   - fiona
   - matplotlib
   - mapclassify
+  - joblib==1.2.0
   # - r5py
   - shapely # * up to here
+  - pyarrow==11.0.0
+  - scikit-learn==1.2.0
   - pip:
       - git+https://github.com/r5py/r5py.git@main # to install last version of r5py 
-      - tracc # library for transport accessibility
+      - tracc # library for transport accessibilityß
