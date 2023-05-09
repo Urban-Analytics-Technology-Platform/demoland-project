@@ -4,10 +4,10 @@ import pandas as pd
 
 from sampling import get_data
 
-with open("data/air_quality_predictor.pickle", "rb") as f:
+with open("data/air_quality_predictor_gb.pickle", "rb") as f:
     air_quality_predictor = pickle.load(f)
 
-with open("data/house_price_predictor.pickle", "rb") as f:
+with open("data/house_price_predictor_gb.pickle", "rb") as f:
     house_price_predictor = pickle.load(f)
 
 with open("data/accessibility.joblib", "rb") as f:
@@ -71,8 +71,12 @@ def get_indicators(df):
         DataFrame containing the resulting indicators
     """
     vars, jobs, gsp = get_data(df)
-    aq = air_quality_predictor.predict(vars)
-    hp = house_price_predictor.predict(vars)
+    aq = air_quality_predictor.predict(
+        vars.rename(columns={"population_estimate": "population"})
+    )
+    hp = house_price_predictor.predict(
+        vars.rename(columns={"population_estimate": "population"})
+    )
     ja = accessibility.job_accessibility(jobs, "walk")
     gs = accessibility.greenspace_accessibility(gsp, "walk")
     ja = ja.to_pandas()[df.index].values
