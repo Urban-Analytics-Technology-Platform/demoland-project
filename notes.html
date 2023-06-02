@@ -188,6 +188,16 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#open-general-questions" id="toc-open-general-questions" class="nav-link" data-scroll-target="#open-general-questions"><span class="header-section-number">5.8</span> Open general questions</a>
   <ul class="collapse">
   <li><a href="#output-map-generation" id="toc-output-map-generation" class="nav-link" data-scroll-target="#output-map-generation"><span class="header-section-number">5.8.1</span> Output / map generation</a></li>
+  <li><a href="#net-zero" id="toc-net-zero" class="nav-link" data-scroll-target="#net-zero"><span class="header-section-number">5.8.2</span> Net-zero</a></li>
+  <li><a href="#economy" id="toc-economy" class="nav-link" data-scroll-target="#economy"><span class="header-section-number">5.8.3</span> Economy</a></li>
+  <li><a href="#infrastructure-stock-vacancy" id="toc-infrastructure-stock-vacancy" class="nav-link" data-scroll-target="#infrastructure-stock-vacancy"><span class="header-section-number">5.8.4</span> Infrastructure stock (vacancy)</a></li>
+  <li><a href="#society-and-health" id="toc-society-and-health" class="nav-link" data-scroll-target="#society-and-health"><span class="header-section-number">5.8.5</span> Society and Health</a></li>
+  </ul></li>
+  <li><a href="#scenarios-building" id="toc-scenarios-building" class="nav-link" data-scroll-target="#scenarios-building"><span class="header-section-number">5.9</span> Scenarios building</a></li>
+  <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources"><span class="header-section-number">5.10</span> Data Sources</a>
+  <ul class="collapse">
+  <li><a href="#comprehensive-tables" id="toc-comprehensive-tables" class="nav-link" data-scroll-target="#comprehensive-tables"><span class="header-section-number">5.10.1</span> Comprehensive tables</a></li>
+  <li><a href="#list-of-sources" id="toc-list-of-sources" class="nav-link" data-scroll-target="#list-of-sources"><span class="header-section-number">5.10.2</span> List of sources</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -1216,8 +1226,230 @@ A Python toolbox for ArcGIS Pro that enables the development and application of 
 <!-- What about a nested map
 
 <link data-react-helmet="true" rel="apple-touch-icon" sizes="180x180" href="/maplibre-gl-js-docs/assets/favicon/apple-touch-icon.png?v=rMBbQAR5BL"/><link data-react-helmet="true" rel="icon" type="image/png" sizes="32x32" href="/maplibre-gl-js-docs/assets/favicon/favicon-32x32.png?v=rMBbQAR5BL"/><link data-react-helmet="true" rel="icon" type="image/png" sizes="16x16" href="/maplibre-gl-js-docs/assets/favicon/favicon-16x16.png?v=rMBbQAR5BL"/><link data-react-helmet="true" rel="manifest" href="/maplibre-gl-js-docs/assets/favicon/site.webmanifest?v=rMBbQAR5BL"/><link data-react-helmet="true" rel="mask-icon" href="/maplibre-gl-js-docs/assets/favicon/safari-pinned-tab.svg?v=rMBbQAR5BL" color="#4264fb"/><link data-react-helmet="true" rel="shortcut icon" href="/maplibre-gl-js-docs/assets/favicon/favicon.ico?v=rMBbQAR5BL"/> -->
+<hr>
+<p><em>Suggested data sources:</em></p>
+<ul>
+<li><em>SPC</em> - Synthetic Population Catalyst <a href="https://alan-turing-institute.github.io/uatk-spc/">website</a></li>
+<li><strong>SS</strong> - Spatial Signature <a href="https://urbangrammarai.xyz/great-britain/">website</a></li>
+<li><span style="color:DarkViolet">both</span></li>
+</ul>
+<p>Indicators are grouped into 4 general themes to reflect the goals of the National Land Development Programme (NLDP) in relation to the environment, economy, infrastructure and society:</p>
+</section>
+<section id="net-zero" class="level3" data-number="5.8.2">
+<h3 data-number="5.8.2" class="anchored" data-anchor-id="net-zero"><span class="header-section-number">5.8.2</span> Net-zero</h3>
+<ol type="a">
+<li><em>Mobility-based emissions (e.g., trips x distance x mode —&gt; CO<sub>2</sub>)</em></li>
+<li><em>Housing-based emissions (e.g., CO<sub>2</sub> emissions from building energy consumption)</em></li>
+<li><strong>Green space (area, access, fragmentation)</strong></li>
+</ol>
+</section>
+<section id="economy" class="level3" data-number="5.8.3">
+<h3 data-number="5.8.3" class="anchored" data-anchor-id="economy"><span class="header-section-number">5.8.3</span> Economy</h3>
+<ol type="a">
+<li><span style="color:DarkViolet">Distance to nearest job (by industry)</span></li>
+<li><span style="color:DarkViolet">Job volume within accessible distance</span></li>
+<li><strong>Availability of (appropriate) housing stock</strong></li>
+</ol>
+</section>
+<section id="infrastructure-stock-vacancy" class="level3" data-number="5.8.4">
+<h3 data-number="5.8.4" class="anchored" data-anchor-id="infrastructure-stock-vacancy"><span class="header-section-number">5.8.4</span> Infrastructure stock (vacancy)</h3>
+<ol type="a">
+<li><strong>Brownfield areas</strong></li>
+<li><strong>Vacant lots and properties</strong></li>
+<li><strong>Transport networks and connectivity</strong></li>
+</ol>
+</section>
+<section id="society-and-health" class="level3" data-number="5.8.5">
+<h3 data-number="5.8.5" class="anchored" data-anchor-id="society-and-health"><span class="header-section-number">5.8.5</span> Society and Health</h3>
+<ol type="a">
+<li><em>Physical health</em></li>
+<li><em>Mental health</em></li>
+<li><em>Healthy living and lifestyles</em></li>
+</ol>
+<p>The page <a href="./data_sources.html">Data Sources</a> will be updated once the sources are determined and actually used in the analysis.</p>
+</section>
+</section>
+<section id="scenarios-building" class="level2" data-number="5.9">
+<h2 data-number="5.9" class="anchored" data-anchor-id="scenarios-building"><span class="header-section-number">5.9</span> Scenarios building</h2>
+<p>The existing baseline will be modified through indicative scenarios of relevance, underlining the ability of the modelling system to illustrate the trade-offs between competing objectives through evaluation of the key indicators.</p>
+<p>Scenarios will be generated as:</p>
+<ul>
+<li><em>Type I</em> <mark>what if?</mark> scenarios: the consequence of a range of concrete actions (e.g.&nbsp;construct a new tram line);</li>
+<li><em>Type II</em> <mark>what could be?</mark> scenarios: to explore more aspirational targets (e.g.&nbsp;reduce emissions by 10%)</li>
+</ul>
+<p>Although the final set of scenarios will be co-produced with the partners, an illustration is provided below:</p>
+<ul>
+<li>Infrastructure scenarios:
+<ul>
+<li>S1A – Add new jobs through significant inward investment (e.g., construction of Government offices/public buildings) - <em>Type I</em></li>
+<li>S1B – reorient to new mobility targets through modal shift (increased pedestrian and public transport) - <em>Type II</em></li>
+<li>S1C – Increase access to jobs (e.g., more roads/transit/cycle lanes) - <em>Type I or II</em></li>
+</ul></li>
+<li>Environmental scenarios:
+<ul>
+<li>S2A – create a new urban park or nature reserve - <em>Type I</em></li>
+<li>S2B – design a future urban space with net zero emissions - <em>Type II</em></li>
+</ul></li>
+<li>Housing stock:
+<ul>
+<li>Retrofit existing neighbourhoods to increase density/decrease sprawl - <em>Type I or II</em></li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="data-sources" class="level2" data-number="5.10">
+<h2 data-number="5.10" class="anchored" data-anchor-id="data-sources"><span class="header-section-number">5.10</span> Data Sources</h2>
+<section id="comprehensive-tables" class="level3" data-number="5.10.1">
+<h3 data-number="5.10.1" class="anchored" data-anchor-id="comprehensive-tables"><span class="header-section-number">5.10.1</span> Comprehensive tables</h3>
+<p><strong>Table 1 - </strong> 4 indicators and data we use to quantify them:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">actual (X) VS estimated (O)</th>
+<th>Indicator</th>
+<th>Definition</th>
+<th>Data source</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">O</td>
+<td><del>Mobility emissions</del></td>
+<td></td>
+<td><del>gov uk data estimates <br><em>at LAD level</em> (only)</del></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">X</td>
+<td>Air pollution hazard</td>
+<td></td>
+<td>Local Authority + European data</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">O</td>
+<td>Greenspace accessibility</td>
+<td></td>
+<td>OS greenspace layer</td>
+<td><a href="">link</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">O</td>
+<td>Jobs accessibility</td>
+<td>n.&nbsp;jobs within certain time interval by transport mode</td>
+<td>to be created</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">X</td>
+<td>House prices</td>
+<td>Median house prices for administrative geographies</td>
+<td>ONS</td>
+<td><a href="https://www.ons.gov.uk/peoplepopulationandcommunity/housing/bulletins/housepricestatisticsforsmallareas/yearendingmarch2022">2022 data</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>Table 2 - </strong> Indicators (columns) and plausible explanatory/building variables (rows - landuse variables)</p>
+<table class="table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><em>Variables</em></th>
+<th style="text-align: center;">Mobility emissions</th>
+<th style="text-align: center;">Greenspace<br> acc</th>
+<th style="text-align: center;">Jobs acc</th>
+<th style="text-align: center;">House<br> prices</th>
+<th><em>Sources</em></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>n.&nbsp;of trips</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td>OD data (Nomis)</td>
+</tr>
+<tr class="even">
+<td>distance</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td>OD data (Nomis)</td>
+</tr>
+<tr class="odd">
+<td>mode transport</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td>OD data (Nomis)</td>
+</tr>
+<tr class="even">
+<td>distance to access point</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+<td>from OS layer</td>
+</tr>
+<tr class="odd">
+<td>areal extension of gs</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+<td>from OS layer</td>
+</tr>
+<tr class="even">
+<td>n.&nbsp;available jobs</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td>Nomis BRES</td>
+</tr>
+<tr class="odd">
+<td>distance to employment center</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">generated</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>access to public transport</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">generated</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>… distinguish landuse as explanatory variable from landuse as indicator…</p>
+</section>
+<section id="list-of-sources" class="level3" data-number="5.10.2">
+<h3 data-number="5.10.2" class="anchored" data-anchor-id="list-of-sources"><span class="header-section-number">5.10.2</span> List of sources</h3>
+<p>Data hunting still in progress, to be filled up when data use is certain.<br> See <a href="./notes.html">notes</a> to follow the development.</p>
+<section id="time-use-survey" class="level4" data-number="5.10.2.1">
+<h4 data-number="5.10.2.1" class="anchored" data-anchor-id="time-use-survey"><span class="header-section-number">5.10.2.1</span> Time Use Survey</h4>
+<p>Time Use Survey for UK is available from UK Data Service website at <a href="http://dx.doi.org/10.5255/UKDA-SN-8128-1">http://dx.doi.org/10.5255/UKDA-SN-8128-1</a></p>
+<hr>
 
 
+</section>
 </section>
 </section>
 

@@ -146,12 +146,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#comprehensive-tables" id="toc-comprehensive-tables" class="nav-link active" data-scroll-target="#comprehensive-tables"><span class="header-section-number">3.1</span> Comprehensive tables</a></li>
-  <li><a href="#list-of-sources" id="toc-list-of-sources" class="nav-link" data-scroll-target="#list-of-sources"><span class="header-section-number">3.2</span> List of sources</a>
+  <li><a href="#list-of-data-source" id="toc-list-of-data-source" class="nav-link active" data-scroll-target="#list-of-data-source"><span class="header-section-number">3.1</span> List of data source</a>
   <ul class="collapse">
-  <li><a href="#gov.uk" id="toc-gov.uk" class="nav-link" data-scroll-target="#gov.uk"><span class="header-section-number">3.2.1</span> gov.uk</a></li>
-  <li><a href="#cdrc" id="toc-cdrc" class="nav-link" data-scroll-target="#cdrc"><span class="header-section-number">3.2.2</span> CDRC</a></li>
-  <li><a href="#time-use-survey" id="toc-time-use-survey" class="nav-link" data-scroll-target="#time-use-survey"><span class="header-section-number">3.2.3</span> Time Use Survey</a></li>
+  <li><a href="#project-wide" id="toc-project-wide" class="nav-link" data-scroll-target="#project-wide"><span class="header-section-number">3.1.1</span> Project-wide</a></li>
+  <li><a href="#accessibility-indicators" id="toc-accessibility-indicators" class="nav-link" data-scroll-target="#accessibility-indicators"><span class="header-section-number">3.1.2</span> Accessibility indicators</a></li>
+  <li><a href="#air-quality" id="toc-air-quality" class="nav-link" data-scroll-target="#air-quality"><span class="header-section-number">3.1.3</span> Air quality</a></li>
+  <li><a href="#house-price" id="toc-house-price" class="nav-link" data-scroll-target="#house-price"><span class="header-section-number">3.1.4</span> House price</a></li>
+  <li><a href="#explanatory-variables-for-modelling" id="toc-explanatory-variables-for-modelling" class="nav-link" data-scroll-target="#explanatory-variables-for-modelling"><span class="header-section-number">3.1.5</span> Explanatory variables for modelling</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -176,162 +177,46 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="comprehensive-tables" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="comprehensive-tables"><span class="header-section-number">3.1</span> Comprehensive tables</h2>
-<p><strong>Table 1 - </strong>4 indicators and data we use to quantify them:</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th style="text-align: center;">actual (X) VS estimated (O)</th>
-<th>Indicator</th>
-<th>Definition</th>
-<th>Data source</th>
-<th>Link</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">O</td>
-<td><del>Mobility emissions</del></td>
-<td></td>
-<td><del>gov uk data estimates <br><em>at LAD level</em> (only)</del></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">X</td>
-<td>Air pollution hazard</td>
-<td></td>
-<td>Local Authority + European data</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">O</td>
-<td>Greenspace accessibility</td>
-<td></td>
-<td>OS greenspace layer</td>
-<td><a href="">link</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">O</td>
-<td>Jobs accessibility</td>
-<td>n.&nbsp;jobs within certain time interval by transport mode</td>
-<td>to be created</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">X</td>
-<td>House prices</td>
-<td>Median house prices for administrative geographies</td>
-<td>ONS</td>
-<td><a href="https://www.ons.gov.uk/peoplepopulationandcommunity/housing/bulletins/housepricestatisticsforsmallareas/yearendingmarch2022">2022 data</a></td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p><strong>Table 2 - </strong> Indicators (columns) and plausible explanatory/building variables (rows - landuse variables)</p>
-<table class="table">
-<colgroup>
-<col style="width: 7%">
-<col style="width: 21%">
-<col style="width: 21%">
-<col style="width: 21%">
-<col style="width: 21%">
-<col style="width: 7%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><em>Variables</em></th>
-<th style="text-align: center;">Mobility emissions</th>
-<th style="text-align: center;">Greenspace<br> acc</th>
-<th style="text-align: center;">Jobs acc</th>
-<th style="text-align: center;">House<br> prices</th>
-<th><em>Sources</em></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>n.&nbsp;of trips</td>
-<td style="text-align: center;">X</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td>OD data (Nomis)</td>
-</tr>
-<tr class="even">
-<td>distance</td>
-<td style="text-align: center;">X</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td>OD data (Nomis)</td>
-</tr>
-<tr class="odd">
-<td>mode transport</td>
-<td style="text-align: center;">X</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td>OD data (Nomis)</td>
-</tr>
-<tr class="even">
-<td>distance to access point</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">X</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">X</td>
-<td>from OS layer</td>
-</tr>
-<tr class="odd">
-<td>areal extension of gs</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">X</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">X</td>
-<td>from OS layer</td>
-</tr>
-<tr class="even">
-<td>n.&nbsp;available jobs</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">X</td>
-<td style="text-align: center;">X</td>
-<td>Nomis BRES</td>
-</tr>
-<tr class="odd">
-<td>distance to employment center</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">X</td>
-<td style="text-align: center;">generated</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>access to public transport</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">X</td>
-<td style="text-align: center;">generated</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>… distinguish landuse as explanatory variable from landuse as indicator…</p>
+<p>The list of data sources used in this project. For more details on how is each dataset used and processed, refer to the <a href="./method.html">Methodology</a>.</p>
+<section id="list-of-data-source" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="list-of-data-source"><span class="header-section-number">3.1</span> List of data source</h2>
+<p>Below is a list of data sources organised by the purpose</p>
+<section id="project-wide" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="project-wide"><span class="header-section-number">3.1.1</span> Project-wide</h3>
+<ul>
+<li>OS | 2011 Census Output Areas | <a href="">link</a></li>
+</ul>
 </section>
-<section id="list-of-sources" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="list-of-sources"><span class="header-section-number">3.2</span> List of sources</h2>
-<p>Data hunting still in progress, to be filled up when data use is certain.<br> See <a href="./notes.html">notes</a> to follow the development.</p>
-<section id="gov.uk" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="gov.uk"><span class="header-section-number">3.2.1</span> gov.uk</h3>
-<p>…</p>
+<section id="accessibility-indicators" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="accessibility-indicators"><span class="header-section-number">3.1.2</span> Accessibility indicators</h3>
+<ul>
+<li>ONS | Population Weighted Centroids (PWC) of Output Areas | <a href="https://www.ons.gov.uk/census/2001censusandearlier/dataandproducts/outputgeography/outputareas">link</a></li>
+<li>ONS | Workplace zones | <a href="https://www.nomisweb.co.uk/sources/census_2011_wp">link</a></li>
+<li>OS | Open Greenspace | <a href="https://beta.ordnancesurvey.co.uk/products/os-open-greenspace">link</a></li>
+<li>OSM | OpenStreetMap network data | <a href="https://openstreetmap.org">link</a></li>
+<li>ITS Leeds | UK GTFS data | <a href="https://itsleeds.github.io/UK2GTFS/">link</a></li>
+</ul>
 </section>
-<section id="cdrc" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored" data-anchor-id="cdrc"><span class="header-section-number">3.2.2</span> CDRC</h3>
-<p>…</p>
+<section id="air-quality" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="air-quality"><span class="header-section-number">3.1.3</span> Air quality</h3>
+<ul>
+<li>DEFRA | UK AIR | <a href="https://uk-air.defra.gov.uk/data/pcm-data">link</a></li>
+</ul>
 </section>
-<section id="time-use-survey" class="level3" data-number="3.2.3">
-<h3 data-number="3.2.3" class="anchored" data-anchor-id="time-use-survey"><span class="header-section-number">3.2.3</span> Time Use Survey</h3>
-<p>Time Use Survey for UK is available from UK Data Service website at <a href="http://dx.doi.org/10.5255/UKDA-SN-8128-1">http://dx.doi.org/10.5255/UKDA-SN-8128-1</a></p>
-<hr>
+<section id="house-price" class="level3" data-number="3.1.4">
+<h3 data-number="3.1.4" class="anchored" data-anchor-id="house-price"><span class="header-section-number">3.1.4</span> House price</h3>
+<ul>
+<li>Chi et al.&nbsp;| A new attribute-linked residential property price dataset for England and Wales 2011-2019 | <a href="https://dx.doi.org/10.5255/UKDA-SN-854240">link</a></li>
+</ul>
+</section>
+<section id="explanatory-variables-for-modelling" class="level3" data-number="3.1.5">
+<h3 data-number="3.1.5" class="anchored" data-anchor-id="explanatory-variables-for-modelling"><span class="header-section-number">3.1.5</span> Explanatory variables for modelling</h3>
+<ul>
+<li>ONS | Population estimates | <a href="https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/censusoutputareaestimatesinthenortheastregionofengland/mid2020sape23dt10d/sape23dt10dmid2020coaunformattedsyoaestimatesnortheast.xlsx">link</a></li>
+<li>ONS | Workplace population | <a href="https://www.nomisweb.co.uk/sources/census_2011_wp">link</a></li>
+<li>Copernicus | CORINE Land Cover classification | <a href="https://land.copernicus.eu/pan-european/corine-land-cover">link</a></li>
+<li>The Alan Turing Institute | Spatial Signatures of Great Britain | <a href="https://urbangrammarai.xyz/story/">link</a></li>
+</ul>
 
 
 </section>
