@@ -161,9 +161,12 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#corine-land-cover-classification" id="toc-corine-land-cover-classification" class="nav-link" data-scroll-target="#corine-land-cover-classification"><span class="header-section-number">4.2.3</span> CORINE Land Cover classification</a></li>
   <li><a href="#urban-morphometrics" id="toc-urban-morphometrics" class="nav-link" data-scroll-target="#urban-morphometrics"><span class="header-section-number">4.2.4</span> Urban morphometrics</a></li>
   <li><a href="#variable-pruning" id="toc-variable-pruning" class="nav-link" data-scroll-target="#variable-pruning"><span class="header-section-number">4.2.5</span> Variable pruning</a></li>
-  <li><a href="#modelling-regression-analysis" id="toc-modelling-regression-analysis" class="nav-link" data-scroll-target="#modelling-regression-analysis"><span class="header-section-number">4.2.6</span> Modelling / regression analysis</a></li>
   </ul></li>
-  <li><a href="#building-scenarios" id="toc-building-scenarios" class="nav-link" data-scroll-target="#building-scenarios"><span class="header-section-number">4.3</span> Building scenarios</a></li>
+  <li><a href="#modelling-regression-analysis" id="toc-modelling-regression-analysis" class="nav-link" data-scroll-target="#modelling-regression-analysis"><span class="header-section-number">4.3</span> Modelling / regression analysis</a>
+  <ul class="collapse">
+  <li><a href="#resulting-model-specifications" id="toc-resulting-model-specifications" class="nav-link" data-scroll-target="#resulting-model-specifications"><span class="header-section-number">4.3.1</span> Resulting model specifications</a></li>
+  </ul></li>
+  <li><a href="#building-scenarios" id="toc-building-scenarios" class="nav-link" data-scroll-target="#building-scenarios"><span class="header-section-number">4.4</span> Building scenarios</a></li>
   </ul>
 </nav>
     </div>
@@ -388,8 +391,9 @@ ul.task-list li input[type="checkbox"] {
 <li>area-weighted ETCs of enclosure</li>
 </ul>
 </section>
-<section id="modelling-regression-analysis" class="level3" data-number="4.2.6">
-<h3 data-number="4.2.6" class="anchored" data-anchor-id="modelling-regression-analysis"><span class="header-section-number">4.2.6</span> Modelling / regression analysis</h3>
+</section>
+<section id="modelling-regression-analysis" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="modelling-regression-analysis"><span class="header-section-number">4.3</span> Modelling / regression analysis</h2>
 <p>While the accessibility indicators are a result of a deterministic model based on a fixed travel-time matrix, hence any scenario modelling can re-use it and change only the raw values at the destinations, we need to develop predictive models to be able to see the change of air quality and house price.</p>
 <p>Both models are based on the same architecture, a Histogram-based Gradient Boosting Regression Tree as implemented in the <code>scikit-learn</code> Python package, and a set of 59 explanatory variables listed above. To ensure we are able to properly captrue the spatial nature of the indicators, we add another 59 variables on top that are a result of a spatial lag of the original set. The spatial lag is measured as a mean value of the variable within a set neighbourhood, which definition is determined empirically. We test the neighbourhoods based on contiguity (from order of contiguity 1 to 5 inclusive of lower-order neighbors), Euclidean distance (500m, 1000m, 2000m) and their unions. Each option is then part of the grid search aimed at the selection of the best model parameters and the best defition of the spatial lag in relation to the model performance metrics (R<sup>2</sup>, MSE, ME). Model parameters that are being assessed are learning rate, maximum number of iterations and maximum number of bins. For more details, see the implementation in the <a href="https://github.com/ciupava/LandUseDemonstrator/blob/main/python/air_quality_model_search.ipynb">Air Quality notebook</a> and the <a href="https://github.com/ciupava/LandUseDemonstrator/blob/main/python/house_price_model_search.ipynb">House Price notebook</a>.</p>
 <p>Furthermore, we have experimented with the geographical extent of the training data. While the original models were based only on the data from the study area (Tyne and Wear), we have tested models trained on other geographical subsets:</p>
@@ -399,19 +403,27 @@ ul.task-list li input[type="checkbox"] {
 <li>Tyne and Wear plus all OAs belonging to “Urbanity” classes from the rest of England</li>
 </ul>
 <p>This was to add additional robustness to the model by training on a wider set of data.</p>
-<section id="resulting-model-specifications" class="level4" data-number="4.2.6.1">
-<h4 data-number="4.2.6.1" class="anchored" data-anchor-id="resulting-model-specifications"><span class="header-section-number">4.2.6.1</span> Resulting model specifications</h4>
+<section id="resulting-model-specifications" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="resulting-model-specifications"><span class="header-section-number">4.3.1</span> Resulting model specifications</h3>
 <p>The resulting models, selected based on their performance, are based on the following specifications:</p>
 <p><strong>Air Quality</strong></p>
 <ul>
 <li>Spatial extent: Tyne and Wear plus all OAs belonging to “Urbanity” classes from the rest of England</li>
-<li>Spatial lag:</li>
+<li>Spatial lag: A union of 5 orders of Queen contiguity and 2000m distance band</li>
+<li>Model parameters: <code>learning_rate=0.2</code>, <code>max_bins=64</code>, <code>max_iter=1000</code></li>
 </ul>
+<p>The model performance (R<sup>2</sup>) is 0.8.</p>
+<p><strong>House Price</strong></p>
+<ul>
+<li>Spatial extent: England excluding Greater London</li>
+<li>Spatial lag: 5 orders of Queen contiguity</li>
+<li>Model parameters: <code>learning_rate=0.1</code>, <code>max_bins=128</code>, <code>max_iter=1000</code></li>
+</ul>
+<p>The model performance (R<sup>2</sup>) is 0.5.</p>
 </section>
 </section>
-</section>
-<section id="building-scenarios" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="building-scenarios"><span class="header-section-number">4.3</span> Building scenarios</h2>
+<section id="building-scenarios" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="building-scenarios"><span class="header-section-number">4.4</span> Building scenarios</h2>
 <p>TBC</p>
 
 
