@@ -1,53 +1,37 @@
 
 # Data Sources
 
-## Comprehensive tables
+The list of data sources used in this project. For more details on how is each dataset
+used and processed, refer to the [Methodology](method.qmd).
 
-**Table 1 - **4 indicators and data we use to quantify them:
- 
-| actual (X) VS estimated (O)| Indicator | Definition |Data source | Link |
-|:-:|-|-|-|-|
-|O| ~~Mobility emissions~~ | | ~~gov uk data estimates <br/>*at LAD level* (only)~~ |  |
-|X| Air pollution hazard | | Local Authority + European data |  |
-|O| Greenspace accessibility | | OS greenspace layer | [link]()|
-|O| Jobs accessibility| n. jobs within certain time interval by transport mode| to be created| | 
-|X| House prices | Median house prices for administrative geographies|ONS| [2022 data](https://www.ons.gov.uk/peoplepopulationandcommunity/housing/bulletins/housepricestatisticsforsmallareas/yearendingmarch2022)|
+## List of data source
 
----
+Below is a list of data sources organised by the purpose
 
-**Table 2 - ** Indicators (columns) and plausible explanatory/building variables (rows - landuse variables)
+### Project-wide
 
-| _Variables_ | Mobility emissions | Greenspace<br/> acc | Jobs acc | House<br/> prices | _Sources_ |
-|-|:-:|:-:|:-:|:-:|-|
-| n. of trips| X | | | | OD data (Nomis)|
-| distance  | X | | | | OD data (Nomis)|
-| mode transport| X | | | | OD data (Nomis)|
-| distance to access point |  | X |  | X | from OS layer |
-| areal extension of gs |  | X |  | X | from OS layer |
-| n. available jobs |  |  | X | X | Nomis BRES |
-| distance to employment center |  |  | X | generated | 
-| access to public transport |  |  | X | generated |
+- OS | 2011 Census Output Areas | [link]()
 
-... distinguish landuse as explanatory variable from landuse as indicator...
+### Accessibility indicators
 
-## List of sources
+- ONS | Population Weighted Centroids (PWC) of Output Areas | [link](https://www.ons.gov.uk/census/2001censusandearlier/dataandproducts/outputgeography/outputareas)
+- ONS | Workplace zones | [link](https://www.nomisweb.co.uk/sources/census_2011_wp)
+- OS | Open Greenspace  | [link](https://beta.ordnancesurvey.co.uk/products/os-open-greenspace)
+- OSM | OpenStreetMap network data | [link](https://openstreetmap.org)
+- ITS Leeds | UK GTFS data | [link](https://itsleeds.github.io/UK2GTFS/)
 
-Data hunting still in progress, to be filled up when data use is certain.<br/>
-See [notes](notes.qmd) to follow the development.
+### Air quality
 
-### gov.uk
+- DEFRA | UK AIR | [link](https://uk-air.defra.gov.uk/data/pcm-data)
 
-...
+### House price
 
+- Chi et al. | A new attribute-linked
+residential property price dataset for England and Wales 2011-2019 | [link](https://dx.doi.org/10.5255/UKDA-SN-854240)
 
-### CDRC
+### Explanatory variables for modelling
 
-...
-
-
-### Time Use Survey
-
-Time Use Survey for UK is available from UK Data Service website at [http://dx.doi.org/10.5255/UKDA-SN-8128-1](http://dx.doi.org/10.5255/UKDA-SN-8128-1)
-
----
-
+- ONS | Population estimates | [link](https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/censusoutputareaestimatesinthenortheastregionofengland/mid2020sape23dt10d/sape23dt10dmid2020coaunformattedsyoaestimatesnortheast.xlsx)
+- ONS | Workplace population | [link](https://www.nomisweb.co.uk/sources/census_2011_wp)
+- Copernicus | CORINE Land Cover classification | [link](https://land.copernicus.eu/pan-european/corine-land-cover)
+- The Alan Turing Institute | Spatial Signatures of Great Britain | [link](https://urbangrammarai.xyz/story/)

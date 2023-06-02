@@ -29,7 +29,7 @@ Once a TTM is built between one set of origins and one set of destinations for a
 
 **Destinations -** Per each destination we need to provide the coordinates and a datum for the _opportunity_ (or 'supply', in our case this is the land use), for example the number of jobs available (other opportutnities could be number of schools, health centres, other types of countable features).
 
-For jobs count we consider as destinations the PWC of the working population per Working Place Zones (WPZ) from the 2011 Census ([data available](https://www.nomisweb.co.uk/sources/census_2011_wp) and [definition](https://www.ons.gov.uk/methodology/geography/geographicalproducts/areaclassifications/2011workplacebasedareaclassification/classificationofworkplacezonesfortheukabouttheareaclassifications)). <br/>As an opportunity measure (the job counts) we make the approximation that _the number of workers equals the number of jobs available_. This is an approximation we take in order to preserve the spatial location of the jobs, that is relevant in the calculation of the time travel matrix. In fact the number of jobs in the Census is at OAs level, but the PWC for this aggregated level can be off-centered in relation to where people work.
+For jobs count we consider as destinations the PWC of the working population per Workplace Zones (WPZ) from the 2011 Census ([data available](https://www.nomisweb.co.uk/sources/census_2011_wp) and [definition](https://www.ons.gov.uk/methodology/geography/geographicalproducts/areaclassifications/2011workplacebasedareaclassification/classificationofworkplacezonesfortheukabouttheareaclassifications)). <br/>As an opportunity measure (the job counts) we make the approximation that _the number of workers equals the number of jobs available_. This is an approximation we take in order to preserve the spatial location of the jobs, that is relevant in the calculation of the time travel matrix. In fact the number of jobs in the Census is at OAs level, but the PWC for this aggregated level can be off-centered in relation to where people work.
 
 For green spaces accessibility we use the open data set available from [Ordnance Survey](https://beta.ordnancesurvey.co.uk/products/os-open-greenspace) (OS). <br/>In particular as a first approximation we consider the layer "Access points" from this datum. This gives the coordinates of the access points to green spaces in all Great Britain, which we take as destinations.<br/>As an opportunity measure we count the areas of the greenspace (layer "Sites") to which these points give access to, see below for details on how we consider the cumulative opportunity of this datum.
 
@@ -49,7 +49,7 @@ b. Green spaces accessibility
 1. obtain greenspace sites from OS
     - filter out not relevant categories (allottments, golf courses, bowling greens)
     - retain entrances on the edge of the sites
-    - associate 
+    - associate
 2. ~~ obtain "missing" areas from Corine or OSM~~ _idea for future improvement_
 3. get sites' area
 4. filter entrances within time threshold (15min) per each origin (OA)

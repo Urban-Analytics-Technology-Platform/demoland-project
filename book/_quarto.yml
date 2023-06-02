@@ -1,12 +1,12 @@
 project:
-  type: book 
+  type: book
   output-dir: ./book
 execute:
   freeze: true
 book:
   title: "DemoLand"
   subtitle: "Land Use Demonstrator project"
-  author: "Anna Zanchetta"
+  author: "Anna Zanchetta, Martin Fleischmann, Dani Arribas-Bel; The Alan Turing Institute"
   date: today
   search: true
   repo-url: https://github.com/ciupava/LandUseDemonstrator/

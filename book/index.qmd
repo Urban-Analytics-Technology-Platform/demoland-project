@@ -1,7 +1,7 @@
 ---
 title: "DemoLand"
-subtitle: "Land Use Demonstrator :egg: :hatching_chick: :chicken: - project notes"
-author: "Anna Zanchetta"
+subtitle: "Land Use Demonstrator project notes"
+author: "Anna Zanchetta, Martin Fleischmann, Dani Arribas-Bel; The Alan Turing Institute"
 date: today
 from: markdown+emoji
 # format:
@@ -12,4 +12,7 @@ from: markdown+emoji
 #     chalkboard: true
 ---
 
-Document to keep track of the development of the Land Use Demonstrator project.
+This is a live document documenting the progress of the development of the Land Use
+Demonstrator project. Refer to individual sections in the menu on the left for details.
+
+

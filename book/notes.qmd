@@ -22,7 +22,7 @@ The reason for this are:
 
 Dealing with the two issues separately:
 
---- 
+---
 
 The good thing of the OS data is that they are accurate (resolution, categories) AND they contain also the access points (which for everyone's sake we are gonna refer to as _entrances_).<br/>
 **NOTE:** we need _entrances_ to green space as the destinations for our time travel matrices.<br/>
@@ -119,7 +119,7 @@ working with the files in `raw/GTFS`:
  - `itm_north_east.gtfs.zip`:
      - should be a subset of the one above for North East England
      - downloaded from same source, where I have managed to get subset (don't remember how)
-     - 
+     -
  - `NE.zip`:
      - GTFS generated and downloaded from UK2GTFS https://github.com/ITSLeeds/UK2GTFS, see _releases_
      - this file has no shape.txt but it’s for North East England
@@ -162,9 +162,9 @@ Looking for alternatives, I have found a geography for the Census that takes int
 
 [Workplace Zones (WPZ)](https://www.ons.gov.uk/methodology/geography/geographicalproducts/areaclassifications/2011workplacebasedareaclassification/classificationofworkplacezonesfortheukabouttheareaclassifications)
 
-> Workplace Zones are a small-area geography designed to contain a consistent number of workers allowing workplace statistics to be released at a more granular level. 
+> Workplace Zones are a small-area geography designed to contain a consistent number of workers allowing workplace statistics to be released at a more granular level.
 
-The data available at this geographic level are [here](https://www.nomisweb.co.uk/sources/census_2011_wp) and they include the _Workplace population (table WP101EW)_ 
+The data available at this geographic level are [here](https://www.nomisweb.co.uk/sources/census_2011_wp) and they include the _Workplace population (table WP101EW)_
 
 >This dataset provides 2011 Census estimates of the workplace population in England and Wales by residence type (household or communal resident), by sex and by age. The estimates are as at census day, 27 March 2011.
 
@@ -207,7 +207,7 @@ Let's start from *green spaces* (easier?) to create methodology, then pass on to
 
 - resolution (LSOA...?)
 - find relation to land use
-- generate indicators: 
+- generate indicators:
      - relevant variables
      - relevant scenarios
 
@@ -275,9 +275,9 @@ In order to run these functions we need to create/have the following input files
 
      - a. _job counts per area_ can download data at LSOA level (one file per LAD, or full county) from [Nomis BRES](https://www.nomisweb.co.uk/sources/bres)
      - b. _other type of opportunity_ (ex: n of groceries, n of schools, etc... extension of greenspace? <mark>**n of access points?**</mark>)
-     
+
 <br/><br/> as a proxy for future complicated stuff and to try something for now, let's generate the number of access points (to greenspaces) per LSOA... <br/>what would be the fastest way:
- 
+
  - QGIS analysis (sure a function exists for this, but this solution is valid only temporarily, better the next one)
  - in Python with Geopandas (or similar stuff) I assume it's doable
 
@@ -412,7 +412,7 @@ Steps:
        code `LAD20CD` = `Local authority code`<br/>
        name `LAD20NM` = `Local authority name`
 - choose time ... data published quarterly (4 times a year) with all editions back to 1995
-- 
+-
 
 ### Accessibility (... Greenspaces)
 
@@ -422,7 +422,7 @@ Steps:
 
 - routing $\rightarrow$ Valhalla [isochrones](https://valhalla.readthedocs.io/en/latest/api/isochrone/api-reference/)
 - census data
-- relevant layers: public venues (schools, hospitals), green/blue spaces, 
+- relevant layers: public venues (schools, hospitals), green/blue spaces,
 
 
 
@@ -482,7 +482,7 @@ _2.c_. **House prices**<br/>
 Below, some notes for each indicator on the data searching process
 
 
---- 
+---
 
 _1.a/b_. **Pollution/emissions**
 
@@ -552,25 +552,25 @@ Minimum mapping resolution 0.25 ha, Minimum width: 10 m<br/>
         - the file includes cemeteries AND allottments
     - **Natural England** [Accessible Natural Green Space Standards in Towns and Cities: A Review and Toolkit for their Implementation (ENRR526)](http://publications.naturalengland.org.uk/publication/65021)
         - review and toolkit
-    - **Public Health England** [report](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/904439/Improving_access_to_greenspace_2020_review.pdf) 
+    - **Public Health England** [report](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/904439/Improving_access_to_greenspace_2020_review.pdf)
         - ... data??
     - **Fields in trust** [Green Space Index](https://www.fieldsintrust.org/green-space-index)
         - [interactive map](https://experience.arcgis.com/experience/5301c55a8189410b9428a90f05596af4)
         - they launched GSI in 2019
         - they use OS Open Greenspace Map (above) and ArcGIS
         - not available as open data
-    - **[AHAH](#ahah) [Access to Healthy Assets & Hazards](https://data.cdrc.ac.uk/dataset/access-healthy-assets-hazards-ahah)** (Dani suggested) 
-        
+    - **[AHAH](#ahah) [Access to Healthy Assets & Hazards](https://data.cdrc.ac.uk/dataset/access-healthy-assets-hazards-ahah)** (Dani suggested)
+
         • A multi-dimensional index developed by the CDRC for Great Britain at LSOA level, contains also access to greenspace (passive) - already calculated
-        
+
         • ... different versions:
 
         VERSION 3 (2022)<br/>
-        
+
         VERSION 2 (2017) <br/>
-        
+
         VERSION 1 (2016)
-        
+
         • the current version (3) only gives the 'passive' greenspace, in terms of NDVI values (from Sentinel)
         <figure>
             <img src="images/ahah_why.png"/ width="650">
@@ -613,7 +613,7 @@ Minimum mapping resolution 0.25 ha, Minimum width: 10 m<br/>
         [Green, M. A., Daras, K., Davies, A., Barr, B. & Singleton, A. 2018. Developing an openly accessible multi-dimensional small area index of ‘Access to Healthy Assets and Hazards’ for Great Britain,](https://doi.org/10.1016/j.healthplace.2018.08.019) <br/>
         but is aware of OS, from the Appendix:
         <blockquote>
-        There were few open source alternatives (or data that could be shared openly within the terms of their licences) containing similar data during the construction of the indicators and our index. <mark>Since then, the **Ordnance Survey (OS)** have released an open resource of locations of green space </mark>(OS Green Space Layer; https://getoutside.ordnancesurvey.co.uk/greenspaces/) . We are currently undertaking a full comparison of OSM and OS to explore the strengths and weaknesses of each data source with the aim of improving our green space metrics, however such an evaluation is beyond the scope of this paper. 
+        There were few open source alternatives (or data that could be shared openly within the terms of their licences) containing similar data during the construction of the indicators and our index. <mark>Since then, the **Ordnance Survey (OS)** have released an open resource of locations of green space </mark>(OS Green Space Layer; https://getoutside.ordnancesurvey.co.uk/greenspaces/) . We are currently undertaking a full comparison of OSM and OS to explore the strengths and weaknesses of each data source with the aim of improving our green space metrics, however such an evaluation is beyond the scope of this paper.
         </blockquote>
 
         • They use *Routino* open source software [https://www.routino.org](https://www.routino.org) to identify the shortest path between two locations using the OSM transport network
@@ -708,13 +708,13 @@ After some strenuous research managed to find the archive for it [here](https://
 
 **Accessibility Destination Datasets**
 
-- they measure accessibility to key services like: 
+- they measure accessibility to key services like:
     - food stores
     - education
     - health care
     - town centres
     - employment centres
-- published for England at national, regional, LAD and LSOA level. 
+- published for England at national, regional, LAD and LSOA level.
 - have they been substited by [Journey time statistics](https://www.gov.uk/government/collections/journey-time-statistics) data?
 
 ***Note*** data at LSOA level is also available in gov.uk [in xls format](https://www.gov.uk/government/statistical-data-sets/acs05-travel-time-destination-and-origin-indicators-to-key-sites-and-services-by-lower-super-output-area-lsoa)
@@ -855,7 +855,7 @@ Roadmap:
 
 - how to select MSOAs for Origin and Destination from the dataset (take off abroad destinations as well)
 
-- 
+-
 
 ---
 
@@ -905,7 +905,7 @@ where:
 
 ### Approximations
 
-a. only OD within MSOAs of this county 
+a. only OD within MSOAs of this county
 
 b. considering as distance only the pop weighted centroids for each MSOA
 
@@ -1002,7 +1002,7 @@ c. electricity and gas consumption (kWh) at postcode level (England, Scotland, W
 
 d. electricity consumption data for 2005 to 2020 as a single table, with years stacked one above the other [stacked data](https://www.gov.uk/government/statistical-data-sets/stacked-electricity-consumption-statistics-data)
 
-- analogous links for [gas consumption](https://www.gov.uk/government/collections/sub-national-gas-consumption-data) 
+- analogous links for [gas consumption](https://www.gov.uk/government/collections/sub-national-gas-consumption-data)
 
 ---
 
@@ -1065,3 +1065,112 @@ Note: could generate a website via [MapLibre](https://maplibre.org/), checked th
 <!-- What about a nested map
 
 <link data-react-helmet="true" rel="apple-touch-icon" sizes="180x180" href="/maplibre-gl-js-docs/assets/favicon/apple-touch-icon.png?v=rMBbQAR5BL"/><link data-react-helmet="true" rel="icon" type="image/png" sizes="32x32" href="/maplibre-gl-js-docs/assets/favicon/favicon-32x32.png?v=rMBbQAR5BL"/><link data-react-helmet="true" rel="icon" type="image/png" sizes="16x16" href="/maplibre-gl-js-docs/assets/favicon/favicon-16x16.png?v=rMBbQAR5BL"/><link data-react-helmet="true" rel="manifest" href="/maplibre-gl-js-docs/assets/favicon/site.webmanifest?v=rMBbQAR5BL"/><link data-react-helmet="true" rel="mask-icon" href="/maplibre-gl-js-docs/assets/favicon/safari-pinned-tab.svg?v=rMBbQAR5BL" color="#4264fb"/><link data-react-helmet="true" rel="shortcut icon" href="/maplibre-gl-js-docs/assets/favicon/favicon.ico?v=rMBbQAR5BL"/> -->
+
+---
+
+*Suggested data sources:*
+
+- *SPC* - Synthetic Population Catalyst [website](https://alan-turing-institute.github.io/uatk-spc/)
+- **SS** - Spatial Signature [website](https://urbangrammarai.xyz/great-britain/)
+- <span style="color:DarkViolet">both</span>
+
+Indicators are grouped into 4 general themes to reflect the goals of the National Land Development Programme (NLDP) in relation to the environment, economy, infrastructure and society:
+
+###  Net-zero
+a. *Mobility-based emissions (e.g., trips x distance x mode —> CO<sub>2</sub>)*
+b. *Housing-based emissions (e.g., CO<sub>2</sub> emissions from building energy consumption)*
+c. **Green space (area, access, fragmentation)**
+
+### Economy
+
+a. <span style="color:DarkViolet">Distance to nearest job (by industry)</span>
+b. <span style="color:DarkViolet">Job volume within accessible distance</span>
+c. **Availability of (appropriate) housing stock**
+
+### Infrastructure stock (vacancy)
+a. **Brownfield areas**
+b. **Vacant lots and properties**
+c. **Transport networks and connectivity**
+
+### Society and Health
+a. *Physical health*
+b. *Mental health*
+c. *Healthy living and lifestyles*
+
+
+The page [Data Sources](data_sources.qmd) will be updated once the sources are determined and actually used in the analysis.
+
+## Scenarios building
+
+The existing baseline will be modified through indicative scenarios of relevance, underlining the ability of the modelling system to illustrate the trade-offs between competing objectives through evaluation of the key indicators.
+
+Scenarios will be generated as:
+
+- _Type I_ <mark>what if?</mark> scenarios: the consequence of a range of concrete actions (e.g. construct a new tram line);
+- _Type II_ <mark>what could be?</mark> scenarios: to explore more aspirational targets (e.g. reduce emissions by 10%)
+
+Although the final set of scenarios will be co-produced with the partners, an illustration is provided below:
+
+- Infrastructure scenarios:
+     - S1A – Add new jobs through significant inward investment (e.g., construction of Government offices/public buildings) - _Type I_
+     - S1B – reorient to new mobility targets through modal shift (increased pedestrian and public transport) - _Type II_
+     - S1C – Increase access to jobs (e.g., more roads/transit/cycle lanes) - _Type I or II_
+- Environmental scenarios:
+     - S2A – create a new urban park or nature reserve - _Type I_
+     - S2B – design a future urban space with net zero emissions - _Type II_
+- Housing stock:
+     - Retrofit existing neighbourhoods to increase density/decrease sprawl - _Type I or II_
+
+---
+# Data Sources
+
+## Comprehensive tables
+
+**Table 1 - **4 indicators and data we use to quantify them:
+
+| actual (X) VS estimated (O)| Indicator | Definition |Data source | Link |
+|:-:|-|-|-|-|
+|O| ~~Mobility emissions~~ | | ~~gov uk data estimates <br/>*at LAD level* (only)~~ |  |
+|X| Air pollution hazard | | Local Authority + European data |  |
+|O| Greenspace accessibility | | OS greenspace layer | [link]()|
+|O| Jobs accessibility| n. jobs within certain time interval by transport mode| to be created| |
+|X| House prices | Median house prices for administrative geographies|ONS| [2022 data](https://www.ons.gov.uk/peoplepopulationandcommunity/housing/bulletins/housepricestatisticsforsmallareas/yearendingmarch2022)|
+
+---
+
+**Table 2 - ** Indicators (columns) and plausible explanatory/building variables (rows - landuse variables)
+
+| _Variables_ | Mobility emissions | Greenspace<br/> acc | Jobs acc | House<br/> prices | _Sources_ |
+|-|:-:|:-:|:-:|:-:|-|
+| n. of trips| X | | | | OD data (Nomis)|
+| distance  | X | | | | OD data (Nomis)|
+| mode transport| X | | | | OD data (Nomis)|
+| distance to access point |  | X |  | X | from OS layer |
+| areal extension of gs |  | X |  | X | from OS layer |
+| n. available jobs |  |  | X | X | Nomis BRES |
+| distance to employment center |  |  | X | generated |
+| access to public transport |  |  | X | generated |
+
+... distinguish landuse as explanatory variable from landuse as indicator...
+
+## List of sources
+
+Data hunting still in progress, to be filled up when data use is certain.<br/>
+See [notes](notes.qmd) to follow the development.
+
+### gov.uk
+
+...
+
+
+### CDRC
+
+...
+
+
+### Time Use Survey
+
+Time Use Survey for UK is available from UK Data Service website at [http://dx.doi.org/10.5255/UKDA-SN-8128-1](http://dx.doi.org/10.5255/UKDA-SN-8128-1)
+
+---
+

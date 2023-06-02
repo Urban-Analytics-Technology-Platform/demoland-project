@@ -6,7 +6,8 @@
 | **Objectives** | Develop modelling system to quantify features    |
 |                | of land use in urban environment                 |
 +----------------+--------------------------------------------------+
-| **Output**     | Landcover map for several urban areas in the UK  |
+| **Output**     | Prediction of the quality of life indicators     |
+|                | following a modelled scenarios of development    |
 |                |                                                  |
 |                | study case: Tyne and Wear County (Local          |
 |                | Authorities: Gateshead, Newcastle Upon Tyne,     |
@@ -19,64 +20,19 @@
 +----------------+--------------------------------------------------+
 
 
-## Indicators building
+## Quality of life indicators
 
-The indicators will be predicted for a **baseline scenario** using a regression/predictive model on several variables of interest, where several _land use_ features will be used as explanatory variables.<br/>
-Once the baseline is created, **scenarios** can be built, for instance, as effects of <mark>targeted intervention</mark> on land use and (ultimately) through AI methods via optimisation algorithms, IE generating an <mark>AI scenario builder</mark> (see [Scenarios building](#scenarios-building) below).
+The project defies four measurable indicators that can be linked to quality of life.
 
-The initial plan wants to try to make use of the following **data sources** (see below for each indicator what source is intended to be used)
+- Air quality
+- Green space accessibility
+- House prices
+- Jobs accessibility
 
----
+The indicators are first modelled for a **baseline scenario**  reflecting the current land use in the study area. Indicators are modelled using a predictive regression models based on the _land use_ features will that used as explanatory variables and measured using the multimodal accessibility model. See the [Methodology](method.qmd) for details.<br/>
 
-*Suggested data sources:*
+## Scenarios of development
 
-- *SPC* - Synthetic Population Catalyst [website](https://alan-turing-institute.github.io/uatk-spc/)
-- **SS** - Spatial Signature [website](https://urbangrammarai.xyz/great-britain/)
-- <span style="color:DarkViolet">both</span>
+Once the baseline is created, the project defines a number **scenarios** of future development (e.g. densification of city centre or land release in the green belt area) and asses the effect of those scenarios on the quality of life indicators.
 
-Indicators are grouped into 4 general themes to reflect the goals of the National Land Development Programme (NLDP) in relation to the environment, economy, infrastructure and society:
-
-###  Net-zero
-a. *Mobility-based emissions (e.g., trips x distance x mode —> CO<sub>2</sub>)*
-b. *Housing-based emissions (e.g., CO<sub>2</sub> emissions from building energy consumption)*
-c. **Green space (area, access, fragmentation)**
-
-### Economy
-
-a. <span style="color:DarkViolet">Distance to nearest job (by industry)</span>
-b. <span style="color:DarkViolet">Job volume within accessible distance</span>
-c. **Availability of (appropriate) housing stock**
-
-### Infrastructure stock (vacancy)
-a. **Brownfield areas**
-b. **Vacant lots and properties**
-c. **Transport networks and connectivity**
-
-### Society and Health 
-a. *Physical health*
-b. *Mental health*
-c. *Healthy living and lifestyles*
-
-
-The page [Data Sources](data_sources.qmd) will be updated once the sources are determined and actually used in the analysis.
-
-## Scenarios building
-
-The existing baseline will be modified through indicative scenarios of relevance, underlining the ability of the modelling system to illustrate the trade-offs between competing objectives through evaluation of the key indicators.
-
-Scenarios will be generated as:
-
-- _Type I_ <mark>what if?</mark> scenarios: the consequence of a range of concrete actions (e.g. construct a new tram line);
-- _Type II_ <mark>what could be?</mark> scenarios: to explore more aspirational targets (e.g. reduce emissions by 10%)
-
-Although the final set of scenarios will be co-produced with the partners, an illustration is provided below:
-
-- Infrastructure scenarios:	
-     - S1A – Add new jobs through significant inward investment (e.g., construction of Government offices/public buildings) - _Type I_
-     - S1B – reorient to new mobility targets through modal shift (increased pedestrian and public transport) - _Type II_
-     - S1C – Increase access to jobs (e.g., more roads/transit/cycle lanes) - _Type I or II_
-- Environmental scenarios:
-     - S2A – create a new urban park or nature reserve - _Type I_
-     - S2B – design a future urban space with net zero emissions - _Type II_
-- Housing stock:
-     - Retrofit existing neighbourhoods to increase density/decrease sprawl - _Type I or II_
+See the chapter on [scenarios](scenarios.qmd) for details and the [interactive mapping tool](https://alan-turing-institute.github.io/demoland-web/#10.05/54.94/-1.59) to explore the results.
