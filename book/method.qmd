@@ -258,7 +258,7 @@ The final set contains 59 explanatory variables and the only morphometric were p
 - perimeter-weighted neighbours of enclosure
 - area-weighted ETCs of enclosure
 
-### Modelling / regression analysis
+## Modelling / regression analysis
 
 While the accessibility indicators are a result of a deterministic model based on a
 fixed travel-time matrix, hence any scenario modelling can re-use it and change only the
@@ -289,7 +289,7 @@ we have tested models trained on other geographical subsets:
 
 This was to add additional robustness to the model by training on a wider set of data.
 
-#### Resulting model specifications
+### Resulting model specifications
 
 The resulting models, selected based on their performance, are based on the following
 specifications:
@@ -297,7 +297,18 @@ specifications:
 **Air Quality**
 
 - Spatial extent: Tyne and Wear plus all OAs belonging to "Urbanity" classes from the rest of England
-- Spatial lag: 
+- Spatial lag: A union of 5 orders of Queen contiguity and 2000m distance band
+- Model parameters: `learning_rate=0.2`, `max_bins=64`, `max_iter=1000`
+
+The model performance (R<sup>2</sup>) is 0.8.
+
+**House Price**
+
+- Spatial extent: England excluding Greater London
+- Spatial lag: 5 orders of Queen contiguity
+- Model parameters: `learning_rate=0.1`, `max_bins=128`, `max_iter=1000`
+
+The model performance (R<sup>2</sup>) is 0.5.
 
 
 ## Building scenarios
