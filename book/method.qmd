@@ -260,6 +260,45 @@ The final set contains 59 explanatory variables and the only morphometric were p
 
 ### Modelling / regression analysis
 
+While the accessibility indicators are a result of a deterministic model based on a
+fixed travel-time matrix, hence any scenario modelling can re-use it and change only the
+raw values at the destinations, we need to develop predictive models to be able to see
+the change of air quality and house price.
+
+Both models are based on the same architecture, a Histogram-based Gradient Boosting
+Regression Tree as implemented in the `scikit-learn` Python package, and a set of 59
+explanatory variables listed above. To ensure we are able to properly captrue the spatial
+nature of the indicators, we add another 59 variables on top that are a result of a
+spatial lag of the original set. The spatial lag is measured as a mean value of the
+variable within a set neighbourhood, which definition is determined empirically. We test
+the neighbourhoods based on contiguity (from order of contiguity 1 to 5 inclusive of
+lower-order neighbors), Euclidean distance (500m, 1000m, 2000m) and their unions. Each
+option is then part of the grid search aimed at the selection of the best model parameters
+and the best defition of the spatial lag in relation to the model performance metrics
+(R<sup>2</sup>, MSE, ME). Model parameters that are being assessed are learning rate,
+maximum number of iterations and maximum number of bins. For more details, see the
+implementation in the [Air Quality notebook](https://github.com/ciupava/LandUseDemonstrator/blob/main/python/air_quality_model_search.ipynb) and the [House Price notebook](https://github.com/ciupava/LandUseDemonstrator/blob/main/python/house_price_model_search.ipynb).
+
+Furthermore, we have experimented with the geographical extent of the training data.
+While the original models were based only on the data from the study area (Tyne and Wear),
+we have tested models trained on other geographical subsets:
+
+- whole England
+- England excluding Greater London, known to be an outlier within the country that may not help in predictive quality within Tyne and Wear
+- Tyne and Wear plus all OAs belonging to "Urbanity" classes from the rest of England
+
+This was to add additional robustness to the model by training on a wider set of data.
+
+#### Resulting model specifications
+
+The resulting models, selected based on their performance, are based on the following
+specifications:
+
+**Air Quality**
+
+- Spatial extent: Tyne and Wear plus all OAs belonging to "Urbanity" classes from the rest of England
+- Spatial lag: 
+
 
 ## Building scenarios
 
