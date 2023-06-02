@@ -1122,11 +1122,12 @@ Although the final set of scenarios will be co-produced with the partners, an il
      - Retrofit existing neighbourhoods to increase density/decrease sprawl - _Type I or II_
 
 ---
-# Data Sources
 
-## Comprehensive tables
+## Data Sources
 
-**Table 1 - **4 indicators and data we use to quantify them:
+### Comprehensive tables
+
+**Table 1 - ** 4 indicators and data we use to quantify them:
 
 | actual (X) VS estimated (O)| Indicator | Definition |Data source | Link |
 |:-:|-|-|-|-|
@@ -1153,22 +1154,12 @@ Although the final set of scenarios will be co-produced with the partners, an il
 
 ... distinguish landuse as explanatory variable from landuse as indicator...
 
-## List of sources
+### List of sources
 
 Data hunting still in progress, to be filled up when data use is certain.<br/>
 See [notes](notes.qmd) to follow the development.
 
-### gov.uk
-
-...
-
-
-### CDRC
-
-...
-
-
-### Time Use Survey
+#### Time Use Survey
 
 Time Use Survey for UK is available from UK Data Service website at [http://dx.doi.org/10.5255/UKDA-SN-8128-1](http://dx.doi.org/10.5255/UKDA-SN-8128-1)
 
