@@ -412,19 +412,29 @@ ul.task-list li input[type="checkbox"] {
 <li>Spatial lag: A union of 5 orders of Queen contiguity and 2000m distance band</li>
 <li>Model parameters: <code>learning_rate=0.2</code>, <code>max_bins=64</code>, <code>max_iter=1000</code></li>
 </ul>
-<p>The model performance (R<sup>2</sup>) is 0.8.</p>
+<p>The model performance (R<sup>2</sup>) is ~0.8.</p>
 <p><strong>House Price</strong></p>
 <ul>
 <li>Spatial extent: England excluding Greater London</li>
 <li>Spatial lag: 5 orders of Queen contiguity</li>
 <li>Model parameters: <code>learning_rate=0.1</code>, <code>max_bins=128</code>, <code>max_iter=1000</code></li>
 </ul>
-<p>The model performance (R<sup>2</sup>) is 0.5.</p>
+<p>The model performance (R<sup>2</sup>) is ~0.5.</p>
 </section>
 </section>
 <section id="building-scenarios" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="building-scenarios"><span class="header-section-number">4.4</span> Building scenarios</h2>
-<p>TBC</p>
+<p>The mechanism for scenario building is based on four macro variables, which combination driving the sampling mechanism deriving the 59 variables used in the modelling. The four variables are <em>Level of urbanity</em>, which is a proxy for a signature type of spatial signatures as defined in the Urban Grammar project, <em>Use</em> of buildings controlling the ratio between residential and commercial or industrial use, <em>Job types</em>, controlling whether job structure in each output area is more white-collar or blue-collar, and <em>Green space</em>, reflecting the amount of formal green space (i.e.&nbsp;parks).</p>
+<p>Scenarios are modelled by specifying the macro variables on output areas where the change is assumed. Any of the four variables can be specified in combination with any other. The algorithm then samples the data from either baseline capturing the existing state or from the known distribution of values per signature type based on the country-wide data.</p>
+<p>The first step in the sampling procedure is the selection of a signature type. If it is not changed, subsequent steps modify the baseline. Otherwise, we sample the values for a set signature type reflecting its common characterisation as observed across Great Britain. For example, if we specify the <em>Local urbanity</em> signature type for an output area that had <em>Dense urban neighbourhoods</em> assigned, we look at how <em>Local urbanity</em> usually looks like and sample all the required values from a narrow normal distribution around the median of the nation-wide distribution. Further macro variables are adjusting these values. <em>Use</em> will change the variables of population and workplace population, <em>job types</em> will change the distribution of jobs to job type categories, and <em>green space</em> will allocate new parks onto an output area (adjusting other values like population accordingly).</p>
+<p>Development of each scenario is then composed of a few simple steps:</p>
+<ol type="1">
+<li>Select output areas that are supposed to change</li>
+<li>Assing target level of urbanity for each</li>
+<li>Assing another macro variable for each</li>
+<li>Sample the values as input for the model</li>
+<li>Run the models to assess the effect of tested changes</li>
+</ol>
 
 
 </section>
