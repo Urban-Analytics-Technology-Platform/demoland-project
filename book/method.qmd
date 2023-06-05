@@ -300,7 +300,7 @@ specifications:
 - Spatial lag: A union of 5 orders of Queen contiguity and 2000m distance band
 - Model parameters: `learning_rate=0.2`, `max_bins=64`, `max_iter=1000`
 
-The model performance (R<sup>2</sup>) is 0.8.
+The model performance (R<sup>2</sup>) is ~0.8.
 
 **House Price**
 
@@ -308,9 +308,32 @@ The model performance (R<sup>2</sup>) is 0.8.
 - Spatial lag: 5 orders of Queen contiguity
 - Model parameters: `learning_rate=0.1`, `max_bins=128`, `max_iter=1000`
 
-The model performance (R<sup>2</sup>) is 0.5.
+The model performance (R<sup>2</sup>) is ~0.5.
 
 
 ## Building scenarios
 
-TBC
+The mechanism for scenario building is based on four macro variables, which combination
+driving the sampling mechanism deriving the 59 variables used in the modelling. The four variables
+are _Level of urbanity_, which is a proxy for a signature type of spatial signatures as defined in the Urban Grammar project, _Use_ of buildings controlling the ratio between residential and commercial or industrial use, _Job types_, controlling whether job structure in each output area is more white-collar or blue-collar, and _Green space_, reflecting the amount of formal green space (i.e. parks).
+
+Scenarios are modelled by specifying the macro variables on output areas where the change is assumed.
+Any of the four variables can be specified in combination with any other. The algorithm then samples
+the data from either baseline capturing the existing state or from the known distribution of values per signature type based on the country-wide data.
+
+The first step in the sampling procedure is the selection of a signature type. If it is not changed,
+subsequent steps modify the baseline. Otherwise, we sample the values for a set signature type
+reflecting its common characterisation as observed across Great Britain. For example, if we specify the
+_Local urbanity_ signature type for an output area that had _Dense urban neighbourhoods_ assigned, we look at how _Local urbanity_ usually looks like and sample all the required values from a narrow normal
+distribution around the median of the nation-wide distribution. Further macro variables are adjusting
+these values. _Use_ will change the variables of population and workplace population, _job types_ will
+change the distribution of jobs to job type categories, and _green space_ will allocate new parks onto an
+output area (adjusting other values like population accordingly).
+
+Development of each scenario is then composed of a few simple steps:
+
+1. Select output areas that are supposed to change
+2. Assing target level of urbanity for each
+3. Assing another macro variable for each
+4. Sample the values as input for the model
+4. Run the models to assess the effect of tested changes
