@@ -109,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">DemoLand</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Land Use Demonstrator</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -132,8 +132,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./scenarios.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Scenarios</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./notes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Notes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Notes</span></span></a>
   </div>
 </li>
     </ul>
@@ -147,8 +153,10 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary"><span class="header-section-number">2.1</span> Summary</a></li>
-  <li><a href="#quality-of-life-indicators" id="toc-quality-of-life-indicators" class="nav-link" data-scroll-target="#quality-of-life-indicators"><span class="header-section-number">2.2</span> Quality of life indicators</a></li>
-  <li><a href="#scenarios-of-development" id="toc-scenarios-of-development" class="nav-link" data-scroll-target="#scenarios-of-development"><span class="header-section-number">2.3</span> Scenarios of development</a></li>
+  <li><a href="#project-aims" id="toc-project-aims" class="nav-link" data-scroll-target="#project-aims"><span class="header-section-number">2.2</span> Project aims</a></li>
+  <li><a href="#explaining-the-science" id="toc-explaining-the-science" class="nav-link" data-scroll-target="#explaining-the-science"><span class="header-section-number">2.3</span> Explaining the science</a></li>
+  <li><a href="#quality-of-life-indicators" id="toc-quality-of-life-indicators" class="nav-link" data-scroll-target="#quality-of-life-indicators"><span class="header-section-number">2.4</span> Quality of life indicators</a></li>
+  <li><a href="#scenarios-of-development" id="toc-scenarios-of-development" class="nav-link" data-scroll-target="#scenarios-of-development"><span class="header-section-number">2.5</span> Scenarios of development</a></li>
   </ul>
 </nav>
     </div>
@@ -200,8 +208,27 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </section>
-<section id="quality-of-life-indicators" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="quality-of-life-indicators"><span class="header-section-number">2.2</span> Quality of life indicators</h2>
+<section id="project-aims" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="project-aims"><span class="header-section-number">2.2</span> Project aims</h2>
+<p>The project aims to provide insight into the impact of policies affecting land use in cities across the UK, piloting on the case of Tyne and Wear. It:</p>
+<ol type="1">
+<li>Derives indicators of quality of life.</li>
+<li>Develops machine learning models able to predict the impact of land use changes on such indicators.</li>
+<li>And inversely, develops a neural network able to predict the required land use change to reach target levels of QoL indicators.</li>
+</ol>
+<p>All these technological components are presented in an interactive tool allowing quick and easy exploration of impacts aimed at policymakers.</p>
+</section>
+<section id="explaining-the-science" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="explaining-the-science"><span class="header-section-number">2.3</span> Explaining the science</h2>
+<p>The project defines four indicators related to the quality of life, capturing selected dimensions of the environment, society and economy: air pollution, house price, jobs accessibility, and green space accessibility.</p>
+<p>While air pollution and house price are composed of the observed values, accessibility metrics were generated for this project.</p>
+<p>For air pollution and house prices, the project develops machine learning-based, predictive models based on land use variables derived from the <a href="https://urbangrammarai.xyz">Urban Grammar project</a> to allow assessment of land use change.</p>
+<p>The accessibility metric to two different opportunities (jobs and green space) is calculated for four modes of transport (walking, bicycle, vehicles, public transit) between a relevant set of origins and destinations at the UK census Output Area level.</p>
+<p>The project is done in collaboration with the Geospatial Commission and Newcastle City Council (NCC). It defines development scenarios of the Tyne and Wear county, for which it reports predicted changes of selected indicators, allowing assessment of a proposed land use change based on machine learning.</p>
+<p>The outputs are presented in an interactive visual web-based environment allowing quick comparison and presentation for policymakers and professionals.</p>
+</section>
+<section id="quality-of-life-indicators" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="quality-of-life-indicators"><span class="header-section-number">2.4</span> Quality of life indicators</h2>
 <p>The project defies four measurable indicators that can be linked to quality of life.</p>
 <ul>
 <li>Air quality</li>
@@ -211,10 +238,10 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>The indicators are first modelled for a <strong>baseline scenario</strong> reflecting the current land use in the study area. Indicators are modelled using a predictive regression models based on the <em>land use</em> features will that used as explanatory variables and measured using the multimodal accessibility model. See the <a href="./method.html">Methodology</a> for details.<br></p>
 </section>
-<section id="scenarios-of-development" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="scenarios-of-development"><span class="header-section-number">2.3</span> Scenarios of development</h2>
+<section id="scenarios-of-development" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="scenarios-of-development"><span class="header-section-number">2.5</span> Scenarios of development</h2>
 <p>Once the baseline is created, the project defines a number <strong>scenarios</strong> of future development (e.g.&nbsp;densification of city centre or land release in the green belt area) and asses the effect of those scenarios on the quality of life indicators.</p>
-<p>See the chapter on <a href="scenarios.qmd">scenarios</a> for details and the <a href="https://alan-turing-institute.github.io/demoland-web/#10.05/54.94/-1.59">interactive mapping tool</a> to explore the results.</p>
+<p>See the chapter on <a href="./scenarios.html">scenarios</a> for details and the <a href="https://alan-turing-institute.github.io/demoland-web/#10.05/54.94/-1.59">interactive mapping tool</a> to explore the results.</p>
 
 
 </section>
@@ -571,7 +598,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">DemoLand</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Land Use Demonstrator</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
