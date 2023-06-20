@@ -214,3 +214,6 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# quarto render
+book/book/

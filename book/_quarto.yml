@@ -16,6 +16,7 @@ book:
     - intro.qmd
     - data_sources.qmd
     - method.qmd
+    - scenarios.qmd
     - notes.qmd
 
 format:

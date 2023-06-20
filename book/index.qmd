@@ -1,18 +1,14 @@
 ---
-title: "DemoLand"
-subtitle: "Land Use Demonstrator project notes"
+title: "Land Use Demonstrator"
+subtitle: "Spatial modelling for land management predicting the impact of large-scale planning and land use changes on the quality of life."
 authors: "Anna Zanchetta, Martin Fleischmann, Dani Arribas-Bel; The Alan Turing Institute"
 date: today
 from: markdown+emoji
-# format:
-#   revealjs:
-#     slide-number: true
-#     show-slide-number: print
-#     # self-contained: true
-#     chalkboard: true
 ---
 
-This is a live document documenting the progress of the development of the Land Use
-Demonstrator project. Refer to individual sections in the menu on the left for details.
+This project develops a modelling system which is able to quantify several competing aspects of land use in a given urban environment as it currently exists (baseline) and build scenarios under changes that affect the distribution of such land use. It comprises a sequence of models designed to predict the impact of land use changes following large-scale planning decisions on the subset of indicators reflecting the quality of life. At the same time, it aims to determine the optimal land use composition given set indicator levels using neural networks.
 
-
+The project is a partnership between the Geospatial Commission and The Alan Turing Institute, working with Newcastle City Council to develop a modelling system that leverages data science and AI to support decision-making in land use policy.
+In particular, the project provides tools to help strategic planning by helping decision-makers explore large-scale changes in land use through:
+-	Evaluation of the impact on their policy priorities (house prices, air quality, accessibility to jobs and green space)
+-	Use of machine learning and AI to suggest interventions to achieve policy outcomes.

@@ -19,6 +19,31 @@
 | **Duration**   | 6 months                                         |
 +----------------+--------------------------------------------------+
 
+## Project aims
+
+The project aims to provide insight into the impact of policies affecting land use in cities across the UK, piloting on the case of Tyne and Wear. It:
+
+1.	Derives indicators of quality of life.
+2.	Develops machine learning models able to predict the impact of land use changes on such indicators.
+3.	And inversely, develops a neural network able to predict the required land use change to reach target levels of QoL indicators.
+
+All these technological components are presented in an interactive tool allowing quick and easy exploration of impacts aimed at policymakers.
+
+## Explaining the science
+
+The project defines four indicators related to the quality of life, capturing selected dimensions of the environment, society and economy: air pollution, house price, jobs accessibility, and green space accessibility.
+
+While air pollution and house price are composed of the observed values, accessibility metrics were generated for this project.
+
+For air pollution and house prices, the project develops machine learning-based, predictive models based on land use variables derived from the [Urban Grammar project](https://urbangrammarai.xyz) to allow assessment of land use change.
+
+The accessibility metric to two different opportunities (jobs and green space) is calculated for four modes of transport (walking, bicycle, vehicles, public transit) between a relevant set of origins and destinations at the UK census Output Area level.
+
+The project is done in collaboration with the Geospatial Commission and Newcastle City Council (NCC). It defines development scenarios of the Tyne and Wear county, for which it reports predicted changes of selected indicators, allowing assessment of a proposed land use change based on machine learning.
+
+The outputs are presented in an interactive visual web-based environment allowing quick comparison and presentation for policymakers and professionals.
+
+
 
 ## Quality of life indicators
 

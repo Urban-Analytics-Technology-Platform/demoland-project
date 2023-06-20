@@ -336,4 +336,4 @@ Development of each scenario is then composed of a few simple steps:
 2. Assing target level of urbanity for each
 3. Assing another macro variable for each
 4. Sample the values as input for the model
-4. Run the models to assess the effect of tested changes
+5. Run the models to assess the effect of tested changes
