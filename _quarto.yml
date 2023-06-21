@@ -1,0 +1,48 @@
+project:
+  type: book
+  output-dir: ./_site
+execute:
+  freeze: true
+book:
+  title: "DemoLand"
+  subtitle: "Land Use Demonstrator project"
+  author: "Anna Zanchetta, Martin Fleischmann, Dani Arribas-Bel; The Alan Turing Institute"
+  date: today
+  search: true
+  repo-url: https://github.com/ciupava/LandUseDemonstrator/
+  downloads: [pdf]
+  chapters:
+    - index.qmd
+    - book/intro.qmd
+    - book/data_sources.qmd
+    - book/method.qmd
+    - book/scenarios.qmd
+    - book/notes.qmd
+  appendices:
+    - code/01_baseline/01_accessibility.ipynb
+    - code/01_baseline/01b_greeenspace_datacleaning.ipynb
+    - code/01_baseline/02_air_quality.ipynb
+    - code/01_baseline/03_house_prices.ipynb
+    - code/02_models/01_explanatory_variables.ipynb
+    - code/02_models/01b_latent_sentinel.ipynb
+    - code/02_models/02_collinearity_filter.ipynb
+    - code/02_models/03_england-wide-data.ipynb
+    - code/02_models/04a_air_quality_model_exploration.ipynb
+    - code/02_models/04b_air_quality_model_search.ipynb
+    - code/02_models/05a_house_price_model_exploration.ipynb
+    - code/02_models/05b_house_price_model_search.ipynb
+    - code/03_prediction/01_summary.ipynb
+    - code/03_prediction/02_sample_exvars.ipynb
+    - code/03_prediction/03_inference.ipynb
+    - code/03_prediction/04_acc_class.ipynb
+  sidebar:
+    collapse-level: 1
+
+format:
+  html:
+    # theme: cosmo
+    theme:
+      light: flatly
+      dark: darkly
+    # css: styles.css
+    toc: true

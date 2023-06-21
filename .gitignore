@@ -217,3 +217,4 @@ rsconnect/
 
 # quarto render
 book/book/
+_site/
