@@ -29,8 +29,10 @@ book:
     - code/02_models/03_england-wide-data.ipynb
     - code/02_models/04a_air_quality_model_exploration.ipynb
     - code/02_models/04b_air_quality_model_search.ipynb
+    - code/02_models/04c_air_quality_model_final.ipynb
     - code/02_models/05a_house_price_model_exploration.ipynb
     - code/02_models/05b_house_price_model_search.ipynb
+    - code/02_models/05c_house_price_model_final.ipynb
     - code/03_prediction/01_summary.ipynb
     - code/03_prediction/02_sample_exvars.ipynb
     - code/03_prediction/03_inference.ipynb
