@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>DemoLand - Appendix D — House price</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../code/02_models/01_explanatory_variables.html" rel="next">
+<link href="../../code/01_baseline/02_air_quality.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../code/01_baseline/01_accessibility.html">Appendices</a></li><li class="breadcrumb-item"><a href="../../code/01_baseline/03_house_prices.html"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">House price</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">DemoLand</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/ciupava/LandUseDemonstrator/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="../../DemoLand.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Land Use Demonstrator</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../book/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Intro</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../book/data_sources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Sources</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../book/method.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Methodology</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../book/scenarios.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Scenarios</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../book/notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Notes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code/01_baseline/01_accessibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Measuring accessibility</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code/01_baseline/01b_greeenspace_datacleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Green space data cleaning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code/01_baseline/02_air_quality.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Air quality</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code/01_baseline/03_house_prices.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">House price</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code/02_models/01_explanatory_variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Authoritative table of explanatory variables on the Output Area level</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code/02_models/01b_latent_sentinel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Sentinel 2 latent representation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code/02_models/02_collinearity_filter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Filter collinear explanatory variables</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code/02_models/03_england-wide-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">Training data sampled from the whole England</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code/02_models/04a_air_quality_model_exploration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">I</span>&nbsp; <span class="chapter-title">Air Quality prediction model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code/02_models/04b_air_quality_model_search.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">J</span>&nbsp; <span class="chapter-title">Air Quality prediction model search</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code/02_models/05a_house_price_model_exploration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">K</span>&nbsp; <span class="chapter-title">House Price prediction model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code/02_models/05b_house_price_model_search.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">L</span>&nbsp; <span class="chapter-title">House price prediction model search</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code/03_prediction/01_summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">M</span>&nbsp; <span class="chapter-title">Create summary data for signatures</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code/03_prediction/02_sample_exvars.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">N</span>&nbsp; <span class="chapter-title">Sample explanatory variables based on empirical data and custom scenario definition</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code/03_prediction/03_inference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">O</span>&nbsp; <span class="chapter-title">Air quality and house price model inference</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code/03_prediction/04_acc_class.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">P</span>&nbsp; <span class="chapter-title">Accessibility API</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#process-house-prices-and-store-them-on-lsoa-level" id="toc-process-house-prices-and-store-them-on-lsoa-level" class="nav-link active" data-scroll-target="#process-house-prices-and-store-them-on-lsoa-level"><span class="header-section-number">D.1</span> Process house prices and store them on LSOA level</a></li>
+  <li><a href="#a-new-attribute-linked-residential-property-price-dataset-for-england-and-wales-2011-2019" id="toc-a-new-attribute-linked-residential-property-price-dataset-for-england-and-wales-2011-2019" class="nav-link" data-scroll-target="#a-new-attribute-linked-residential-property-price-dataset-for-england-and-wales-2011-2019"><span class="header-section-number">D.2</span> A new attribute-linked residential property price dataset for England and Wales 2011-2019</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Appendix D — House price</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>This notebook contains the code used to retrieve and compute mean house price.</p>
+<section id="process-house-prices-and-store-them-on-lsoa-level" class="level2" data-number="D.1">
+<h2 data-number="D.1" class="anchored" data-anchor-id="process-house-prices-and-store-them-on-lsoa-level"><span class="header-section-number">D.1</span> Process house prices and store them on LSOA level</h2>
+<p>This notebook processes a dataset containing a time-series of house price per LSOA and saves it as a GeoPackage for future use.</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> datetime</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data_folder <span class="op">=</span> <span class="st">"/Users/martin/Library/CloudStorage/OneDrive-SharedLibraries-TheAlanTuringInstitute/Daniel Arribas-Bel - demoland_data"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Specify paths to existing files, some of which need to be downloaded manually (see Notes).</p>
+<ul>
+<li>https://www.ons.gov.uk/peoplepopulationandcommunity/housing/datasets/medianpricepaidbylowerlayersuperoutputareahpssadataset46</li>
+<li>https://geoportal.statistics.gov.uk/datasets/2fb4e13605cb4745992390165307697e_0/explore?location=52.755877%2C-2.489798%2C7.62</li>
+</ul>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>lsoa_list_file <span class="op">=</span> (</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"</span><span class="sc">{</span>data_folder<span class="sc">}</span><span class="ss">/processed/tynewear_lsoas_list.csv"</span>  <span class="co"># list of LSOAs within AoI</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># national level files</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>house_prices_lsoa_xls_file <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>data_folder<span class="sc">}</span><span class="ss">/raw/house_prices/hpssadataset46medianpricepaidforresidentialpropertiesbylsoa.xlsx"</span>  <span class="co"># excel spreadsheet downloaded from gov website (see Notes) with median house prices, quarterly data from Dec 1995</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>LSOA_boundaries_file <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>data_folder<span class="sc">}</span><span class="ss">/raw/LSOA_(Dec_2011)_Boundaries_Super_Generalised_Clipped_(BSC)_EW_V3.geojson"</span>  <span class="co"># administrative boundaries from gov.uk OS</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Read house prices for whole country. The actual table starts with row 5 in sheet “Data”. ONS uses <code>:</code> to indicate missing value so we shall filter it on import.</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>house_prices <span class="op">=</span> pd.read_excel(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    house_prices_lsoa_xls_file, <span class="st">"Data"</span>, header<span class="op">=</span><span class="dv">5</span>, na_values<span class="op">=</span><span class="st">":"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Read LSOA boundaries to link to data.</p>
+<div class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>lsoa <span class="op">=</span> gpd.read_file(LSOA_boundaries_file)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Check structure before merge.</p>
+<div class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>lsoa.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="46">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">OBJECTID</th>
+<th data-quarto-table-cell-role="th">LSOA11CD</th>
+<th data-quarto-table-cell-role="th">LSOA11NM</th>
+<th data-quarto-table-cell-role="th">LSOA11NMW</th>
+<th data-quarto-table-cell-role="th">BNG_E</th>
+<th data-quarto-table-cell-role="th">BNG_N</th>
+<th data-quarto-table-cell-role="th">LONG</th>
+<th data-quarto-table-cell-role="th">LAT</th>
+<th data-quarto-table-cell-role="th">Shape__Area</th>
+<th data-quarto-table-cell-role="th">Shape__Length</th>
+<th data-quarto-table-cell-role="th">GlobalID</th>
+<th data-quarto-table-cell-role="th">geometry</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>E01000001</td>
+<td>City of London 001A</td>
+<td>City of London 001A</td>
+<td>532129</td>
+<td>181625</td>
+<td>-0.097060</td>
+<td>51.51810</td>
+<td>157794.481079</td>
+<td>1685.391778</td>
+<td>b12173a3-5423-4672-a5eb-f152d2345f96</td>
+<td>POLYGON ((-0.09474 51.52060, -0.09546 51.51544...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>E01000002</td>
+<td>City of London 001B</td>
+<td>City of London 001B</td>
+<td>532480</td>
+<td>181699</td>
+<td>-0.091970</td>
+<td>51.51868</td>
+<td>164882.427628</td>
+<td>1804.828196</td>
+<td>90274dc4-f785-4afb-95cd-7cc1fc9a2cad</td>
+<td>POLYGON ((-0.08810 51.51941, -0.09546 51.51544...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>E01000003</td>
+<td>City of London 001C</td>
+<td>City of London 001C</td>
+<td>532245</td>
+<td>182036</td>
+<td>-0.095230</td>
+<td>51.52176</td>
+<td>42219.805717</td>
+<td>909.223277</td>
+<td>7e89d0ba-f186-45fb-961c-8f5ffcd03808</td>
+<td>POLYGON ((-0.09453 51.52205, -0.09274 51.52139...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>E01000005</td>
+<td>City of London 001E</td>
+<td>City of London 001E</td>
+<td>533581</td>
+<td>181265</td>
+<td>-0.076280</td>
+<td>51.51452</td>
+<td>212682.404259</td>
+<td>2028.654904</td>
+<td>a14c307a-874c-4862-828a-3b1486cc21ea</td>
+<td>POLYGON ((-0.07589 51.51590, -0.07394 51.51445...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>E01000006</td>
+<td>Barking and Dagenham 016A</td>
+<td>Barking and Dagenham 016A</td>
+<td>544994</td>
+<td>184276</td>
+<td>0.089318</td>
+<td>51.53876</td>
+<td>130551.387161</td>
+<td>1716.896118</td>
+<td>65121a2d-3d2b-4935-9712-690f2993cfd2</td>
+<td>POLYGON ((0.09328 51.53787, 0.09363 51.53767, ...</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>house_prices.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="47">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Local authority code</th>
+<th data-quarto-table-cell-role="th">Local authority name</th>
+<th data-quarto-table-cell-role="th">LSOA code</th>
+<th data-quarto-table-cell-role="th">LSOA name</th>
+<th data-quarto-table-cell-role="th">Year ending Dec 1995</th>
+<th data-quarto-table-cell-role="th">Year ending Mar 1996</th>
+<th data-quarto-table-cell-role="th">Year ending Jun 1996</th>
+<th data-quarto-table-cell-role="th">Year ending Sep 1996</th>
+<th data-quarto-table-cell-role="th">Year ending Dec 1996</th>
+<th data-quarto-table-cell-role="th">Year ending Mar 1997</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">Year ending Mar 2020</th>
+<th data-quarto-table-cell-role="th">Year ending Jun 2020</th>
+<th data-quarto-table-cell-role="th">Year ending Sep 2020</th>
+<th data-quarto-table-cell-role="th">Year ending Dec 2020</th>
+<th data-quarto-table-cell-role="th">Year ending Mar 2021</th>
+<th data-quarto-table-cell-role="th">Year ending Jun 2021</th>
+<th data-quarto-table-cell-role="th">Year ending Sep 2021</th>
+<th data-quarto-table-cell-role="th">Year ending Dec 2021</th>
+<th data-quarto-table-cell-role="th">Year ending Mar 2022</th>
+<th data-quarto-table-cell-role="th">Year ending Jun 2022</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>E06000001</td>
+<td>Hartlepool</td>
+<td>E01011949</td>
+<td>Hartlepool 009A</td>
+<td>34750.0</td>
+<td>34500.0</td>
+<td>30500.0</td>
+<td>30000.0</td>
+<td>29950.0</td>
+<td>29000.0</td>
+<td>...</td>
+<td>89000.0</td>
+<td>84000.0</td>
+<td>88000.0</td>
+<td>88000.0</td>
+<td>81500.0</td>
+<td>80500.0</td>
+<td>85500.0</td>
+<td>100750.0</td>
+<td>100000.0</td>
+<td>121000.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>E06000001</td>
+<td>Hartlepool</td>
+<td>E01011950</td>
+<td>Hartlepool 008A</td>
+<td>25000.0</td>
+<td>25000.0</td>
+<td>25300.0</td>
+<td>25625.0</td>
+<td>25000.0</td>
+<td>24800.0</td>
+<td>...</td>
+<td>27000.0</td>
+<td>26000.0</td>
+<td>28500.0</td>
+<td>30000.0</td>
+<td>33000.0</td>
+<td>47000.0</td>
+<td>50079.0</td>
+<td>50159.0</td>
+<td>50159.0</td>
+<td>49000.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>E06000001</td>
+<td>Hartlepool</td>
+<td>E01011951</td>
+<td>Hartlepool 007A</td>
+<td>27000.0</td>
+<td>27000.0</td>
+<td>27250.0</td>
+<td>28950.0</td>
+<td>28500.0</td>
+<td>28950.0</td>
+<td>...</td>
+<td>40000.0</td>
+<td>29425.0</td>
+<td>30000.0</td>
+<td>50000.0</td>
+<td>51500.0</td>
+<td>53000.0</td>
+<td>58573.5</td>
+<td>60000.0</td>
+<td>61499.5</td>
+<td>60000.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>E06000001</td>
+<td>Hartlepool</td>
+<td>E01011952</td>
+<td>Hartlepool 002A</td>
+<td>44500.0</td>
+<td>44500.0</td>
+<td>30000.0</td>
+<td>26675.0</td>
+<td>26000.0</td>
+<td>25500.0</td>
+<td>...</td>
+<td>70000.0</td>
+<td>66475.0</td>
+<td>85000.0</td>
+<td>85000.0</td>
+<td>NaN</td>
+<td>83500.0</td>
+<td>83000.0</td>
+<td>80000.0</td>
+<td>75500.0</td>
+<td>75000.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>E06000001</td>
+<td>Hartlepool</td>
+<td>E01011953</td>
+<td>Hartlepool 002B</td>
+<td>22000.0</td>
+<td>27000.0</td>
+<td>27000.0</td>
+<td>20600.0</td>
+<td>20000.0</td>
+<td>19500.0</td>
+<td>...</td>
+<td>58000.0</td>
+<td>60000.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>90000.0</td>
+<td>NaN</td>
+<td>95000.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 111 columns</p>
+</div>
+</div>
+</div>
+<p>Merge the data on LSOA codes.</p>
+<div class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>lsoa <span class="op">=</span> lsoa.merge(house_prices, right_on<span class="op">=</span><span class="st">"LSOA code"</span>, left_on<span class="op">=</span><span class="st">"LSOA11CD"</span>, how<span class="op">=</span><span class="st">"left"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Read the list of LSOA belonging to the area of interest.</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>tyne_lsoa <span class="op">=</span> pd.read_csv(lsoa_list_file, index_col<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Filter the whole country.</p>
+<div class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>tyne_prices <span class="op">=</span> lsoa[lsoa.LSOA11CD.isin(tyne_lsoa[<span class="st">"LSOA code"</span>])]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>tyne_prices.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="54">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">OBJECTID</th>
+<th data-quarto-table-cell-role="th">LSOA11CD</th>
+<th data-quarto-table-cell-role="th">LSOA11NM</th>
+<th data-quarto-table-cell-role="th">LSOA11NMW</th>
+<th data-quarto-table-cell-role="th">BNG_E</th>
+<th data-quarto-table-cell-role="th">BNG_N</th>
+<th data-quarto-table-cell-role="th">LONG</th>
+<th data-quarto-table-cell-role="th">LAT</th>
+<th data-quarto-table-cell-role="th">Shape__Area</th>
+<th data-quarto-table-cell-role="th">Shape__Length</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">Year ending Mar 2020</th>
+<th data-quarto-table-cell-role="th">Year ending Jun 2020</th>
+<th data-quarto-table-cell-role="th">Year ending Sep 2020</th>
+<th data-quarto-table-cell-role="th">Year ending Dec 2020</th>
+<th data-quarto-table-cell-role="th">Year ending Mar 2021</th>
+<th data-quarto-table-cell-role="th">Year ending Jun 2021</th>
+<th data-quarto-table-cell-role="th">Year ending Sep 2021</th>
+<th data-quarto-table-cell-role="th">Year ending Dec 2021</th>
+<th data-quarto-table-cell-role="th">Year ending Mar 2022</th>
+<th data-quarto-table-cell-role="th">Year ending Jun 2022</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">7948</td>
+<td>7949</td>
+<td>E01008162</td>
+<td>Gateshead 027A</td>
+<td>Gateshead 027A</td>
+<td>426408</td>
+<td>562669</td>
+<td>-1.58915</td>
+<td>54.95797</td>
+<td>4.337674e+05</td>
+<td>2795.514484</td>
+<td>...</td>
+<td>124000.0</td>
+<td>107500.0</td>
+<td>97000.0</td>
+<td>97000.0</td>
+<td>100000.0</td>
+<td>137260.0</td>
+<td>137510.0</td>
+<td>107000.0</td>
+<td>108250.0</td>
+<td>99500.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7949</td>
+<td>7950</td>
+<td>E01008163</td>
+<td>Gateshead 028A</td>
+<td>Gateshead 028A</td>
+<td>425687</td>
+<td>562359</td>
+<td>-1.60044</td>
+<td>54.95522</td>
+<td>3.886396e+05</td>
+<td>2960.341729</td>
+<td>...</td>
+<td>113500.0</td>
+<td>105000.0</td>
+<td>124000.0</td>
+<td>138000.0</td>
+<td>138975.0</td>
+<td>138000.0</td>
+<td>121500.0</td>
+<td>107000.0</td>
+<td>107000.0</td>
+<td>115000.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">7950</td>
+<td>7951</td>
+<td>E01008164</td>
+<td>Gateshead 027B</td>
+<td>Gateshead 027B</td>
+<td>426855</td>
+<td>562213</td>
+<td>-1.58222</td>
+<td>54.95385</td>
+<td>1.853580e+05</td>
+<td>2097.848575</td>
+<td>...</td>
+<td>76250.0</td>
+<td>87500.0</td>
+<td>66475.0</td>
+<td>62000.0</td>
+<td>60000.0</td>
+<td>56250.0</td>
+<td>65000.0</td>
+<td>84925.0</td>
+<td>125000.0</td>
+<td>140000.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7951</td>
+<td>7952</td>
+<td>E01008165</td>
+<td>Gateshead 011A</td>
+<td>Gateshead 011A</td>
+<td>426340</td>
+<td>562156</td>
+<td>-1.59026</td>
+<td>54.95336</td>
+<td>2.549571e+05</td>
+<td>2523.273552</td>
+<td>...</td>
+<td>79250.0</td>
+<td>81250.0</td>
+<td>83250.0</td>
+<td>105000.0</td>
+<td>120000.0</td>
+<td>123500.0</td>
+<td>147250.0</td>
+<td>119500.0</td>
+<td>112630.0</td>
+<td>125260.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">7952</td>
+<td>7953</td>
+<td>E01008166</td>
+<td>Gateshead 027C</td>
+<td>Gateshead 027C</td>
+<td>426244</td>
+<td>563319</td>
+<td>-1.59166</td>
+<td>54.96382</td>
+<td>1.412473e+06</td>
+<td>4863.402280</td>
+<td>...</td>
+<td>145750.0</td>
+<td>149000.0</td>
+<td>145975.0</td>
+<td>136000.0</td>
+<td>139025.0</td>
+<td>138050.0</td>
+<td>139025.0</td>
+<td>150500.0</td>
+<td>173500.0</td>
+<td>177000.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 123 columns</p>
+</div>
+</div>
+</div>
+<p>Simplify columns names</p>
+<div class="cell" data-execution_count="55">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>tyne_prices.columns <span class="op">=</span> [c.replace(<span class="st">"Year ending "</span>, <span class="st">""</span>) <span class="cf">for</span> c <span class="kw">in</span> tyne_prices.columns]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="57">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>tyne_prices.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="57">
+<pre><code>Index(['OBJECTID', 'LSOA11CD', 'LSOA11NM', 'LSOA11NMW', 'BNG_E', 'BNG_N',
+       'LONG', 'LAT', 'Shape__Area', 'Shape__Length',
+       ...
+       'Mar 2020', 'Jun 2020', 'Sep 2020', 'Dec 2020', 'Mar 2021', 'Jun 2021',
+       'Sep 2021', 'Dec 2021', 'Mar 2022', 'Jun 2022'],
+      dtype='object', length=123)</code></pre>
+</div>
+</div>
+<p>Save to GeoPackage</p>
+<div class="cell" data-execution_count="59">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>tyne_prices.reset_index(drop<span class="op">=</span><span class="va">True</span>).to_file(</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"</span><span class="sc">{</span>data_folder<span class="sc">}</span><span class="ss">/house_prices_lsoa_jun22.gpkg"</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Quickly check the distribution. Housing prices are often better to model as log.</p>
+<div class="cell" data-execution_count="65">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>tyne_prices[<span class="st">"Jun 2022"</span>].plot.hist(bins<span class="op">=</span><span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="65">
+<pre><code>&lt;AxesSubplot: ylabel='Frequency'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="03_house_prices_files/figure-html/cell-16-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>There is a long tail but not that critical. Let’s check logged.</p>
+<div class="cell" data-execution_count="66">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>np.log(tyne_prices[<span class="st">"Jun 2022"</span>]).plot.hist(bins<span class="op">=</span><span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="66">
+<pre><code>&lt;AxesSubplot: ylabel='Frequency'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="03_house_prices_files/figure-html/cell-17-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Now we have some outliers on lower end. Will need to decide how to pass the data to the modelling process, some additional preprocessing may be needed.</p>
+<div class="cell" data-execution_count="68">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>tyne_prices[<span class="st">"Jun 2022"</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="68">
+<pre><code>count       694.000000
+mean     160843.278818
+std       72681.078875
+min       26000.000000
+25%      114612.500000
+50%      139972.500000
+75%      186937.500000
+max      705500.000000
+Name: Jun 2022, dtype: float64</code></pre>
+</div>
+</div>
+<p>The problem with this dataset is that it is not normalised, so we have values per whole house without acknowledging its size or any other variable.</p>
+<p>We can potentially get other measures - mean, lower quartile and tenth percentile price, plus counts of sales per type but at this level of aggregation, it probably won’t help a lot. The optimal would be a measure per sq.m. or access to other variables allowing us to model it but that does not seem to be available.</p>
+</section>
+<section id="a-new-attribute-linked-residential-property-price-dataset-for-england-and-wales-2011-2019" class="level2" data-number="D.2">
+<h2 data-number="D.2" class="anchored" data-anchor-id="a-new-attribute-linked-residential-property-price-dataset-for-england-and-wales-2011-2019"><span class="header-section-number">D.2</span> A new attribute-linked residential property price dataset for England and Wales 2011-2019</h2>
+<p>We can use https://reshare.ukdataservice.ac.uk/854942/ that derived a price per sqm from link between sales data and EPC.</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># It is 6.3GB...</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>linked_epc_path <span class="op">=</span> <span class="st">"https://reshare.ukdataservice.ac.uk/854942/1/tranall2011_19.csv"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Filter only Tyne and Wear for the last two years (2018-19).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>epc <span class="op">=</span> pd.read_csv(linked_epc_path)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>epc[<span class="st">"dateoftransfer"</span>] <span class="op">=</span> pd.to_datetime(epc.dateoftransfer)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>last2years <span class="op">=</span> epc[epc.dateoftransfer <span class="op">&gt;</span> datetime.datetime(<span class="dv">2018</span>, <span class="dv">1</span>, <span class="dv">1</span>)]</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>tyne <span class="op">=</span> last2years[last2years.county <span class="op">==</span> <span class="st">"TYNE AND WEAR"</span>]</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>tyne</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/tmp/ipykernel_3533493/3103178836.py:1: DtypeWarning: Columns (40,60) have mixed types. Specify dtype option on import or set low_memory=False.
+  epc = pd.read_csv("https://reshare.ukdataservice.ac.uk/854942/1/tranall2011_19.csv")</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">id</th>
+<th data-quarto-table-cell-role="th">transactionid</th>
+<th data-quarto-table-cell-role="th">oa11</th>
+<th data-quarto-table-cell-role="th">postcode</th>
+<th data-quarto-table-cell-role="th">price</th>
+<th data-quarto-table-cell-role="th">dateoftransfer</th>
+<th data-quarto-table-cell-role="th">propertytype</th>
+<th data-quarto-table-cell-role="th">oldnew</th>
+<th data-quarto-table-cell-role="th">duration</th>
+<th data-quarto-table-cell-role="th">paon</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">MAIN_FUEL</th>
+<th data-quarto-table-cell-role="th">WIND_TURBINE_COUNT</th>
+<th data-quarto-table-cell-role="th">HEAT_LOSS_CORRIDOOR</th>
+<th data-quarto-table-cell-role="th">UNHEATED_CORRIDOR_LENGTH</th>
+<th data-quarto-table-cell-role="th">FLOOR_HEIGHT</th>
+<th data-quarto-table-cell-role="th">PHOTO_SUPPLY</th>
+<th data-quarto-table-cell-role="th">SOLAR_WATER_HEATING_FLAG</th>
+<th data-quarto-table-cell-role="th">MECHANICAL_VENTILATION</th>
+<th data-quarto-table-cell-role="th">LOCAL_AUTHORITY_LABEL</th>
+<th data-quarto-table-cell-role="th">CONSTITUENCY_LABEL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">938059</td>
+<td>12825134</td>
+<td>{8A78B2B0-1AE4-5CB0-E053-6B04A8C0F504}</td>
+<td>E00042737</td>
+<td>NE3 1QX</td>
+<td>162000.0</td>
+<td>2019-04-24</td>
+<td>F</td>
+<td>N</td>
+<td>L</td>
+<td>132</td>
+<td>...</td>
+<td>mains gas (not community)</td>
+<td>0</td>
+<td>no corridor</td>
+<td>NaN</td>
+<td>3.07</td>
+<td>0.0</td>
+<td>NaN</td>
+<td>natural</td>
+<td>Newcastle upon Tyne</td>
+<td>Newcastle upon Tyne North</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">938062</td>
+<td>12825155</td>
+<td>{75050A85-C3A2-9A88-E053-6B04A8C02390}</td>
+<td>E00042719</td>
+<td>NE3 4RQ</td>
+<td>363200.0</td>
+<td>2018-08-02</td>
+<td>T</td>
+<td>N</td>
+<td>F</td>
+<td>2</td>
+<td>...</td>
+<td>mains gas (not community)</td>
+<td>0</td>
+<td>NO DATA!</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>N</td>
+<td>natural</td>
+<td>Newcastle upon Tyne</td>
+<td>Newcastle upon Tyne Central</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">938067</td>
+<td>12825169</td>
+<td>{75050A85-C385-9A88-E053-6B04A8C02390}</td>
+<td>E00042710</td>
+<td>NE3 1NN</td>
+<td>205000.0</td>
+<td>2018-07-18</td>
+<td>F</td>
+<td>N</td>
+<td>L</td>
+<td>FERNDENE COURT</td>
+<td>...</td>
+<td>mains gas (not community)</td>
+<td>0</td>
+<td>unheated corridor</td>
+<td>7.8</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>N</td>
+<td>natural</td>
+<td>Newcastle upon Tyne</td>
+<td>Newcastle upon Tyne North</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">938068</td>
+<td>12825170</td>
+<td>{68FEB20C-0D16-38DA-E053-6C04A8C051AE}</td>
+<td>E00042820</td>
+<td>NE4 6BA</td>
+<td>160000.0</td>
+<td>2018-03-15</td>
+<td>F</td>
+<td>N</td>
+<td>L</td>
+<td>BARRACK COURT</td>
+<td>...</td>
+<td>mains gas - this is for backwards compatibilit...</td>
+<td>0</td>
+<td>no corridor</td>
+<td>NaN</td>
+<td>2.28</td>
+<td>0.0</td>
+<td>N</td>
+<td>natural</td>
+<td>Newcastle upon Tyne</td>
+<td>Newcastle upon Tyne Central</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">938082</td>
+<td>12825219</td>
+<td>{79A74E22-3FBD-1289-E053-6B04A8C01627}</td>
+<td>E00042388</td>
+<td>NE3 2HA</td>
+<td>176500.0</td>
+<td>2018-09-24</td>
+<td>F</td>
+<td>N</td>
+<td>L</td>
+<td>46</td>
+<td>...</td>
+<td>mains gas (not community)</td>
+<td>0</td>
+<td>no corridor</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>N</td>
+<td>natural</td>
+<td>Newcastle upon Tyne</td>
+<td>Newcastle upon Tyne North</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1543044</td>
+<td>14846632</td>
+<td>{8F1B26BE-496B-53DB-E053-6C04A8C03649}</td>
+<td>E00041827</td>
+<td>NE40 3RT</td>
+<td>200000.0</td>
+<td>2019-07-16</td>
+<td>T</td>
+<td>N</td>
+<td>L</td>
+<td>15</td>
+<td>...</td>
+<td>mains gas (not community)</td>
+<td>0</td>
+<td>NO DATA!</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>N</td>
+<td>natural</td>
+<td>Gateshead</td>
+<td>Blaydon</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1543047</td>
+<td>14846641</td>
+<td>{965B6D91-FF99-95E4-E053-6C04A8C07729}</td>
+<td>E00041731</td>
+<td>NE10 9SA</td>
+<td>135000.0</td>
+<td>2019-10-04</td>
+<td>S</td>
+<td>N</td>
+<td>L</td>
+<td>55</td>
+<td>...</td>
+<td>mains gas (not community)</td>
+<td>0</td>
+<td>NO DATA!</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>N</td>
+<td>natural</td>
+<td>Gateshead</td>
+<td>Gateshead</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1543048</td>
+<td>14846652</td>
+<td>{8F1B26BE-47B9-53DB-E053-6C04A8C03649}</td>
+<td>E00041511</td>
+<td>NE9 7TQ</td>
+<td>179950.0</td>
+<td>2019-07-05</td>
+<td>D</td>
+<td>N</td>
+<td>F</td>
+<td>1</td>
+<td>...</td>
+<td>mains gas (not community)</td>
+<td>0</td>
+<td>NO DATA!</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>N</td>
+<td>natural</td>
+<td>Gateshead</td>
+<td>Gateshead</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3053559</td>
+<td>3043457</td>
+<td>{93E6821E-E6ED-40FD-E053-6B04A8C0C1DF}</td>
+<td>E00104805</td>
+<td>NE17 7TB</td>
+<td>310000.0</td>
+<td>2019-09-09</td>
+<td>D</td>
+<td>N</td>
+<td>F</td>
+<td>SCHOOL HOUSE</td>
+<td>...</td>
+<td>bulk wood pellets</td>
+<td>0</td>
+<td>NO DATA!</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>N</td>
+<td>natural</td>
+<td>County Durham</td>
+<td>North West Durham</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3068117</td>
+<td>3098279</td>
+<td>{6DA0844A-764F-30F2-E053-6B04A8C05F3B}</td>
+<td>E00104812</td>
+<td>NE17 7QA</td>
+<td>81000.0</td>
+<td>2018-03-12</td>
+<td>T</td>
+<td>N</td>
+<td>F</td>
+<td>6</td>
+<td>...</td>
+<td>mains gas (not community)</td>
+<td>0</td>
+<td>NO DATA!</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>N</td>
+<td>natural</td>
+<td>County Durham</td>
+<td>North West Durham</td>
+</tr>
+</tbody>
+</table>
+
+<p>20143 rows × 105 columns</p>
+</div>
+</div>
+</div>
+<p>Link to geometry</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>oa <span class="op">=</span> gpd.read_file(</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://borders.ukdataservice.ac.uk/ukborders/easy_download/prebuilt/shape/infuse_oa_lyr_2011_clipped.zip"</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>tyne_agg <span class="op">=</span> (</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    tyne[[<span class="st">"oa11"</span>, <span class="st">"priceper"</span>, <span class="st">"numberrooms"</span>, <span class="st">"price"</span>, <span class="st">"tfarea"</span>]]</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    .groupby(<span class="st">"oa11"</span>)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    .mean()</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>tyne_oa <span class="op">=</span> oa.merge(tyne_agg, left_on<span class="op">=</span><span class="st">"geo_code"</span>, right_on<span class="op">=</span><span class="st">"oa11"</span>, how<span class="op">=</span><span class="st">"inner"</span>)</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>tyne_oa</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ERROR 1: PROJ: proj_create_from_database: Open of /home/martin/mambaforge/envs/ulce/share/proj failed</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">geo_code</th>
+<th data-quarto-table-cell-role="th">geometry</th>
+<th data-quarto-table-cell-role="th">oa11</th>
+<th data-quarto-table-cell-role="th">priceper</th>
+<th data-quarto-table-cell-role="th">numberrooms</th>
+<th data-quarto-table-cell-role="th">price</th>
+<th data-quarto-table-cell-role="th">tfarea</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>E00042786</td>
+<td>POLYGON ((428997.799 566018.331, 428998.491 56...</td>
+<td>E00042786</td>
+<td>1717.546956</td>
+<td>5.666667</td>
+<td>203158.333333</td>
+<td>124.333333</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>E00042707</td>
+<td>POLYGON ((424221.655 568003.052, 424221.754 56...</td>
+<td>E00042707</td>
+<td>2933.816547</td>
+<td>4.066667</td>
+<td>341234.066667</td>
+<td>124.475333</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>E00042703</td>
+<td>POLYGON ((419858.836 565454.433, 419858.374 56...</td>
+<td>E00042703</td>
+<td>1608.132502</td>
+<td>3.777778</td>
+<td>126666.666667</td>
+<td>84.666667</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>E00042782</td>
+<td>POLYGON ((428932.199 566299.133, 428933.629 56...</td>
+<td>E00042782</td>
+<td>1864.265091</td>
+<td>5.000000</td>
+<td>179833.333333</td>
+<td>99.056667</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>E00042789</td>
+<td>POLYGON ((428853.730 565689.295, 428860.602 56...</td>
+<td>E00042789</td>
+<td>1814.122597</td>
+<td>3.857143</td>
+<td>136528.571429</td>
+<td>75.697143</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3510</td>
+<td>E00041811</td>
+<td>POLYGON ((428782.519 562282.321, 428783.470 56...</td>
+<td>E00041811</td>
+<td>1660.067873</td>
+<td>5.000000</td>
+<td>147500.000000</td>
+<td>86.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3511</td>
+<td>E00041818</td>
+<td>POLYGON ((416764.269 564158.045, 416764.216 56...</td>
+<td>E00041818</td>
+<td>2616.513428</td>
+<td>4.333333</td>
+<td>222333.333333</td>
+<td>81.800000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3512</td>
+<td>E00041898</td>
+<td>POLYGON ((423738.129 560286.484, 423738.500 56...</td>
+<td>E00041898</td>
+<td>1538.080092</td>
+<td>4.250000</td>
+<td>124487.500000</td>
+<td>81.070000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3513</td>
+<td>E00041819</td>
+<td>POLYGON ((415843.233 564846.473, 415868.526 56...</td>
+<td>E00041819</td>
+<td>2719.109422</td>
+<td>3.750000</td>
+<td>202417.000000</td>
+<td>75.750000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3514</td>
+<td>E00041388</td>
+<td>POLYGON ((426402.927 562379.016, 426417.019 56...</td>
+<td>E00041388</td>
+<td>1463.861134</td>
+<td>5.333333</td>
+<td>153000.000000</td>
+<td>103.333333</td>
+</tr>
+</tbody>
+</table>
+
+<p>3515 rows × 7 columns</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>tyne_oa.to_file(</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"</span><span class="sc">{</span>data_folder<span class="sc">}</span><span class="ss">/processed/house_prices/price_per_sqm.gpkg"</span>, engine<span class="op">=</span><span class="st">"pyogrio"</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>tyne_oa.plot(<span class="st">"priceper"</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">12</span>), legend<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>&lt;AxesSubplot: &gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="03_house_prices_files/figure-html/cell-23-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>tyne_oa.priceper.plot.hist(bins<span class="op">=</span><span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>&lt;AxesSubplot: ylabel='Frequency'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="03_house_prices_files/figure-html/cell-24-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>np.log(tyne_oa.priceper).plot.hist(bins<span class="op">=</span><span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>&lt;AxesSubplot: ylabel='Frequency'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="03_house_prices_files/figure-html/cell-25-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>We should be comfortably able to model log of price per sqm here.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../code/01_baseline/02_air_quality.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Air quality</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../code/02_models/01_explanatory_variables.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Authoritative table of explanatory variables on the Output Area level</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
