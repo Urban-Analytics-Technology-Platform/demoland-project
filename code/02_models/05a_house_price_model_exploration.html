@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DemoLand - Appendix K — House Price prediction model</title>
+<title>DemoLand - Appendix L — House Price prediction model exploration</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../code/02_models/05b_house_price_model_search.html" rel="next">
-<link href="../../code/02_models/04b_air_quality_model_search.html" rel="prev">
+<link href="../../code/02_models/04c_air_quality_model_final.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../code/01_baseline/01_accessibility.html">Appendices</a></li><li class="breadcrumb-item"><a href="../../code/02_models/05a_house_price_model_exploration.html"><span class="chapter-number">K</span>&nbsp; <span class="chapter-title">House Price prediction model</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../code/01_baseline/01_accessibility.html">Appendices</a></li><li class="breadcrumb-item"><a href="../../code/02_models/05a_house_price_model_exploration.html"><span class="chapter-number">L</span>&nbsp; <span class="chapter-title">House Price prediction model exploration</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -240,7 +240,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../code/02_models/04a_air_quality_model_exploration.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">I</span>&nbsp; <span class="chapter-title">Air Quality prediction model</span></span></a>
+ <span class="menu-text"><span class="chapter-number">I</span>&nbsp; <span class="chapter-title">Air Quality prediction model exploration</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -251,38 +251,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../code/02_models/04c_air_quality_model_final.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">K</span>&nbsp; <span class="chapter-title">Air quality model training</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../code/02_models/05a_house_price_model_exploration.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">K</span>&nbsp; <span class="chapter-title">House Price prediction model</span></span></a>
+ <span class="menu-text"><span class="chapter-number">L</span>&nbsp; <span class="chapter-title">House Price prediction model exploration</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../code/02_models/05b_house_price_model_search.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">L</span>&nbsp; <span class="chapter-title">House price prediction model search</span></span></a>
+ <span class="menu-text"><span class="chapter-number">M</span>&nbsp; <span class="chapter-title">House price prediction model search</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../code/02_models/05c_house_price_model_final.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">N</span>&nbsp; <span class="chapter-title">House price model training</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../code/03_prediction/01_summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">M</span>&nbsp; <span class="chapter-title">Create summary data for signatures</span></span></a>
+ <span class="menu-text"><span class="chapter-number">O</span>&nbsp; <span class="chapter-title">Create summary data for signatures</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../code/03_prediction/02_sample_exvars.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">N</span>&nbsp; <span class="chapter-title">Sample explanatory variables based on empirical data and custom scenario definition</span></span></a>
+ <span class="menu-text"><span class="chapter-number">P</span>&nbsp; <span class="chapter-title">Sample explanatory variables based on empirical data and custom scenario definition</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../code/03_prediction/03_inference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">O</span>&nbsp; <span class="chapter-title">Air quality and house price model inference</span></span></a>
+ <span class="menu-text"><span class="chapter-number">Q</span>&nbsp; <span class="chapter-title">Air quality and house price model inference</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../code/03_prediction/04_acc_class.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">P</span>&nbsp; <span class="chapter-title">Accessibility API</span></span></a>
+ <span class="menu-text"><span class="chapter-number">R</span>&nbsp; <span class="chapter-title">Accessibility API</span></span></a>
   </div>
 </li>
       </ul>
@@ -297,12 +309,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#using-spatial-lag" id="toc-using-spatial-lag" class="nav-link active" data-scroll-target="#using-spatial-lag"><span class="header-section-number">K.1</span> Using spatial lag</a>
+  <li><a href="#using-spatial-lag" id="toc-using-spatial-lag" class="nav-link active" data-scroll-target="#using-spatial-lag"><span class="header-section-number">L.1</span> Using spatial lag</a>
   <ul class="collapse">
-  <li><a href="#wider-weights" id="toc-wider-weights" class="nav-link" data-scroll-target="#wider-weights"><span class="header-section-number">K.1.1</span> Wider weights</a></li>
+  <li><a href="#wider-weights" id="toc-wider-weights" class="nav-link" data-scroll-target="#wider-weights"><span class="header-section-number">L.1.1</span> Wider weights</a></li>
   </ul></li>
-  <li><a href="#include-accessibilities" id="toc-include-accessibilities" class="nav-link" data-scroll-target="#include-accessibilities"><span class="header-section-number">K.2</span> Include accessibilities</a></li>
-  <li><a href="#with-latent-representation-of-sentinel-2" id="toc-with-latent-representation-of-sentinel-2" class="nav-link" data-scroll-target="#with-latent-representation-of-sentinel-2"><span class="header-section-number">K.3</span> With latent representation of Sentinel 2</a></li>
+  <li><a href="#include-accessibilities" id="toc-include-accessibilities" class="nav-link" data-scroll-target="#include-accessibilities"><span class="header-section-number">L.2</span> Include accessibilities</a></li>
+  <li><a href="#with-latent-representation-of-sentinel-2" id="toc-with-latent-representation-of-sentinel-2" class="nav-link" data-scroll-target="#with-latent-representation-of-sentinel-2"><span class="header-section-number">L.3</span> With latent representation of Sentinel 2</a></li>
   </ul>
 </nav>
     </div>
@@ -311,7 +323,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Appendix K — House Price prediction model</h1>
+<h1 class="title">Appendix L — House Price prediction model exploration</h1>
 </div>
 
 
@@ -556,8 +568,8 @@ Name: house_price_index, dtype: float64</code></pre>
 </div>
 </div>
 <p>The results are not great. Given that the mean house price is about 1500 per sq m, the model can be quite off, especially in some location.</p>
-<section id="using-spatial-lag" class="level2" data-number="K.1">
-<h2 data-number="K.1" class="anchored" data-anchor-id="using-spatial-lag"><span class="header-section-number">K.1</span> Using spatial lag</h2>
+<section id="using-spatial-lag" class="level2" data-number="L.1">
+<h2 data-number="L.1" class="anchored" data-anchor-id="using-spatial-lag"><span class="header-section-number">L.1</span> Using spatial lag</h2>
 <p>We can add a lag into the mix. Let’s start with the Queen weights.</p>
 <div class="cell" data-tags="[]" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>queen <span class="op">=</span> libpysal.weights.Queen.from_dataframe(data)</span>
@@ -912,8 +924,8 @@ Wall time: 18min 13s</code></pre>
 <style>#sk-container-id-8 {color: black;background-color: white;}#sk-container-id-8 pre{padding: 0;}#sk-container-id-8 div.sk-toggleable {background-color: white;}#sk-container-id-8 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-8 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-8 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-8 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-8 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-8 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-8 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-8 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-8 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-8 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-8 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-8 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-8 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-8 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-8 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-8 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-8 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-8 div.sk-item {position: relative;z-index: 1;}#sk-container-id-8 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-8 div.sk-item::before, #sk-container-id-8 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-8 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-8 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-8 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-8 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-8 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-8 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-8 div.sk-label-container {text-align: center;}#sk-container-id-8 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-8 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-8" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>HistGradientBoostingRegressor(learning_rate=0.05, max_iter=500, random_state=0)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-14" type="checkbox" checked=""><label for="sk-estimator-id-14" class="sk-toggleable__label sk-toggleable__label-arrow">HistGradientBoostingRegressor</label><div class="sk-toggleable__content"><pre>HistGradientBoostingRegressor(learning_rate=0.05, max_iter=500, random_state=0)</pre></div></div></div></div></div>
 </div>
 </div>
-<section id="wider-weights" class="level3" data-number="K.1.1">
-<h3 data-number="K.1.1" class="anchored" data-anchor-id="wider-weights"><span class="header-section-number">K.1.1</span> Wider weights</h3>
+<section id="wider-weights" class="level3" data-number="L.1.1">
+<h3 data-number="L.1.1" class="anchored" data-anchor-id="wider-weights"><span class="header-section-number">L.1.1</span> Wider weights</h3>
 <div class="cell" data-tags="[]" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>queen <span class="op">=</span> libpysal.weights.Queen.from_dataframe(data)</span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>queen3 <span class="op">=</span> libpysal.weights.higher_order(queen, k<span class="op">=</span><span class="dv">3</span>, lower_order<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1092,8 +1104,8 @@ Wall time: 86 ms</code></pre>
 </div>
 </section>
 </section>
-<section id="include-accessibilities" class="level2" data-number="K.2">
-<h2 data-number="K.2" class="anchored" data-anchor-id="include-accessibilities"><span class="header-section-number">K.2</span> Include accessibilities</h2>
+<section id="include-accessibilities" class="level2" data-number="L.2">
+<h2 data-number="L.2" class="anchored" data-anchor-id="include-accessibilities"><span class="header-section-number">L.2</span> Include accessibilities</h2>
 <p>We can try to include green space and jobs accessibility, as those are likely to affect the house price. We create a lagged model with these two variables on top of explanatory variables.</p>
 <div class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>exvars <span class="op">=</span> data.drop(</span>
@@ -1421,8 +1433,8 @@ Wall time: 26min 23s</code></pre>
 </div>
 <p>Not great so far, it seems that our set of explanatory variables is not explanatory enough to predict house prices in this way…</p>
 </section>
-<section id="with-latent-representation-of-sentinel-2" class="level2" data-number="K.3">
-<h2 data-number="K.3" class="anchored" data-anchor-id="with-latent-representation-of-sentinel-2"><span class="header-section-number">K.3</span> With latent representation of Sentinel 2</h2>
+<section id="with-latent-representation-of-sentinel-2" class="level2" data-number="L.3">
+<h2 data-number="L.3" class="anchored" data-anchor-id="with-latent-representation-of-sentinel-2"><span class="header-section-number">L.3</span> With latent representation of Sentinel 2</h2>
 <p>Try including the lagged latent representation from the postcode Sentinel paper.</p>
 <div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb99"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a>latent_oa <span class="op">=</span> pd.read_parquet(<span class="ss">f"</span><span class="sc">{</span>data_folder<span class="sc">}</span><span class="ss">/processed/sentinel/latent_oa.parquet"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2054,13 +2066,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../code/02_models/04b_air_quality_model_search.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">J</span>&nbsp; <span class="chapter-title">Air Quality prediction model search</span></span>
+      <a href="../../code/02_models/04c_air_quality_model_final.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">K</span>&nbsp; <span class="chapter-title">Air quality model training</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../../code/02_models/05b_house_price_model_search.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">L</span>&nbsp; <span class="chapter-title">House price prediction model search</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">M</span>&nbsp; <span class="chapter-title">House price prediction model search</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
