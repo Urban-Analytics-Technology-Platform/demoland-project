@@ -1,4 +1,5 @@
 # Notes
+
 <!-- Note that for images the relative path doesn't work since moved the book to separate repo and automated quarto publishing -->
 <!-- links like "![](./../images/tynewear_lads_msoas.png)" nor "![](images/tynewear_lads_msoas.png)"" (as done before) wouldn't work-->
 <!-- followed the suggestions from here  https://stackoverflow.com/questions/51002481/images-not-loading-when-deploying-to-github-pages-->
