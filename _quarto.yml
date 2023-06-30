@@ -1,11 +1,14 @@
 project:
   type: book
   output-dir: ./_site
+
 execute:
   freeze: true
+from: markdown+emoji
+
 book:
-  title: "DemoLand"
-  subtitle: "Land Use Demonstrator project"
+  title: "Land Use Demonstrator"
+  subtitle: "Spatial modelling for land management predicting the impact of large-scale planning and land use changes on the quality of life"
   author: "Anna Zanchetta, Martin Fleischmann, Dani Arribas-Bel; The Alan Turing Institute"
   date: today
   search: true
@@ -18,6 +21,7 @@ book:
     - book/method.qmd
     - book/scenarios.qmd
     - book/notes.qmd
+
   appendices:
     - code/01_baseline/01_accessibility.ipynb
     - code/01_baseline/01b_greeenspace_datacleaning.ipynb
@@ -42,9 +46,7 @@ book:
 
 format:
   html:
-    # theme: cosmo
     theme:
       light: flatly
       dark: darkly
-    # css: styles.css
     toc: true
