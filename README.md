@@ -1,4 +1,5 @@
 # LandUseDemonstrator
+
 Developing a modelling system to quantify features of land use in urban environments for the United Kingdom.
 
 ## Code
@@ -15,17 +16,25 @@ The most complete of them is `env_r5py.yml`.
 It enables the `r5py` and `tracc` packages (for accessibility analysis), and also the function `explore` with `geopandas` (for visualisation in notebooks).
 Install using the following code:
 
-> ```python
-> cd python                           # name of the folder where the yml is located
-> conda env create -f env_demo_r5.yml # generates an environment called "demoland_r5"
-> conda activate demoland_r5          # to activate the environment
+```sh
+cd python                           # name of the folder where the yml is located
+conda env create -f env_demo_r5.yml # generates an environment called "demoland_r5"
+conda activate demoland_r5          # to activate the environment
+```
 
 You can track the research and work in progress in the [*Notes* chapter of the book](https://ciupava.github.io/LandUseDemonstrator/notes.html).
 
 
+## Web app frontend
+
+**https://alan-turing-institute.github.io/demoland-web/**
+
+We have also created a web app, allowing users to visualise the outputs of the models and to compare the different scenarios we have chosen.
+The web app is [hosted separately on GitHub](https://github.com/alan-turing-institute/demoland-web).
+
 ## Book
 
-https://ciupava.github.io/LandUseDemonstrator/
+**https://ciupava.github.io/LandUseDemonstrator/**
 
 Separately, we provide a book which fully describes the project and its methodology.
 
