@@ -20,7 +20,6 @@ book:
     - book/data_sources.qmd
     - book/method.qmd
     - book/scenarios.qmd
-    - book/notes.qmd
 
   appendices:
     - code/01_baseline/01_accessibility.ipynb

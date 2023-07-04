@@ -30,7 +30,8 @@ You can track the research and work in progress in the [*Notes* chapter of the b
 **https://alan-turing-institute.github.io/demoland-web/**
 
 We have also created a web app, allowing users to visualise the outputs of the models and to compare the different scenarios we have chosen.
-The web app is [hosted separately on GitHub](https://github.com/alan-turing-institute/demoland-web).
+The underlying code for the web app is [hosted separately on GitHub](https://github.com/alan-turing-institute/demoland-web).
+
 
 ## Book
 
@@ -40,3 +41,6 @@ Separately, we provide a book which fully describes the project and its methodol
 
 To view the book locally, [install Quarto](https://quarto.org/), and then run `quarto preview` from the root of the repository.
 The source code can be found in the `/book` subdirectory.
+
+The `/book` directory also contains a `notes.qmd` file, which charts the history of the project as it has evolved.
+This is not included in the actual Quarto output; however, it is retained as a reference for anybody who would like to read it.
