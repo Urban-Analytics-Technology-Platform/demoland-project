@@ -17,7 +17,7 @@
 | **How**        | Creating key indicators for assessing a          |
 |                | *baseline* scenario and *future* scenarios       |
 +----------------+--------------------------------------------------+
-| **Duration**   | 6 months                                         |
+| **Duration**   | September 2022 – present                         |
 +----------------+--------------------------------------------------+
 
 ## Project aims
@@ -48,8 +48,6 @@ These were calculated for four modes of transport (walking, bicycle, vehicles, a
 
 More details about the indicators, as well as the explanatory variables used in the model, can be found in the [Methodology](method.qmd) chapter.
 
-The outputs are presented in an interactive visual web-based environment allowing quick comparison and presentation for policymakers and professionals.
-
 
 ## Development scenarios
 
@@ -59,4 +57,11 @@ It defines development scenarios of the Tyne and Wear county, for which it repor
 The indicators are first modelled for a **baseline**, reflecting the current land use in the area under study.
 Once the baseline is created, the project defines a number of **scenarios** of future development (e.g. densification of the city centre, or land release in the green belt area) and assesses the effect of those scenarios on the quality of life indicators.
 
-See the chapter on [scenarios](scenarios.qmd) for more details, and the [interactive mapping tool](https://alan-turing-institute.github.io/demoland-web) to explore the results.
+See the chapter on [scenarios](scenarios.qmd) for more details.
+
+
+## Interactive web app
+
+As part of the project, an [interactive web app](https://alan-turing-institute.github.io/demoland-web) has also been created.
+The web app allows users to project both the proposed land use, as well as the predicted values of the quality-of-life indicators, onto a map of Newcastle.
+Policymakers and professionals will thus be able to explore the outputs of this project by visualising and comparing different scenarios.
