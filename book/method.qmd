@@ -2,18 +2,22 @@
 
 _add workflow (comprehensive of all the steps)_
 
-## Building Indicators
 
-The original list of indicators (see Intro) was pruned after an initial review of the available data, software, interests of the stakeholders.<br/>We resolved to 4 indicators of interest:
+## Indicator selection
+
+The original list of indicators (see Intro) was pruned after an initial review of the available data, and software, as well as the interests of the stakeholders.
+
+We resolved to use four indicators of interest:
 
 - Air quality
-- Green space accessibility
 - House prices
-- Jobs accessibility
+- Greenspace accessibility
+- Job accessibility
 
-For each of these indicators, we have detailed below how they are generated. This step represents the _basic scenario_.
+For each of these indicators, we have detailed below how they are generated.
+This step represents the _basic scenario_.
 
-We have two different types of indicators: while air quality and house prices are "actual data" measurements, accessibility is estimated and generated in a deterministic way, so it can't be directly modelled/predicted using some explanatory variables.
+We have two different types of indicators: while air quality and house prices are measurements of "actual data", accessibilities are estimated and generated in a deterministic way, so they cannot be directly modelled/predicted using some explanatory variables.
 
 ### Accessibility calculation
 
