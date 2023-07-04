@@ -28,5 +28,5 @@ residential property price dataset for England and Wales 2011-2019 | [link](http
 
 - ONS | Mid-2020 population estimates (SAPE23DT10d edition) | [link](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/censusoutputareaestimatesinthenortheastregionofengland)
 - ONS | Workplace population | [link](https://www.nomisweb.co.uk/sources/census_2011_wp)
-- Copernicus | CORINE Land Cover classification | [link](https://land.copernicus.eu/pan-european/corine-land-cover)
+- Copernicus | CORINE Land Cover classification (2018) | [link](https://land.copernicus.eu/pan-european/corine-land-cover)
 - The Alan Turing Institute | Spatial Signatures of Great Britain | [link](https://urbangrammarai.xyz/story/)
