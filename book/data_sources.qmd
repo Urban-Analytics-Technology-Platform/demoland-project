@@ -9,11 +9,11 @@ For more details on how each dataset is used and processed, refer to the [Method
 
 ## Accessibility indicators
 
-- Office for National Statistics (ONS) | Population Weighted Centroids (PWC) of Output Areas | [link](https://www.ons.gov.uk/census/2001censusandearlier/dataandproducts/outputgeography/outputareas)
+- Office for National Statistics (ONS) | Population Weighted Centroids (PWC) of Output Areas | [link](https://geoportal.statistics.gov.uk/datasets/ons::output-areas-dec-2011-pwc/about)
 - ONS | Workplace zones | [link](https://www.nomisweb.co.uk/sources/census_2011_wp)
 - OS | Open Greenspace  | [link](https://beta.ordnancesurvey.co.uk/products/os-open-greenspace)
 - OpenStreetMap (OSM) | OpenStreetMap network data | [link](https://openstreetmap.org)
-- Institute for Transport Studies, University of Leeds | UK GTFS data | [link](https://itsleeds.github.io/UK2GTFS/)
+- Department for Transport | Bus Open Data Service timetable data | [link](https://data.bus-data.dft.gov.uk/downloads/)
 
 ## Air quality
 

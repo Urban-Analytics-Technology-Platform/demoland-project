@@ -1,13 +1,15 @@
 # Methodology
 
-_add workflow (comprehensive of all the steps)_
+<!-- TODO: Add an image showing the entire workflow. -->
+
+This page provides an outline of the methodology behind indicator modelling / calculation.
+For more details, please refer to the notebooks (provided in the Appendices of this book).
 
 
 ## Indicator selection
 
-The original list of indicators (see Intro) was pruned after an initial review of the available data, and software, as well as the interests of the stakeholders.
-
-We resolved to use four indicators of interest:
+We resolved to use four indicators of interest, which were shortlisted after an initial review of the available data and software, as well as the interests of the stakeholders.
+These are:
 
 - Air quality
 - House prices
@@ -17,12 +19,12 @@ We resolved to use four indicators of interest:
 For each of these indicators, we have detailed below how they are generated.
 This step represents the _basic scenario_.
 
-We have two different types of indicators: while air quality and house prices are measurements of "actual data", accessibilities are estimated and generated in a deterministic way, so cannot be directly modelled/predicted using some explanatory variables.
+We have two different types of indicators: while air quality and house prices are derived using models which are fit to actual data, accessibilities are directly calculated using geospatial data, so are not directly modelled/predicted using explanatory variables.
 
 ### Accessibility calculation
 
 For accessibility computations, we calculate the cumulative potential accessibility to green spaces and jobs (collectively 'opportunities').
-We consider a set of (punctual) origins and opportunities' destinations and the time it takes to move between them on the road network, given different transport modes.
+We consider a set of origins and opportunity destination points, and the time it takes to move between them on the road network for different transport modes.
 
 In order to calculate the time it takes from each origin to reach each destination, we need to have a Time Travel Matrix (TTM) between origins and destinations for different means of transport.
 To build this, we can generate a graph/network starting from two data sources: one for the road network, and one for public transportation schedules.
@@ -75,7 +77,8 @@ We use GTFS data because it is more compatible with the `ttm` calculation packag
 1. Get roads network > OSM data
 1. Generate network graph > `r5` engine ([Conveyal](https://github.com/conveyal/r5)) > [`r5py` package](https://r5py.readthedocs.io/)
 1. Generate TTM for 4 different modes > 'transit', 'bike', 'car', 'walking'
-1. Time is fixed > _idea for future improvement_: edit for taking into account different day of the year/week, time of the day
+
+   *(An idea for future improvement would be to adjust the time threshold depending on the time of day / day of the week, as these would influence e.g. traffic conditions.)*
 
 
 **Run accessibility analysis**
@@ -88,9 +91,8 @@ We use GTFS data because it is more compatible with the `ttm` calculation packag
 1. _Greenspace_ > convert the `tracc` functions to work only on reachable sites' area, on the TTM _per  transport mode_:
     - Compute impedance function based on a 15 minute cost (cumulative)
     - Join the destination data to the travel time data
-    - Per OA (origin), filtering only entrances with time travel within the threshold
-    - Per OA, filter entrances (only one per park)
-    - Per OA, assign metric as the sum of parks' areas
+    - Per OA (origin), select all entrances which can be reached within the threshold time, and deduplicate entrances which correspond to the same park
+    - Calculate the metric as the sum of parks' areas
 
 
 ### Air quality index
