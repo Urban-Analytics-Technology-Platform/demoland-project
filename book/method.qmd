@@ -99,17 +99,18 @@ We use GTFS data because it is more compatible with the `ttm` calculation packag
 
 We develop an air quality index as a composite of PM2.5, PM10, NO<sub>2</sub> and SO<sub>2</sub> values, derived from [the UK AIR project by DEFRA](https://uk-air.defra.gov.uk/data/pcm-data).
 Data are available as a 1 km grid.
-The composite index follows the methodology of the European Environmental Agency, reflecting the relative health risk associated with the exposure to particle intensities.
+The composite index follows the methodology of the European Environmental Agency (EEA), reflecting the relative health risk associated with the exposure to particle intensities.
+Quoting from [the EEA](https://airindex.eea.europa.eu/Map/AQI/Viewer/):
 
-- The bands are based on the relative risks associated with short-term exposure to PM2.5, O<sub>3</sub> and NO<sub>2</sub>, as defined by the World Health Organization in their Health Risks of Air Pollution in Europe (HRAPIE) project report.
+> The bands are based on the relative risks associated with short-term exposure to PM2.5, O<sub>3</sub> and NO<sub>2</sub>, as defined by the World Health Organization in their Health Risks of Air Pollution in Europe (HRAPIE) project report.
 
-- The relative risk of exposure to PM2.5 is taken as the basis for driving the index, specifically, the increase in the risk of mortality per 10 µg/m<sup>3</sup> increase in the daily mean concentration of PM2.5.
+> The relative risk of exposure to PM2.5 is taken as the basis for driving the index, specifically, the increase in the risk of mortality per 10 µg/m<sup>3</sup> increase in the daily mean concentration of PM2.5.
 
-- Assuming linearity across the relative risk functions for O<sub>3</sub> and NO<sub>2</sub>, we calculate the concentrations of these pollutants that pose an equivalent relative risk to a 10 µg/m<sup>3</sup> increase in the daily mean of PM2.5.
+> Assuming linearity across the relative risk functions for O<sub>3</sub> and NO<sub>2</sub>, we calculate the concentrations of these pollutants that pose an equivalent relative risk to a 10 µg/m<sup>3</sup> increase in the daily mean of PM2.5.
 
-- For PM10 concentrations, a constant ratio between PM10 and PM2.5 of 1:2 is assumed, in line with the World Health Organization´s air quality guidelines for Europe.
+> For PM10 concentrations, a constant ratio between PM10 and PM2.5 of 1:2 is assumed, in line with the World Health Organization´s air quality guidelines for Europe.
 
-- For SO<sub>2</sub>, the bands reflect the limit values set under the EU Air Quality Directive.
+> For SO<sub>2</sub>, the bands reflect the limit values set under the EU Air Quality Directive.
 
 The relationship between PM2.5 : PM10 : NO<sub>2</sub> : O<sub>3</sub>: SO<sub>2</sub> is then equal to 1 : 2 : 4 : 5 : 10.
 The combined index can then be computed as
@@ -134,131 +135,133 @@ This dataset contains individual house prices, total floor area, and a resulting
 We use the data from the years 2018–2019, and compute the mean price per sqm for each output area.
 Given the data are not fully up-to-date, the results of our modelling are presented as a percent increase or decrease compared to the baseline value rather than in absolute terms.
 
+
+
 ## Explanatory variables
 
-We use a set of explanatory variables describing the environment that can be changed
-to model different scenarios and have, at the same time, explanatory power to predict our
-four indicators.
+We curated a set of *explanatory variables*, which describe the urban environment and can be changed in order to model the different scenarios.
+These variables are chosen to have predictive power for the four indicators, and can be categorised into several groups according to their source.
 
-### ONS population estimates
 
-We use the ONS population estimates on the OA level for mid-2020. The other data used in the project
-are generally reflecting the period 2018-2020, so we want to ensure we describe the compatible point
-in time. The dataset is retrieved from the [ONS](https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/censusoutputareaestimatesinthenortheastregionofengland/mid2020sape23dt10d/sape23dt10dmid2020coaunformattedsyoaestimatesnortheast.xlsx). Given it is reported on Output Area level,
-it can be simply joined.
+### Group 1:  ONS population estimates
 
-### Workplace population by industry
+The first group consists of only one variable, namely, population estimates.
+We use the population estimates by the Office for National Statistics (ONS) at the OA level for mid-2020.
+The other data used in the project generally reflect the period between 2018 and 2020, so this was chosen in order to describe the compatible point in time.
+The dataset (titled 'SAPE23DT10d') is retrieved from the [ONS website](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/censusoutputareaestimatesinthenortheastregionofengland).
+Since it is already reported at the Output Area level, it does not need to be processed further.
 
-Workplace population is coming from the Census 2011 and is reported on Workplace Zone geometries.
-We use the data preprocessed in the Urban Grammar project that aggregated industries into
-following groups:
+### Group 2: Workplace population by industry
 
-- A, B, D, E. Agriculture, energy and water
-- C. Manufacturing
-- F. Construction
-- G, I. Distribution, hotels and restaurants
-- H, J. Transport and communication
-- K, L, M, N. Financial, real estate, professional and administrative activities
-- O,P,Q. Public administration, education and health
-- R, S, T, U. Other
+The workplace population is obtained from Census 2011 data, and is reported on Workplace Zone geometries.
+We use preprocessed data from the Urban Grammar project which aggregated industries into the following groups:
 
-The data is then interpolated from Workplace Zones to Output Areas.
+1. `A, B, D, E. Agriculture, energy and water`
+1. `C. Manufacturing`
+1. `F. Construction`
+1. `G, I. Distribution, hotels and restaurants`
+1. `H, J. Transport and communication`
+1. `K, L, M, N. Financial, real estate, professional and administrative activities`
+1. `O, P, Q. Public administration, education and health`
+1. `R, S, T, U. Other`
 
-### CORINE Land Cover classification
+The data are then interpolated from Workplace Zones to Output Areas, giving us another 8 variables.
 
-We use CORINE Land Cover Classification for 2018 distributed as polygons of contiguous areas
-belonging to the same classs. We use the data extracted for the Great Britain within the
-Urban Grammar project and interpolate the data onto Output Areas capturing a proportion of
-each OA covered by each class. We further filter out fully or nearly invariant classes and use only:
+### Group 3: CORINE Land Cover classification
 
-- Discontinuous urban fabric
-- Continuous urban fabric
-- Non-irrigated arable land
-- Industrial or commercial units
-- Green urban areas
-- Pastures
-- Sport and leisure facilities
+We use CORINE Land Cover classification data for 2018, which are provided as polygons of contiguous areas belonging to the same class.
+We use the data extracted for Great Britain within the Urban Grammar project, and interpolate the data to Output Areas, which gives us the proportion of each OA covered by each class.
+We further filter out fully or nearly invariant classes and use only:
 
-### Urban morphometrics
+1. `Discontinuous urban fabric`
+1. `Continuous urban fabric`
+1. `Non-irrigated arable land`
+1. `Industrial or commercial units`
+1. `Green urban areas`
+1. `Pastures`
+1. `Sport and leisure facilities`
 
-Urban morphometrics offers a way of describing physical built environment (buildings, streets)
-in a set of measurements capturing different aspects of morphological elements. We directly
-use the set measured within the Urban Grammar project, presented as _individual_ characters
-(prior contextualisation) and interpolate their values from the original geometry (enclosed
-tessellation cells) to output areas. That way, we already get a contextual version using the
-project-specific aggregation to OA. This gives us 59 morphometric variables.
+leading to 7 more variables.
 
-### Variable pruning
+### Group 4: Urban morphometrics
 
-Given some of the explanatory variable were collected for a different purpose than modelling
-and with a different geographical extent in mind, it may happen that within our limited area of
-interest (Tyne and Wear), some of the variable are collinear. Those may negatively affect the
-performance of the predictive models and it is better to limit their number to minimum. We, therefore,
-measure Pearson's correlation index and Spearman Rank correlation index between all pairs of
-explanatory variables and from each pair with the absolute value of the index above 0.8
-retain only one, ideally the one that is more interpretable.
+Urban morphometrics offers a way of describing the physical built environment (buildings, streets) in a set of quantitative measurements which capture different aspects of morphological elements.
+We directly use the set measured within the Urban Grammar project, which are presented as _individual_ characters (prior contextualisation), and interpolate their values from the original geometry (enclosed tessellation cells) to Output Areas.
+This way, we obtain a contextual version using the project-specific aggregation to OA.
+This gives us 59 morphometric variables.
 
-The final set contains 59 explanatory variables and the only morphometric were pruned down.
+### Variable pruning and final variable set
 
-- population estimate
-- A, B, D, E. Agriculture, energy and water
-- C. Manufacturing
-- F. Construction
-- G, I. Distribution, hotels and restaurants
-- H, J. Transport and communication
-- K, L, M, N. Financial, real estate, professional and administrative activities
-- O,P,Q. Public administration, education and health
-- R, S, T, U. Other
-- Land cover [Discontinuous urban fabric]
-- Land cover [Continuous urban fabric]
-- Land cover [Non-irrigated arable land]
-- Land cover [Industrial or commercial units]
-- Land cover [Green urban areas]
-- Land cover [Pastures]
-- Land cover [Sport and leisure facilities]
-- area of building
-- courtyard area of building
-- circular compactness of building
-- corners of building
-- squareness of building
-- equivalent rectangular index of building
-- centroid - corner mean distance of building
-- centroid - corner distance deviation of building
-- orientation of building
-- area of ETC
-- circular compactness of ETC
-- equivalent rectangular index of ETC
-- covered area ratio of ETC
-- cell alignment of building
-- alignment of neighbouring buildings
-- mean distance between neighbouring buildings
-- perimeter-weighted neighbours of ETC
-- mean inter-building distance
-- width of street profile
-- width deviation of street profile
-- openness of street profile
-- length of street segment
-- linearity of street segment
-- mean segment length within 3 steps
-- node degree of junction
-- local proportion of 3-way intersections of street network
-- local proportion of 4-way intersections of street network
-- local proportion of cul-de-sacs of street network
-- local closeness of street network
-- local cul-de-sac length of street network
-- square clustering of street network
-- local degree weighted node density of street network
-- street alignment of building
-- area covered by edge-attached ETCs
-- buildings per meter of street segment
-- reached ETCs by neighbouring segments
-- reached ETCs by tessellation contiguity
-- area of enclosure
-- circular compactness of enclosure
-- equivalent rectangular index of enclosure
-- orientation of enclosure
-- perimeter-weighted neighbours of enclosure
-- area-weighted ETCs of enclosure
+In total, from these four groups, we have 75 explanatory variables.
+Given that some of these are collected for different purposes than modelling, and with different geographical extents in mind, it may happen that some of the variables are correlated within our limited area of interest (Tyne and Wear).
+This may negatively affect the performance of the predictive models, and it is better to minimise the number of such pairs.
+We, therefore, measure both the Pearson and Spearman correlation indices between all pairs of explanatory variables.
+For each pair of variables where both correlation indices have an absolute value larger than 0.8, we retain only one, ideally the one that is more interpretable.
+
+This procedure resulted in 16 of the morphometric variables being removed, leaving us with 59 explanatory variables in total:
+
+| Group        | #      | Variable name |
+| ------       | ---    | ----------------------------------------- |
+| Population   | 1      | population estimate |
+| Workplace    | 2      | A, B, D, E. Agriculture, energy and water |
+|              | 3      | C. Manufacturing |
+|              | 4      | F. Construction |
+|              | 5      | G, I. Distribution, hotels and restaurants |
+|              | 6      | H, J. Transport and communication |
+|              | 7      | K, L, M, N. Financial, real estate, professional and administrative activities |
+|              | 8      | O, P, Q. Public administration, education and health |
+|              | 9      | R, S, T, U. Other |
+| Corine       | 10     | Land cover [Discontinuous urban fabric] |
+|              | 11     | Land cover [Continuous urban fabric] |
+|              | 12     | Land cover [Non-irrigated arable land] |
+|              | 13     | Land cover [Industrial or commercial units] |
+|              | 14     | Land cover [Green urban areas] |
+|              | 15     | Land cover [Pastures] |
+|              | 16     | Land cover [Sport and leisure facilities] |
+| Morphometric | 17     | area of building |
+|              | 18     | courtyard area of building |
+|              | 19     | circular compactness of building |
+|              | 20     | corners of building |
+|              | 21     | squareness of building |
+|              | 22     | equivalent rectangular index of building |
+|              | 23     | centroid - corner mean distance of building |
+|              | 24     | centroid - corner distance deviation of building |
+|              | 25     | orientation of building |
+|              | 26     | area of ETC |
+|              | 27     | circular compactness of ETC |
+|              | 28     | equivalent rectangular index of ETC |
+|              | 29     | covered area ratio of ETC |
+|              | 30     | cell alignment of building |
+|              | 31     | alignment of neighbouring buildings |
+|              | 32     | mean distance between neighbouring buildings |
+|              | 33     | perimeter-weighted neighbours of ETC |
+|              | 34     | mean inter-building distance |
+|              | 35     | width of street profile |
+|              | 36     | width deviation of street profile |
+|              | 37     | openness of street profile |
+|              | 38     | length of street segment |
+|              | 39     | linearity of street segment |
+|              | 40     | mean segment length within 3 steps |
+|              | 41     | node degree of junction |
+|              | 42     | local proportion of 3-way intersections of street network |
+|              | 43     | local proportion of 4-way intersections of street network |
+|              | 44     | local proportion of cul-de-sacs of street network |
+|              | 45     | local closeness of street network |
+|              | 46     | local cul-de-sac length of street network |
+|              | 47     | square clustering of street network |
+|              | 48     | local degree weighted node density of street network |
+|              | 49     | street alignment of building |
+|              | 50     | area covered by edge-attached ETCs |
+|              | 51     | buildings per meter of street segment |
+|              | 52     | reached ETCs by neighbouring segments |
+|              | 53     | reached ETCs by tessellation contiguity |
+|              | 54     | area of enclosure |
+|              | 55     | circular compactness of enclosure |
+|              | 56     | equivalent rectangular index of enclosure |
+|              | 57     | orientation of enclosure |
+|              | 58     | perimeter-weighted neighbours of enclosure |
+|              | 59     | area-weighted ETCs of enclosure |
+
 
 ## Modelling / regression analysis
 
