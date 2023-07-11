@@ -265,15 +265,18 @@ This procedure resulted in 16 of the morphometric variables being removed, leavi
 
 ## Modelling / regression analysis
 
-While the accessibility indicators are a result of a deterministic model based on a fixed travel-time matrix, hence any scenario modelling can re-use it and change only the raw values at the destinations, we need to develop predictive models to be able to see the change of air quality and house price.
+The accessibility indicators result from a deterministic model based on a fixed travel-time matrix.
+Hence, any new scenario being modelled can re-use it by changing only the raw values at the destinations.
+On the other hand, we need to develop predictive models to be able to see the changes in air quality and house prices.
 
-Both models are based on the same architecture, a Histogram-based Gradient Boosting Regression Tree as implemented in the `scikit-learn` Python package, and a set of 59 explanatory variables listed above.
-To ensure we are able to properly captrue the spatial nature of the indicators, we add another 59 variables on top that are a result of a spatial lag of the original set.
-The spatial lag is measured as a mean value of the variable within a set neighbourhood, which definition is determined empirically.
-We test the neighbourhoods based on contiguity (from order of contiguity 1 to 5 inclusive of lower-order neighbors), Euclidean distance (500m, 1000m, 2000m) and their unions.
-Each option is then part of the grid search aimed at the selection of the best model parameters and the best defition of the spatial lag in relation to the model performance metrics (*R*<sup>2</sup>, MSE, ME).
-Model parameters that are being assessed are learning rate, maximum number of iterations and maximum number of bins.
-For more details, see the implementation in the [Air Quality notebook](https://github.com/ciupava/LandUseDemonstrator/blob/main/python/air_quality_model_search.ipynb) and the [House Price notebook](https://github.com/ciupava/LandUseDemonstrator/blob/main/python/house_price_model_search.ipynb).
+Both of these models use the same classifier, a histogram-based gradient boosting regression tree as [implemented in the `scikit-learn` Python package](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.HistGradientBoostingRegressor.html), and the set of 59 explanatory variables listed above.
+To ensure we are able to properly capture the spatial nature of the indicators, we add another 59 features which are a spatial lag of the original set.
+The spatial lag is measured as a mean value of the variable within a set neighbourhood, the definition of which is empirically determined.
+We test the neighbourhoods based on contiguity (from order of contiguity 1 to 5 inclusive of lower-order neighbors), Euclidean distance (500 m, 1000 m, 2000 m), and their unions.
+Each option is then included as part of the grid search aimed at the selection of the best model parameters and the best definition of the spatial lag in relation to the model performance metrics (*R*<sup>2</sup>, MSE, ME).
+Other model parameters which we also assess are the learning rate, the maximum number of iterations, and the maximum number of bins.
+For more details, see the implementation in the [Air Quality notebook](/code/02_models/04b_air_quality_model_search.html) and the [House Price notebook](/code/02_models/05b_house_price_model_search.html).
+
 Furthermore, we have experimented with the geographical extent of the training data.
 While the original models were based only on the data from the study area (Tyne and Wear), we have tested models trained on other geographical subsets:
 
@@ -281,12 +284,12 @@ While the original models were based only on the data from the study area (Tyne 
 - the whole of England, but excluding Greater London, which is known to be an outlier that may not help in predictive quality within Tyne and Wear
 - Tyne and Wear plus all OAs belonging to "Urbanity" classes from the rest of England
 
-This was to add additional robustness to the model by training on a wider set of data.
+The aim of this is to add additional robustness to the model by training on a wider set of data.
+
 
 ### Resulting model specifications
 
-The resulting models, selected based on their performance, are based on the following
-specifications:
+The resulting models, selected based on their performance, are based on the following specifications:
 
 **Air Quality**
 
@@ -307,23 +310,29 @@ The model performance (*R*<sup>2</sup>) is ~0.5.
 
 ## Building scenarios
 
-The mechanism for scenario building is based on four macro variables, which combination driving the sampling mechanism deriving the 59 variables used in the modelling.
-The four variables are _Level of urbanity_, which is a proxy for a signature type of spatial signatures as defined in the Urban Grammar project, _Use_ of buildings controlling the ratio between residential and commercial or industrial use, _Job types_, controlling whether job structure in each output area is more white-collar or blue-collar, and _Green space_, reflecting the amount of formal green space (i.e. parks).
+Scenarios are constructed by changing four **macro variables**, which together drive a sampling mechanism which derives the 59 variables used in the modelling.
+The four variables are:
 
-Scenarios are modelled by specifying the macro variables on output areas where the change is assumed.
+1. _Level of urbanity_, which is a proxy for a signature type of spatial signatures as defined in the Urban Grammar project;
+1. _Use_ of buildings, referring to the ratio of residential and commercial or industrial use;
+1. _Job types_, which determines whether jobs in each Output Area are more white-collar or blue-collar; and
+1. _Greenspace_, reflecting the amount of formal greenspace (i.e. parks).
+
+Scenarios are modelled by specifying the macro variables on Output Areas where the change takes place.
 Any of the four variables can be specified in combination with any other.
-The algorithm then samples the data from either baseline capturing the existing state or from the known distribution of values per signature type based on the country-wide data.
+The algorithm then samples the data from either the baseline (capturing the existing state) or from the known distribution of values per signature type based on the country-wide data.
 
 The first step in the sampling procedure is the selection of a signature type.
-If it is not changed, subsequent steps modify the baseline. Otherwise, we sample the values for a set signature type reflecting its common characterisation as observed across Great Britain.
-For example, if we specify the _Local urbanity_ signature type for an output area that had _Dense urban neighbourhoods_ assigned, we look at how _Local urbanity_ usually looks like and sample all the required values from a narrow normal distribution around the median of the nation-wide distribution.
+If it is not changed, subsequent steps modify the baseline.
+Otherwise, we sample the values for a set signature type reflecting its common characteristics as observed across Great Britain.
+For example, if we specify the 'local urbanity' signature type for an Output Area which previously had 'dense urban neighbourhoods' assigned, we look at how 'local urbanity' usually looks like and sample all the required values from a narrow normal distribution centred on the median of the nationwide distribution.
 Further macro variables are adjusting these values.
-_Use_ will change the variables of population and workplace population, _job types_ will change the distribution of jobs to job type categories, and _green space_ will allocate new parks onto an output area (adjusting other values like population accordingly).
+The _use_ macro variable will change the variables of population and workplace population, _job types_ will change the distribution of jobs between the job type categories, and _greenspace_ will allocate new parks onto an Output Area (adjusting other values such as population accordingly).
 
 Development of each scenario is then comprised of a few simple steps:
 
-1. Select output areas that are supposed to change
-2. Assing target level of urbanity for each
-3. Assing another macro variable for each
-4. Sample the values as input for the model
+1. Select Output Areas that are supposed to change
+2. Assessing the target level of urbanity for each Output Area
+3. Assessing other macro variables for each Output Area
+4. From these, sample the values to be used as input for the model
 5. Run the models to assess the effect of tested changes
