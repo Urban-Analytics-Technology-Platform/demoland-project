@@ -273,7 +273,7 @@ Both of these models use the same classifier, a histogram-based gradient boostin
 To ensure we are able to properly capture the spatial nature of the indicators, we add another 59 features which are a spatial lag of the original set.
 The spatial lag is measured as a mean value of the variable within a set neighbourhood, the definition of which is empirically determined.
 We test the neighbourhoods based on contiguity (from order of contiguity 1 to 5 inclusive of lower-order neighbors), Euclidean distance (500 m, 1000 m, 2000 m), and their unions.
-Each option is then included as part of the grid search aimed at the selection of the best model parameters and the best definition of the spatial lag in relation to the model performance metrics (*R*<sup>2</sup>, MSE, ME).
+Each option is then included as part of the grid search aimed at the selection of the best model parameters and the best definition of the spatial lag in relation to the model performance metrics (the coefficient of determination *R*<sup>2</sup>, mean squared error, and mean absolute error).
 Other model parameters which we also assess are the learning rate, the maximum number of iterations, and the maximum number of bins.
 For more details, see the implementation in the [Air Quality notebook](/code/02_models/04b_air_quality_model_search.html) and the [House Price notebook](/code/02_models/05b_house_price_model_search.html).
 
