@@ -97,50 +97,42 @@ We use GTFS data because it is more compatible with the `ttm` calculation packag
 
 ### Air quality index
 
-We develop an air quality index as a composite of $PM_{2.5}$, $PM_{10}$, $NO_{2}$ and
-$SO_{2}$ particle values derived from the UK AIR project run by DEFRA with data
-available as a 1km grid (https://uk-air.defra.gov.uk/data/pcm-data). The composite index
-follows the methodology of European Environmental Agency, reflecting the relative health
-risk associated to the exposure to particle intensities.
+We develop an air quality index as a composite of PM2.5, PM10, NO<sub>2</sub> and SO<sub>2</sub> values, derived from [the UK AIR project by DEFRA](https://uk-air.defra.gov.uk/data/pcm-data).
+Data are available as a 1 km grid.
+The composite index follows the methodology of the European Environmental Agency, reflecting the relative health risk associated with the exposure to particle intensities.
 
-> The bands are based on the relative risks associated to short-term exposure to PM2.5, O3 and NO2, as defined by the World Health Organization in its report on the Health Risks of Air Pollution in Europe project (HRAPIE project report).
->
-> The relative risk of exposure to PM2.5 is taken as basis for driving the index, specifically the increase in the risk of mortality per 10 µg/m3 increase in the daily mean concentration of PM2.5.
->
-> Assuming linearity across the relative risks functions for O3 and NO2, we calculate the concentrations of these pollutants that pose an equivalent relative risk to a 10 µg/m3 increase in the daily mean of PM2.5.
->
-> For PM10 concentrations, a constant ratio between PM10 and PM2.5 of 1:2 is assumed, in line with the World Health Organization´s air quality guidelines for Europe.
->
-> For SO2, the bands reflect the limit values set under the EU Air Quality Directive.
+- The bands are based on the relative risks associated with short-term exposure to PM2.5, O<sub>3</sub> and NO<sub>2</sub>, as defined by the World Health Organization in their Health Risks of Air Pollution in Europe (HRAPIE) project report.
 
-The relationship between $PM_{2.5}$ : $PM_{10}$ : $NO_{2}$ : $O_{3}$ : $SO_{2}$ is then
-equal to 1 : 2 : 4 : 5 : 10. The combined index can then be computed as
-$$Q_{air} = \frac{PM_{2.5}}{1} + \frac{PM_{10}}{2} + \frac{NO_{2}}{4} + \frac{O_{3}}{5} + \frac{SO_{2}}{10}$$
+- The relative risk of exposure to PM2.5 is taken as the basis for driving the index, specifically, the increase in the risk of mortality per 10 µg/m<sup>3</sup> increase in the daily mean concentration of PM2.5.
 
-Except for the $O_{3}$, UK AIR reports all as a concentration in
-$\mu g \cdot m^{-3}$. $O_{3}$ is reported as a number of days above a threshold of
-120 $\mu g \cdot m^{-3}$ and cannot be used in this formula but even EEA omits data when
-unavailable so we shall be able to create the index based on 4 remaning measurements.
+- Assuming linearity across the relative risk functions for O<sub>3</sub> and NO<sub>2</sub>, we calculate the concentrations of these pollutants that pose an equivalent relative risk to a 10 µg/m<sup>3</sup> increase in the daily mean of PM2.5.
 
-It shall also be considered that UK AIR is not representing a direct measurements but a model.
+- For PM10 concentrations, a constant ratio between PM10 and PM2.5 of 1:2 is assumed, in line with the World Health Organization´s air quality guidelines for Europe.
 
-The data from the 1km grid are spatially interpolated to Output Area geometry. The index
-itself is computed on the grid.
+- For SO<sub>2</sub>, the bands reflect the limit values set under the EU Air Quality Directive.
+
+The relationship between PM2.5 : PM10 : NO<sub>2</sub> : O<sub>3</sub>: SO<sub>2</sub> is then equal to 1 : 2 : 4 : 5 : 10.
+The combined index can then be computed as
+$$Q_{\text{air}} = \frac{\text{PM2.5}}{1} + \frac{\text{PM10}}{2} + \frac{\mathrm{NO_2}}{4} + \frac{\mathrm{O_3}}{5} + \frac{\mathrm{SO_2}}{10}$$
+
+Except for the O<sub>3</sub>, UK AIR reports all of these values as concentrations in µg/m<sup>3</sup>.
+O<sub>3</sub> is reported in terms of the number of days above a threshold of 120 µg/m<sup>3</sup>, and thus cannot be used in this formula, but even EEA omits data when unavailable, so we can create the index based on the four other measurements.
+
+It should also be borne in mind that UK AIR data are not direct measurements, but rather a model.
+
+The data from the 1 km grid are spatially interpolated to Output Area geometries.
+The index itself is computed on the grid.
+
 
 ### House price
 
-An optimal way of working with house prices in the modelling exercise like ours is to
-use price per sqm. However, those are not generally available at the level of Output
-Area or similar. Luckily, we can retrieve such data from the "_A new attribute-linked
-residential property price dataset for England and Wales 2011-2019_" project by Chi et
-al. available from [10.5255/UKDA-SN-854240](https://dx.doi.org/10.5255/UKDA-SN-854240). That contains individual
-house prices, total floor area and a resulting price per sqm resulting from a
-combination of Land Registry Price Paid Data and Domestic Energy Performance Certificates.
+An optimal way of working with house prices in the modelling exercise like ours is to use price per square metre (sqm).
+However, these data are not generally available at the Output Area or similar level.
+Luckily, we can retrieve such data from the paper ["_A new attribute-linked residential property price dataset for England and Wales 2011-2019_", by Chi et al.](https://doi.org/10.5255/UKDA-SN-854240).
+This dataset contains individual house prices, total floor area, and a resulting price per sqm obtained from a combination of Land Registry Price Paid Data and Domestic Energy Performance Certificates.
 
-We use the data from years 2018-2019 and compute the mean price per sqm per output area.
-Given the data is not fully up-to-date, the modelling results will be presented as a
-percentual increase or decrease compared to the baseline value rather than in absolute
-values.
+We use the data from the years 2018–2019, and compute the mean price per sqm for each output area.
+Given the data are not fully up-to-date, the results of our modelling are presented as a percent increase or decrease compared to the baseline value rather than in absolute terms.
 
 ## Explanatory variables
 
