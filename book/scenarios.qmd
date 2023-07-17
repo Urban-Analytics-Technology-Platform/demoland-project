@@ -14,8 +14,8 @@ The new development is modelled as a combination of _open sprawl_ and _disconnec
 
 The model results in approximately:
 
-- 63 000 new residents
-- 9 250 new jobs (14% of new residents)
+- 63 000 new residents
+- 9 250 new jobs (14% of new residents)
 - no new parks
 
 
@@ -32,9 +32,9 @@ Land cover is changed accordingly to _discontinuous urban fabric_ and _continuou
 
 The model results in approximately:
 
-- 54 000 new residents
-- 10 500 new jobs (19% of new residents)
-- 2 300k sq.m. of new parks
+- 54 000 new residents
+- 10 500 new jobs (19% of new residents)
+- 2 300 000 sq.m. of new parks
 
 ## Scenario 3: Densification of inner city
 
@@ -47,8 +47,8 @@ Land cover changes from _discontinuous urban fabric_ to _continuous urban fabric
 
 The model results in approximately:
 
-- 25 000 new residents
-- 24 000 new jobs (96% of new residents)
+- 25 000 new residents
+- 24 000 new jobs (96% of new residents)
 - no new parks
 
 ## Scenario 4: Brownfields to dense neighbourhoods
@@ -61,8 +61,8 @@ It is modelled as a change of [signature types](https://urbangrammarai.xyz/story
 
 The model results in approximately:
 
-- 55 700 new residents
-- −1 000 new jobs (0% of new residents)
+- 55 700 new residents
+- −1 000 new jobs (0% of new residents)
 - no new parks
 
 ## Scenario 5: Brownfields into parks
@@ -76,8 +76,8 @@ It will be modelled as a change of signature types on brownfield land to _park/w
 The model results in approximately:
 
 - 0 new residents
-- −20 000 new jobs
-- 6 230k sq.m. of new parks
+- −20 000 new jobs
+- 6 230 000 sq.m. of new parks
 
 ## Scenario 6: Urbanisation to the edge
 
@@ -86,8 +86,8 @@ As such, the scenario combines changes from Scenarios 3 and 4.
 
 The model results in approximately:
 
-- 66 000 new residents
-- 30 000 new jobs (45% of new residents)
+- 66 000 new residents
+- 30 000 new jobs (45% of new residents)
 - no new parks
 
 ## Scenario 7: Urbanisation with greenery
@@ -99,9 +99,9 @@ As such, the scenario is, in principle, a combination of changes from Scenarios 
 
 The model results in approximately:
 
-- 1 000 new residents
-- 30 000 new jobs
-- 6 230k sq.m. of new parks
+- 1 000 new residents
+- 30 000 new jobs
+- 6 230 000 sq.m. of new parks
 
 ## Results
 
