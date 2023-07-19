@@ -1,0 +1,26 @@
+name: demoland
+channels:
+  - conda-forge
+dependencies:
+  - geopandas
+  - ipykernel
+  - xlrd
+  - openpyxl
+  - libpysal
+  - contextily
+  - xarray
+  - tobler
+  - pyarrow
+  - legendgram
+  - seaborn
+  - jupyterlab
+  - sparse
+  - scikit-learn
+  - scipy
+  - r5py
+  - pip
+  - pip:
+    - urbangrammar-graphics
+    - tracc
+    - husl
+    - distinctipy
