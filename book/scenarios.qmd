@@ -4,84 +4,104 @@ Seven theoretical development scenarios are defined in the first phase of the pr
 
 ## Scenario 1: Low-density residential development
 
-This scenario models the situation where land in the green belt is released for development. The area is taken over by a large developer used to build residential areas around the country. The new neighbourhood is a combination of low-rise detached and semi-detached housing with only minimal additional land use. The primarily residential neighbourhood does not generate a significant amount of jobs, inducing higher traffic to industrial zones and Newcastle city centre. The development is located west of the city around Callerton.
+This scenario models the situation where land in the green belt is released for development.
+The area is taken over by a large developer used to build residential areas around the country.
+The new neighbourhood is a combination of low-rise detached and semi-detached housing with only minimal additional land use.
+The primarily residential neighbourhood does not generate a significant amount of jobs, inducing higher traffic to industrial zones and Newcastle city centre.
+The development is located west of the city around Callerton.
 
 The new development is modelled as a combination of _open sprawl_ and _disconnected suburbia_ [signature types](https://urbangrammarai.xyz/story/#ss), combined with an estimation of the allocation of new population and a small number of jobs in retail and education.
 
 The model results in approximately:
 
-- 63 000 new residents
-- 9 250 new jobs (14% of residents)
+- 63 000 new residents
+- 9 250 new jobs (14% of new residents)
 - no new parks
 
 
 ## Scenario 2: Mid-density mixed neighbourhood
 
-This scenario models the development in the green belt under the idea of a 15-minute neighbourhood that is dense, therefore taking up less space and mixed in terms of use. Such a neighbourhood contains not only residential housing but also a few places for new retail, commercial, and other uses. As such, it should be more self-sufficient than the low-density Scenario 1, inducing less traffic from the neighbourhood to other areas in the city. The development is assumed to be in the same area west of Callerton as in Scenario 1. The form is composed more of row houses and multi-story tenement buildings forming the centre of the new neighbourhood.
+This scenario models the development in the green belt under the idea of a 15-minute neighbourhood that is dense, therefore taking up less space and mixed in terms of use.
+Such a neighbourhood contains not only residential housing but also a few places for new retail, commercial, and other uses.
+As such, it should be more self-sufficient than the low-density Scenario 1, inducing less traffic from the neighbourhood to other areas in the city.
+The development is assumed to be in the same area west of Callerton as in Scenario 1.
+The form is composed more of row houses and multi-story tenement buildings forming the centre of the new neighbourhood.
 
-It is modelled as a combination of _accessible suburbia_, _connected residential neighbourhoods_ and _dense residential neighbourhoods_ [signature types](https://urbangrammarai.xyz/story/#ss), with an approximation of new population and job allocation. Land cover is changed accordingly to _discontinuous urban fabric_ and _continuous urban fabric_, but on a smaller area than in Scenario 1, leaving space dedicated to large urban parks.
+It is modelled as a combination of _accessible suburbia_, _connected residential neighbourhoods_ and _dense residential neighbourhoods_ [signature types](https://urbangrammarai.xyz/story/#ss), with an approximation of new population and job allocation.
+Land cover is changed accordingly to _discontinuous urban fabric_ and _continuous urban fabric_, but on a smaller area than in Scenario 1, leaving space dedicated to large urban parks.
 
 The model results in approximately:
 
-- 54 000 new residents
-- 10 500 new jobs (19 % of residents)
-- 2 300k sq.m. of new parks
+- 54 000 new residents
+- 10 500 new jobs (19% of new residents)
+- 2 300 000 sq.m. of new parks
 
 ## Scenario 3: Densification of inner city
 
-This densification scenario models a high-density development in the already developed areas, following the gradual infill and rebuilding existing buildings into higher ones with more mixed-use. It is a long-term strategy aimed at preserving green spaces (especially the green belt) and creating 15-minute neighbourhoods in the existing city by adding new layers of functionality and new inhabitants to places that are already built. The scenario affects most of the city, with higher densification levels around local centres and main streets and lower levels in suburban residential areas.
+This densification scenario models a high-density development in the already developed areas, following the gradual infill and rebuilding existing buildings into higher ones with more mixed-use.
+It is a long-term strategy aimed at preserving green spaces (especially the green belt) and creating 15-minute neighbourhoods in the existing city by adding new layers of functionality and new inhabitants to places that are already built.
+The scenario affects most of the city, with higher densification levels around local centres and main streets and lower levels in suburban residential areas.
 
-It is modelled as a change of signature types based on their hierarchy to higher order ones and related estimations of new population and job allocation. Land cover changes from _discontinuous urban fabric_ to _continuous urban fabric_.
+It is modelled as a change of signature types based on their hierarchy to higher order ones and related estimations of new population and job allocation.
+Land cover changes from _discontinuous urban fabric_ to _continuous urban fabric_.
 
 The model results in approximately:
 
-- 25 000 new residents
-- 24 000 new jobs (96% of residents)
+- 25 000 new residents
+- 24 000 new jobs (96% of new residents)
 - no new parks
 
 ## Scenario 4: Brownfields to dense neighbourhoods
 
-Existing brownfield land is redeveloped into high-density neighbourhoods with mixed-use, providing housing, services, and commercial units in an attempt to densify the inner city without affecting existing areas. Compared to scenario 3, this strategy is less invasive but has a lower scale. However, both scenarios can be potentially combined, as shown in Scenario 6.
+Existing brownfield land is redeveloped into high-density neighbourhoods with mixed-use, providing housing, services, and commercial units in an attempt to densify the inner city without affecting existing areas.
+Compared to Scenario 3, this strategy is less invasive but has a lower scale.
+However, both scenarios can be potentially combined, as shown in Scenario 6.
 
 It is modelled as a change of [signature types](https://urbangrammarai.xyz/story/#ss) on brownfield land to _dense urban neighbourhoods_ and _local urbanity_, plus relevant changes in land cover, population and job allocation.
 
 The model results in approximately:
 
-- 55 700 new residents
-- -1 000 new jobs (0% of residents)
+- 55 700 new residents
+- −1 000 new jobs (0% of new residents)
 - no new parks
 
 ## Scenario 5: Brownfields into parks
 
-Contrary to Scenario 4, this scenario assumes that all the brownfield land is turned into urban parks with no development. While it does not help to solve the issue of the capacity of a city, it may be viewed favourably by the local population and can balance potential densification as outlined in Scenario 3. Both Scenarios 3 and 5 can be combined, as shown in Scenario 7.
+Contrary to Scenario 4, this scenario assumes that all the brownfield land is turned into urban parks with no development.
+While it does not help to solve the issue of the capacity of a city, it may be viewed favourably by the local population and can balance potential densification as outlined in Scenario 3.
+Both Scenarios 3 and 5 can be combined, as shown in Scenario 7.
 
 It will be modelled as a change of signature types on brownfield land to _park/warehouse land_ plus relevant land cover changes and removal of any population and job allocation.
 
 The model results in approximately:
 
 - 0 new residents
-- -20 000 new jobs
-- 6 230k sq.m. of new parks
+- −20 000 new jobs
+- 6 230 000 sq.m. of new parks
 
 ## Scenario 6: Urbanisation to the edge
 
-This scenario models the city following the densification strategies outlined in both Scenarios 3, where we target higher density to already-dense central areas, and Scenario 4, we model the development of dense neighbourhoods in the brownfield and industrial areas around the River Tyne. As such, the scenario combines changes from Scenarios 3 and 4.
+This scenario models the city following the densification strategies outlined in both Scenarios 3, where we target higher density to already-dense central areas, and Scenario 4, we model the development of dense neighbourhoods in the brownfield and industrial areas around the River Tyne.
+As such, the scenario combines changes from Scenarios 3 and 4.
 
 The model results in approximately:
 
-- 66 000 new residents
-- 30 000 new jobs  (45% of residents)
+- 66 000 new residents
+- 30 000 new jobs (45% of new residents)
 - no new parks
 
 ## Scenario 7: Urbanisation with greenery
 
-This scenario directs changes to two locations in two different directions. First, it assumes the densification of an already-dense city centre as outlined in Scenario 3, adding further population, jobs, and services to the area. Second, it combines this densification with the creation of new large parks around the River Tyne, where current brownfields and industrial areas are. As such, the scenario is, in principle, a combination of changes from Scenarios 3 and 5.
+This scenario directs changes to two locations in two different directions.
+First, it assumes the densification of an already-dense city centre as outlined in Scenario 3, adding further population, jobs, and services to the area.
+Second, it combines this densification with the creation of new large parks around the River Tyne, where current brownfields and industrial areas are.
+As such, the scenario is, in principle, a combination of changes from Scenarios 3 and 5.
 
 The model results in approximately:
 
-- 1000 new residents
-- 30 000 new jobs
-- 6 230k sq.m. of new parks
+- 1 000 new residents
+- 30 000 new jobs
+- 6 230 000 sq.m. of new parks
 
 ## Results
 

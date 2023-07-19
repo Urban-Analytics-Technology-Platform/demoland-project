@@ -1,14 +1,12 @@
----
-title: "Land Use Demonstrator"
-subtitle: "Spatial modelling for land management predicting the impact of large-scale planning and land use changes on the quality of life."
-authors: "Anna Zanchetta, Martin Fleischmann, Dani Arribas-Bel; The Alan Turing Institute"
-date: today
-from: markdown+emoji
----
+# Overview {.unnumbered}
 
-This project develops a modelling system which is able to quantify several competing aspects of land use in a given urban environment as it currently exists (baseline) and build scenarios under changes that affect the distribution of such land use. It comprises a sequence of models designed to predict the impact of land use changes following large-scale planning decisions on the subset of indicators reflecting the quality of life. At the same time, it aims to determine the optimal land use composition given set indicator levels using neural networks.
+This project develops a modelling system which is able to quantify several competing aspects of land use in a given urban environment, both as it currently exists (the 'baseline'), and also under specific scenarios which change the distribution of such land use.
 
-The project is a partnership between the Geospatial Commission and The Alan Turing Institute, working with Newcastle City Council to develop a modelling system that leverages data science and AI to support decision-making in land use policy.
-In particular, the project provides tools to help strategic planning by helping decision-makers explore large-scale changes in land use through:
--	Evaluation of the impact on their policy priorities (house prices, air quality, accessibility to jobs and green space)
--	Use of machine learning and AI to suggest interventions to achieve policy outcomes.
+It comprises a sequence of models, designed to predict the impact of land use changes following large-scale planning decisions on a subset of indicators reflecting the quality of life.
+At the same time, it also aims to use neural networks to determine the optimal land use composition given target indicator levels.
+
+The project is a partnership between the [Geospatial Commission](https://geospatialcommission.blog.gov.uk/about-us/) and [The Alan Turing Institute](https://turing.ac.uk), working with [Newcastle City Council](https://www.newcastle.gov.uk/) to develop a modelling system leveraging data science and AI to support decision-making in land use policy.
+In particular, the project provides tools to aid decision-makers in strategic planning by:
+
+- evaluating the impacts of large-scale land use changes on policy priorities (house prices, air quality, job accessibility, and greenspace accessibility); and 
+- using machine learning and AI to suggest interventions which can achieve desired policy outcomes.

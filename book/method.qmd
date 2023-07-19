@@ -1,306 +1,303 @@
 # Methodology
 
-_add workflow (comprehensive of all the steps)_
+<!-- TODO: Add an image showing the entire workflow. -->
 
-## Building Indicators
+This page provides an outline of the methodology behind indicator modelling / calculation.
+For more details, please refer to the notebooks (provided in the Appendices of this book).
 
-The original list of indicators (see Intro) was pruned after an initial review of the available data, software, interests of the stakeholders.<br/>We resolved to 4 indicators of interest:
+
+## Indicator selection
+
+We resolved to use four indicators of interest, which were shortlisted after an initial review of the available data and software, as well as the interests of the stakeholders.
+These are:
 
 - Air quality
-- Green space accessibility
 - House prices
-- Jobs accessibility
+- Job accessibility
+- Greenspace accessibility
 
-For each of these indicators, we have detailed below how they are generated. This step represents the _basic scenario_.
+For each of these indicators, we have detailed below how they are generated.
+This step represents the _basic scenario_.
 
-We have two different types of indicators: while air quality and house prices are "actual data" measurements, accessibility is estimated and generated in a deterministic way, so it can't be directly modelled/predicted using some explanatory variables.
+We have two different types of indicators: while air quality and house prices are derived using models which are fit to actual data, accessibilities are directly calculated using geospatial data, so are not directly modelled/predicted using explanatory variables.
 
 ### Accessibility calculation
 
-For accessibility computation, we consider the potential accessibility (cumulative) to green spaces and jobs, that represent the opportunities. We consider a set of (punctual) origins and opportunities' destinations and the time it takes to move between them on the road network, given different transport modes.<br/>
-In order to calculate the time it takes from each origin to reach each destination, we need to have a Time Travel Matrix (TTM) between origins and destinations for different means of transport.<br/>To build this, we can generate a graph/network starting from two data sources: data for the road network and data for public transportation schedules.</br>
-Once a TTM is built between one set of origins and one set of destinations for a given mode of transport, we can run accessibility analysis on it.
+For accessibility computations, we calculate the cumulative potential accessibility to green spaces and jobs (collectively 'opportunities').
+We consider a set of origins and opportunity destination points, and the time it takes to move between them on the road network for different transport modes.
 
----
+In order to calculate the time it takes from each origin to reach each destination, we need to have a Time Travel Matrix (TTM) between origins and destinations for different means of transport.
+To build this, we can generate a graph/network starting from two data sources: one for the road network, and one for public transportation schedules.
+Once a TTM is built between a set of origins and a set of destinations for a given mode of transport, we can run accessibility analyses on it.
 
-**Origins -** For the scope of the project, we consider as origins the coordinates of the Population Weighted Centroids (PWC) of [Output Areas](https://www.ons.gov.uk/census/2001censusandearlier/dataandproducts/outputgeography/outputareas) (OA).
+ - **Origins:** For this project, we take the coordinates of the Population Weighted Centroids (PWC) of [Output Areas](https://www.ons.gov.uk/census/2001censusandearlier/dataandproducts/outputgeography/outputareas) (OA) as the origins.
 
+- **Destinations:** For each destination, we need to provide the coordinates as well as a datum for the opportunity (or 'supply', in our case this is the land use).
+  For example, this could be the number of jobs available.
+  (Other opportunities, though not considered here, could be the number of schools, health centres, or any other countable feature.)
 
+  - *Jobs*: The destinations used for job accessibility are the PWCs of the working population for each Workplace Zone (WPZ) in the 2011 Census (see [original data](https://www.nomisweb.co.uk/sources/census_2011_wp) and [definition](https://www.ons.gov.uk/methodology/geography/geographicalproducts/areaclassifications/2011workplacebasedareaclassification/classificationofworkplacezonesfortheukabouttheareaclassifications)).
 
-**Destinations -** Per each destination we need to provide the coordinates and a datum for the _opportunity_ (or 'supply', in our case this is the land use), for example the number of jobs available (other opportutnities could be number of schools, health centres, other types of countable features).
+     To obtain an opportunity measure (job counts), we make the approximation that _the number of workers is equal to the number of available jobs_.
+     This is in order to preserve the spatial location of the jobs, which is needed in the calculation of the time travel matrix.
+     In fact, the number of jobs in the Census is given at the OA level, but the PWC for this aggregated level can be off-centered in relation to where people work.
 
-For jobs count we consider as destinations the PWC of the working population per Workplace Zones (WPZ) from the 2011 Census ([data available](https://www.nomisweb.co.uk/sources/census_2011_wp) and [definition](https://www.ons.gov.uk/methodology/geography/geographicalproducts/areaclassifications/2011workplacebasedareaclassification/classificationofworkplacezonesfortheukabouttheareaclassifications)). <br/>As an opportunity measure (the job counts) we make the approximation that _the number of workers equals the number of jobs available_. This is an approximation we take in order to preserve the spatial location of the jobs, that is relevant in the calculation of the time travel matrix. In fact the number of jobs in the Census is at OAs level, but the PWC for this aggregated level can be off-centered in relation to where people work.
+     Finally, we define job accessibility as the number of jobs which are accessible by public transport and walking within 15 minutes.
 
-For green spaces accessibility we use the open data set available from [Ordnance Survey](https://beta.ordnancesurvey.co.uk/products/os-open-greenspace) (OS). <br/>In particular as a first approximation we consider the layer "Access points" from this datum. This gives the coordinates of the access points to green spaces in all Great Britain, which we take as destinations.<br/>As an opportunity measure we count the areas of the greenspace (layer "Sites") to which these points give access to, see below for details on how we consider the cumulative opportunity of this datum.
+  - *Greenspace*: Here, we use the open data set available from [Ordnance Survey](https://beta.ordnancesurvey.co.uk/products/os-open-greenspace) (OS).
+    In particular, as a first approximation we consider the layer _"Access points"_ from this datum. This gives the coordinates of the access points to green spaces in all of Great Britain, which we use as destinations.
 
----
+    As an opportunity measure, we count the total areas of the greenspace (layer _"Sites"_) to which these points give access to.
+    The greenspace accessibility is then defined as the sum of the areas of greenspace sites reachable within 15 minutes.
 
-**1. Indicator definition**
+A step-by-step description of the accessibility calculations is as follows:
 
-a. Jobs accessibility
+**Indicator definition**
 
-> Number of jobs accessible by public transport and walking in 15 minutes
+1. Obtain greenspace sites from OS
+    - Filter out irrelevant categories (allotments, golf courses, bowling greens)
+    - Retain entrances on the edge of the sites
+    - Associate
 
-
-b. Green spaces accessibility
-
-> Sum of the areas of green space sites reachable within 15 minutes
-
-1. obtain greenspace sites from OS
-    - filter out not relevant categories (allottments, golf courses, bowling greens)
-    - retain entrances on the edge of the sites
-    - associate
-2. ~~ obtain "missing" areas from Corine or OSM~~ _idea for future improvement_
-3. get sites' area
-4. filter entrances within time threshold (15min) per each origin (OA)
-5. consider unique values for parks (can be reached in )
-5. generate metric per each OA as _Sum [reachable site size]_
-
-
-**2. Build time travel matrix (TTM)**
-
-We can build a TTM from two data sources: the roads network and a time table for public transport. We can obtain the first by donwloading [OpenStreetMap (OSM)](https://wiki.openstreetmap.org/wiki/Downloading_data) data for the area of interest.<br/>
-Time table for public transport in GTFS format is available in England from [UK2GTFS](https://itsleeds.github.io/UK2GTFS/).<br/>
-We use GTFS data because more of compatibility with the ttm calculation package.
-
-- get time table for public transport > GTFS data
-- get roads network > OSM data
-- generate network graph > `r5` engine ([Conveyal(https://github.com/conveyal/r5)]) > `r5py` [package](https://r5py.readthedocs.io/)
-- generate ttm for 4 different modes > 'transit', 'bike', 'car', 'walking'
-- time is fixed atm > _idea for future improvement_: edit for taking into account different day of the year/week, time of the day
+   *(An idea for future improvement would be to obtain "missing" areas from Corine or OSM data.)*
+1. Get the area of each site
+1. Filter entrances within time threshold (15 min) of each origin (OA)
+1. Consider unique values for parks (can be reached in )
+1. Generate metric for each OA as the sum of reachable site size
 
 
-**3. Run accessibility analysis**
+**Build time travel matrix (TTM)**
 
-- get land use data (opportunities detailed above in _*Destinations_)
-- _jobs_ > run `tracc` [package](https://github.com/jamaps/tracc) on the ttm _per each transport mode_:
-    - compute impedance function based on a 15 minute cost (cumulative)
-    - setting up the accessibility object IE joining the destination data to the travel time data
-    - measuring potential accessibility to jobs as cumulative sum of opportunities at destination per each origin
-- _greenspace_ > convert the `tracc` functions to work only on reachable sites' area, on the ttm _per each transport mode_:
-    - compute impedance function based on a 15 minute cost (cumulative)
-    - join the destination data to the travel time data
-    - per each OA (origin), filtering only entrances with time travel within the threshold
-    - per each OA, filter entrances (only one per park)
-    - per each OA, assign metric as sum[parks' area]
+We can build a TTM from two data sources: the road network, and a timetable for public transport.
+We can obtain the first by donwloading [OpenStreetMap (OSM)](https://wiki.openstreetmap.org/wiki/Downloading_data) data for the area of interest.
+Timetables for England public transport in GTFS format are available from [UK2GTFS](https://itsleeds.github.io/UK2GTFS/).
+We use GTFS data because it is more compatible with the `ttm` calculation package.
+
+1. Get time table for public transport > GTFS data
+1. Get roads network > OSM data
+1. Generate network graph > `r5` engine ([Conveyal](https://github.com/conveyal/r5)) > [`r5py` package](https://r5py.readthedocs.io/)
+1. Generate TTM for 4 different modes > 'transit', 'bike', 'car', 'walking'
+
+   *(An idea for future improvement would be to adjust the time threshold depending on the time of day / day of the week, as these would influence e.g. traffic conditions.)*
+
+
+**Run accessibility analysis**
+
+1. Get land use data (opportunities detailed above in _Destinations_)
+1. _Jobs_ > run [`tracc` package](https://github.com/jamaps/tracc) on the TTM _for each transport mode_:
+    - Compute impedance function based on a 15 minute cost (cumulative)
+    - Setting up the accessibility object, i.e. joining the destination data to the travel time data
+    - Measuring potential accessibility to jobs as the cumulative sum of opportunities at destination per origin
+1. _Greenspace_ > convert the `tracc` functions to work only on reachable sites' area, on the TTM _per  transport mode_:
+    - Compute impedance function based on a 15 minute cost (cumulative)
+    - Join the destination data to the travel time data
+    - Per OA (origin), select all entrances which can be reached within the threshold time, and deduplicate entrances which correspond to the same park
+    - Calculate the metric as the sum of parks' areas
 
 
 ### Air quality index
 
-We develop an air quality index as a composite of $PM_{2.5}$, $PM_{10}$, $NO_{2}$ and
-$SO_{2}$ particle values derived from the UK AIR project run by DEFRA with data
-available as a 1km grid (https://uk-air.defra.gov.uk/data/pcm-data). The composite index
-follows the methodology of European Environmental Agency, reflecting the relative health
-risk associated to the exposure to particle intensities.
+We develop an air quality index as a composite of PM2.5, PM10, NO<sub>2</sub> and SO<sub>2</sub> values, derived from [the UK AIR project by DEFRA](https://uk-air.defra.gov.uk/data/pcm-data).
+Data are available as a 1 km grid.
+The composite index follows the methodology of the European Environmental Agency (EEA), reflecting the relative health risk associated with the exposure to particle intensities.
+Quoting from [the EEA](https://airindex.eea.europa.eu/Map/AQI/Viewer/):
 
-> The bands are based on the relative risks associated to short-term exposure to PM2.5, O3 and NO2, as defined by the World Health Organization in its report on the Health Risks of Air Pollution in Europe project (HRAPIE project report).
->
-> The relative risk of exposure to PM2.5 is taken as basis for driving the index, specifically the increase in the risk of mortality per 10 µg/m3 increase in the daily mean concentration of PM2.5.
->
-> Assuming linearity across the relative risks functions for O3 and NO2, we calculate the concentrations of these pollutants that pose an equivalent relative risk to a 10 µg/m3 increase in the daily mean of PM2.5.
->
+> The bands are based on the relative risks associated with short-term exposure to PM2.5, O<sub>3</sub> and NO<sub>2</sub>, as defined by the World Health Organization in their Health Risks of Air Pollution in Europe (HRAPIE) project report.
+
+> The relative risk of exposure to PM2.5 is taken as the basis for driving the index, specifically, the increase in the risk of mortality per 10 µg/m<sup>3</sup> increase in the daily mean concentration of PM2.5.
+
+> Assuming linearity across the relative risk functions for O<sub>3</sub> and NO<sub>2</sub>, we calculate the concentrations of these pollutants that pose an equivalent relative risk to a 10 µg/m<sup>3</sup> increase in the daily mean of PM2.5.
+
 > For PM10 concentrations, a constant ratio between PM10 and PM2.5 of 1:2 is assumed, in line with the World Health Organization´s air quality guidelines for Europe.
->
-> For SO2, the bands reflect the limit values set under the EU Air Quality Directive.
 
-The relationship between $PM_{2.5}$ : $PM_{10}$ : $NO_{2}$ : $O_{3}$ : $SO_{2}$ is then
-equal to 1 : 2 : 4 : 5 : 10. The combined index can then be computed as
-$$Q_{air} = \frac{PM_{2.5}}{1} + \frac{PM_{10}}{2} + \frac{NO_{2}}{4} + \frac{O_{3}}{5} + \frac{SO_{2}}{10}$$
+> For SO<sub>2</sub>, the bands reflect the limit values set under the EU Air Quality Directive.
 
-Except for the $O_{3}$, UK AIR reports all as a concentration in
-$\mu g \cdot m^{-3}$. $O_{3}$ is reported as a number of days above a threshold of
-120 $\mu g \cdot m^{-3}$ and cannot be used in this formula but even EEA omits data when
-unavailable so we shall be able to create the index based on 4 remaning measurements.
+The relationship between PM2.5 : PM10 : NO<sub>2</sub> : O<sub>3</sub>: SO<sub>2</sub> is then equal to 1 : 2 : 4 : 5 : 10.
+The combined index can then be computed as
+$$Q_{\text{air}} = \frac{\text{PM2.5}}{1} + \frac{\text{PM10}}{2} + \frac{\mathrm{NO_2}}{4} + \frac{\mathrm{O_3}}{5} + \frac{\mathrm{SO_2}}{10}$$
 
-It shall also be considered that UK AIR is not representing a direct measurements but a model.
+Except for the O<sub>3</sub>, UK AIR reports all of these values as concentrations in µg/m<sup>3</sup>.
+O<sub>3</sub> is reported in terms of the number of days above a threshold of 120 µg/m<sup>3</sup>, and thus cannot be used in this formula, but even EEA omits data when unavailable, so we can create the index based on the four other measurements.
 
-The data from the 1km grid are spatially interpolated to Output Area geometry. The index
-itself is computed on the grid.
+It should also be borne in mind that UK AIR data are not direct measurements, but rather a model.
+
+The data from the 1 km grid are spatially interpolated to Output Area geometries.
+The index itself is computed on the grid.
+
 
 ### House price
 
-An optimal way of working with house prices in the modelling exercise like ours is to
-use price per sqm. However, those are not generally available at the level of Output
-Area or similar. Luckily, we can retrieve such data from the "_A new attribute-linked
-residential property price dataset for England and Wales 2011-2019_" project by Chi et
-al. available from [10.5255/UKDA-SN-854240](https://dx.doi.org/10.5255/UKDA-SN-854240). That contains individual
-house prices, total floor area and a resulting price per sqm resulting from a
-combination of Land Registry Price Paid Data and Domestic Energy Performance Certificates.
+An optimal way of working with house prices in the modelling exercise like ours is to use price per square metre (sqm).
+However, these data are not generally available at the Output Area or similar level.
+Luckily, we can retrieve such data from the paper ["_A new attribute-linked residential property price dataset for England and Wales 2011-2019_", by Chi et al.](https://doi.org/10.5255/UKDA-SN-854240).
+This dataset contains individual house prices, total floor area, and a resulting price per sqm obtained from a combination of Land Registry Price Paid Data and Domestic Energy Performance Certificates.
 
-We use the data from years 2018-2019 and compute the mean price per sqm per output area.
-Given the data is not fully up-to-date, the modelling results will be presented as a
-percentual increase or decrease compared to the baseline value rather than in absolute
-values.
+We use the data from the years 2018–2019, and compute the mean price per sqm for each output area.
+Given the data are not fully up-to-date, the results of our modelling are presented as a percent increase or decrease compared to the baseline value rather than in absolute terms.
+
+
 
 ## Explanatory variables
 
-We use a set of explanatory variables describing the environment that can be changed
-to model different scenarios and have, at the same time, explanatory power to predict our
-four indicators.
+We curated a set of *explanatory variables*, which describe the urban environment and can be changed in order to model the different scenarios.
+These variables are chosen to have predictive power for the four indicators, and can be categorised into several groups according to their source.
 
-### ONS population estimates
 
-We use the ONS population estimates on the OA level for mid-2020. The other data used in the project
-are generally reflecting the period 2018-2020, so we want to ensure we describe the compatible point
-in time. The dataset is retrieved from the [ONS](https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/censusoutputareaestimatesinthenortheastregionofengland/mid2020sape23dt10d/sape23dt10dmid2020coaunformattedsyoaestimatesnortheast.xlsx). Given it is reported on Output Area level,
-it can be simply joined.
+### Group 1:  ONS population estimates
 
-### Workplace population by industry
+The first group consists of only one variable, namely, population estimates.
+We use the population estimates by the Office for National Statistics (ONS) at the OA level for mid-2020.
+The other data used in the project generally reflect the period between 2018 and 2020, so this was chosen in order to describe the compatible point in time.
+The dataset (titled 'SAPE23DT10d') is retrieved from the [ONS website](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/censusoutputareaestimatesinthenortheastregionofengland).
+Since it is already reported at the Output Area level, it does not need to be processed further.
 
-Workplace population is coming from the Census 2011 and is reported on Workplace Zone geometries.
-We use the data preprocessed in the Urban Grammar project that aggregated industries into
-following groups:
+### Group 2: Workplace population by industry
 
-- A, B, D, E. Agriculture, energy and water
-- C. Manufacturing
-- F. Construction
-- G, I. Distribution, hotels and restaurants
-- H, J. Transport and communication
-- K, L, M, N. Financial, real estate, professional and administrative activities
-- O,P,Q. Public administration, education and health
-- R, S, T, U. Other
+The workplace population is obtained from Census 2011 data, and is reported on Workplace Zone geometries.
+We use preprocessed data from the Urban Grammar project which aggregated industries into the following groups:
 
-The data is then interpolated from Workplace Zones to Output Areas.
+1. `A, B, D, E. Agriculture, energy and water`
+1. `C. Manufacturing`
+1. `F. Construction`
+1. `G, I. Distribution, hotels and restaurants`
+1. `H, J. Transport and communication`
+1. `K, L, M, N. Financial, real estate, professional and administrative activities`
+1. `O, P, Q. Public administration, education and health`
+1. `R, S, T, U. Other`
 
-### CORINE Land Cover classification
+The data are then interpolated from Workplace Zones to Output Areas, giving us another 8 variables.
 
-We use CORINE Land Cover Classification for 2018 distributed as polygons of contiguous areas
-belonging to the same classs. We use the data extracted for the Great Britain within the
-Urban Grammar project and interpolate the data onto Output Areas capturing a proportion of
-each OA covered by each class. We further filter out fully or nearly invariant classes and use only:
+### Group 3: CORINE Land Cover classification
 
-- Discontinuous urban fabric
-- Continuous urban fabric
-- Non-irrigated arable land
-- Industrial or commercial units
-- Green urban areas
-- Pastures
-- Sport and leisure facilities
+We use CORINE Land Cover classification data for 2018, which are provided as polygons of contiguous areas belonging to the same class.
+We use the data extracted for Great Britain within the Urban Grammar project, and interpolate the data to Output Areas, which gives us the proportion of each OA covered by each class.
+We further filter out fully or nearly invariant classes and use only:
 
-### Urban morphometrics
+1. `Discontinuous urban fabric`
+1. `Continuous urban fabric`
+1. `Non-irrigated arable land`
+1. `Industrial or commercial units`
+1. `Green urban areas`
+1. `Pastures`
+1. `Sport and leisure facilities`
 
-Urban morphometrics offers a way of describing physical built environment (buildings, streets)
-in a set of measurements capturing different aspects of morphological elements. We directly
-use the set measured within the Urban Grammar project, presented as _individual_ characters
-(prior contextualisation) and interpolate their values from the original geometry (enclosed
-tessellation cells) to output areas. That way, we already get a contextual version using the
-project-specific aggregation to OA. This gives us 59 morphometric variables.
+leading to 7 more variables.
 
-### Variable pruning
+### Group 4: Urban morphometrics
 
-Given some of the explanatory variable were collected for a different purpose than modelling
-and with a different geographical extent in mind, it may happen that within our limited area of
-interest (Tyne and Wear), some of the variable are collinear. Those may negatively affect the
-performance of the predictive models and it is better to limit their number to minimum. We, therefore,
-measure Pearson's correlation index and Spearman Rank correlation index between all pairs of
-explanatory variables and from each pair with the absolute value of the index above 0.8
-retain only one, ideally the one that is more interpretable.
+Urban morphometrics offers a way of describing the physical built environment (buildings, streets) in a set of quantitative measurements which capture different aspects of morphological elements.
+We directly use the set measured within the Urban Grammar project, which are presented as _individual_ characters (prior contextualisation), and interpolate their values from the original geometry (enclosed tessellation cells) to Output Areas.
+This way, we obtain a contextual version using the project-specific aggregation to OA.
+This gives us 59 morphometric variables.
 
-The final set contains 59 explanatory variables and the only morphometric were pruned down.
+### Variable pruning and final variable set
 
-- population estimate
-- A, B, D, E. Agriculture, energy and water
-- C. Manufacturing
-- F. Construction
-- G, I. Distribution, hotels and restaurants
-- H, J. Transport and communication
-- K, L, M, N. Financial, real estate, professional and administrative activities
-- O,P,Q. Public administration, education and health
-- R, S, T, U. Other
-- Land cover [Discontinuous urban fabric]
-- Land cover [Continuous urban fabric]
-- Land cover [Non-irrigated arable land]
-- Land cover [Industrial or commercial units]
-- Land cover [Green urban areas]
-- Land cover [Pastures]
-- Land cover [Sport and leisure facilities]
-- area of building
-- courtyard area of building
-- circular compactness of building
-- corners of building
-- squareness of building
-- equivalent rectangular index of building
-- centroid - corner mean distance of building
-- centroid - corner distance deviation of building
-- orientation of building
-- area of ETC
-- circular compactness of ETC
-- equivalent rectangular index of ETC
-- covered area ratio of ETC
-- cell alignment of building
-- alignment of neighbouring buildings
-- mean distance between neighbouring buildings
-- perimeter-weighted neighbours of ETC
-- mean inter-building distance
-- width of street profile
-- width deviation of street profile
-- openness of street profile
-- length of street segment
-- linearity of street segment
-- mean segment length within 3 steps
-- node degree of junction
-- local proportion of 3-way intersections of street network
-- local proportion of 4-way intersections of street network
-- local proportion of cul-de-sacs of street network
-- local closeness of street network
-- local cul-de-sac length of street network
-- square clustering of street network
-- local degree weighted node density of street network
-- street alignment of building
-- area covered by edge-attached ETCs
-- buildings per meter of street segment
-- reached ETCs by neighbouring segments
-- reached ETCs by tessellation contiguity
-- area of enclosure
-- circular compactness of enclosure
-- equivalent rectangular index of enclosure
-- orientation of enclosure
-- perimeter-weighted neighbours of enclosure
-- area-weighted ETCs of enclosure
+In total, from these four groups, we have 75 explanatory variables.
+Given that some of these are collected for different purposes than modelling, and with different geographical extents in mind, it may happen that some of the variables are correlated within our limited area of interest (Tyne and Wear).
+This may negatively affect the performance of the predictive models, and it is better to minimise the number of such pairs.
+We, therefore, measure both the Pearson and Spearman correlation indices between all pairs of explanatory variables.
+For each pair of variables where both correlation indices have an absolute value larger than 0.8, we retain only one, ideally the one that is more interpretable.
+
+This procedure resulted in 16 of the morphometric variables being removed, leaving us with 59 explanatory variables in total:
+
+| Group        | #      | Variable name |
+| ------       | ---    | ----------------------------------------- |
+| Population   | 1      | population estimate |
+| Workplace    | 2      | A, B, D, E. Agriculture, energy and water |
+|              | 3      | C. Manufacturing |
+|              | 4      | F. Construction |
+|              | 5      | G, I. Distribution, hotels and restaurants |
+|              | 6      | H, J. Transport and communication |
+|              | 7      | K, L, M, N. Financial, real estate, professional and administrative activities |
+|              | 8      | O, P, Q. Public administration, education and health |
+|              | 9      | R, S, T, U. Other |
+| Corine       | 10     | Land cover [Discontinuous urban fabric] |
+|              | 11     | Land cover [Continuous urban fabric] |
+|              | 12     | Land cover [Non-irrigated arable land] |
+|              | 13     | Land cover [Industrial or commercial units] |
+|              | 14     | Land cover [Green urban areas] |
+|              | 15     | Land cover [Pastures] |
+|              | 16     | Land cover [Sport and leisure facilities] |
+| Morphometric | 17     | area of building |
+|              | 18     | courtyard area of building |
+|              | 19     | circular compactness of building |
+|              | 20     | corners of building |
+|              | 21     | squareness of building |
+|              | 22     | equivalent rectangular index of building |
+|              | 23     | centroid - corner mean distance of building |
+|              | 24     | centroid - corner distance deviation of building |
+|              | 25     | orientation of building |
+|              | 26     | area of ETC |
+|              | 27     | circular compactness of ETC |
+|              | 28     | equivalent rectangular index of ETC |
+|              | 29     | covered area ratio of ETC |
+|              | 30     | cell alignment of building |
+|              | 31     | alignment of neighbouring buildings |
+|              | 32     | mean distance between neighbouring buildings |
+|              | 33     | perimeter-weighted neighbours of ETC |
+|              | 34     | mean inter-building distance |
+|              | 35     | width of street profile |
+|              | 36     | width deviation of street profile |
+|              | 37     | openness of street profile |
+|              | 38     | length of street segment |
+|              | 39     | linearity of street segment |
+|              | 40     | mean segment length within 3 steps |
+|              | 41     | node degree of junction |
+|              | 42     | local proportion of 3-way intersections of street network |
+|              | 43     | local proportion of 4-way intersections of street network |
+|              | 44     | local proportion of cul-de-sacs of street network |
+|              | 45     | local closeness of street network |
+|              | 46     | local cul-de-sac length of street network |
+|              | 47     | square clustering of street network |
+|              | 48     | local degree weighted node density of street network |
+|              | 49     | street alignment of building |
+|              | 50     | area covered by edge-attached ETCs |
+|              | 51     | buildings per meter of street segment |
+|              | 52     | reached ETCs by neighbouring segments |
+|              | 53     | reached ETCs by tessellation contiguity |
+|              | 54     | area of enclosure |
+|              | 55     | circular compactness of enclosure |
+|              | 56     | equivalent rectangular index of enclosure |
+|              | 57     | orientation of enclosure |
+|              | 58     | perimeter-weighted neighbours of enclosure |
+|              | 59     | area-weighted ETCs of enclosure |
+
 
 ## Modelling / regression analysis
 
-While the accessibility indicators are a result of a deterministic model based on a
-fixed travel-time matrix, hence any scenario modelling can re-use it and change only the
-raw values at the destinations, we need to develop predictive models to be able to see
-the change of air quality and house price.
+The accessibility indicators result from a deterministic model based on a fixed travel-time matrix.
+Hence, any new scenario being modelled can re-use it by changing only the raw values at the destinations.
+On the other hand, we need to develop predictive models to be able to see the changes in air quality and house prices.
 
-Both models are based on the same architecture, a Histogram-based Gradient Boosting
-Regression Tree as implemented in the `scikit-learn` Python package, and a set of 59
-explanatory variables listed above. To ensure we are able to properly captrue the spatial
-nature of the indicators, we add another 59 variables on top that are a result of a
-spatial lag of the original set. The spatial lag is measured as a mean value of the
-variable within a set neighbourhood, which definition is determined empirically. We test
-the neighbourhoods based on contiguity (from order of contiguity 1 to 5 inclusive of
-lower-order neighbors), Euclidean distance (500m, 1000m, 2000m) and their unions. Each
-option is then part of the grid search aimed at the selection of the best model parameters
-and the best defition of the spatial lag in relation to the model performance metrics
-(R<sup>2</sup>, MSE, ME). Model parameters that are being assessed are learning rate,
-maximum number of iterations and maximum number of bins. For more details, see the
-implementation in the [Air Quality notebook](https://github.com/ciupava/LandUseDemonstrator/blob/main/python/air_quality_model_search.ipynb) and the [House Price notebook](https://github.com/ciupava/LandUseDemonstrator/blob/main/python/house_price_model_search.ipynb).
+Both of these models use the same classifier, a histogram-based gradient boosting regression tree as [implemented in the `scikit-learn` Python package](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.HistGradientBoostingRegressor.html), and the set of 59 explanatory variables listed above.
+To ensure we are able to properly capture the spatial nature of the indicators, we add another 59 features which are a spatial lag of the original set.
+The spatial lag is measured as a mean value of the variable within a set neighbourhood, the definition of which is empirically determined.
+We test the neighbourhoods based on contiguity (from order of contiguity 1 to 5 inclusive of lower-order neighbors), Euclidean distance (500 m, 1000 m, 2000 m), and their unions.
+Each option is then included as part of the grid search aimed at the selection of the best model parameters and the best definition of the spatial lag in relation to the model performance metrics (the coefficient of determination *R*<sup>2</sup>, mean squared error, and mean absolute error).
+Other model parameters which we also assess are the learning rate, the maximum number of iterations, and the maximum number of bins.
+For more details, see the implementation in the [Air Quality notebook](/code/02_models/04b_air_quality_model_search.html) and the [House Price notebook](/code/02_models/05b_house_price_model_search.html).
 
 Furthermore, we have experimented with the geographical extent of the training data.
-While the original models were based only on the data from the study area (Tyne and Wear),
-we have tested models trained on other geographical subsets:
+While the original models were based only on the data from the study area (Tyne and Wear), we have tested models trained on other geographical subsets:
 
-- whole England
-- England excluding Greater London, known to be an outlier within the country that may not help in predictive quality within Tyne and Wear
+- the whole of England
+- the whole of England, but excluding Greater London, which is known to be an outlier that may not help in predictive quality within Tyne and Wear
 - Tyne and Wear plus all OAs belonging to "Urbanity" classes from the rest of England
 
-This was to add additional robustness to the model by training on a wider set of data.
+The aim of this is to add additional robustness to the model by training on a wider set of data.
+
 
 ### Resulting model specifications
 
-The resulting models, selected based on their performance, are based on the following
-specifications:
+The resulting models, selected based on their performance, are based on the following specifications:
 
 **Air Quality**
 
 - Spatial extent: Tyne and Wear plus all OAs belonging to "Urbanity" classes from the rest of England
-- Spatial lag: A union of 5 orders of Queen contiguity and 2000m distance band
+- Spatial lag: A union of 5 orders of Queen contiguity and 2000 m distance band
 - Model parameters: `learning_rate=0.2`, `max_bins=64`, `max_iter=1000`
 
-The model performance (R<sup>2</sup>) is ~0.8.
+The model performance (*R*<sup>2</sup>) is ~0.8.
 
 **House Price**
 
@@ -308,32 +305,34 @@ The model performance (R<sup>2</sup>) is ~0.8.
 - Spatial lag: 5 orders of Queen contiguity
 - Model parameters: `learning_rate=0.1`, `max_bins=128`, `max_iter=1000`
 
-The model performance (R<sup>2</sup>) is ~0.5.
+The model performance (*R*<sup>2</sup>) is ~0.5.
 
 
 ## Building scenarios
 
-The mechanism for scenario building is based on four macro variables, which combination
-driving the sampling mechanism deriving the 59 variables used in the modelling. The four variables
-are _Level of urbanity_, which is a proxy for a signature type of spatial signatures as defined in the Urban Grammar project, _Use_ of buildings controlling the ratio between residential and commercial or industrial use, _Job types_, controlling whether job structure in each output area is more white-collar or blue-collar, and _Green space_, reflecting the amount of formal green space (i.e. parks).
+Scenarios are constructed by changing four **macro variables**, which together drive a sampling mechanism which derives the 59 variables used in the modelling.
+The four variables are:
 
-Scenarios are modelled by specifying the macro variables on output areas where the change is assumed.
-Any of the four variables can be specified in combination with any other. The algorithm then samples
-the data from either baseline capturing the existing state or from the known distribution of values per signature type based on the country-wide data.
+1. _Level of urbanity_, which is a proxy for a signature type of spatial signatures as defined in the Urban Grammar project;
+1. _Use_ of buildings, referring to the ratio of residential and commercial or industrial use;
+1. _Job types_, which determines whether jobs in each Output Area are more white-collar or blue-collar; and
+1. _Greenspace_, reflecting the amount of formal greenspace (i.e. parks).
 
-The first step in the sampling procedure is the selection of a signature type. If it is not changed,
-subsequent steps modify the baseline. Otherwise, we sample the values for a set signature type
-reflecting its common characterisation as observed across Great Britain. For example, if we specify the
-_Local urbanity_ signature type for an output area that had _Dense urban neighbourhoods_ assigned, we look at how _Local urbanity_ usually looks like and sample all the required values from a narrow normal
-distribution around the median of the nation-wide distribution. Further macro variables are adjusting
-these values. _Use_ will change the variables of population and workplace population, _job types_ will
-change the distribution of jobs to job type categories, and _green space_ will allocate new parks onto an
-output area (adjusting other values like population accordingly).
+Scenarios are modelled by specifying the macro variables on Output Areas where the change takes place.
+Any of the four variables can be specified in combination with any other.
+The algorithm then samples the data from either the baseline (capturing the existing state) or from the known distribution of values per signature type based on the country-wide data.
 
-Development of each scenario is then composed of a few simple steps:
+The first step in the sampling procedure is the selection of a signature type.
+If it is not changed, subsequent steps modify the baseline.
+Otherwise, we sample the values for a set signature type reflecting its common characteristics as observed across Great Britain.
+For example, if we specify the 'local urbanity' signature type for an Output Area which previously had 'dense urban neighbourhoods' assigned, we look at how 'local urbanity' usually looks like and sample all the required values from a narrow normal distribution centred on the median of the nationwide distribution.
+Further macro variables are adjusting these values.
+The _use_ macro variable will change the variables of population and workplace population, _job types_ will change the distribution of jobs between the job type categories, and _greenspace_ will allocate new parks onto an Output Area (adjusting other values such as population accordingly).
 
-1. Select output areas that are supposed to change
-2. Assing target level of urbanity for each
-3. Assing another macro variable for each
-4. Sample the values as input for the model
+Development of each scenario is then comprised of a few simple steps:
+
+1. Select Output Areas that are supposed to change
+2. Assessing the target level of urbanity for each Output Area
+3. Assessing other macro variables for each Output Area
+4. From these, sample the values to be used as input for the model
 5. Run the models to assess the effect of tested changes

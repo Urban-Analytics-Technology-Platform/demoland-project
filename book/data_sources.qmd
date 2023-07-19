@@ -1,37 +1,32 @@
+# Data sources
 
-# Data Sources
+This page tabulates and provides links to all data sources used in this project.
+For more details on how each dataset is used and processed, refer to the [Methodology](method.qmd) section.
 
-The list of data sources used in this project. For more details on how is each dataset
-used and processed, refer to the [Methodology](method.qmd).
+## Project-wide
 
-## List of data source
+- Ordnance Survey (OS) | 2011 Census Output Areas | [link](https://geoportal.statistics.gov.uk/datasets/ons::output-areas-dec-2011-boundaries-ew-bgc/about)
 
-Below is a list of data sources organised by the purpose
+## Accessibility indicators
 
-### Project-wide
-
-- OS | 2011 Census Output Areas | [link](https://geoportal.statistics.gov.uk/datasets/ons::output-areas-dec-2011-boundaries-ew-bgc/about)
-
-### Accessibility indicators
-
-- ONS | Population Weighted Centroids (PWC) of Output Areas | [link](https://www.ons.gov.uk/census/2001censusandearlier/dataandproducts/outputgeography/outputareas)
+- Office for National Statistics (ONS) | Population Weighted Centroids (PWC) of Output Areas | [link](https://geoportal.statistics.gov.uk/datasets/ons::output-areas-dec-2011-pwc/about)
 - ONS | Workplace zones | [link](https://www.nomisweb.co.uk/sources/census_2011_wp)
 - OS | Open Greenspace  | [link](https://beta.ordnancesurvey.co.uk/products/os-open-greenspace)
-- OSM | OpenStreetMap network data | [link](https://openstreetmap.org)
-- ITS Leeds | UK GTFS data | [link](https://itsleeds.github.io/UK2GTFS/)
+- OpenStreetMap (OSM) | OpenStreetMap network data | [link](https://openstreetmap.org)
+- Department for Transport | Bus Open Data Service timetable data | [link](https://data.bus-data.dft.gov.uk/downloads/)
 
-### Air quality
+## Air quality
 
-- DEFRA | UK AIR | [link](https://uk-air.defra.gov.uk/data/pcm-data)
+- Department for Environment, Food and Rural Affairs (DEFRA) | UK AIR | [link](https://uk-air.defra.gov.uk/data/pcm-data)
 
-### House price
+## House prices
 
 - Chi et al. | A new attribute-linked
-residential property price dataset for England and Wales 2011-2019 | [link](https://dx.doi.org/10.5255/UKDA-SN-854240)
+residential property price dataset for England and Wales 2011-2019 | [link](https://doi.org/10.5255/UKDA-SN-854240)
 
-### Explanatory variables for modelling
+## Explanatory variables for modelling
 
-- ONS | Population estimates | [link](https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/censusoutputareaestimatesinthenortheastregionofengland/mid2020sape23dt10d/sape23dt10dmid2020coaunformattedsyoaestimatesnortheast.xlsx)
+- ONS | Mid-2020 population estimates (SAPE23DT10d edition) | [link](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/censusoutputareaestimatesinthenortheastregionofengland)
 - ONS | Workplace population | [link](https://www.nomisweb.co.uk/sources/census_2011_wp)
-- Copernicus | CORINE Land Cover classification | [link](https://land.copernicus.eu/pan-european/corine-land-cover)
+- Copernicus | CORINE Land Cover classification (2018) | [link](https://land.copernicus.eu/pan-european/corine-land-cover)
 - The Alan Turing Institute | Spatial Signatures of Great Britain | [link](https://urbangrammarai.xyz/story/)
