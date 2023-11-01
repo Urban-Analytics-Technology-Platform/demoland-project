@@ -139,10 +139,10 @@ in fact it looks loike the metro line (yellow) is included
 
 Two screenshots from sources used to cross-check the data:<br/>
 1. Dustin's bus spotting website ([bus spotting](https://dabreegster.github.io/bus_spotting/))
-![](https://github.com/ciupava/LandUseDemonstrator/blob/main/images/gtfs_bus_spotting.png?raw=true)
+![](https://github.com/urban-analytics-technology-platform/demoland-project/blob/main/images/gtfs_bus_spotting.png?raw=true)
 
 2. personal map on [Felt](https://felt.com/map/TyneWear-sXwTHCjIQLGJGDS0dYAF9AD) with added transport network layer
-![](https://github.com/ciupava/LandUseDemonstrator/blob/main/images/gtfs_felt.png?raw=true)
+![](https://github.com/urban-analytics-technology-platform/demoland-project/blob/main/images/gtfs_felt.png?raw=true)
 
 
 ### Jobs location
@@ -155,7 +155,7 @@ For destinations, when calculating the travel time matrix (TTM) to jobs location
 
 See as an example the image below (created in Qgis) showing the Team Valley trading estate in Gateshead [location](https://goo.gl/maps/zsKWLGDe5jDH1pRJ7)
 
-![](https://github.com/ciupava/LandUseDemonstrator/blob/main/images/compare_LSOAvsWPZ.png?raw=true)
+![](https://github.com/urban-analytics-technology-platform/demoland-project/blob/main/images/compare_LSOAvsWPZ.png?raw=true)
 Red dots = OA centroids (our origins)<br/>pink lines = LSOAs boundaries<br/>
 yellow dots = LSOAs centroids <br/>blue dots = WPS centroids
 
@@ -194,7 +194,7 @@ January starts basically as a continuation of the work started in December.
 
 _Warming up_<br/>
 Image created in Qgis showing median house prices (year ending March 2022) and green spaces in Tyne and Wear county (current case study):
-![](https://github.com/ciupava/LandUseDemonstrator/blob/main/images/tynewear_houseprices2022_greenspace_lsoa.png?raw=true)
+![](https://github.com/urban-analytics-technology-platform/demoland-project/blob/main/images/tynewear_houseprices2022_greenspace_lsoa.png?raw=true)
 *Note:*
 
 - houseprices [data](#house-prices-indicator) are associated to the LSOA boundaries shp via the python code in [`data_prep.ipynb`](./../python/data_prep.ipynb)
@@ -299,7 +299,7 @@ Started by the tutorial at [https://github.com/marcusyoung/otp-tutorial](https:/
 
 > Young, M. (2021). OpenTripPlanner - creating and querying your own multi-modal route planner.
 
-![](https://github.com/ciupava/LandUseDemonstrator/blob/main/images/tynewear_isochrones_withOTP.png?raw=true)*Examples of 15-90 minisochrones from (54.96835, -1.60778) generated using OTP for walk/transit mode, at 9am on 01-19-2-23)*
+![](https://github.com/urban-analytics-technology-platform/demoland-project/blob/main/images/tynewear_isochrones_withOTP.png?raw=true)*Examples of 15-90 minisochrones from (54.96835, -1.60778) generated using OTP for walk/transit mode, at 9am on 01-19-2-23)*
 
 - [X] time travel matrix $\rightarrow$ using OTP OpenTripPlanner with M Young instructions
      - [X] find GTFS data
@@ -350,7 +350,7 @@ but you can run this `r5` functionality (and everything that _Conveyal_ does, IE
 1. Let's start from the indicator of `House prices`, as it is the only one indicator we have atm that is actual values data, not deterministically defined (see [table here](data_sources.qmd#comprehensive-tables)).<br/>
 2. Also `greenspace` is a possible candidate to start the analysis, for determining a method for <mark>accessibility calculation</mark>. In this case consider [Valhalla](https://valhalla.readthedocs.io/en/latest/valhalla-intro/).
 
-![](https://github.com/ciupava/LandUseDemonstrator/blob/main/images/tynewear_lads_msoas.png?raw=true)*The 5 LADs in Tine and Wear (labelled by `LAD20NM` and `LAD20CD`), highlighted in gray the major urban areas, bordered in blue the 145 MSOAs*
+![](https://github.com/urban-analytics-technology-platform/demoland-project/blob/main/images/tynewear_lads_msoas.png?raw=true)*The 5 LADs in Tine and Wear (labelled by `LAD20NM` and `LAD20CD`), highlighted in gray the major urban areas, bordered in blue the 145 MSOAs*
 
 ---
 
@@ -362,7 +362,7 @@ This regression-based approach estimates the ambient pollutant concentrations at
 
 Example of a raster as output of a LUR analysis:
 
-![](https://github.com/ciupava/LandUseDemonstrator/blob/main/images/rlur_example.png?raw=true)
+![](https://github.com/urban-analytics-technology-platform/demoland-project/blob/main/images/rlur_example.png?raw=true)
 
 **QUESTION:** WHY do we want aggregated (MSOAs) outputs? <br/>*I think it's because we want to be able to compare among scenarios*
 <br/>+ (quoting Dani) *because SPC data is at MSOAs scale*
@@ -397,7 +397,7 @@ Steps:
 
 **Data processing workflow**
 
-- See available datasets for House Price Statistics for Small Areas (HPSSAs) from [here: houseprices_available-data_HPSSA.xlsx](https://github.com/ciupava/LandUseDemonstrator/tree/main/data)
+- See available datasets for House Price Statistics for Small Areas (HPSSAs) from [here: houseprices_available-data_HPSSA.xlsx](https://github.com/urban-analytics-technology-platform/demoland-project/tree/main/data)
 - The [tables](https://www.ons.gov.uk/peoplepopulationandcommunity/housing/bulletins/housepricestatisticsforsmallareas/yearendingmarch2022) come in _.xls_ format
 - choose either MSOA or LSOA level:
      - **HPSSA Dataset 2** - Median price paid by MSOA.xls [file](https://www.ons.gov.uk/peoplepopulationandcommunity/housing/datasets/hpssadataset2medianhousepricebymsoaquarterlyrollingyear) (September 2022 version);<br/>
@@ -406,10 +406,10 @@ Steps:
 - need to estrapolate just the tab with the relevant info ... $\rightarrow$ <mark>automate this??</mark> <br/>
 "table 1a (all house types)"" = _Median price paid by MSOA, England and Wales, year ending Dec 1995 to year ending Mar 2022_
 - filtering just the relevant grographies for Tyne and Wear county: $\rightarrow$  <mark>automate this??</mark>
-     - MSOAs: [list in MSOAs_Tyne-Wear.txt](https://github.com/ciupava/LandUseDemonstrator/tree/main/data)<br/>
+     - MSOAs: [list in MSOAs_Tyne-Wear.txt](https://github.com/urban-analytics-technology-platform/demoland-project/tree/main/data)<br/>
      `MSOA20CD` = `MSOA code`<br/>
      `MSOA20NM` = `MSOA name`<br/>
-     - LSOAs: [list in TyneWear_LADs_list.csv](https://github.com/ciupava/LandUseDemonstrator/tree/main/data) filter by Local authority:<br/>
+     - LSOAs: [list in TyneWear_LADs_list.csv](https://github.com/urban-analytics-technology-platform/demoland-project/tree/main/data) filter by Local authority:<br/>
        code `LAD20CD` = `Local authority code`<br/>
        name `LAD20NM` = `Local authority name`
 - choose time ... data published quarterly (4 times a year) with all editions back to 1995
@@ -511,7 +511,7 @@ Definition:
 
 - UGS = Urban Green Space
 
-- see [Issue](https://github.com/ciupava/LandUseDemonstrator/issues/5) on GitHub for relevant literature on indicators, definitions, methodology to generate UGS maps
+- see [Issue](https://github.com/urban-analytics-technology-platform/demoland-project/issues/5) on GitHub for relevant literature on indicators, definitions, methodology to generate UGS maps
 
 - accessibility is not actual data (like emissions for instance) but it's itself calculated as an index, so what is the meaning in modeling it?
 

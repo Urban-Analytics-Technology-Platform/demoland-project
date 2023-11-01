@@ -12,7 +12,7 @@ book:
   author: "Anna Zanchetta, Martin Fleischmann, Dani Arribas-Bel; The Alan Turing Institute"
   date: today
   search: true
-  repo-url: https://github.com/ciupava/LandUseDemonstrator/
+  repo-url: https://github.com/urban-analytics-technology-platform/demoland-project/
   downloads: [pdf]
   chapters:
     - index.qmd
