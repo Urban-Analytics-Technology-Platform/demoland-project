@@ -17,7 +17,7 @@ The underlying code for the web app is [hosted separately on GitHub](https://git
 
 ## Book
 
-**https://ciupava.github.io/LandUseDemonstrator/**
+**https://urban-analytics-technology-platform.github.io/demoland-project/**
 
 Separately, we provide a book which fully describes the project and its methodology.
 
