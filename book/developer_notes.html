@@ -310,9 +310,14 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Install the Azure Functions Core Tools. The following Homebrew command works on macOS; for other operating systems, refer to <a href="https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-cli-python?tabs=macos%2Cbash%2Cazure-cli&amp;pivots=python-mode-decorators#install-the-azure-functions-core-tools">the Azure docs</a></p>
 <pre><code>brew tap azure/functions
 brew install azure-functions-core-tools@4</code></pre></li>
-<li><p>Clone the <code>demoland-engine</code> repository (if you don’t already have it), and <code>cd</code> to the top level of the <code>demoland-engine</code> repository. Then run the following, which will take a few minutes:</p>
-<pre><code>func azure functionapp publish demolandapi</code></pre></li>
-<li><p>Check that it’s working using the following command, which asks it to calculate the baseline indicators (an empty scenario means no changes relative to the baseline):</p>
+<li><p>Clone the <code>demoland-engine</code> repository (if you don’t already have it), and <code>cd</code> to the top level of the <code>demoland-engine</code> repository.</p></li>
+<li><p>To test the function locally, run:</p>
+<pre><code>func start</code></pre>
+<p>You should then be able to access the API at <code>http://localhost:7071/api/scenario</code>. For example, you can test it using the following command, which asks it to calculate the baseline indicators (an empty scenario means no changes relative to the baseline):</p>
+<pre><code>curl http://localhost:7071/api/scenario -X POST -d "{\"scenario_json\": {}}" -v</code></pre></li>
+<li><p>To deploy it to Azure, run the following, which will take a few minutes:</p>
+<pre><code>func azure functionapp publish demolandapi</code></pre>
+<p>Test it with:</p>
 <pre><code>curl https://demolandapi.azurewebsites.net/api/scenario -X POST -d "{\"scenario_json\": {}}" -v</code></pre></li>
 </ol>
 
