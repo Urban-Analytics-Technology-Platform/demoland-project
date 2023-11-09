@@ -26,10 +26,21 @@ Then, follow these instructions:
        brew tap azure/functions
        brew install azure-functions-core-tools@4
 
-1. Clone the `demoland-engine` repository (if you don't already have it), and `cd` to the top level of the `demoland-engine` repository. Then run the following, which will take a few minutes:
+1. Clone the `demoland-engine` repository (if you don't already have it), and `cd` to the top level of the `demoland-engine` repository.
+
+1. To test the function locally, run:
+
+       func start
+
+   You should then be able to access the API at `http://localhost:7071/api/scenario`.
+   For example, you can test it using the following command, which asks it to calculate the baseline indicators (an empty scenario means no changes relative to the baseline):
+
+       curl http://localhost:7071/api/scenario -X POST -d "{\"scenario_json\": {}}" -v
+
+1. To deploy it to Azure, run the following, which will take a few minutes:
 
        func azure functionapp publish demolandapi
 
-1. Check that it's working using the following command, which asks it to calculate the baseline indicators (an empty scenario means no changes relative to the baseline):
+   Test it with:
 
        curl https://demolandapi.azurewebsites.net/api/scenario -X POST -d "{\"scenario_json\": {}}" -v
