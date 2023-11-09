@@ -3,17 +3,54 @@
 This page contains notes for DemoLand developers.
 You should not need to read this unless you are actively working on the codebase, or maintaining any of the associated systems.
 
+## API specification
+
+The calculation of indicators for custom scenarios in the web app relies on an API.
+Right now, the web app uses an API which is hosted as an [Azure Function](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview?pivots=programming-language-python).
+
+In particular, the function must accept a POST body that looks like this.
+Only output areas which are changed relative to the baseline need to be included in the inner JSON object:
+
+```json
+{
+  "scenario_json": {
+    output_area_name: {
+      "signature_type": int | null,
+      "job": float | null,
+      "use": float | null,
+      "greenspace": float | null
+    },
+    ...
+  }
+}
+```
+
+Upon success, this must return a JSON response with the following format (all output areas must be included):
+
+```json
+{
+  output_area_name: {
+    "air_quality": float,
+    "house_price": float,
+    "job_accessibility": float,
+    "greenspace_accessibility": float,
+    "signature_type": int
+  },
+  ...
+}
+```
+
 ## Azure Functions
 
-The web app currently uses an API which is hosted as an [Azure Function](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview?pivots=programming-language-python).
-The code required to deploy this can be found on the [`azure-functions` branch of the engine repository](https://github.com/Urban-Analytics-Technology-Platform/demoland-engine/tree/azure-functions).
+The code required to deploy this can be found on the [`azure-functions` branch of the engine repository](https://github.com/Urban-Analytics-Technology-Platform/demoland-engine/tree/azure-functions),
+specifically the `function_app.py` file.
 
 To deploy a new version of the Azure function, make sure you are a member of the *"Land Use Indicator"* Azure subscription (the subscription ID is `86307bb0-6d16-4077-b1f7-939370d5289a`).
 If you are not, get Dani to add you.
 
 Then, follow these instructions:
 
-1. Log in. This will open a browser window where you can log in with your Microsoft account.
+1. Log in to Azure. This will open a browser window where you can log in with your Microsoft account.
 
         az login
 
