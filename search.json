@@ -161,6 +161,13 @@
     "text": "4.8 Results\nYou can see the results of these scenarios in the interactive web application."
   },
   {
+    "objectID": "book/developer_notes.html#azure-functions",
+    "href": "book/developer_notes.html#azure-functions",
+    "title": "5  Developer notes",
+    "section": "5.1 Azure Functions",
+    "text": "5.1 Azure Functions\nThe web app currently uses an API which is hosted as an Azure Function. The code required to deploy this can be found on the azure-functions branch of the engine repository.\nTo deploy a new version of the Azure function, make sure you are a member of the “Land Use Indicator” Azure subscription (the subscription ID is 86307bb0-6d16-4077-b1f7-939370d5289a). If you are not, get Dani to add you.\nThen, follow these instructions:\n\nLog in. This will open a browser window where you can log in with your Microsoft account.\n az login\nSet your active subscription to the one above:\naz account set -s 86307bb0-6d16-4077-b1f7-939370d5289a\nInstall the Azure Functions Core Tools. The following Homebrew command works on macOS; for other operating systems, refer to the Azure docs\nbrew tap azure/functions\nbrew install azure-functions-core-tools@4\nClone the demoland-engine repository (if you don’t already have it), and cd to the top level of the demoland-engine repository. Then run the following, which will take a few minutes:\nfunc azure functionapp publish demolandapi\nCheck that it’s working using the following command, which asks it to calculate the baseline indicators (an empty scenario means no changes relative to the baseline):\ncurl https://demolandapi.azurewebsites.net/api/scenario -X POST -d \"{\\\"scenario_json\\\": {}}\" -v"
+  },
+  {
     "objectID": "code/01_baseline/01_accessibility.html#variables-definition-and-data-import",
     "href": "code/01_baseline/01_accessibility.html#variables-definition-and-data-import",
     "title": "Appendix A — Measuring accessibility",
