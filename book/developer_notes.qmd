@@ -1,0 +1,83 @@
+# Developer notes
+
+This page contains notes for DemoLand developers.
+You should not need to read this unless you are actively working on the codebase, or maintaining any of the associated systems.
+
+## API specification
+
+The calculation of indicators for custom scenarios in the web app relies on an API.
+Right now, the web app uses an API which is hosted as an [Azure Function](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview?pivots=programming-language-python).
+
+In particular, the function must accept a POST body that looks like this.
+Only output areas which are changed relative to the baseline need to be included in the inner JSON object:
+
+```json
+{
+  "scenario_json": {
+    output_area_name: {
+      "signature_type": int | null,
+      "job": float | null,
+      "use": float | null,
+      "greenspace": float | null
+    },
+    ...
+  }
+}
+```
+
+Upon success, this must return a JSON response with the following format (all output areas must be included):
+
+```json
+{
+  output_area_name: {
+    "air_quality": float,
+    "house_price": float,
+    "job_accessibility": float,
+    "greenspace_accessibility": float,
+    "signature_type": int
+  },
+  ...
+}
+```
+
+## Azure Functions
+
+The code required to deploy this can be found on the [`azure-functions` branch of the engine repository](https://github.com/Urban-Analytics-Technology-Platform/demoland-engine/tree/azure-functions),
+specifically the `function_app.py` file.
+
+To deploy a new version of the Azure function, make sure you are a member of the *"Land Use Indicator"* Azure subscription (the subscription ID is `86307bb0-6d16-4077-b1f7-939370d5289a`).
+If you are not, get Dani to add you.
+
+Then, follow these instructions:
+
+1. Log in to Azure. This will open a browser window where you can log in with your Microsoft account.
+
+        az login
+
+1. Set your active subscription to the one above:
+
+       az account set -s 86307bb0-6d16-4077-b1f7-939370d5289a
+
+1. Install the Azure Functions Core Tools. The following Homebrew command works on macOS; for other operating systems, refer to [the Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-cli-python?tabs=macos%2Cbash%2Cazure-cli&pivots=python-mode-decorators#install-the-azure-functions-core-tools)
+
+       brew tap azure/functions
+       brew install azure-functions-core-tools@4
+
+1. Clone the `demoland-engine` repository (if you don't already have it), and `cd` to the top level of the `demoland-engine` repository.
+
+1. To test the function locally, run:
+
+       func start
+
+   You should then be able to access the API at `http://localhost:7071/api/scenario`.
+   For example, you can test it using the following command, which asks it to calculate the baseline indicators (an empty scenario means no changes relative to the baseline):
+
+       curl http://localhost:7071/api/scenario -X POST -d "{\"scenario_json\": {}}" -v
+
+1. To deploy it to Azure, run the following, which will take a few minutes:
+
+       func azure functionapp publish demolandapi
+
+   Test it with:
+
+       curl https://demolandapi.azurewebsites.net/api/scenario -X POST -d "{\"scenario_json\": {}}" -v
