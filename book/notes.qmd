@@ -9,6 +9,22 @@ This page is constantly updated on an (almost) daily base, meaning that the orde
 
 NB: in reverse order, that is more recent stuff is at the top of the document.
 
+## Generalisation
+
+1. Get the extent of AoI
+2. Get H3 grid with the data for the AoI
+3. Make predictive models ready
+    4. Get Graph subset and save it as a sparse matrix
+    5. Create baseline predictions
+5. Make accessibility ready
+    6. Get GTFS
+    7. Get network from OSM
+    8. Get OS Greenspace
+    9. Process OS Greenspace
+    10. Create traveltime matrix (origins are cells, destinations are cells plus greenspace entrances)
+    11. Wrap to a demoland_engine accessibility
+12. Generate files for the app
+
 ## February
 
 ### Greens space sites
