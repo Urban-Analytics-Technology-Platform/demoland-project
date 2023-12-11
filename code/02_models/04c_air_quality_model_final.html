@@ -673,7 +673,7 @@ In a future release, GeoPandas will switch to using Shapely by default. If you a
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Create weights of the order 5 identified as optimal.</p>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-jupyter="{&quot;outputs_hidden&quot;:true}" data-scrolled="true" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>queen <span class="op">=</span> libpysal.weights.Queen.from_dataframe(data)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>dist2000 <span class="op">=</span> libpysal.weights.DistanceBand.from_dataframe(data, <span class="dv">2000</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>W <span class="op">=</span> libpysal.weights.w_union(queen,dist2000)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
