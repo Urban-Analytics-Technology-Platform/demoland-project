@@ -128,8 +128,6 @@ __pypackages__/
 
 # Celery stuff
 celerybeat-schedule
-celerybeat.pid
-
 # SageMath parsed files
 *.sage.py
 
@@ -218,3 +216,9 @@ rsconnect/
 # quarto render
 book/book/
 _site/
+
+code/04_generalisation/app/
+code/04_generalisation/cache/
+code/04_generalisation/engine/
+code/04_generalisation/temp/
+
