@@ -378,7 +378,7 @@ brew install azure-functions-core-tools@4</code></pre></li>
 <p>You should then be able to access the API at <code>http://localhost:7071/api/scenario</code>. For example, you can test it using the following command, which asks it to calculate the baseline indicators (an empty scenario means no changes relative to the baseline):</p>
 <pre><code>curl http://localhost:7071/api/scenario -X POST -d "{\"scenario_json\": {}}" -v</code></pre></li>
 <li><p>To deploy it to Azure, run the following, which will take a few minutes:</p>
-<pre><code>func azure functionapp publish demolandapi</code></pre>
+<pre><code>func azure functionapp publish demolandapi --python</code></pre>
 <p>Test it with:</p>
 <pre><code>curl https://demolandapi.azurewebsites.net/api/scenario -X POST -d "{\"scenario_json\": {}}" -v</code></pre></li>
 </ol>
