@@ -337,16 +337,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The calculation of indicators for custom scenarios in the web app relies on an API. Right now, the web app uses an API which is hosted as an <a href="https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview?pivots=programming-language-python">Azure Function</a>.</p>
 <p>In particular, the function must accept a POST body that looks like this. Only output areas which are changed relative to the baseline need to be included in the inner JSON object:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"scenario_json"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="er">output_area_name</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"signature_type"</span><span class="fu">:</span> <span class="er">int</span> <span class="er">|</span> <span class="kw">null</span><span class="fu">,</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"job"</span><span class="fu">:</span> <span class="er">float</span> <span class="er">|</span> <span class="kw">null</span><span class="fu">,</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"use"</span><span class="fu">:</span> <span class="er">float</span> <span class="er">|</span> <span class="kw">null</span><span class="fu">,</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"greenspace"</span><span class="fu">:</span> <span class="er">float</span> <span class="er">|</span> <span class="kw">null</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">},</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="er">...</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"model_identifier"</span><span class="fu">:</span> <span class="er">string</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"scenario_json"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="er">output_area_name</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"signature_type"</span><span class="fu">:</span> <span class="er">int</span> <span class="er">|</span> <span class="kw">null</span><span class="fu">,</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"job"</span><span class="fu">:</span> <span class="er">float</span> <span class="er">|</span> <span class="kw">null</span><span class="fu">,</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"use"</span><span class="fu">:</span> <span class="er">float</span> <span class="er">|</span> <span class="kw">null</span><span class="fu">,</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"greenspace"</span><span class="fu">:</span> <span class="er">float</span> <span class="er">|</span> <span class="kw">null</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">},</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="er">...</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Upon success, this must return a JSON response with the following format (all output areas must be included):</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="er">output_area_name</span><span class="fu">:</span> <span class="fu">{</span></span>
@@ -376,11 +377,11 @@ brew install azure-functions-core-tools@4</code></pre></li>
 <li><p>To test the function locally, run:</p>
 <pre><code>func start</code></pre>
 <p>You should then be able to access the API at <code>http://localhost:7071/api/scenario</code>. For example, you can test it using the following command, which asks it to calculate the baseline indicators (an empty scenario means no changes relative to the baseline):</p>
-<pre><code>curl http://localhost:7071/api/scenario -X POST -d "{\"scenario_json\": {}}" -v</code></pre></li>
+<pre><code>curl http://localhost:7071/api/scenario -X POST -d "{\"scenario_json\": {}, \"model_identifier\": \"tyne_and_wear\"}" -v</code></pre></li>
 <li><p>To deploy it to Azure, run the following, which will take a few minutes:</p>
-<pre><code>func azure functionapp publish demolandapi --python</code></pre>
+<pre><code>func azure functionapp publish demolandapi</code></pre>
 <p>Test it with:</p>
-<pre><code>curl https://demolandapi.azurewebsites.net/api/scenario -X POST -d "{\"scenario_json\": {}}" -v</code></pre></li>
+<pre><code>curl https://demolandapi.azurewebsites.net/api/scenario -X POST -d "{\"scenario_json\": {}, \"model_identifier\": \"tyne_and_wear\"}" -v</code></pre></li>
 </ol>
 
 
