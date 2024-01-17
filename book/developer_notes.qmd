@@ -13,6 +13,7 @@ Only output areas which are changed relative to the baseline need to be included
 
 ```json
 {
+  "model_identifier": string,
   "scenario_json": {
     output_area_name: {
       "signature_type": int | null,
@@ -72,12 +73,12 @@ Then, follow these instructions:
    You should then be able to access the API at `http://localhost:7071/api/scenario`.
    For example, you can test it using the following command, which asks it to calculate the baseline indicators (an empty scenario means no changes relative to the baseline):
 
-       curl http://localhost:7071/api/scenario -X POST -d "{\"scenario_json\": {}}" -v
+       curl http://localhost:7071/api/scenario -X POST -d "{\"scenario_json\": {}, \"model_identifier\": \"tyne_and_wear\"}" -v
 
 1. To deploy it to Azure, run the following, which will take a few minutes:
 
-       func azure functionapp publish demolandapi --python
+       func azure functionapp publish demolandapi
 
    Test it with:
 
-       curl https://demolandapi.azurewebsites.net/api/scenario -X POST -d "{\"scenario_json\": {}}" -v
+       curl https://demolandapi.azurewebsites.net/api/scenario -X POST -d "{\"scenario_json\": {}, \"model_identifier\": \"tyne_and_wear\"}" -v
