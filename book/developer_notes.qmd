@@ -76,7 +76,7 @@ Then, follow these instructions:
 
 1. To deploy it to Azure, run the following, which will take a few minutes:
 
-       func azure functionapp publish demolandapi
+       func azure functionapp publish demolandapi --python
 
    Test it with:
 
