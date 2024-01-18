@@ -41,6 +41,41 @@ Upon success, this must return a JSON response with the following format (all ou
 }
 ```
 
+The function `demoland_engine.api.scenario_calc()` obeys this schema, and both the FastAPI and the Azure Functions apps simply wrap this function.
+
+
+## FastAPI, local
+
+One way to run the API is to run it locally or over Docker.
+To do this, there is a FastAPI app located at `api/main.py`.
+First make sure you have the optional dependencies for the FastAPI app installed.
+Go to the top-level directory of the repo and run
+
+    python -m pip install .[api]
+
+The `[api]` instructs `pip` to install the optional dependencies, which can be seen in `pyproject.toml`.
+
+Then, again from the top-level directory, run:
+
+    uvicorn main:app --app-dir api --port 5178
+
+You should now be able to test the API using:
+
+    curl http://localhost:5178/api/scenario -X POST -d "{\"scenario_json\": {}, \"model_identifier\": \"tyne_and_wear\"}" -v -H 'Content-Type: application/json'
+
+(Note that the `Content-Type` header is mandatory, otherwise FastAPI doesn't accept the input.)
+
+## FastAPI, over Docker
+
+`Dockerfile.api` provides the specification for running the FastAPI app over Docker. Simply do:
+
+    docker build . -f Dockerfile.api -t demoland-api
+    docker run -it demoland-api
+    
+The Dockerfile is configured to expose the API on port 80 (which is the default port for HTTP), so you can omit the port number when testing:
+
+    curl http://localhost/api/scenario -X POST -d "{\"scenario_json\": {}, \"model_identifier\": \"tyne_and_wear\"}" -v -H 'Content-Type: application/json'
+
 ## Azure Functions
 
 The code required to deploy this can be found on the [`azure-functions` branch of the engine repository](https://github.com/Urban-Analytics-Technology-Platform/demoland-engine/tree/azure-functions),
