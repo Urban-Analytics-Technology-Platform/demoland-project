@@ -307,7 +307,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#api-specification" id="toc-api-specification" class="nav-link active" data-scroll-target="#api-specification"><span class="header-section-number">5.1</span> API specification</a></li>
-  <li><a href="#azure-functions" id="toc-azure-functions" class="nav-link" data-scroll-target="#azure-functions"><span class="header-section-number">5.2</span> Azure Functions</a></li>
+  <li><a href="#fastapi-local" id="toc-fastapi-local" class="nav-link" data-scroll-target="#fastapi-local"><span class="header-section-number">5.2</span> FastAPI, local</a></li>
+  <li><a href="#fastapi-over-docker" id="toc-fastapi-over-docker" class="nav-link" data-scroll-target="#fastapi-over-docker"><span class="header-section-number">5.3</span> FastAPI, over Docker</a></li>
+  <li><a href="#azure-functions" id="toc-azure-functions" class="nav-link" data-scroll-target="#azure-functions"><span class="header-section-number">5.4</span> Azure Functions</a></li>
   </ul>
 </nav>
     </div>
@@ -359,9 +361,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="er">...</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The function <code>demoland_engine.api.scenario_calc()</code> obeys this schema, and both the FastAPI and the Azure Functions apps simply wrap this function.</p>
 </section>
-<section id="azure-functions" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="azure-functions"><span class="header-section-number">5.2</span> Azure Functions</h2>
+<section id="fastapi-local" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="fastapi-local"><span class="header-section-number">5.2</span> FastAPI, local</h2>
+<p>One way to run the API is to run it locally or over Docker. To do this, there is a FastAPI app located at <code>api/main.py</code>. First make sure you have the optional dependencies for the FastAPI app installed. Go to the top-level directory of the repo and run</p>
+<pre><code>python -m pip install .[api]</code></pre>
+<p>The <code>[api]</code> instructs <code>pip</code> to install the optional dependencies, which can be seen in <code>pyproject.toml</code>.</p>
+<p>Then, again from the top-level directory, run:</p>
+<pre><code>uvicorn main:app --app-dir api --port 5178</code></pre>
+<p>You should now be able to test the API using:</p>
+<pre><code>curl http://localhost:5178/api/scenario -X POST -d "{\"scenario_json\": {}, \"model_identifier\": \"tyne_and_wear\"}" -v -H 'Content-Type: application/json'</code></pre>
+<p>(Note that the <code>Content-Type</code> header is mandatory, otherwise FastAPI doesn’t accept the input.)</p>
+</section>
+<section id="fastapi-over-docker" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="fastapi-over-docker"><span class="header-section-number">5.3</span> FastAPI, over Docker</h2>
+<p><code>Dockerfile.api</code> provides the specification for running the FastAPI app over Docker. Simply do:</p>
+<pre><code>docker build . -f Dockerfile.api -t demoland-api
+docker run -it demoland-api</code></pre>
+<p>The Dockerfile is configured to expose the API on port 80 (which is the default port for HTTP), so you can omit the port number when testing:</p>
+<pre><code>curl http://localhost/api/scenario -X POST -d "{\"scenario_json\": {}, \"model_identifier\": \"tyne_and_wear\"}" -v -H 'Content-Type: application/json'</code></pre>
+</section>
+<section id="azure-functions" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="azure-functions"><span class="header-section-number">5.4</span> Azure Functions</h2>
 <p>The code required to deploy this can be found on the <a href="https://github.com/Urban-Analytics-Technology-Platform/demoland-engine/tree/azure-functions"><code>azure-functions</code> branch of the engine repository</a>, specifically the <code>function_app.py</code> file.</p>
 <p>To deploy a new version of the Azure function, make sure you are a member of the <em>“Land Use Indicator”</em> Azure subscription (the subscription ID is <code>86307bb0-6d16-4077-b1f7-939370d5289a</code>). If you are not, get Dani to add you.</p>
 <p>Then, follow these instructions:</p>
