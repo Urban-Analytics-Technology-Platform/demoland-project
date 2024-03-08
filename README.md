@@ -10,7 +10,7 @@ To reproduce the environment, you can use the `code/environment.yml` file with a
 
 ## Web app frontend
 
-**https://alan-turing-institute.github.io/demoland-web/**
+**https://urban-analytics-technology-platform.github.io/demoland-web/**
 
 We have also created a web app, allowing users to visualise the outputs of the models and to compare the different scenarios we have chosen.
 The underlying code for the web app is [hosted separately on GitHub](https://github.com/alan-turing-institute/demoland-web).
